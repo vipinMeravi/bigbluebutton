@@ -161,7 +161,18 @@ class ActionsDropdown extends PureComponent {
           />
         )
         : null),
-        
+        (amIPresenter
+          ? (
+            <DropdownListItem
+              data-test="uploadPresentation"
+              icon="presentation"
+              label="Upload a PDF"
+              description={formatMessage(presentationDesc)}
+              key={this.presentationItemId}
+              onClick={this.handlePresentationClick}
+            />
+          )
+          : null),
       (amIPresenter && allowExternalVideo
         ? (
           <DropdownListItem
@@ -174,6 +185,18 @@ class ActionsDropdown extends PureComponent {
           />
         )
         : null),
+        (amIPresenter && allowExternalVideo
+          ? (
+            <DropdownListItem
+              icon="video"
+              label={!isSharingVideo ? "Share a site"
+                : "Stop share site"}
+              description="External Video"
+              key="external-video"
+              onClick={isSharingVideo ? stopExternalVideoShare : this.handleExternalVideoClick}
+            />
+          )
+          : null),        
     ]);
   }
 
