@@ -494,7 +494,10 @@ console.log("111111111111111111111111111111", this.props.isPdf)
             </tr>
           </thead>
           <tbody>
-            {presentationsSorted.map(item => isPdf && item.filename.split(".")[1] == 'pdf'?this.renderPresentationItem(item): null)}
+            {presentationsSorted.map(item => {
+              console.log("-------", isPdf)
+              this.renderPresentationItem(item)
+            })}
           </tbody>
         </table>
       </div>
