@@ -15,7 +15,6 @@ import Icon from '/imports/ui/components/icon/component';
 import Button from '/imports/ui/components/button/component';
 import Checkbox from '/imports/ui/components/checkbox/component';
 import { styles } from './styles.scss';
-import { NULL } from 'node-sass';
 
 const propTypes = {
   intl: intlShape.isRequired,
@@ -477,7 +476,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
   renderPresentationList(isPdf) {
     const { presentations } = this.state;
     const { intl } = this.props;
-    console.log("is pdf -------", isPdf)
+
     const presentationsSorted = presentations
       .sort((a, b) => a.uploadTimestamp - b.uploadTimestamp);
 
@@ -494,10 +493,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
             </tr>
           </thead>
           <tbody>
-            {presentationsSorted.map(item => {
-              console.log("-------", isPdf)
-              this.renderPresentationItem(item)
-            })}
+            {presentationsSorted.map(item => this.renderPresentationItem(item, isPdf))}
           </tbody>
         </table>
       </div>
@@ -541,7 +537,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
     return null;
   }
 
-  renderPresentationItem(item) {
+  renderPresentationItem(item, isPdf) {
     const { disableActions, oldCurrentId } = this.state;
     const { intl } = this.props;
 
@@ -569,66 +565,133 @@ console.log("111111111111111111111111111111", this.props.isPdf)
     const isDownloadableStyle = item.isDownloadable
       ? cx(styles.itemAction, styles.itemActionRemove, styles.checked)
       : cx(styles.itemAction, styles.itemActionRemove);
-    return (
-      <tr
-        key={item.id}
-        className={cx(itemClassName)}
-      >
-        <td className={styles.tableItemIcon}>
-          <Icon iconName="file" />
-        </td>
-        {
-          isActualCurrent
-            ? (
-              <th className={styles.tableItemCurrent}>
-                <span className={styles.currentLabel}>
-                  {intl.formatMessage(intlMessages.current)}
-                </span>
-              </th>
-            )
-            : null
-        }
-        <th className={styles.tableItemName} colSpan={!isActualCurrent ? 2 : 0}>
-          <span>{item.filename}</span>
-        </th>
-        <td className={styles.tableItemStatus} colSpan={hasError ? 2 : 0}>
-          {this.renderPresentationItemStatus(item)}
-        </td>
-        {hasError ? null : (
-          <td className={styles.tableItemActions}>
-            <Button
-              className={isDownloadableStyle}
-              label={formattedDownloadableLabel}
-              aria-label={formattedDownloadableAriaLabel}
-              hideLabel
-              size="sm"
-              icon={item.isDownloadable ? 'download' : 'download-off'}
-              onClick={() => this.toggleDownloadable(item)}
-            />
-            <Checkbox
-              ariaLabel={`${intl.formatMessage(intlMessages.setAsCurrentPresentation)} ${item.filename}`}
-              checked={item.isCurrent}
-              className={styles.itemAction}
-              disabled={disableActions}
-              keyValue={item.id}
-              onChange={this.handleCurrentChange}
-            />
-            {hideRemove ? null : (
-              <Button
-                disabled={disableActions}
-                className={cx(styles.itemAction, styles.itemActionRemove)}
-                label={intl.formatMessage(intlMessages.removePresentation)}
-                aria-label={`${intl.formatMessage(intlMessages.removePresentation)} ${item.filename}`}
-                size="sm"
-                icon="delete"
-                hideLabel
-                onClick={() => this.handleRemove(item)}
-              />
-            )}
+
+    let file_type_ext = ['ppt', 'pptx']
+    if(isPdf && item.filename.split('.')[1] == 'pdf'){
+      return (
+        <tr
+          key={item.id}
+          className={cx(itemClassName)}
+        >
+          <td className={styles.tableItemIcon}>
+            <Icon iconName="file" />
           </td>
-        )}
-      </tr>
-    );
+          {
+            isActualCurrent
+              ? (
+                <th className={styles.tableItemCurrent}>
+                  <span className={styles.currentLabel}>
+                    {intl.formatMessage(intlMessages.current)}
+                  </span>
+                </th>
+              )
+              : null
+          }
+          <th className={styles.tableItemName} colSpan={!isActualCurrent ? 2 : 0}>
+            <span>{item.filename}</span>
+          </th>
+          <td className={styles.tableItemStatus} colSpan={hasError ? 2 : 0}>
+            {this.renderPresentationItemStatus(item)}
+          </td>
+          {hasError ? null : (
+            <td className={styles.tableItemActions}>
+              <Button
+                className={isDownloadableStyle}
+                label={formattedDownloadableLabel}
+                aria-label={formattedDownloadableAriaLabel}
+                hideLabel
+                size="sm"
+                icon={item.isDownloadable ? 'download' : 'download-off'}
+                onClick={() => this.toggleDownloadable(item)}
+              />
+              <Checkbox
+                ariaLabel={`${intl.formatMessage(intlMessages.setAsCurrentPresentation)} ${item.filename}`}
+                checked={item.isCurrent}
+                className={styles.itemAction}
+                disabled={disableActions}
+                keyValue={item.id}
+                onChange={this.handleCurrentChange}
+              />
+              {hideRemove ? null : (
+                <Button
+                  disabled={disableActions}
+                  className={cx(styles.itemAction, styles.itemActionRemove)}
+                  label={intl.formatMessage(intlMessages.removePresentation)}
+                  aria-label={`${intl.formatMessage(intlMessages.removePresentation)} ${item.filename}`}
+                  size="sm"
+                  icon="delete"
+                  hideLabel
+                  onClick={() => this.handleRemove(item)}
+                />
+              )}
+            </td>
+          )}
+        </tr>
+      );      
+    } else if(!isPdf && file_type_ext.indexOf(item.filename.split('.')[1]) > -1){
+      return (
+        <tr
+          key={item.id}
+          className={cx(itemClassName)}
+        >
+          <td className={styles.tableItemIcon}>
+            <Icon iconName="file" />
+          </td>
+          {
+            isActualCurrent
+              ? (
+                <th className={styles.tableItemCurrent}>
+                  <span className={styles.currentLabel}>
+                    {intl.formatMessage(intlMessages.current)}
+                  </span>
+                </th>
+              )
+              : null
+          }
+          <th className={styles.tableItemName} colSpan={!isActualCurrent ? 2 : 0}>
+            <span>{item.filename}</span>
+          </th>
+          <td className={styles.tableItemStatus} colSpan={hasError ? 2 : 0}>
+            {this.renderPresentationItemStatus(item)}
+          </td>
+          {hasError ? null : (
+            <td className={styles.tableItemActions}>
+              <Button
+                className={isDownloadableStyle}
+                label={formattedDownloadableLabel}
+                aria-label={formattedDownloadableAriaLabel}
+                hideLabel
+                size="sm"
+                icon={item.isDownloadable ? 'download' : 'download-off'}
+                onClick={() => this.toggleDownloadable(item)}
+              />
+              <Checkbox
+                ariaLabel={`${intl.formatMessage(intlMessages.setAsCurrentPresentation)} ${item.filename}`}
+                checked={item.isCurrent}
+                className={styles.itemAction}
+                disabled={disableActions}
+                keyValue={item.id}
+                onChange={this.handleCurrentChange}
+              />
+              {hideRemove ? null : (
+                <Button
+                  disabled={disableActions}
+                  className={cx(styles.itemAction, styles.itemActionRemove)}
+                  label={intl.formatMessage(intlMessages.removePresentation)}
+                  aria-label={`${intl.formatMessage(intlMessages.removePresentation)} ${item.filename}`}
+                  size="sm"
+                  icon="delete"
+                  hideLabel
+                  onClick={() => this.handleRemove(item)}
+                />
+              )}
+            </td>
+          )}
+        </tr>
+      );
+    } else {
+      return null;
+    }
   }
 
   renderPicDropzone() {
