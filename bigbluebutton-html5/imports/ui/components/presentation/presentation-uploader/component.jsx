@@ -476,7 +476,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
   renderPresentationList(isPdf) {
     const { presentations } = this.state;
     const { intl } = this.props;
-
+    console.log("is pdf -------", isPdf)
     const presentationsSorted = presentations
       .sort((a, b) => a.uploadTimestamp - b.uploadTimestamp);
 
@@ -494,10 +494,12 @@ console.log("111111111111111111111111111111", this.props.isPdf)
           </thead>
           <tbody>
             {presentationsSorted.map(item => {
-              console.log("item ------------  ",item)
+              
               if(isPdf && item.filename.split(".")[1] == 'pdf'){
+                console.log("item ------------  ",item)
                 this.renderPresentationItem(item)
               } else {
+                console.log("item ------------  ",item)
                 this.renderPresentationItem(item)
               }
             })}
