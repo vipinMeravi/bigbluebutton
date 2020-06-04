@@ -396,44 +396,49 @@ class VideoPlayer extends Component {
       playing, playbackRate, mutedByEchoTest, autoPlayBlocked,
     } = this.state;
 
-    // return (
-    //   <div
-    //     id="video-player"
-    //     data-test="videoPlayer"
-    //     ref={(ref) => { this.playerParent = ref; }}
-    //   >
-    //     {autoPlayBlocked
-    //       ? (
-    //         <p className={styles.autoPlayWarning}>
-    //           {intl.formatMessage(intlMessages.autoPlayWarning)}
-    //         </p>
-    //       )
-    //       : ''
-    //     }
-    //     <ReactPlayer
-    //       className={styles.videoPlayer}
-    //       url={videoUrl}
-    //       config={this.opts}
-    //       muted={mutedByEchoTest}
-    //       playing={playing}
-    //       playbackRate={playbackRate}
-    //       onReady={this.handleOnReady}
-    //       onPlay={this.handleOnPlay}
-    //       onPause={this.handleOnPause}
-    //       ref={(ref) => { this.player = ref; }}
-    //     />
-    //   </div>
-    // );
+    if(videoUrl){
+      return (
+        <div
+          id="video-player"
+          data-test="videoPlayer"
+          ref={(ref) => { this.playerParent = ref; }}
+        >
+          {autoPlayBlocked
+            ? (
+              <p className={styles.autoPlayWarning}>
+                {intl.formatMessage(intlMessages.autoPlayWarning)}
+              </p>
+            )
+            : ''
+          }
+          <ReactPlayer
+            className={styles.videoPlayer}
+            url={videoUrl}
+            config={this.opts}
+            muted={mutedByEchoTest}
+            playing={playing}
+            playbackRate={playbackRate}
+            onReady={this.handleOnReady}
+            onPlay={this.handleOnPlay}
+            onPause={this.handleOnPause}
+            ref={(ref) => { this.player = ref; }}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div
+          id="video-player"
+          data-test="videoPlayer"
+          ref={(ref) => { this.playerParent = ref; }}
+        >
+          <iframe src={videoUrl} />
+        </div>
+      );    
+    }
 
-    return (
-      <div
-        id="video-player"
-        data-test="videoPlayer"
-        ref={(ref) => { this.playerParent = ref; }}
-      >
-        <iframe src={videoUrl} />
-      </div>
-    );    
+
+
   }
 }
 

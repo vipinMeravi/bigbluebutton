@@ -39,15 +39,8 @@ const removeAllListeners = (eventType) => {
 const getVideoUrl = () => {
   const meetingId = Auth.meetingID;
   const meeting = Meetings.findOne({ meetingId }, { fields: { externalVideoUrl: 1 } });
-
+  console.log("I want to see meeting object ----------------- ",meeting)
   return meeting && meeting.externalVideoUrl;
-};
-
-const getEventNameUrl = () => {
-  const meetingId = Auth.meetingID;
-  const meeting = Meetings.findOne({ meetingId }, { fields: { EVENT_NAME } });
-  console.log("----------------getEventNameUrl------------------ ", meeting);
-  return meeting && meeting.EVENT_NAME;
 };
 
 export {
@@ -58,5 +51,4 @@ export {
   isUrlValid,
   startWatching,
   stopWatching,
-  getEventNameUrl
 };
