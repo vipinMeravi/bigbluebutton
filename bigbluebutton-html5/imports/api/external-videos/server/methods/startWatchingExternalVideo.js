@@ -13,7 +13,7 @@ export default function startWatchingExternalVideo(options) {
 
   const { meetingId, requesterUserId } = extractCredentials(this.userId);
   const { externalVideoUrl, isSite } = options;
-  console.log("------------------------------------- is site value at startwactchingexternal video ", isSite);
+  
   if(isSite){
     EVENT_NAME = 'StartExternalSiteMsg';
   } else {

@@ -390,7 +390,6 @@ class VideoPlayer extends Component {
   }
 
   render() {
-    console.log("I want to see something ---------- ", this.props)
     const { videoUrl, intl } = this.props;
     const {
       playing, playbackRate, mutedByEchoTest, autoPlayBlocked,
@@ -427,14 +426,15 @@ class VideoPlayer extends Component {
       );
     } else {
       return (
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src={videoUrl} allowfullscreen  />
+        <div 
+        id="video-player"
+        data-test="videoPlayer"
+        ref={(ref) => { this.playerParent = ref; }}
+        >
+          <iframe width="100vw" height="100vh" src={videoUrl} allowfullscreen  />
         </div>
       );    
     }
-
-
-
   }
 }
 
