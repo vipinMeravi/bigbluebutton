@@ -186,7 +186,7 @@ class ActionsDropdown extends PureComponent {
               : intl.formatMessage(intlMessages.stopExternalVideoLabel)}
             description="External Video"
             key="external-video"
-            onClick={isSharingVideo ? stopExternalVideoShare : this.handleExternalVideoClick}
+            onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(false)}
           />
         )
         : null),
@@ -194,20 +194,19 @@ class ActionsDropdown extends PureComponent {
           ? (
             <DropdownListItem
               icon="video"
-              label={!isSharingVideo ? "Share a site"
-                : "Stop share site"}
+              label={!isSharingVideo ? "Share a site" : "Stop share site"}
               description="External Video"
               key="external-video"
-              onClick={isSharingVideo ? stopExternalVideoShare : this.handleExternalVideoClick}
+              onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(true)}
             />
           )
           : null),        
     ]);
   }
 
-  handleExternalVideoClick() {
+  handleExternalVideoClick(isSite) {
     const { mountModal } = this.props;
-    mountModal(<ExternalVideoModal />);
+    mountModal(<ExternalVideoModal isSite={isSite}/>);
   }
 
   handlePresentationClick(isPdf) {

@@ -104,7 +104,7 @@ class ExternalVideoModal extends Component {
         hideBorder
       >
         <header data-test="videoModealHeader" className={styles.header}>
-          <h3 className={styles.title}>{intl.formatMessage(intlMessages.title)}</h3>
+          <h3 className={styles.title}>{isSite ? "Share a Web-Site" :intl.formatMessage(intlMessages.title)}</h3>
         </header>
 
         <div className={styles.content}>
