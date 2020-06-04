@@ -348,6 +348,7 @@ class App extends Component {
         <ManyWebcamsNotifier />
         {customStyleUrl ? <link rel="stylesheet" type="text/css" href={customStyleUrl} /> : null}
         {customStyle ? <link rel="stylesheet" type="text/css" href={`data:text/css;charset=UTF-8,${encodeURIComponent(customStyle)}`} /> : null}
+        {customStyle ? console.log("custom style",customStyle) :  console.log("custom style not present") }
       </main>
     );
   }

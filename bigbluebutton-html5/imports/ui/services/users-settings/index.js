@@ -11,7 +11,6 @@ export default function getFromUserSettings(setting, defaultValue) {
   const userSetting = UserSettings.findOne(selector);
 
   if (userSetting !== undefined) {
-    console.log("------++++++++----------++++++++++------------",userSetting.value)
     return userSetting.value;
   }
 
