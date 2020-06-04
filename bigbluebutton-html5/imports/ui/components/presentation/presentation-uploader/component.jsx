@@ -15,6 +15,7 @@ import Icon from '/imports/ui/components/icon/component';
 import Button from '/imports/ui/components/button/component';
 import Checkbox from '/imports/ui/components/checkbox/component';
 import { styles } from './styles.scss';
+import { NULL } from 'node-sass';
 
 const propTypes = {
   intl: intlShape.isRequired,
@@ -493,15 +494,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
             </tr>
           </thead>
           <tbody>
-            {presentationsSorted.map(item => {
-              if(isPdf && item.filename.split(".")[1] == 'pdf'){
-                console.log("item true------------  ",this.renderPresentationItem(item))
-                this.renderPresentationItem(item)
-              } else {
-                console.log("item false------------  ",this.renderPresentationItem(item))
-                this.renderPresentationItem(item)
-              }
-            })}
+            {presentationsSorted.map(item => isPdf && item.filename.split(".")[1] == 'pdf'?this.renderPresentationItem(item): null)}
           </tbody>
         </table>
       </div>
