@@ -1,17 +1,17 @@
 @import "/imports/ui/stylesheets/mixins/focus";
 @import "/imports/ui/stylesheets/variables/_all";
 
-// .videoPlayer iframe {
-//   display: flex;
-//   flex-flow: column;
-//   flex-grow: 1;
-//   flex-shrink: 1;
-//   position: relative;
-//   overflow-x: hidden;
-//   overflow-y: auto;
-//   border-style: none;
-//   border-bottom: none;
-// }
+.videoPlayer iframe {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-style: none;
+  border-bottom: none;
+}
 
 .autoPlayWarning {
   position: absolute;
@@ -25,20 +25,4 @@
   text-align: center;
   pointer-events: none;
 
-}
-
-.iframe-container {
-  overflow: hidden;
-  // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625)
-  padding-top: 56.25%;
-  position: relative;
-}
- 
-.iframe-container iframe {
-   border: 0;
-   height: 100%;
-   left: 0;
-   position: absolute;
-   top: 0;
-   width: 100%;
 }
