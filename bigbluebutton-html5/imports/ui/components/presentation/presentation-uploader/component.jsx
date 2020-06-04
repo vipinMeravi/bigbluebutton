@@ -701,6 +701,7 @@ class PresentationUploader extends Component {
   }
 
   render() {
+    console.log("111111111111111111111111111111", this.props)
     const { intl } = this.props;
     const {
       preventClosing, disableActions, presentations,

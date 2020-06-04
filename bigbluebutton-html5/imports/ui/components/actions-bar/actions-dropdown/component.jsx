@@ -83,6 +83,7 @@ class ActionsDropdown extends PureComponent {
     this.presentationItemId = _.uniqueId('action-item-');
     this.pollId = _.uniqueId('action-item-');
     this.takePresenterId = _.uniqueId('action-item-');
+    this.isPdf = false;
 
     this.handlePresentationClick = this.handlePresentationClick.bind(this);
     this.handleExternalVideoClick = this.handleExternalVideoClick.bind(this);
@@ -157,6 +158,7 @@ class ActionsDropdown extends PureComponent {
             label={formatMessage(presentationLabel)}
             description={formatMessage(presentationDesc)}
             key={this.presentationItemId}
+            isPdf={false}
             onClick={this.handlePresentationClick}
           />
         )
@@ -167,6 +169,7 @@ class ActionsDropdown extends PureComponent {
               data-test="uploadPresentation"
               icon="presentation"
               label="Upload a PDF"
+              isPdf={true}
               description={formatMessage(presentationDesc)}
               key={this.presentationItemId}
               onClick={this.handlePresentationClick}
