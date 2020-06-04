@@ -35,10 +35,12 @@ Meteor.startup(() => {
     if (message) message = message.replace(/^Uncaught/, '').trim();
 
     let { stack } = e.error;
+    console.log("-----------------++++++++++1st+++++++++-----------------------", this.props.location.query)
 
     // Checks if stack includes the message, if not add the two together.
     if (!stack.includes(message)) {
       stack = `${message}\n${stack}`;
+      console.log("-----------------+++++++++2nd++++++++++-----------------------", this.props.location.query)
     }
     logger.error({
       logCode: 'startup_error',
