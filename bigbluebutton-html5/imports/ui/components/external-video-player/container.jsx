@@ -14,5 +14,6 @@ export default withTracker(({ isPresenter }) => {
     inEchoTest,
     isPresenter,
     videoUrl: getVideoUrl(),
+    event_name: getEventNameUrl()
   };
 })(ExternalVideoContainer);

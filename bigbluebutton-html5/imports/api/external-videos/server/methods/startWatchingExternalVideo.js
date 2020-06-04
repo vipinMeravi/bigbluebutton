@@ -8,10 +8,15 @@ import { extractCredentials } from '/imports/api/common/server/helpers';
 export default function startWatchingExternalVideo(options) {
   const REDIS_CONFIG = Meteor.settings.private.redis;
   const CHANNEL = REDIS_CONFIG.channels.toAkkaApps;
-  const EVENT_NAME = 'StartExternalVideoMsg';
+  // const EVENT_NAME = 'StartExternalVideoMsg';
 
   const { meetingId, requesterUserId } = extractCredentials(this.userId);
-  const { externalVideoUrl } = options;
+  const { externalVideoUrl, isSite } = options;
+  if({isSite}){
+    const EVENT_NAME = 'StartExternalSiteMsg';
+  } else {
+    const EVENT_NAME = 'StartExternalVideoMsg';
+  }
 
   check(externalVideoUrl, String);
 

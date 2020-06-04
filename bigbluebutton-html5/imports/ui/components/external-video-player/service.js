@@ -10,9 +10,9 @@ import ReactPlayer from 'react-player';
 
 const isUrlValid = url => ReactPlayer.canPlay(url);
 
-const startWatching = (url) => {
+const startWatching = (url, isSite) => {
   const externalVideoUrl = url;
-  makeCall('startWatchingExternalVideo', { externalVideoUrl });
+  makeCall('startWatchingExternalVideo', { externalVideoUrl, isSite });
 };
 
 const stopWatching = () => {
@@ -43,6 +43,13 @@ const getVideoUrl = () => {
   return meeting && meeting.externalVideoUrl;
 };
 
+const getEventNameUrl = () => {
+  const meetingId = Auth.meetingID;
+  const meeting = Meetings.findOne({ meetingId }, { fields: { EVENT_NAME: 1 } });
+
+  return meeting && meeting.EVENT_NAME;
+};
+
 export {
   sendMessage,
   onMessage,
@@ -51,4 +58,5 @@ export {
   isUrlValid,
   startWatching,
   stopWatching,
+  getEventNameUrl
 };
