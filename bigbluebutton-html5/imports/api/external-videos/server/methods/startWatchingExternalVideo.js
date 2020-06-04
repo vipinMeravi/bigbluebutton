@@ -9,13 +9,15 @@ export default function startWatchingExternalVideo(options) {
   const REDIS_CONFIG = Meteor.settings.private.redis;
   const CHANNEL = REDIS_CONFIG.channels.toAkkaApps;
   // const EVENT_NAME = 'StartExternalVideoMsg';
+  var EVENT_NAME = ''
 
   const { meetingId, requesterUserId } = extractCredentials(this.userId);
   const { externalVideoUrl, isSite } = options;
+  console.log("------------------------------------- is site value at startwactchingexternal video ", {isSite});
   if({isSite}){
-    const EVENT_NAME = 'StartExternalSiteMsg';
+    EVENT_NAME = 'StartExternalSiteMsg';
   } else {
-    const EVENT_NAME = 'StartExternalVideoMsg';
+    EVENT_NAME = 'StartExternalVideoMsg';
   }
 
   check(externalVideoUrl, String);
