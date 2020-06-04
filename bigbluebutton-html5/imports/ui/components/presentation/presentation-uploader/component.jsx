@@ -195,9 +195,9 @@ const isMobileBrowser = (BROWSER_RESULTS ? BROWSER_RESULTS.mobile : false)
 class PresentationUploader extends Component {
   constructor(props) {
     super(props);
-
+    console.log("111111111111111111111111111111", this.props)
     const currentPres = props.presentations.find(p => p.isCurrent);
-
+    
     this.state = {
       presentations: props.presentations,
       oldCurrentId: currentPres ? currentPres.id : -1,
@@ -701,7 +701,6 @@ class PresentationUploader extends Component {
   }
 
   render() {
-    console.log("111111111111111111111111111111", this.props)
     const { intl } = this.props;
     const {
       preventClosing, disableActions, presentations,
