@@ -390,6 +390,7 @@ class VideoPlayer extends Component {
   }
 
   render() {
+    console.log("I want to see something ---------- ", this.props.isSite)
     const { videoUrl, intl } = this.props;
     const {
       playing, playbackRate, mutedByEchoTest, autoPlayBlocked,

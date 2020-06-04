@@ -168,7 +168,7 @@ class ActionsDropdown extends PureComponent {
           ? (
             <DropdownListItem
               data-test="uploadPresentation"
-              icon="presentation"
+              icon="file"
               label="Upload a PDF"
               isPdf={true}
               description={formatMessage(presentationDesc)}
@@ -193,7 +193,7 @@ class ActionsDropdown extends PureComponent {
         (amIPresenter && allowExternalVideo
           ? (
             <DropdownListItem
-              icon="video"
+              icon="presentation"
               label={!isSharingVideo ? "Share a site" : "Stop share site"}
               description="External Video"
               key="external-video"

@@ -121,7 +121,7 @@ class ExternalVideoModal extends Component {
               />
             </label>
             <div className={styles.externalVideoNote} id="external-video-note">
-              {intl.formatMessage(intlMessages.note)}
+              {this.props.isSite ? null :intl.formatMessage(intlMessages.note)}
             </div>
           </div>
 
