@@ -427,9 +427,11 @@ class VideoPlayer extends Component {
     } else {
       return (
         <div 
-        style="height: auto; width: auto;"
+          id="video-player"
+          data-test="videoPlayer"
+          ref={(ref) => { this.playerParent = ref; }}
         >
-          <iframe width="100vw" height="100vh" src={videoUrl} allowfullscreen  />
+          <iframe width="500vw" src={videoUrl} allowfullscreen  />
         </div>
       );    
     }
