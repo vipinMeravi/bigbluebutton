@@ -195,7 +195,7 @@ const isMobileBrowser = (BROWSER_RESULTS ? BROWSER_RESULTS.mobile : false)
 class PresentationUploader extends Component {
   constructor(props) {
     super(props);
-    console.log("111111111111111111111111111111", this.props)
+console.log("111111111111111111111111111111", this.props.isPdf)
     const currentPres = props.presentations.find(p => p.isCurrent);
     
     this.state = {

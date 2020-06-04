@@ -77,13 +77,13 @@ const intlMessages = defineMessages({
 });
 
 class ActionsDropdown extends PureComponent {
+
   constructor(props) {
     super(props);
 
     this.presentationItemId = _.uniqueId('action-item-');
     this.pollId = _.uniqueId('action-item-');
     this.takePresenterId = _.uniqueId('action-item-');
-    this.isPdf = false;
 
     this.handlePresentationClick = this.handlePresentationClick.bind(this);
     this.handleExternalVideoClick = this.handleExternalVideoClick.bind(this);
@@ -159,7 +159,8 @@ class ActionsDropdown extends PureComponent {
             description={formatMessage(presentationDesc)}
             key={this.presentationItemId}
             isPdf={false}
-            onClick={this.handlePresentationClick}
+            onClick={()=>this.handlePresentationClick(false)}
+            // onClick={this.handlePresentationClick(false)}
           />
         )
         : null),
@@ -172,7 +173,8 @@ class ActionsDropdown extends PureComponent {
               isPdf={true}
               description={formatMessage(presentationDesc)}
               key={this.presentationItemId}
-              onClick={this.handlePresentationClick}
+              onClick={()=>this.handlePresentationClick(true)}
+              // onClick={this.handlePresentationClick}
             />
           )
           : null),
@@ -208,9 +210,9 @@ class ActionsDropdown extends PureComponent {
     mountModal(<ExternalVideoModal />);
   }
 
-  handlePresentationClick() {
+  handlePresentationClick(isPdf) {
     const { mountModal } = this.props;
-    mountModal(<PresentationUploaderContainer />);
+    mountModal(<PresentationUploaderContainer isPdf={isPdf} />);
   }
 
   render() {
