@@ -396,7 +396,7 @@ class VideoPlayer extends Component {
       playing, playbackRate, mutedByEchoTest, autoPlayBlocked,
     } = this.state;
 
-    if(isUrlValid){
+    if(this.props.isUrlValid){
       return (
         <div
           id="video-player"
