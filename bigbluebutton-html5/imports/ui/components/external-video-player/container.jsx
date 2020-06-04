@@ -2,6 +2,7 @@ import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Session } from 'meteor/session';
 import { getVideoUrl } from './service';
+import { isUrlValid } from './service';
 import ExternalVideo from './component';
 
 const ExternalVideoContainer = props => (
@@ -14,5 +15,6 @@ export default withTracker(({ isPresenter }) => {
     inEchoTest,
     isPresenter,
     videoUrl: getVideoUrl(),
+    isUrlValid : isUrlValid(getVideoUrl())
   };
 })(ExternalVideoContainer);
