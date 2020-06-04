@@ -628,7 +628,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
           )}
         </tr>
       );      
-    } else if(!isPdf && file_type_ext.indexOf(item.filename.split('.')[1]) > -1){
+    } else if(!isPdf && item.filename.split('.')[1] != 'pdf'){
       return (
         <tr
           key={item.id}
