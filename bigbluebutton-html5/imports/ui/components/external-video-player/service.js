@@ -45,8 +45,8 @@ const getVideoUrl = () => {
 
 const getEventNameUrl = () => {
   const meetingId = Auth.meetingID;
-  const meeting = Meetings.findOne({ meetingId }, { fields: { EVENT_NAME: 1 } });
-
+  const meeting = Meetings.findOne({ meetingId }, { fields: { EVENT_NAME } });
+  console.log("----------------getEventNameUrl------------------ ", meeting);
   return meeting && meeting.EVENT_NAME;
 };
 

@@ -86,7 +86,6 @@ export default function addUserSettings(settings) {
 
   settings.forEach((el) => {
     const settingKey = Object.keys(el).shift();
-    console.log("-----------------------+++++++++++++++++-------------------",settingKey)
     if (currentParameters.includes(settingKey)) {
       if (!Object.keys(parameters).includes(settingKey)) {
         parameters = {
