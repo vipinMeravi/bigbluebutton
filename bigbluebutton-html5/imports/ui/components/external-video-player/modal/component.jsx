@@ -79,7 +79,7 @@ class ExternalVideoModal extends Component {
     const valid = (!url || url.length <= 3) || isUrlValid(url);
 
     return (
-      !valid
+      !valid && !isSite
         ? (
           <div className={styles.urlError}>
             {intl.formatMessage(intlMessages.urlError)}
@@ -110,12 +110,12 @@ class ExternalVideoModal extends Component {
         <div className={styles.content}>
           <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" id="video-modal-input">
-              {intl.formatMessage(intlMessages.input)}
+              {this.props.isSite ? "Web-Site URL" :intl.formatMessage(intlMessages.input)}
               <input
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
-                placeholder={intl.formatMessage(intlMessages.urlInput)}
+                placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
