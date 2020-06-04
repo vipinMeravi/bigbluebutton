@@ -432,7 +432,7 @@ class VideoPlayer extends Component {
           data-test="videoPlayer"
           ref={(ref) => { this.playerParent = ref; }}
         >
-          <iframe src={videoUrl} />
+          <iframe class="col-lg-12 col-md-12 col-sm-12" src={videoUrl} />
         </div>
       );    
     }
