@@ -426,10 +426,8 @@ class VideoPlayer extends Component {
       );
     } else {
       return (
-        <div 
-        class="iframe-container"
-        >
-          <iframe width="1425" height="559" src={videoUrl} allowfullscreen  />
+        <div class="iframe-container" >
+          <iframe src={videoUrl} />
         </div>
       );    
     }
