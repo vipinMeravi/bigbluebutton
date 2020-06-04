@@ -473,7 +473,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
     }
   }
 
-  renderPresentationList() {
+  renderPresentationList(isPdf) {
     const { presentations } = this.state;
     const { intl } = this.props;
 
@@ -493,7 +493,14 @@ console.log("111111111111111111111111111111", this.props.isPdf)
             </tr>
           </thead>
           <tbody>
-            {presentationsSorted.map(item => this.renderPresentationItem(item))}
+            {presentationsSorted.map(item => {
+              console.log("item ------------  ",item)
+              if(isPdf && item){
+                this.renderPresentationItem(item)
+              } else {
+                this.renderPresentationItem(item)
+              }
+            })}
           </tbody>
         </table>
       </div>
@@ -734,7 +741,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
         }}
       >
         <p>{intl.formatMessage(intlMessages.message)}</p>
-        {this.renderPresentationList()}
+        {this.renderPresentationList(this.props.isPdf)}
         <div className={styles.dropzoneWrapper}>
           {isMobileBrowser ? this.renderPicDropzone() : null}
           {this.renderDropzone()}
