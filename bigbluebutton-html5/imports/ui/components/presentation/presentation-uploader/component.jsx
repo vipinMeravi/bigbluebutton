@@ -495,7 +495,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
           <tbody>
             {presentationsSorted.map(item => {
               console.log("item ------------  ",item)
-              if(isPdf && item){
+              if(isPdf && item.filename.split(".")[1] == 'pdf'){
                 this.renderPresentationItem(item)
               } else {
                 this.renderPresentationItem(item)
