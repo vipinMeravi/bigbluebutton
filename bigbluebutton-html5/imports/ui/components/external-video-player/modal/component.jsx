@@ -79,7 +79,7 @@ class ExternalVideoModal extends Component {
     const valid = (!url || url.length <= 3) || isUrlValid(url);
 
     return (
-      !valid && !isSite
+      !valid && !this.props.isSite
         ? (
           <div className={styles.urlError}>
             {intl.formatMessage(intlMessages.urlError)}
