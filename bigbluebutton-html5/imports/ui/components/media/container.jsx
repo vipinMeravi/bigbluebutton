@@ -116,7 +116,7 @@ export default withModalMounter(withTracker(() => {
 
   if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
     data.currentPresentation = MediaService.getPresentationInfo();
-    console.log("----data.children------",data.children);
+    console.log("----data------",data);
     data.children = <PresentationPodsContainer />;
   }
 
