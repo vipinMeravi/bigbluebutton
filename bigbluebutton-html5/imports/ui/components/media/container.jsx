@@ -116,12 +116,8 @@ export default withModalMounter(withTracker(() => {
 
   if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
     data.currentPresentation = MediaService.getPresentationInfo();
-    if(data.children == <DefaultContent />){
-      data.children = <PresentationPodsContainer />;
-    } else {
-      data.children_split = <PresentationPodsContainer />;
-    }
-    
+    console.log("----data.children------",data.children);
+    data.children = <PresentationPodsContainer />;
   }
 
   if (MediaService.shouldShowScreenshare() && (viewScreenshare || MediaService.isUserPresenter())) {
