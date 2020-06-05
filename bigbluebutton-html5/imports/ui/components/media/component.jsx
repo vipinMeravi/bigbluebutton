@@ -90,7 +90,7 @@ export default class Media extends Component {
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
-            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
+            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '50%',
             minHeight: '20%',
           }}
         >
@@ -100,7 +100,7 @@ export default class Media extends Component {
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
-            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
+            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '50%',
             minHeight: '20%',
           }}
         >

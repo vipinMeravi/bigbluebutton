@@ -143,7 +143,7 @@ export default withModalMounter(withTracker(() => {
   }
 
   if (MediaService.shouldShowExternalVideo()) {
-    data.children = (
+    data.children_split = (
       <ExternalVideoContainer
         isPresenter={MediaService.isUserPresenter()}
       />
