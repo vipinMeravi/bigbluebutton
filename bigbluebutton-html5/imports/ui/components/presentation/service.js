@@ -10,6 +10,11 @@ const getCurrentPresentation = podId => Presentations.findOne({
   current: true,
 });
 
+const getAllPresentation = () => Presentations.find({
+  // podId,
+  // current: true,
+});
+
 const downloadPresentationUri = (podId) => {
   const currentPresentation = getCurrentPresentation(podId);
   if (!currentPresentation) {
@@ -191,4 +196,5 @@ export default {
   currentSlidHasContent,
   parseCurrentSlideContent,
   getCurrentPresentation,
+  getAllPresentation
 };
