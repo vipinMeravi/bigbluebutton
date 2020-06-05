@@ -96,6 +96,7 @@ export default class Media extends Component {
         >
           {children}
         </div>
+        {children_split ?
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
@@ -104,7 +105,7 @@ export default class Media extends Component {
           }}
         >
           {children_split}
-        </div>        
+        </div>  : null}      
         {usersVideo.length > 0 ? (
           <WebcamDraggable
             refMediaContainer={this.refContainer}
