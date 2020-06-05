@@ -330,7 +330,12 @@ class App extends Component {
         <section className={styles.wrapper}>
           <div className={openPanel ? styles.content : styles.noPanelContent}>
             {this.renderNavBar()}
-            {this.renderMedia()}
+            <div class="col-lg-6">
+              {this.renderMedia()}
+            </div>
+            <div class="col-lg-6">
+              {this.renderMedia()}
+            </div>
             {this.renderActionsBar()}
           </div>
           {this.renderPanel()}
