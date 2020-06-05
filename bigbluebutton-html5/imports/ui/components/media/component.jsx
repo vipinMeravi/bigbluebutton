@@ -7,6 +7,7 @@ import { styles } from './styles';
 
 const propTypes = {
   children: PropTypes.element.isRequired,
+  children_split: PropTypes.element.isRequired,
   usersVideo: PropTypes.arrayOf(Array),
   singleWebcam: PropTypes.bool.isRequired,
   hideOverlay: PropTypes.bool,
@@ -64,6 +65,7 @@ export default class Media extends Component {
       hideOverlay,
       disableVideo,
       children,
+      children_split,
       audioModalIsOpen,
       usersVideo,
       webcamPlacement,
@@ -101,7 +103,7 @@ export default class Media extends Component {
             minHeight: '20%',
           }}
         >
-          {children}
+          {children_split}
         </div>        
         {usersVideo.length > 0 ? (
           <WebcamDraggable
@@ -113,7 +115,7 @@ export default class Media extends Component {
             disableVideo={disableVideo}
             audioModalIsOpen={audioModalIsOpen}
             usersVideo={usersVideo}
-          />         
+          />
         ) : null}
       </div>
     );
