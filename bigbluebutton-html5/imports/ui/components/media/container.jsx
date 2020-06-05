@@ -114,9 +114,8 @@ export default withModalMounter(withTracker(() => {
     joinVideo: VideoService.joinVideo,
   };
 
-  if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
+  if (MediaService.shouldShowWhiteboard() && !hidePresentation ) {
     data.currentPresentation = MediaService.getPresentationInfo();
-    console.log("----data------",data);
     data.children = <PresentationPodsContainer />;
   }
 
@@ -144,11 +143,19 @@ export default withModalMounter(withTracker(() => {
   }
 
   if (MediaService.shouldShowExternalVideo()) {
-    data.children = (
-      <ExternalVideoContainer
-        isPresenter={MediaService.isUserPresenter()}
-      />
-    );
+    if(data.children_split){
+      data.children = (
+        <ExternalVideoContainer
+          isPresenter={MediaService.isUserPresenter()}
+        />
+      );      
+    } else {
+      data.children_split = (
+        <ExternalVideoContainer
+          isPresenter={MediaService.isUserPresenter()}
+        />
+      );        
+    }
   }
 
   data.webcamPlacement = Storage.getItem('webcamPlacement');
