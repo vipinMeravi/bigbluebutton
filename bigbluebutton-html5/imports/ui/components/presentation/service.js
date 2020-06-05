@@ -12,7 +12,7 @@ const getCurrentPresentation = podId => Presentations.findOne({
 
 const getAllPresentation = () => Presentations.find({
   // podId,
-  // current: true,
+  name: "default.pdf",
 });
 
 const downloadPresentationUri = (podId) => {
