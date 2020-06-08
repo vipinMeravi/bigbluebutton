@@ -99,6 +99,7 @@ class App extends Component {
     super();
     this.state = {
       enableResize: !window.matchMedia(MOBILE_MEDIA).matches,
+      arrScreen : ['ppt','pdf','site','video']
     };
 
     this.handleWindowResize = throttle(this.handleWindowResize).bind(this);

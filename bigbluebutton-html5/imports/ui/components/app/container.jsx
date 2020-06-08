@@ -57,8 +57,11 @@ const AppContainer = (props) => {
     media,
     ...otherProps
   } = props;
-
-  return (
+  console.log("============================>")
+  console.log({...otherProps})
+  console.log((this.state))
+  console.log("============================>")
+  return (      
     <App
       navbar={navbar}
       actionsbar={actionsbar}
