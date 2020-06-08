@@ -87,22 +87,22 @@ export default class Media extends Component {
         className={cx(styles.container)}
         ref={this.refContainer}
       >
-        <div
+        {/* <div
           className={!swapLayout ? contentClassName : overlayClassName}
           // style={{
           //   maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
           //   minHeight: '20%',
           // }}
-        >
+        > */}
           <div class="row">
             <div class="col-lg-6">
               {children}
             </div>
-            <div class="col-lg-6 offset-md-6">
+            <div class="col-lg-6">
               {children_split}
             </div>
           </div>
-        </div>
+        {/* </div> */}
              
         {usersVideo.length > 0 ? (
           <WebcamDraggable
