@@ -98,7 +98,7 @@ export default class Media extends Component {
             <div class="col-lg-6">
               {children}
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 offset-md-6">
               {children_split}
             </div>
           </div>
