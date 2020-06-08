@@ -427,7 +427,7 @@ class VideoPlayer extends Component {
     } else {
       return (
         <div class="resp-container" >
-          <iframe width="800" height="500" src={videoUrl} />
+          <iframe width="630" height="410" src={videoUrl} />
         </div>
       );    
     }
