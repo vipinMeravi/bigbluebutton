@@ -87,25 +87,28 @@ export default class Media extends Component {
         className={cx(styles.container)}
         ref={this.refContainer}
       >
-        <div
-          className={!swapLayout ? contentClassName : overlayClassName}
-          // style={{
-          //   maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
-          //   minHeight: '20%',
-          // }}
-        >
-          {children}
+        <div class="row">
+          <div
+            className={!swapLayout ? contentClassName : overlayClassName}
+            // style={{
+            //   maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
+            //   minHeight: '20%',
+            // }}
+          >
+            {children}
+          </div>
+          {children_split ?
+          <div
+            className={!swapLayout ? contentClassName : overlayClassName}
+            // style={{
+            //   maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
+            //   minHeight: '20%',
+            // }}
+          >
+            {children_split}
+          </div>  : null}  
         </div>
-        {children_split ?
-        <div
-          className={!swapLayout ? contentClassName : overlayClassName}
-          // style={{
-          //   maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
-          //   minHeight: '20%',
-          // }}
-        >
-          {children_split}
-        </div>  : null}      
+    
         {usersVideo.length > 0 ? (
           <WebcamDraggable
             refMediaContainer={this.refContainer}
