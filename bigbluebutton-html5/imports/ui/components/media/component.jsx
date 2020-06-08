@@ -94,11 +94,17 @@ export default class Media extends Component {
           //   minHeight: '20%',
           // }}
         > */}
-          <div class="row">
-            <div class="col-lg-6">
+          <div class="row"
+            style={{
+              maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
+              minHeight: '20%',
+            }}
+          >
+
+            <div class="col-lg-4">
               {children}
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
               {children_split}
             </div>
           </div>
