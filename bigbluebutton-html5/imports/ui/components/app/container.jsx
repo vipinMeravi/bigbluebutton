@@ -35,7 +35,7 @@ const propTypes = {
 const defaultProps = {
   navbar: <NavBarContainer />,
   actionsbar: <ActionsBarContainer />,
-  media: <MediaContainer />,
+  media: <MediaContainer arrScreen={['ppt','website']} />,
 };
 
 const intlMessages = defineMessages({

@@ -263,7 +263,6 @@ class App extends Component {
     } = this.props;
 
     if (!media) return null;
-
     return (
       <section
         className={styles.media}
