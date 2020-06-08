@@ -87,7 +87,7 @@ export default class Media extends Component {
         className={cx(styles.container)}
         ref={this.refContainer}
         style={{
-          display: children_split ?contents:null,
+          display: children_split ?contents:block,
         }}
       >
         <div
