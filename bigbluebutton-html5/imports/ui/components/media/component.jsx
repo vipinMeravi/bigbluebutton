@@ -86,12 +86,15 @@ export default class Media extends Component {
         id="container"
         className={cx(styles.container)}
         ref={this.refContainer}
+        style={{
+          display: children_split ?contents:null,
+        }}
       >
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
             maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
-            minHeight: '20%',width: "50%",
+            minHeight: '20%', width: children_split ?"50%":null,
           }}
         >
           {children}
