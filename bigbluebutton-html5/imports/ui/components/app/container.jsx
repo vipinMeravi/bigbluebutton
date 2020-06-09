@@ -36,11 +36,12 @@ const propTypes = {
 
 const defaultProps = {
   navbar: <NavBarContainer />,
-  actionsbar: <ActionsBarContainer mediaContainerInstance />,
   media: <MediaContainer ref={instance => { 
     console.log('============= media instance ========================>',instance)
     mediaContainerInstance = instance; 
   }} arrScreen={['ppt','website']} />,
+  actionsbar: <ActionsBarContainer mediaContainerInstance />,
+  
 };
 
 const intlMessages = defineMessages({

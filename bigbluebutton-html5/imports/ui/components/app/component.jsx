@@ -23,6 +23,9 @@ import MediaService from '/imports/ui/components/media/service';
 import ManyWebcamsNotifier from '/imports/ui/components/video-provider/many-users-notify/container';
 import { styles } from './styles';
 
+import MediaContainer from '../media/container';
+import ActionsBarContainer from '../actions-bar/container';
+
 const MOBILE_MEDIA = 'only screen and (max-width: 40em)';
 const APP_CONFIG = Meteor.settings.public.app;
 const DESKTOP_FONT_SIZE = APP_CONFIG.desktopFontSize;
@@ -330,8 +333,24 @@ class App extends Component {
         <section className={styles.wrapper}>
           <div className={openPanel ? styles.content : styles.noPanelContent}>
             {this.renderNavBar()}
-            {this.renderMedia()}
-            {this.renderActionsBar()}
+            
+            <section
+              className={styles.media}
+              aria-label={intl.formatMessage(intlMessages.mediaLabel)}
+              aria-hidden={this.shouldAriaHide()}
+            >
+              <MediaContainer />
+              {this.renderCaptions()}
+            </section>
+
+            <section
+              className={styles.actionsbar}
+              aria-label={intl.formatMessage(intlMessages.actionsBarLabel)}
+              aria-hidden={this.shouldAriaHide()}
+            >
+              <ActionsBarContainer />
+            </section>
+            
           </div>
           {this.renderPanel()}
           {this.renderSidebar()}
