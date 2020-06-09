@@ -9,6 +9,9 @@ class PresentationPods extends PureComponent {
       all the future UI for the pods also goes here
       PresentationAreaContainer should fill any empty box provided by us
     */
+   console.log("=========Presentation Pod propes==========")
+   console.log(this.props);
+   console.log("=========Presentation Pod propes==========")
     return (
       <PresentationAreaContainer podId="DEFAULT_PRESENTATION_POD" {...this.props} />
     );

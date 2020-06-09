@@ -10,6 +10,10 @@ import PresentationPods from './component';
 // it should give each PresentationAreaContainer some space
 // which it will fill with the uploaded presentation
 const PresentationPodsContainer = ({ presentationPodIds, ...props }) => {
+  console.log("=========Presentation Pod Container propes==========")
+  console.log(presentationPodIds);
+  console.log(this.props);
+  console.log("=========Presentation Pod Container propes==========")
   if (presentationPodIds && presentationPodIds.length > 0) {
     return (
       <ErrorBoundary Fallback={FallbackPresentation}>
