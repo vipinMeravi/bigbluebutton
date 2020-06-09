@@ -26,7 +26,7 @@ import NavBarContainer from '../nav-bar/container';
 import ActionsBarContainer from '../actions-bar/container';
 import MediaContainer from '../media/container';
 
-const mediaContainerInstance = null
+let mediaContainerInstance = null
 
 const propTypes = {
   navbar: PropTypes.node,
