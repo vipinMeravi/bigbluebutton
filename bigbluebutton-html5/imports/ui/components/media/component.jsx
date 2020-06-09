@@ -36,7 +36,9 @@ export default class Media extends Component {
     super(props);
     this.refContainer = React.createRef();
   }
-
+  updateMediaSection = () =>{
+    alert('Media section updated')
+  }
   componentWillUpdate() {
     window.dispatchEvent(new Event('resize'));
   }
