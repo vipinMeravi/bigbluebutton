@@ -59,8 +59,6 @@ export default class Media extends Component {
   }
 
   render() {
-
-    console.log(':mediaProps',this.props )
     const {
       swapLayout,
       singleWebcam,

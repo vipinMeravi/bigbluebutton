@@ -26,6 +26,8 @@ import NavBarContainer from '../nav-bar/container';
 import ActionsBarContainer from '../actions-bar/container';
 import MediaContainer from '../media/container';
 
+const mediaContainerInstance = null
+
 const propTypes = {
   navbar: PropTypes.node,
   actionsbar: PropTypes.node,
@@ -34,8 +36,8 @@ const propTypes = {
 
 const defaultProps = {
   navbar: <NavBarContainer />,
-  actionsbar: <ActionsBarContainer />,
-  media: <MediaContainer arrScreen={['ppt','website']} />,
+  actionsbar: <ActionsBarContainer mediaContainerInstance />,
+  media: <MediaContainer ref={instance => { mediaContainerInstance = instance; }} arrScreen={['ppt','website']} />,
 };
 
 const intlMessages = defineMessages({

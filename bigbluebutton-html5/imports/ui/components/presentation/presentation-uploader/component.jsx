@@ -289,7 +289,6 @@ console.log("111111111111111111111111111111", this.props.isPdf)
               disableActions: false,
               preventClosing: false,
             });
-
             mountModal(null);
             return;
           }

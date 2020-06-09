@@ -12,7 +12,7 @@ import PresentationPods from './component';
 const PresentationPodsContainer = ({ presentationPodIds, ...props }) => {
   console.log("=========Presentation Pod Container propes==========")
   console.log(presentationPodIds);
-  console.log(this.props);
+  console.log(props);
   console.log("=========Presentation Pod Container propes==========")
   if (presentationPodIds && presentationPodIds.length > 0) {
     return (
