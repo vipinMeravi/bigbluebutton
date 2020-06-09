@@ -36,7 +36,7 @@ export default class Media extends Component {
     super(props);
     this.refContainer = React.createRef();
   }
-  updateMediaSection = () =>{
+  updateMediaSection = () => {
     alert('Media section updated')
   }
   componentWillUpdate() {
@@ -59,7 +59,7 @@ export default class Media extends Component {
       joinVideo();
     }
   }
-  componentWillReceiveProps(){
+  componentWillReceiveProps() {
     console.log('--------- componentWillReceiveProps componetnt =====>')
     console.log(this.props)
   }
@@ -69,7 +69,7 @@ export default class Media extends Component {
       prevProps,
       prevState
     })
-}
+  }
 
   render() {
     const {
@@ -95,7 +95,7 @@ export default class Media extends Component {
     });
 
 
-    
+
     return (
       <div
         id="container"
@@ -115,15 +115,15 @@ export default class Media extends Component {
           {children}
         </div>
         {children_split ?
-        <div
-          className={!swapLayout ? contentClassName : overlayClassName}
-          style={{
-            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
-            minHeight: '20%',width: "50%",
-          }}
-        >
-          {children_split}
-        </div>  : null}      
+          <div
+            className={!swapLayout ? contentClassName : overlayClassName}
+            style={{
+              maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
+              minHeight: '20%', width: "50%",
+            }}
+          >
+            {children_split}
+          </div> : null}
         {usersVideo.length > 0 ? (
           <WebcamDraggable
             refMediaContainer={this.refContainer}

@@ -49,6 +49,9 @@ const intlMessages = defineMessages({
 });
 
 class MediaContainer extends Component {
+  state={
+    isTempState :true
+  }
   componentWillMount() {
     document.addEventListener('installChromeExtension', this.installChromeExtension.bind(this));
     document.addEventListener('screenshareNotSupported', this.screenshareNotSupported.bind(this));
@@ -107,7 +110,12 @@ class MediaContainer extends Component {
   //   console.log('--------- componentWillReceiveProps props =====>')
   //   console.log(this.props)
   // }
-
+  static getDerivedStateFromProps(prevProps, prevState) {
+    console.log('CONTAINER',{
+      prevProps,
+      prevState
+    })
+  }
   render() {
     return <Media {...this.props} />;
   }
