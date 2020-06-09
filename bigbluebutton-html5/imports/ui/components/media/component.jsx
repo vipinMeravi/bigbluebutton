@@ -59,6 +59,10 @@ export default class Media extends Component {
       joinVideo();
     }
   }
+  componentWillReceiveProps(){
+    console.log('--------- componentWillReceiveProps componetnt =====>')
+    console.log(this.props)
+  }
 
   render() {
     const {
@@ -83,12 +87,16 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamPlacement === 'floating'),
     });
 
+    
     return (
       <div
         id="container"
         className={cx(styles.container)}
         ref={this.refContainer}
       >
+
+        {JSON.stringify(this.props.arrScreen)+'asd'}
+
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
