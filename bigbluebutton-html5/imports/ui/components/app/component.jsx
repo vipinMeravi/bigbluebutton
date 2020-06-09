@@ -102,7 +102,7 @@ class App extends Component {
     super();
     this.state = {
       enableResize: !window.matchMedia(MOBILE_MEDIA).matches,
-      arrScreen : ['ppt','pdf','site','video']
+      arrScreen: ['ppt', 'pdf', 'site', 'video']
     };
 
     this.handleWindowResize = throttle(this.handleWindowResize).bind(this);
@@ -157,7 +157,7 @@ class App extends Component {
 
     if (prevProps.currentUserEmoji.status !== currentUserEmoji.status) {
       const formattedEmojiStatus = intl.formatMessage({ id: `app.actionsBar.emojiMenu.${currentUserEmoji.status}Label` })
-      || currentUserEmoji.status;
+        || currentUserEmoji.status;
 
       notify(
         currentUserEmoji.status === 'none'
@@ -333,24 +333,27 @@ class App extends Component {
         <section className={styles.wrapper}>
           <div className={openPanel ? styles.content : styles.noPanelContent}>
             {this.renderNavBar()}
-            
+
             <section
               className={styles.media}
-              // aria-label={intl.formatMessage(intlMessages.mediaLabel)}
+              aria-label={this.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <MediaContainer />
+              <MediaContainer ref={instance => {
+                console.log('============= media instance ========================>', instance)
+                this.mediaContainerInstance = instance;
+              }} />
               {this.renderCaptions()}
             </section>
 
             <section
               className={styles.actionsbar}
-              // aria-label={intl.formatMessage(intlMessages.actionsBarLabel)}
+              aria-label={this.props.intl.formatMessage(intlMessages.actionsBarLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <ActionsBarContainer />
+              <ActionsBarContainer mediaContainerInstance={this.mediaContainerInstance} />
             </section>
-            
+
           </div>
           {this.renderPanel()}
           {this.renderSidebar()}
