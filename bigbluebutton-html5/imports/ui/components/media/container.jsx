@@ -108,7 +108,7 @@ export default withModalMounter(withTracker(() => {
   const hidePresentation = getFromUserSettings('bbb_hide_presentation', LAYOUT_CONFIG.hidePresentation);
   const { current_presentation: hasPresentation } = MediaService.getPresentationInfo();
   const data = {
-    children: <DefaultContent />,
+    children_split: <DefaultContent />,
     audioModalIsOpen: Session.get('audioModalIsOpen'),
     userWasInWebcam: Session.get('userWasInWebcam'),
     joinVideo: VideoService.joinVideo,
