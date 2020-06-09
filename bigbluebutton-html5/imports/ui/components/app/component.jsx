@@ -336,7 +336,7 @@ class App extends Component {
 
             <section
               className={styles.media}
-              aria-label={this.intl.formatMessage(intlMessages.mediaLabel)}
+              aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
               <MediaContainer ref={instance => {
