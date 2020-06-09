@@ -340,7 +340,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              {this.state.isUpdate ? <MediaContainer arrScreen={this.state.arrScreen} /> : <MediaContainer arrScreen={this.state.arrScreen} />}
+              {this.state.isUpdate ? <MediaContainer arrScreen={this.state.arrScreen} /> : null}
 
               {this.renderCaptions()}
             </section>

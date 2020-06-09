@@ -22,6 +22,7 @@ const KURENTO_CONFIG = Meteor.settings.public.kurento;
 const propTypes = {
   isScreensharing: PropTypes.bool.isRequired,
   intl: intlShape.isRequired,
+  arrScreen: PropTypes.array.isRequired,
 };
 
 const intlMessages = defineMessages({
@@ -121,12 +122,12 @@ export default withModalMounter(withTracker(() => {
     userWasInWebcam: Session.get('userWasInWebcam'),
     joinVideo: VideoService.joinVideo,
   };
-  
-  if (MediaService.shouldShowWhiteboard() && !hidePresentation ) {
+
+  if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
     data.currentPresentation = MediaService.getPresentationInfo();
-    
-    data.children = <PresentationPodsContainer screen={"one"}/>;
-    data.children_split = <PresentationPodsContainer screen={"two"}/>;
+
+    data.children = <PresentationPodsContainer screen={"one"} />;
+    data.children_split = <PresentationPodsContainer screen={"two"} />;
   }
 
   if (MediaService.shouldShowScreenshare() && (viewScreenshare || MediaService.isUserPresenter())) {
@@ -153,18 +154,18 @@ export default withModalMounter(withTracker(() => {
   }
 
   if (MediaService.shouldShowExternalVideo()) {
-    if(data.children_split){
+    if (data.children_split) {
       data.children = (
         <ExternalVideoContainer
           isPresenter={MediaService.isUserPresenter()}
         />
-      );      
+      );
     } else {
       data.children_split = (
         <ExternalVideoContainer
           isPresenter={MediaService.isUserPresenter()}
         />
-      );        
+      );
     }
   }
 
