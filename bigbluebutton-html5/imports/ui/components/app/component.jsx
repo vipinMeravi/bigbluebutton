@@ -336,7 +336,7 @@ class App extends Component {
             
             <section
               className={styles.media}
-              aria-label={intl.formatMessage(intlMessages.mediaLabel)}
+              // aria-label={intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
               <MediaContainer />
@@ -345,7 +345,7 @@ class App extends Component {
 
             <section
               className={styles.actionsbar}
-              aria-label={intl.formatMessage(intlMessages.actionsBarLabel)}
+              // aria-label={intl.formatMessage(intlMessages.actionsBarLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
               <ActionsBarContainer />
