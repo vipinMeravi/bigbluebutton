@@ -54,6 +54,8 @@ class MediaContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('--------- componentWillReceiveProps props =====>')
+    console.log(this.props)
     const {
       isScreensharing,
       intl,
@@ -69,6 +71,7 @@ class MediaContainer extends Component {
   }
 
   componentWillUnmount() {
+    console.log('---------- unmounted componentWillUnmount =====>')
     document.removeEventListener('installChromeExtension', this.installChromeExtension.bind(this));
     document.removeEventListener('screenshareNotSupported', this.screenshareNotSupported.bind(this));
   }
@@ -97,10 +100,10 @@ class MediaContainer extends Component {
     notify(intl.formatMessage(intlMessages.screenshareNotSupported), 'error', 'desktop');
   }
 
-  componentWillReceiveProps () {
-    console.log('--------- recieving props =====>')
-    console.log(this.props)
-  }
+  // componentWillReceiveProps () {
+  //   console.log('--------- componentWillReceiveProps props =====>')
+  //   console.log(this.props)
+  // }
 
   render() {
     return <Media {...this.props} />;
