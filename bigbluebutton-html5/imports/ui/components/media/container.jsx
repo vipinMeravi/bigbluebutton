@@ -98,6 +98,7 @@ class MediaContainer extends Component {
   }
 
   componentWillReceiveProps () {
+    console.log('--------- recieving props =====>')
     console.log(this.props)
   }
 

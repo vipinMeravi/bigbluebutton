@@ -348,7 +348,10 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.actionsBarLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <ActionsBarContainer  updateArrScreen={() => { this.setState({ arrScreen: this.state.arrScreen.reverse() }) }}/>
+              <ActionsBarContainer  updateArrScreen={() => {
+                console.log('---------------- calling update  arrr =====>')
+                 this.setState({ arrScreen: this.state.arrScreen.reverse() 
+                 }) }}/>
             </section>
 
           </div>
