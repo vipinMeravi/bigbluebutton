@@ -102,7 +102,8 @@ class App extends Component {
     super();
     this.state = {
       enableResize: !window.matchMedia(MOBILE_MEDIA).matches,
-      arrScreen: ['ppt', 'pdf', 'site', 'video']
+      arrScreen: ['ppt', 'pdf', 'site', 'video'],
+      isUpdate: false
     };
 
     this.handleWindowResize = throttle(this.handleWindowResize).bind(this);
@@ -339,7 +340,8 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <MediaContainer arrScreen={this.state.arrScreen} />
+              {this.state.isUpdate ? <MediaContainer arrScreen={this.state.arrScreen} /> : <MediaContainer arrScreen={this.state.arrScreen} />}
+
               {this.renderCaptions()}
             </section>
 
@@ -351,7 +353,8 @@ class App extends Component {
               <ActionsBarContainer updateArrScreen={() => {
                 console.log('---------------- calling update  arrr =====>', this.state.arrScreen)
                 this.setState({
-                  arrScreen: this.state.arrScreen.reverse()
+                  arrScreen: this.state.arrScreen.reverse(),
+                  isUpdate: !this.state.isUpdate
                 })
               }} />
             </section>
