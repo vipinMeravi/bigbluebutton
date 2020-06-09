@@ -108,7 +108,7 @@ export default withModalMounter(withTracker(() => {
   const hidePresentation = getFromUserSettings('bbb_hide_presentation', LAYOUT_CONFIG.hidePresentation);
   const { current_presentation: hasPresentation } = MediaService.getPresentationInfo();
   const data = {
-    children_split: <DefaultContent />,
+    children: <DefaultContent />,
     audioModalIsOpen: Session.get('audioModalIsOpen'),
     userWasInWebcam: Session.get('userWasInWebcam'),
     joinVideo: VideoService.joinVideo,
@@ -117,6 +117,7 @@ export default withModalMounter(withTracker(() => {
   if (MediaService.shouldShowWhiteboard() && !hidePresentation ) {
     data.currentPresentation = MediaService.getPresentationInfo();
     
+    data.children = <PresentationPodsContainer />;
     data.children_split = <PresentationPodsContainer />;
   }
 
