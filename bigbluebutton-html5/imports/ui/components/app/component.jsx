@@ -105,7 +105,7 @@ class App extends Component {
       arrScreen: ['ppt', 'pdf', 'site', 'video'],
       isUpdate: false
     };
-
+    this.mediaContainer = React.createRef();
     this.handleWindowResize = throttle(this.handleWindowResize).bind(this);
     this.shouldAriaHide = this.shouldAriaHide.bind(this);
   }
