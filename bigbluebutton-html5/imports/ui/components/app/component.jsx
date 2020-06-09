@@ -340,7 +340,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-               <MediaContainer arrScreen={this.state.arrScreen} />
+               <MediaContainer ref={this.mediaContainer}  arrScreen={this.state.arrScreen} />
 
               {this.renderCaptions()}
             </section>
@@ -351,11 +351,8 @@ class App extends Component {
               aria-hidden={this.shouldAriaHide()}
             >
               <ActionsBarContainer updateArrScreen={() => {
-                console.log('---------------- calling update  arrr =====>', this.state.arrScreen)
-                this.setState({
-                  arrScreen: this.state.arrScreen.reverse(),
-                  isUpdate: !this.state.isUpdate
-                })
+                console.log('---------------- calling update  arrr =====>', this.mediaContainer.current,this.mediaContainer)
+                this.mediaContainer.current.updateMediaSection()
               }} />
             </section>
 

@@ -53,7 +53,9 @@ class MediaContainer extends Component {
     document.addEventListener('installChromeExtension', this.installChromeExtension.bind(this));
     document.addEventListener('screenshareNotSupported', this.screenshareNotSupported.bind(this));
   }
-
+  updateMediaSection = () =>{
+    alert('Media section updated')
+  }
   componentWillReceiveProps(nextProps) {
     console.log('--------- componentWillReceiveProps props =====>')
     console.log(this.props)
