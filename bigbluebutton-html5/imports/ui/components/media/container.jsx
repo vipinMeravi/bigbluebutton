@@ -117,7 +117,7 @@ export default withModalMounter(withTracker(() => {
     userWasInWebcam: Session.get('userWasInWebcam'),
     joinVideo: VideoService.joinVideo,
   };
-  console.log(':mediaProps',this.props.arrScreen);
+  
   if (MediaService.shouldShowWhiteboard() && !hidePresentation ) {
     data.currentPresentation = MediaService.getPresentationInfo();
     
