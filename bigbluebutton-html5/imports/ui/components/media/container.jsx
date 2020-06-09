@@ -97,7 +97,9 @@ class MediaContainer extends Component {
     notify(intl.formatMessage(intlMessages.screenshareNotSupported), 'error', 'desktop');
   }
 
- 
+  componentWillReceiveProps () {
+    console.log(this.props)
+  }
 
   render() {
     return <Media {...this.props} />;

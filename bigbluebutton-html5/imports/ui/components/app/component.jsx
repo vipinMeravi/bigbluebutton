@@ -339,10 +339,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <MediaContainer ref={instance => {
-                console.log('============= media instance ========================>', instance)
-                this.mediaContainerInstance = instance;
-              }} />
+              <MediaContainer arrScreen={this.state.arrScreen}  />
               {this.renderCaptions()}
             </section>
 
@@ -351,7 +348,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.actionsBarLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <ActionsBarContainer mediaContainerInstance={this.mediaContainerInstance} />
+              <ActionsBarContainer  updateArrScreen={() => { this.setState({ arrScreen: this.state.arrScreen.reverse() }) }}/>
             </section>
 
           </div>

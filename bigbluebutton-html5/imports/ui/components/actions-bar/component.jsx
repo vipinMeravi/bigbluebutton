@@ -47,9 +47,8 @@ class ActionsBar extends PureComponent {
     return (
       <div className={styles.actionsbar}>
         <button onClick={() => {
-          console.log(this.props.mediaContainerInstance)
-          this.props.mediaContainerInstance.updateMediaSection()
-        }}>TEST ARRRRRR BUTTON</button>
+          this.props.updateArrScreen()
+        }}>TEST ARR BUTTON</button>
         <div className={styles.left}>
           <ActionsDropdown {...{
             amIPresenter,
