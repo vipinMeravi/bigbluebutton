@@ -64,6 +64,13 @@ export default class Media extends Component {
     console.log(this.props)
   }
 
+  static getDerivedStateFromProps(prevProps, prevState) {
+    console.log({
+      prevProps,
+      prevState
+    })
+}
+
   render() {
     const {
       swapLayout,
@@ -86,6 +93,7 @@ export default class Media extends Component {
       [styles.hideOverlay]: hideOverlay,
       [styles.floatingOverlay]: (webcamPlacement === 'floating'),
     });
+
 
     
     return (
