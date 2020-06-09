@@ -785,7 +785,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
 
     return (
       <ModalFullscreen
-        title={intl.formatMessage(intlMessages.title)}
+        title={this.props.isPdf? "PDF ":intl.formatMessage(intlMessages.title)}
         preventClosing={preventClosing}
         confirm={{
           callback: this.handleConfirm,
