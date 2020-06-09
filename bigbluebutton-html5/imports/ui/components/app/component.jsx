@@ -351,8 +351,13 @@ class App extends Component {
               aria-hidden={this.shouldAriaHide()}
             >
               <ActionsBarContainer updateArrScreen={() => {
-                console.log('---------------- calling update  arrr =====>', this.mediaContainer.current,this.mediaContainer)
-                this.mediaContainer.current.updateMediaSection()
+                
+                this.setState({
+                  arrScreen:this.state.arrScreen.reverse()
+                },()=>{
+                  console.log('---------------- calling update  arrr =====>', this.state)
+                  this.forceUpdate()
+                })
               }} />
             </section>
 
