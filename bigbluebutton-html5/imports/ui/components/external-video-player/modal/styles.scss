@@ -1,6 +1,8 @@
 @import "/imports/ui/stylesheets/variables/_all";
 @import "/imports/ui/components/modal/simple/styles";
 @import "/imports/ui/stylesheets/mixins/focus";
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 
 .header {
   margin: 0;
@@ -146,15 +148,14 @@
   padding-top: var(--sm-padding-y);
 }
 
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+// Radio Button SCSS
 *{
   margin:0px;
   padding:0px;
 }
-// html{
-//   background: #667;
-// }
+html{
+  background: #667;
+}
 .wrapper {
   margin: 100px 0;
 }
