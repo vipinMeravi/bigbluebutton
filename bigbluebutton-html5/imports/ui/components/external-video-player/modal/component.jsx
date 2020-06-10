@@ -221,8 +221,6 @@ class ExternalVideoModal extends Component {
                   <p className={this.state.screen === 'screen_one'? styles.active: styles.toggle_option } >2 </p>
                 {/* <span className={styles.day-week}>Thursday</span> */}
               </label>
-            <div className={styles.toggle_option_slider}>
-            </div>
             </div>
           </div> 
 
