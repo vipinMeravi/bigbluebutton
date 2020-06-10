@@ -214,7 +214,7 @@ class ExternalVideoModal extends Component {
               </label>
               <label for="second_toggle">
                 {/* <span className={styles.description}>TOMORROW</span> */}
-                  <p cclassName={this.state.screen === 'screen_one'? styles.day: styles.toggle_option } >1 </p>
+                  <p className={this.state.screen === 'screen_one'? styles.day: styles.toggle_option } >1 </p>
                 {/* <span className={styles.day-week}>Wednesday</span> */}
               </label>
               <label for="third_toggle">

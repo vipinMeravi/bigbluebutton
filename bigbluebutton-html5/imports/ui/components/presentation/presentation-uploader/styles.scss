@@ -297,8 +297,7 @@
 		text-align: center;
 	}
 }
-.toggle_option_slider {
-  
+.toggle_option_slider {  
 	width: 30px;
 	height: 30px;
 	position: absolute;
@@ -312,36 +311,15 @@
 	-ms-transition: all .4s ease;
 	transition: all .4s ease;
 }
-#first_toggle {
-	&:checked {
-		~ {
-			.toggle_option_slider {
-				background: #22222250;
-				left: 0px;
-			}
-		}
-	}
+.active {
+  background: #22222250;
+  left: 0px;
 }
-#second_toggle {
-	&:checked {
-		~ {
-			.toggle_option_slider {
-				background: #22222250;
-				left: 25px;
-			}
-		}
-	}
+
+.description {
+  font-size: 1em;
 }
-#third_toggle {
-	&:checked {
-		~ {
-			.toggle_option_slider {
-				background: #22222250;
-				left: 50px;
-			}
-		}
-	}
-}
+
 span.description {
 	top: 0px;
 }
