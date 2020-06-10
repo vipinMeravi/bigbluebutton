@@ -75,7 +75,8 @@ class ExternalVideoModal extends Component {
   }
 
   updateScreenChangeHandler(ev) {
-    this.setState({ screen: ev.target.value });
+    // this.setState({ screen: ev.target.value });
+    console.log("------------> ev values ----------->", ev);
     console.log("===========> State ===========>", this.state);
     console.log("===========> Props ===========>", this.props);
   }
