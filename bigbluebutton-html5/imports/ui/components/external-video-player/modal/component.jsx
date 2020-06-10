@@ -177,32 +177,31 @@ class ExternalVideoModal extends Component {
               />
             </label>
             
-            
-            <div class="wrapper">
-              <div class="toggle_radio">
-                <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option"/>
-                <input type="radio" checked class="toggle_option" id="second_toggle" name="toggle_option"/>
-                <input type="radio" class="toggle_option" id="third_toggle" name="toggle_option"/>
+
+            <div className={styles.wrapper}>
+              <div className={styles.toggle_radio}>
+                <input type="radio" className={styles.toggle_option} id="first_toggle" name="toggle_option"/>
+                <input type="radio" checked className={styles.toggle_option} id="second_toggle" name="toggle_option"/>
+                <input type="radio" className={styles.toggle_option} id="third_toggle" name="toggle_option"/>
                 <label for="first_toggle">
-                  <span class="description">TODAY</span>
-                    <p class="day">3 </p>
-                  <span class="day-week">Tuesday</span>
+                  <span className={styles.description}>TODAY</span>
+                    <p className={styles.day}>3 </p>
+                  <span className={styles.day-week}>Tuesday</span>
                 </label>
                 <label for="second_toggle">
-                  <span class="description">TOMORROW</span>
-                    <p class="day">4 </p>
-                  <span class="day-week">Wednesday</span>
+                  <span className={styles.description}>TOMORROW</span>
+                    <p className={styles.day}>4 </p>
+                  <span className={styles.day-week}>Wednesday</span>
                 </label>
                 <label for="third_toggle">
-                  <span class="description">DAY AFTER</span>
-                    <p class="day">5 </p>
-                  <span class="day-week">Thursday</span>
+                  <span className={styles.description}>DAY AFTER</span>
+                    <p className={styles.day}>5 </p>
+                  <span className={styles.day-week}>Thursday</span>
                 </label>
-              <div class="toggle_option_slider">
+              <div className={styles.toggle_option_slider}>
               </div>
               </div>
-            </div>    
-
+            </div> 
           <div>
             {this.renderUrlError()}
           </div>
