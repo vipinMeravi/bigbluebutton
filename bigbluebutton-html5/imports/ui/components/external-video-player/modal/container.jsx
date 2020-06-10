@@ -12,5 +12,5 @@ export default withModalMounter(withTracker(({ mountModal }) => ({
   },
   startWatching,
   videoUrl: getVideoUrl(),
-  screen: getScreen(),
+  screenType: getScreen(),
 }))(ExternalVideoModalContainer));

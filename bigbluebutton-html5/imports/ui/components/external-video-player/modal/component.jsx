@@ -48,7 +48,7 @@ class ExternalVideoModal extends Component {
     this.state = {
       url: videoUrl,
       sharing: videoUrl,
-      screen: "fullscreen",
+      screen: screenType,
     };
 
     this.startWatchingHandler = this.startWatchingHandler.bind(this);
@@ -71,6 +71,7 @@ class ExternalVideoModal extends Component {
   }
 
   updateVideoUrlHandler(ev) {
+    console.log("------------> ev values ----------->", ev);
     this.setState({ url: ev.target.value });
   }
 
@@ -141,7 +142,7 @@ class ExternalVideoModal extends Component {
                 onChange={this.updateScreenChangeHandler}
                 value="fullscreen"
                 name="video-modal-input"
-                checked={this.state.screen === 'fullscreen'}
+                checked={true}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
