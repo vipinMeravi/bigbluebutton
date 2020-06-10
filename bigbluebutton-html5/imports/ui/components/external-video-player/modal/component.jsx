@@ -134,7 +134,6 @@ class ExternalVideoModal extends Component {
               {this.props.isSite ? null :intl.formatMessage(intlMessages.note)}
             </div>
           </div>
-
             <label htmlFor="vide-screen-full-modal-input" id="vide-screen-full-modal-input">
               {"FullScreen"}
               <input
@@ -178,10 +177,34 @@ class ExternalVideoModal extends Component {
               />
             </label>
             
+            <div class="wrapper">
+              <div class="toggle_radio">
+                <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option"/>
+                <input type="radio" checked class="toggle_option" id="second_toggle" name="toggle_option"/>
+                <input type="radio" class="toggle_option" id="third_toggle" name="toggle_option"/>
+                <label for="first_toggle">
+                  <span class="description">TODAY</span>
+                    <p class="day">3 </p>
+                  <span class="day-week">Tuesday</span>
+                </label>
+                <label for="second_toggle">
+                  <span class="description">TOMORROW</span>
+                    <p class="day">4 </p>
+                  <span class="day-week">Wednesday</span>
+                </label>
+                <label for="third_toggle">
+                  <span class="description">DAY AFTER</span>
+                    <p class="day">5 </p>
+                  <span class="day-week">Thursday</span>
+                </label>
+              <div class="toggle_option_slider">
+              </div>
+            </div>    
+
           <div>
             {this.renderUrlError()}
           </div>
-
+        
           <Button
             className={styles.startBtn}
             label={this.props.isSite ? "Share Site" :intl.formatMessage(intlMessages.start)}
