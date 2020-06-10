@@ -136,7 +136,7 @@ class ExternalVideoModal extends Component {
             <label htmlFor="video-modal-input" id="video-modal-input">
               {"FullScreen"}
               <input
-                // id="video-modal-input"
+                id="video-modal-input"
                 type="radio"
                 onChange={this.updateScreenChangeHandler}
                 value="fullscreen"
@@ -150,7 +150,7 @@ class ExternalVideoModal extends Component {
             <label htmlFor="video-modal-input" id="video-modal-input">
               {"Screen One"}
               <input
-                // id="video-modal-input"
+                id="video-modal-input"
                 type="radio"
                 onChange={this.updateScreenChangeHandler}
                 value="screen_one"
@@ -164,7 +164,7 @@ class ExternalVideoModal extends Component {
             <label htmlFor="video-modal-input" id="video-modal-input">
               {"Screen Two"}
               <input
-                // id="video-modal-input"
+                id="video-modal-input"
                 type="radio"
                 onChange={this.updateScreenChangeHandler}
                 value="screen_two"
