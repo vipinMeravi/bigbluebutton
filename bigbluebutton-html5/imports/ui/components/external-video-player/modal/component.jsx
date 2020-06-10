@@ -189,12 +189,12 @@ class ExternalVideoModal extends Component {
                 {/* <span className={styles.day-week}>Tuesday</span> */}
               </label>
               <label for="second_toggle">
-                <span className={styles.description}>TOMORROW</span>
+                {/* <span className={styles.description}>TOMORROW</span> */}
                   <p className={styles.day}>1 </p>
                 {/* <span className={styles.day-week}>Wednesday</span> */}
               </label>
               <label for="third_toggle">
-                <span className={styles.description}>DAY AFTER</span>
+                {/* <span className={styles.description}>DAY AFTER</span> */}
                   <p className={styles.day}>2 </p>
                 {/* <span className={styles.day-week}>Thursday</span> */}
               </label>
