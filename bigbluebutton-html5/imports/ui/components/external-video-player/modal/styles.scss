@@ -209,7 +209,7 @@
 }
 
 .description {
-  line-height: 30px;
+  // line-height: 30px;
   font-size: 1em;
 }
 
@@ -217,7 +217,12 @@ span.description {
   top: 0px;
   
 }
-p.day {
-	line-height: 50px;
+p.selected {
+	line-height: 10px;
+  font-size: 2em;
+  border:1px solid black
+}
+p.toggle_option{
+  line-height: 5px;
 	font-size: 2em;
 }
