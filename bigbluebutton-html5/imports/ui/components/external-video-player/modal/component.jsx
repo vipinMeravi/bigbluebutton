@@ -209,17 +209,17 @@ class ExternalVideoModal extends Component {
                 />
               <label for="first_toggle">
                 {/* <span className={styles.description}>TODAY</span> */}
-                  <p className={this.state.screen === 'fullscreen'? styles.active: styles.toggle_option } >F </p>
+                  <p className={this.state.screen === 'fullscreen'? styles.day: styles.toggle_option } >F </p>
                 {/* <span className={styles.day-week}>Tuesday</span> */}
               </label>
               <label for="second_toggle">
                 {/* <span className={styles.description}>TOMORROW</span> */}
-                  <p cclassName={this.state.screen === 'screen_one'? styles.active: styles.toggle_option } >1 </p>
+                  <p cclassName={this.state.screen === 'screen_one'? styles.day: styles.toggle_option } >1 </p>
                 {/* <span className={styles.day-week}>Wednesday</span> */}
               </label>
               <label for="third_toggle">
                 {/* <span className={styles.description}>DAY AFTER</span> */}
-                  <p className={this.state.screen === 'screen_two'? styles.active: styles.toggle_option } >2 </p>
+                  <p className={this.state.screen === 'screen_two'? styles.day: styles.toggle_option } >2 </p>
                 {/* <span className={styles.day-week}>Thursday</span> */}
               </label>
             </div>
