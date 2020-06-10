@@ -493,7 +493,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
             </tr>
           </thead>
           <tbody>
-            {presentationsSorted.map(item => this.renderPresentationItem(item, isPdf))}
+            {this.state.presentations.map((item,index) => this.renderPresentationItem(item, isPdf, index))}
           </tbody>
         </table>
       </div>
@@ -537,12 +537,15 @@ console.log("111111111111111111111111111111", this.props.isPdf)
     return null;
   }
 
-  updateScreenChangeHandler = (ev) => {
-    this.setState({ screen: ev.target.value });
+  updateScreenChangeHandler = (ev,index) => {
+    // this.state.presentations
+    let presentations =this.state.presentations;
+    presentations[index].selected =ev.target.value 
+    this.setState({ presentations });
     console.log("------------> ev values ----------->", ev.target.value);
   }
 
-  renderPresentationItem(item, isPdf) {
+  renderPresentationItem(item, isPdf,index) {
     const { disableActions, oldCurrentId } = this.state;
     const { intl } = this.props;
 
@@ -637,44 +640,44 @@ console.log("111111111111111111111111111111", this.props.isPdf)
               <div className={styles.toggle_radio}>
                 <input 
                   type="radio" 
-                  className={this.state.screen === 'fullscreen'? styles.active: styles.toggle_option }  
+                  className={this.state.presentations[index].selected === 'fullscreen'? styles.active: styles.toggle_option }  
                   id="first_toggle" 
                   name="toggle_option"
                   value="fullscreen"
-                  onChange={this.updateScreenChangeHandler}
-                  checked={this.state.screen === 'fullscreen'}
+                  onChange={(evt)=>{this.updateScreenChangeHandler(evt,index)}}
+                  checked={this.state.presentations[index].selected === 'fullscreen'}
                   />
                 <input 
                   type="radio" 
-                  className={this.state.screen === 'screen_one'? styles.active: styles.toggle_option }  
+                  className={this.state.presentations[index].selected === 'screen_one'? styles.active: styles.toggle_option }  
                   id="second_toggle" 
                   name="toggle_option"
                   value="screen_one"
-                  onChange={this.updateScreenChangeHandler}
-                  checked={this.state.screen === 'screen_one'}
+                  onChange={(evt)=>{this.updateScreenChangeHandler(evt,index)}}
+                  checked={this.state.presentations[index].selected === 'screen_one'}
                   />
                 <input 
                   type="radio" 
-                  className={this.state.screen === 'screen_two'? styles.active: styles.toggle_option } 
+                  className={this.state.presentations[index].selected === 'screen_two'? styles.active: styles.toggle_option } 
                   id="third_toggle" 
                   name="toggle_option"
                   value="screen_two"
-                  checked={this.state.screen === 'screen_two'}
-                  onChange={this.updateScreenChangeHandler}
+                  checked={this.state.presentations[index].selected === 'screen_two'}
+                  onChange={(evt)=>{this.updateScreenChangeHandler(evt,index)}}
                   />
                 <label for="first_toggle">
                   {/* <span className={styles.description}>TODAY</span> */}
-                    <p className={this.state.screen === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
+                    <p className={this.state.presentations[index].selected === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
                   {/* <span className={styles.day-week}>Tuesday</span> */}
                 </label>
                 <label for="second_toggle">
                   {/* <span className={styles.description}>TOMORROW</span> */}
-                    <p className={this.state.screen === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
+                    <p className={this.state.presentations[index].selected === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
                   {/* <span className={styles.day-week}>Wednesday</span> */}
                 </label>
                 <label for="third_toggle">
                   {/* <span className={styles.description}>DAY AFTER</span> */}
-                    <p className={this.state.screen === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
+                    <p className={this.state.presentations[index].selected === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
                   {/* <span className={styles.day-week}>Thursday</span> */}
                 </label>
               </div>
@@ -750,44 +753,44 @@ console.log("111111111111111111111111111111", this.props.isPdf)
             <div className={styles.toggle_radio}>
               <input 
                 type="radio" 
-                className={this.state.screen === 'fullscreen'? styles.active: styles.toggle_option }  
+                className={this.state.presentations[index].selected === 'fullscreen'? styles.active: styles.toggle_option }  
                 id="first_toggle" 
                 name="toggle_option"
                 value="fullscreen"
-                onChange={this.updateScreenChangeHandler}
-                checked={this.state.screen === 'fullscreen'}
+                onChange={(evt)=>{this.updateScreenChangeHandler(evt,index)}}
+                checked={this.state.presentations[index].selected === 'fullscreen'}
                 />
               <input 
                 type="radio" 
-                className={this.state.screen === 'screen_one'? styles.active: styles.toggle_option }  
+                className={this.state.presentations[index].selected === 'screen_one'? styles.active: styles.toggle_option }  
                 id="second_toggle" 
                 name="toggle_option"
                 value="screen_one"
-                onChange={this.updateScreenChangeHandler}
-                checked={this.state.screen === 'screen_one'}
+                onChange={(evt)=>{this.updateScreenChangeHandler(evt,index)}}
+                checked={this.state.presentations[index].selected === 'screen_one'}
                 />
               <input 
                 type="radio" 
-                className={this.state.screen === 'screen_two'? styles.active: styles.toggle_option } 
+                className={this.state.presentations[index].selected === 'screen_two'? styles.active: styles.toggle_option } 
                 id="third_toggle" 
                 name="toggle_option"
                 value="screen_two"
-                checked={this.state.screen === 'screen_two'}
-                onChange={this.updateScreenChangeHandler}
+                checked={this.state.presentations[index].selected === 'screen_two'}
+                onChange={(evt)=>{this.updateScreenChangeHandler(evt,index)}}
                 />
               <label for="first_toggle">
                 {/* <span className={styles.description}>TODAY</span> */}
-                  <p className={this.state.screen === 'fullscreen'? styles.day: styles.description } >F </p>
+                  <p className={this.state.presentations[index].selected === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
                 {/* <span className={styles.day-week}>Tuesday</span> */}
               </label>
               <label for="second_toggle">
                 {/* <span className={styles.description}>TOMORROW</span> */}
-                  <p className={this.state.screen === 'screen_one'? styles.day: styles.description } >1 </p>
+                  <p className={this.state.presentations[index].selected === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
                 {/* <span className={styles.day-week}>Wednesday</span> */}
               </label>
               <label for="third_toggle">
                 {/* <span className={styles.description}>DAY AFTER</span> */}
-                  <p className={this.state.screen === 'screen_two'? styles.day: styles.description } >2 </p>
+                  <p className={this.state.presentations[index].selected === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
                 {/* <span className={styles.day-week}>Thursday</span> */}
               </label>
             </div>
