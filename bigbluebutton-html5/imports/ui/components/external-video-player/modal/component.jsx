@@ -182,7 +182,7 @@ class ExternalVideoModal extends Component {
             <div className={styles.toggle_radio}>
               <input 
                 type="radio" 
-                className={styles.toggle_option} 
+                className={this.state.screen === 'fullscreen'?active:styles.toggle_option} 
                 id="first_toggle" 
                 name="toggle_option"
                 value="fullscreen"
@@ -191,7 +191,7 @@ class ExternalVideoModal extends Component {
                 />
               <input 
                 type="radio" 
-                className={styles.toggle_option} 
+                className={this.state.screen === 'screen_one'?styles.toggle_option:null}  
                 id="second_toggle" 
                 name="toggle_option"
                 value="screen_one"
@@ -200,7 +200,7 @@ class ExternalVideoModal extends Component {
                 />
               <input 
                 type="radio" 
-                className={styles.toggle_option} 
+                className={this.state.screen === 'screen_two'?styles.toggle_option:null} 
                 id="third_toggle" 
                 name="toggle_option"
                 value="screen_two"
