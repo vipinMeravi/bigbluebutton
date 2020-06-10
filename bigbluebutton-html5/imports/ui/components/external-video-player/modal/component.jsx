@@ -63,7 +63,8 @@ class ExternalVideoModal extends Component {
       closeModal,
     } = this.props;
 
-    const { url } = this.state;
+    const { url, screen } = this.state;
+    
     console.log("-------------------- start watching handler", this.props.isSite)
     startWatching(url.trim(), this.props.isSite);
     closeModal();
@@ -75,6 +76,8 @@ class ExternalVideoModal extends Component {
 
   updateScreenChangeHandler(ev) {
     this.setState({ screen: ev.target.value });
+    console.log("===========> State ===========>", this.state);
+    console.log("===========> Props ===========>", this.props);
   }
 
   renderUrlError() {
@@ -97,7 +100,8 @@ class ExternalVideoModal extends Component {
   render() {
     const { intl, closeModal } = this.props;
     const { url, sharing } = this.state;
-
+    console.log("-------------------- Inside modal render state ----------------- ", this.props);
+    console.log("-------------------- Inside modal render props ----------------- ", this.state);
     const startDisabled = !isUrlValid(url);
 
     return (
@@ -130,9 +134,8 @@ class ExternalVideoModal extends Component {
             </div>
           </div>
 
-          <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" id="video-modal-input">
-              {"Screen One"}
+              {"FullScreen"}
               <input
                 // id="video-modal-input"
                 type="radio"
@@ -159,7 +162,7 @@ class ExternalVideoModal extends Component {
               />
             </label>
             <label htmlFor="video-modal-input" id="video-modal-input">
-              {"Screen One"}
+              {"Screen Two"}
               <input
                 // id="video-modal-input"
                 type="radio"
@@ -173,8 +176,7 @@ class ExternalVideoModal extends Component {
             </label>
             <div className={styles.externalVideoNote} id="external-video-note">
               {this.props.isSite ? null :intl.formatMessage(intlMessages.note)}
-            </div>            
-          </div>
+            </div>
 
 
           <div>
