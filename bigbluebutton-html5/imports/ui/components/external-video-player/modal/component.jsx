@@ -71,13 +71,13 @@ class ExternalVideoModal extends Component {
   }
 
   updateVideoUrlHandler(ev) {
-    console.log("------------> ev values ----------->", ev);
+    console.log("------------> ev url values ----------->", ev.target.value);
     this.setState({ url: ev.target.value });
   }
 
   updateScreenChangeHandler(ev) {
-    // this.setState({ screen: ev.target.value });
-    console.log("------------> ev values ----------->", ev);
+    this.setState({ screen: ev.target.value });
+    console.log("------------> ev values ----------->", ev.target.value);
   }
 
   renderUrlError() {
@@ -129,58 +129,55 @@ class ExternalVideoModal extends Component {
                 aria-describedby="exernal-video-note"
               />
             </label>
+            
             <div className={styles.externalVideoNote} id="external-video-note">
               {this.props.isSite ? null :intl.formatMessage(intlMessages.note)}
             </div>
           </div>
 
-            <label htmlFor="video-modal-input" id="video-modal-input">
+            <label htmlFor="vide-screen-full-modal-input" id="vide-screen-full-modal-input">
               {"FullScreen"}
               <input
-                id="video-modal-input"
+                // id="vide-screen-full-modal-input"
                 type="radio"
                 onChange={this.updateScreenChangeHandler}
                 value="fullscreen"
-                name="video-modal-input"
+                name="vide-screen-modal-input"
                 checked={true}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
             </label>
-            <label htmlFor="video-modal-input" id="video-modal-input">
+            <label htmlFor="vide-screen-one-modal-input" id="vide-screen-one-modal-input">
               {"Screen One"}
               <input
-                id="video-modal-input"
+                id="vide-screen-one-modal-input"
                 type="radio"
                 onChange={this.updateScreenChangeHandler}
                 value="screen_one"
-                name="video-modal-input"
+                name="vide-screen-modal-input"
                 checked={this.state.screen === 'screen_one'}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
             </label>
-            <label htmlFor="video-modal-input" id="video-modal-input">
+            <label htmlFor="vide-screen-two-modal-input" id="vide-screen-two-modal-input">
               {"Screen Two"}
               <input
-                id="video-modal-input"
+                id="vide-screen-two-modal-input"
                 type="radio"
                 onChange={this.updateScreenChangeHandler}
                 value="screen_two"
-                name="video-modal-input"
+                name="vide-screen-modal-input"
                 checked={this.state.screen === 'screen_two'}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
             </label>
-            <div className={styles.externalVideoNote} id="external-video-note">
-              {this.props.isSite ? null :intl.formatMessage(intlMessages.note)}
-            </div>
-
-
+            
           <div>
             {this.renderUrlError()}
           </div>
