@@ -143,7 +143,7 @@ class ExternalVideoModal extends Component {
                 onChange={this.updateScreenChangeHandler}
                 value="fullscreen"
                 name="vide-screen-modal-input"
-                checked={true}
+                checked={this.state.screen === 'fullscreen'}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
