@@ -134,7 +134,7 @@ class ExternalVideoModal extends Component {
               {this.props.isSite ? null :intl.formatMessage(intlMessages.note)}
             </div>
           </div>
-            <label htmlFor="vide-screen-full-modal-input" id="vide-screen-full-modal-input">
+            {/* <label htmlFor="vide-screen-full-modal-input" id="vide-screen-full-modal-input">
               {"FullScreen"}
               <input
                 // id="vide-screen-full-modal-input"
@@ -162,8 +162,8 @@ class ExternalVideoModal extends Component {
                 aria-describedby="exernal-video-note"
               />
             </label>
-            <label htmlFor="vide-screen-two-modal-input" id="vide-screen-two-modal-input">
-              {"Screen Two"}
+            <label htmlFor="vide-screen-two-modal-input" id="vide-screen-two-modal-input"> */}
+              {/* {"Screen Two"}
               <input
                 id="vide-screen-two-modal-input"
                 type="radio"
@@ -176,7 +176,7 @@ class ExternalVideoModal extends Component {
                 aria-describedby="exernal-video-note"
               />
             </label>
-            
+             */}
 
           <div className={styles.wrapper}>
             <div className={styles.toggle_radio}>
@@ -184,18 +184,18 @@ class ExternalVideoModal extends Component {
               <input type="radio" checked className={styles.toggle_option} id="second_toggle" name="toggle_option"/>
               <input type="radio" className={styles.toggle_option} id="third_toggle" name="toggle_option"/>
               <label for="first_toggle">
-                <span className={styles.description}>TODAY</span>
-                  <p className={styles.day}>3 </p>
+                {/* <span className={styles.description}>TODAY</span> */}
+                  <p className={styles.day}>F </p>
                 {/* <span className={styles.day-week}>Tuesday</span> */}
               </label>
               <label for="second_toggle">
                 <span className={styles.description}>TOMORROW</span>
-                  <p className={styles.day}>4 </p>
+                  <p className={styles.day}>1 </p>
                 {/* <span className={styles.day-week}>Wednesday</span> */}
               </label>
               <label for="third_toggle">
                 <span className={styles.description}>DAY AFTER</span>
-                  <p className={styles.day}>5 </p>
+                  <p className={styles.day}>2 </p>
                 {/* <span className={styles.day-week}>Thursday</span> */}
               </label>
             <div className={styles.toggle_option_slider}>
