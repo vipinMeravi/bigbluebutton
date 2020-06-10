@@ -54,7 +54,7 @@ class ExternalVideoModal extends Component {
     this.startWatchingHandler = this.startWatchingHandler.bind(this);
     this.updateVideoUrlHandler = this.updateVideoUrlHandler.bind(this);
     this.renderUrlError = this.renderUrlError.bind(this);
-    this.updateVideoUrlHandler = this.updateVideoUrlHandler.bind(this);
+    this.updateScreenChangeHandler = this.updateScreenChangeHandler.bind(this);
   }
 
   startWatchingHandler() {
