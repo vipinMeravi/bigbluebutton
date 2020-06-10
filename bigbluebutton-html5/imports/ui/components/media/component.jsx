@@ -103,7 +103,7 @@ export default class Media extends Component {
         ref={this.refContainer}
       >
 
-        {this.props.arrScreen}
+        {/* {this.props.arrScreen} */}
 
         <div
           className={!swapLayout ? contentClassName : overlayClassName}

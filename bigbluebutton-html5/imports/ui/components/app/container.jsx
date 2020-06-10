@@ -65,7 +65,7 @@ const AppContainer = (props) => {
   } = props;
   console.log("============================>")
   console.log({...otherProps})
-  console.log((this.state))
+  console.log(props)
   console.log("============================>")
   return (      
     <App
