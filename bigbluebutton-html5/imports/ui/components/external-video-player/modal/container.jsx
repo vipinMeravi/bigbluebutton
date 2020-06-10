@@ -2,7 +2,7 @@ import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withModalMounter } from '/imports/ui/components/modal/service';
 import ExternalVideoModal from './component';
-import { startWatching, getVideoUrl } from '../service';
+import { startWatching, getVideoUrl, getScreen } from '../service';
 
 const ExternalVideoModalContainer = props => <ExternalVideoModal {...props} />;
 
@@ -12,4 +12,5 @@ export default withModalMounter(withTracker(({ mountModal }) => ({
   },
   startWatching,
   videoUrl: getVideoUrl(),
+  screen: getScreen(),
 }))(ExternalVideoModalContainer));

@@ -15,6 +15,11 @@ const startWatching = (url, isSite) => {
   makeCall('startWatchingExternalVideo', { externalVideoUrl, isSite });
 };
 
+const getScreen = () => {
+  console.log("============= > Get Screen =========> ")
+  return "fullscreen"
+}
+
 const stopWatching = () => {
   makeCall('stopWatchingExternalVideo');
 };
@@ -50,4 +55,5 @@ export {
   isUrlValid,
   startWatching,
   stopWatching,
+  getScreen
 };

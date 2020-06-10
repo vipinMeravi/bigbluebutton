@@ -48,7 +48,7 @@ class ExternalVideoModal extends Component {
     this.state = {
       url: videoUrl,
       sharing: videoUrl,
-      screen: screenType,
+      screen: "fullscreen",
     };
 
     this.startWatchingHandler = this.startWatchingHandler.bind(this);
@@ -77,8 +77,6 @@ class ExternalVideoModal extends Component {
   updateScreenChangeHandler(ev) {
     // this.setState({ screen: ev.target.value });
     console.log("------------> ev values ----------->", ev);
-    console.log("===========> State ===========>", this.state);
-    console.log("===========> Props ===========>", this.props);
   }
 
   renderUrlError() {
@@ -143,7 +141,7 @@ class ExternalVideoModal extends Component {
                 onChange={this.updateScreenChangeHandler}
                 value="fullscreen"
                 name="video-modal-input"
-                checked={true}
+                checked={this.state.screen === 'fullscreen'}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
@@ -157,6 +155,7 @@ class ExternalVideoModal extends Component {
                 onChange={this.updateScreenChangeHandler}
                 value="screen_one"
                 name="video-modal-input"
+                checked={this.state.screen === 'fullscreen'}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
@@ -170,6 +169,7 @@ class ExternalVideoModal extends Component {
                 onChange={this.updateScreenChangeHandler}
                 value="screen_two"
                 name="video-modal-input"
+                checked={this.state.screen === 'fullscreen'}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
