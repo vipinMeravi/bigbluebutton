@@ -1,5 +1,7 @@
 @import "../../../stylesheets/variables/_all";
 @import "../../../stylesheets/mixins/_scrollable";
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 
 @keyframes bar-stripes {
   from { background-position: 1rem 0; }
@@ -251,4 +253,97 @@
   vertical-align: baseline;
   border-radius: .25em;
   text-transform: uppercase;
+}
+
+
+// Radio Button SCSS
+* {
+	margin: 0px;
+	padding: 0px;
+}
+.toggle_radio {
+	position: relative;
+	background: rgba(255,255,255,.1);
+	margin: 4px auto;
+	overflow: hidden;
+	padding: 0 !important;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 5px;
+	position: relative;
+	height: auto;
+	width: 100%;
+	>* {
+		float: left;
+	}
+	input[type=radio] {
+		display: none;
+	}
+	label {
+		font: 50%/1.618 "Lato";
+		color: rgba(0,0,0,.9);
+		z-index: 0;
+		display: block;
+		width: 20px;
+		height: auto;
+		margin: 3px 3px;
+		font-family: "Lato";
+		-webkit-border-radius: 50px;
+		-moz-border-radius: 50px;
+		border-radius: 50px;
+		cursor: pointer;
+		z-index: 1;
+		text-align: center;
+	}
+}
+.toggle_option_slider {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 14px;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 2px;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	transition: all .4s ease;
+}
+#first_toggle {
+	&:checked {
+		~ {
+			.toggle_option_slider {
+				background: #22222250;
+				left: 0px;
+			}
+		}
+	}
+}
+#second_toggle {
+	&:checked {
+		~ {
+			.toggle_option_slider {
+				background: #22222250;
+				left: 25px;
+			}
+		}
+	}
+}
+#third_toggle {
+	&:checked {
+		~ {
+			.toggle_option_slider {
+				background: #22222250;
+				left: 50px;
+			}
+		}
+	}
+}
+span.description {
+	top: 0px;
+}
+p.day {
+	line-height: 50px;
+	font-size: 2em;
 }

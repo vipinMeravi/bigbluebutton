@@ -623,6 +623,32 @@ console.log("111111111111111111111111111111", this.props.isPdf)
                   onClick={() => this.handleRemove(item)}
                 />
               )}
+
+<div className={styles.wrapper}>
+            <div className={styles.toggle_radio}>
+              <input type="radio" className={styles.toggle_option} id="first_toggle" name="toggle_option"/>
+              <input type="radio" checked className={styles.toggle_option} id="second_toggle" name="toggle_option"/>
+              <input type="radio" className={styles.toggle_option} id="third_toggle" name="toggle_option"/>
+              <label for="first_toggle">
+                {/* <span className={styles.description}>TODAY</span> */}
+                  <p className={styles.day}>F </p>
+                {/* <span className={styles.day-week}>Tuesday</span> */}
+              </label>
+              <label for="second_toggle">
+                {/* <span className={styles.description}>TOMORROW</span> */}
+                  <p className={styles.day}>1 </p>
+                {/* <span className={styles.day-week}>Wednesday</span> */}
+              </label>
+              <label for="third_toggle">
+                {/* <span className={styles.description}>DAY AFTER</span> */}
+                  <p className={styles.day}>2 </p>
+                {/* <span className={styles.day-week}>Thursday</span> */}
+              </label>
+            <div className={styles.toggle_option_slider}>
+            </div>
+            </div>
+          </div>                 
+
             </td>
           )}
         </tr>
