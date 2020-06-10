@@ -284,7 +284,7 @@ class App extends Component {
       actionsbar,
       intl,
     } = this.props;
-    console.log('-----------Action Bar Props --------> ', this.props);
+    console.log('-----------Action Bar Props --------> ', this.props.actionsbar);
     if (!actionsbar) return null;
 
     return (
@@ -334,19 +334,8 @@ class App extends Component {
         <section className={styles.wrapper}>
           <div className={openPanel ? styles.content : styles.noPanelContent}>
             {this.renderNavBar()}
-
-            <section
-              className={styles.media}
-              aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
-              aria-hidden={this.shouldAriaHide()}
-            >
-               <MediaContainer ref={this.mediaContainer}  arrScreen={this.state.arrScreen} />
-
-              {this.renderCaptions()}
-            </section>
-
-          {this.renderActionsBar()}
-
+            {this.renderMedia()}
+            {this.renderActionsBar()}
           </div>
           {this.renderPanel()}
           {this.renderSidebar()}
