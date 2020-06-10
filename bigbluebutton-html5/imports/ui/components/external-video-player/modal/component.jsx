@@ -199,6 +199,7 @@ class ExternalVideoModal extends Component {
                 </label>
               <div class="toggle_option_slider">
               </div>
+              </div>
             </div>    
 
           <div>
