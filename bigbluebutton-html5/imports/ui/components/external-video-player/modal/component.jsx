@@ -180,9 +180,33 @@ class ExternalVideoModal extends Component {
 
           <div className={styles.wrapper}>
             <div className={styles.toggle_radio}>
-              <input type="radio" className={styles.toggle_option} id="first_toggle" name="toggle_option"/>
-              <input type="radio" checked className={styles.toggle_option} id="second_toggle" name="toggle_option"/>
-              <input type="radio" className={styles.toggle_option} id="third_toggle" name="toggle_option"/>
+              <input 
+                type="radio" 
+                className={styles.toggle_option} 
+                id="first_toggle" 
+                name="toggle_option"
+                value="fullscreen"
+                onChange={this.updateScreenChangeHandler}
+                checked={this.state.screen === 'fullscreen'}
+                />
+              <input 
+                type="radio" 
+                className={styles.toggle_option} 
+                id="second_toggle" 
+                name="toggle_option"
+                value="screen_one"
+                onChange={this.updateScreenChangeHandler}
+                checked={this.state.screen === 'screen_one'}
+                />
+              <input 
+                type="radio" 
+                className={styles.toggle_option} 
+                id="third_toggle" 
+                name="toggle_option"
+                value="screen_two"
+                checked={this.state.screen === 'screen_two'}
+                onChange={this.updateScreenChangeHandler}
+                />
               <label for="first_toggle">
                 {/* <span className={styles.description}>TODAY</span> */}
                   <p className={styles.day}>F </p>
