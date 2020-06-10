@@ -537,7 +537,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
     return null;
   }
 
-  updateScreenChangeHandler(ev) {
+  updateScreenChangeHandler = (ev) => {
     this.setState({ screen: ev.target.value });
     console.log("------------> ev values ----------->", ev.target.value);
   }
@@ -664,17 +664,17 @@ console.log("111111111111111111111111111111", this.props.isPdf)
                   />
                 <label for="first_toggle">
                   {/* <span className={styles.description}>TODAY</span> */}
-                    <p className={this.state.screen === 'fullscreen'? styles.day: styles.description } >F </p>
+                    <p className={this.state.screen === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
                   {/* <span className={styles.day-week}>Tuesday</span> */}
                 </label>
                 <label for="second_toggle">
                   {/* <span className={styles.description}>TOMORROW</span> */}
-                    <p className={this.state.screen === 'screen_one'? styles.day: styles.description } >1 </p>
+                    <p className={this.state.screen === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
                   {/* <span className={styles.day-week}>Wednesday</span> */}
                 </label>
                 <label for="third_toggle">
                   {/* <span className={styles.description}>DAY AFTER</span> */}
-                    <p className={this.state.screen === 'screen_two'? styles.day: styles.description } >2 </p>
+                    <p className={this.state.screen === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
                   {/* <span className={styles.day-week}>Thursday</span> */}
                 </label>
               </div>
