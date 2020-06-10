@@ -219,10 +219,15 @@ span.description {
 }
 p.selected {
 	line-height: 10px;
-  font-size: 2em;
-  border:1px solid black
+    font-size: 2em;
+    /* border: 1px solid black; */
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #ccc6c6;
+    color: white;
 }
 p.toggle_option{
   line-height: 5px;
+  padding: 5px;
 	font-size: 2em;
 }
