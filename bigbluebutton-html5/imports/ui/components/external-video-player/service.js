@@ -18,6 +18,7 @@ const startWatching = (url, isSite) => {
 const getScreen = () => {
   console.log("============= > Get Screen =========> ")
   return "fullscreen"
+}
 
 const stopWatching = () => {
   makeCall('stopWatchingExternalVideo');
