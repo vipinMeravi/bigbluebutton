@@ -623,8 +623,12 @@ console.log("111111111111111111111111111111", this.props.isPdf)
                   onClick={() => this.handleRemove(item)}
                 />
               )}
+            </td>
+          )}
 
-<div className={styles.wrapper}>
+          <td className={styles.tableItemStatus}>
+
+          <div className={styles.wrapper}>
             <div className={styles.toggle_radio}>
               <input type="radio" className={styles.toggle_option} id="first_toggle" name="toggle_option"/>
               <input type="radio" checked className={styles.toggle_option} id="second_toggle" name="toggle_option"/>
@@ -644,13 +648,12 @@ console.log("111111111111111111111111111111", this.props.isPdf)
                   <p className={styles.day}>2 </p>
                 {/* <span className={styles.day-week}>Thursday</span> */}
               </label>
-            <div className={styles.toggle_option_slider}>
+              <div className={styles.toggle_option_slider}>
+              </div>
             </div>
-            </div>
-          </div>                 
+          </div>  
+          </td>
 
-            </td>
-          )}
         </tr>
       );      
     } else if(!isPdf && item.filename.split('.')[1] != 'pdf'){
