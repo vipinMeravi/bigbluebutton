@@ -182,6 +182,7 @@ class ExternalVideoModal extends Component {
             <div className={styles.toggle_radio}>
               <input 
                 type="radio" 
+                className={this.state.screen === 'fullscreen'? styles.active: styles.toggle_option }  
                 id="first_toggle" 
                 name="toggle_option"
                 value="fullscreen"
@@ -218,7 +219,7 @@ class ExternalVideoModal extends Component {
               </label>
               <label for="third_toggle">
                 {/* <span className={styles.description}>DAY AFTER</span> */}
-                  <p className={this.state.screen === 'screen_one'? styles.active: styles.toggle_option } >2 </p>
+                  <p className={this.state.screen === 'screen_two'? styles.active: styles.toggle_option } >2 </p>
                 {/* <span className={styles.day-week}>Thursday</span> */}
               </label>
             </div>
