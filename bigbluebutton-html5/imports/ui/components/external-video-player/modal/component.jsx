@@ -99,8 +99,8 @@ class ExternalVideoModal extends Component {
   render() {
     const { intl, closeModal } = this.props;
     const { url, sharing } = this.state;
-    console.log("-------------------- Inside modal render state ----------------- ", this.props);
-    console.log("-------------------- Inside modal render props ----------------- ", this.state);
+    console.log("-------------------- Inside modal render props ----------------- ", this.props);
+    console.log("-------------------- Inside modal render state ----------------- ", this.state);
     const startDisabled = !isUrlValid(url);
 
     return (
@@ -155,7 +155,7 @@ class ExternalVideoModal extends Component {
                 onChange={this.updateScreenChangeHandler}
                 value="screen_one"
                 name="video-modal-input"
-                checked={this.state.screen === 'fullscreen'}
+                checked={this.state.screen === 'screen_one'}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
@@ -169,7 +169,7 @@ class ExternalVideoModal extends Component {
                 onChange={this.updateScreenChangeHandler}
                 value="screen_two"
                 name="video-modal-input"
-                checked={this.state.screen === 'fullscreen'}
+                checked={this.state.screen === 'screen_two'}
                 // placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
