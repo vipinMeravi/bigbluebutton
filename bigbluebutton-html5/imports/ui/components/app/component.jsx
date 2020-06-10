@@ -284,7 +284,7 @@ class App extends Component {
       actionsbar,
       intl,
     } = this.props;
-
+    console.log('-----------Action Bar Props --------> ', this.props);
     if (!actionsbar) return null;
 
     return (
@@ -345,21 +345,7 @@ class App extends Component {
               {this.renderCaptions()}
             </section>
 
-            <section
-              className={styles.actionsbar}
-              aria-label={this.props.intl.formatMessage(intlMessages.actionsBarLabel)}
-              aria-hidden={this.shouldAriaHide()}
-            >
-              <ActionsBarContainer updateArrScreen={() => {
-                
-                this.setState({
-                  arrScreen:this.state.arrScreen.reverse()
-                },()=>{
-                  console.log('---------------- calling update  arrr =====>', this.state)
-                  this.forceUpdate()
-                })
-              }} />
-            </section>
+          {this.renderActionsBar()}
 
           </div>
           {this.renderPanel()}
