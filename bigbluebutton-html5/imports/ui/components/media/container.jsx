@@ -23,6 +23,7 @@ const propTypes = {
   isScreensharing: PropTypes.bool.isRequired,
   intl: intlShape.isRequired,
   arrScreen: PropTypes.array.isRequired,
+  isUpdate :PropTypes.bool.isRequired,
 };
 
 const intlMessages = defineMessages({

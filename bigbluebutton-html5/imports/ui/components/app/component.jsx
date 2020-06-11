@@ -334,8 +334,37 @@ class App extends Component {
         <section className={styles.wrapper}>
           <div className={openPanel ? styles.content : styles.noPanelContent}>
             {this.renderNavBar()}
-            {this.renderMedia()}
-            {this.renderActionsBar()}
+            {/* {this.renderMedia()} */}
+
+            <section
+              className={styles.media}
+              aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
+              aria-hidden={this.shouldAriaHide()}
+            >
+              <MediaContainer isUpdate={this.state.isUpdate} />
+              {this.renderCaptions()}
+            </section>
+
+
+            <section
+              className={styles.actionsbar}
+              aria-label={this.props.intl.formatMessage(intlMessages.actionsBarLabel)}
+              aria-hidden={this.shouldAriaHide()}
+            >
+              <ActionsBarContainer updateArrScreen={()=>{
+                console.log('==================?>>>>>??>>?>>??')
+                console.log(this.state.isUpdate)
+                console.log('==================?>>>>>??>>?>>??')
+                this.setState({
+                  isUpdate:!this.state.isUpdate
+                },()=>{
+                  console.log('=========?>>>UPDAGTE>>??>>?>',this.state.isUpdate)
+                })
+              }} />
+            </section>
+
+
+            {/* {this.renderActionsBar()} */}
           </div>
           {this.renderPanel()}
           {this.renderSidebar()}

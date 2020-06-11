@@ -17,6 +17,7 @@ const propTypes = {
   audioModalIsOpen: PropTypes.bool,
   joinVideo: PropTypes.func,
   webcamPlacement: PropTypes.string,
+  isUpdate:PropTypes.bool.isRequired,
 };
 
 const defaultProps = {
@@ -103,7 +104,7 @@ export default class Media extends Component {
         ref={this.refContainer}
       >
 
-        {/* {this.props.arrScreen} */}
+        {this.props.isUpdate?'component is true':'component is false'}
 
         <div
           className={!swapLayout ? contentClassName : overlayClassName}

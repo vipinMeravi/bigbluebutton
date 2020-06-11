@@ -51,9 +51,9 @@ class ActionsBar extends PureComponent {
 
     return (
       <div className={styles.actionsbar}>
-        {/* <button onClick={() => {
+        <button onClick={() => {
           this.props.updateArrScreen()
-        }}>TEST ARR BUTTON</button> */}
+        }}>TEST ARR BUTTON</button>
         <div className={styles.left}>
           <ActionsDropdown {...{
             amIPresenter,
