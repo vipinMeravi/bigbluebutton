@@ -144,7 +144,16 @@ export default withModalMounter(withTracker((props) => {
   if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
     data.currentPresentation = MediaService.getPresentationInfo();
 
-    data.children = <PresentationPodsContainer />;
+    if(props.screen_value == "fullscreen" && props.screen_for == "document"){
+      data.children = <PresentationPodsContainer />;
+      data.children_split = null;
+    } else if(props.screen_value == "screen_one" && props.screen_for == "document"){
+      data.children_split = data.children;
+      data.children = <PresentationPodsContainer />;
+    } else {
+      data.children_split = <PresentationPodsContainer />;
+    }
+    
 
     // if(props.screen_value == "fullscreen"){
     //   data.children = <PresentationPodsContainer />;

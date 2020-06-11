@@ -104,7 +104,8 @@ class App extends Component {
       enableResize: !window.matchMedia(MOBILE_MEDIA).matches,
       arrScreen: ['ppt', 'pdf', 'site', 'video'],
       isUpdate: false,
-      screen_value: "fullscreen"
+      screen_value: "fullscreen",
+      screen_for: 'document'
     };
     this.mediaContainer = React.createRef();
     this.handleWindowResize = throttle(this.handleWindowResize).bind(this);
@@ -342,7 +343,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <MediaContainer screen_value={this.state.screen_value} />
+              <MediaContainer screen_value={this.state.screen_value} screen_value={this.state.screen_for}/>
               {this.renderCaptions()}
             </section>
 
@@ -362,12 +363,13 @@ class App extends Component {
                   console.log('=========?>>>UPDAGTE>>??>>?>',this.state.isUpdate)
                 })
               }} /> */}
-              <ActionsBarContainer getScreenValue={(screen_value)=>{
+              <ActionsBarContainer getScreenValue={(screen_value, screen_for)=>{
                 console.log('==================?>>>>>??>>?>>??')
                 console.log(this.state.screen_value)
                 console.log('==================?>>>>>??>>?>>??')
                 this.setState({
-                  screen_value: screen_value
+                  screen_value: screen_value,
+                  screen_for: screen_for
                 },()=>{
                   console.log('=========?>>>UPDAGTE>>??>>?>',this.state.screen_value)
                 })

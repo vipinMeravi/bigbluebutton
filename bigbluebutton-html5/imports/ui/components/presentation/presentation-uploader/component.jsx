@@ -287,7 +287,7 @@ class PresentationUploader extends Component {
     console.log(this.state.screen);
     console.log("=========> handle confirm props <============");
     
-    this.props.getScreenValue(this.state.screen);
+    this.props.getScreenValue(this.state.screen, "document");
     
     if (!disableActions) {
       return handleSave(presentationsToSave)
