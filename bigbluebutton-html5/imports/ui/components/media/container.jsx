@@ -119,6 +119,9 @@ class MediaContainer extends Component {
     })
   }
   render() {
+    console.log("============== <<Media Container Props>> ============");
+    console.log(this.props);
+    console.log("============== <<Media Container Props>> ============");
     return <Media {...this.props} />;
   }
 }

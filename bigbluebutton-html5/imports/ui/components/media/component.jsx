@@ -18,6 +18,7 @@ const propTypes = {
   joinVideo: PropTypes.func,
   webcamPlacement: PropTypes.string,
   isUpdate:PropTypes.bool.isRequired,
+  screen_value: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
@@ -29,6 +30,7 @@ const defaultProps = {
   audioModalIsOpen: false,
   joinVideo: null,
   webcamPlacement: 'top',
+  screen_value: 'fullscreen'
 };
 
 
@@ -83,6 +85,7 @@ export default class Media extends Component {
       audioModalIsOpen,
       usersVideo,
       webcamPlacement,
+      screen_value
     } = this.props;
 
     const contentClassName = cx({
@@ -104,7 +107,7 @@ export default class Media extends Component {
         ref={this.refContainer}
       >
 
-        {this.props.isUpdate?'component is true':'component is false'}
+        {screen_value}
 
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
