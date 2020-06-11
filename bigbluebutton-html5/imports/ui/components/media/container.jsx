@@ -24,6 +24,7 @@ const propTypes = {
   intl: intlShape.isRequired,
   arrScreen: PropTypes.array.isRequired,
   isUpdate :PropTypes.bool.isRequired,
+  screen_value: PropTypes.string.isRequired,
 };
 
 const intlMessages = defineMessages({

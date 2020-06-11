@@ -103,7 +103,8 @@ class App extends Component {
     this.state = {
       enableResize: !window.matchMedia(MOBILE_MEDIA).matches,
       arrScreen: ['ppt', 'pdf', 'site', 'video'],
-      isUpdate: false
+      isUpdate: false,
+      screen_value: "fullscreen"
     };
     this.mediaContainer = React.createRef();
     this.handleWindowResize = throttle(this.handleWindowResize).bind(this);
@@ -341,7 +342,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <MediaContainer isUpdate={this.state.isUpdate} />
+              <MediaContainer screen_value={this.state.screen_value} />
               {this.renderCaptions()}
             </section>
 
@@ -351,7 +352,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.actionsBarLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <ActionsBarContainer updateArrScreen={()=>{
+              {/* <ActionsBarContainer updateArrScreen={()=>{
                 console.log('==================?>>>>>??>>?>>??')
                 console.log(this.state.isUpdate)
                 console.log('==================?>>>>>??>>?>>??')
@@ -360,7 +361,17 @@ class App extends Component {
                 },()=>{
                   console.log('=========?>>>UPDAGTE>>??>>?>',this.state.isUpdate)
                 })
-              }} />
+              }} /> */}
+              <ActionsBarContainer getScreenValue={(screen_value)=>{
+                console.log('==================?>>>>>??>>?>>??')
+                console.log(this.state.screen_value)
+                console.log('==================?>>>>>??>>?>>??')
+                this.setState({
+                  screen_value: screen_value
+                },()=>{
+                  console.log('=========?>>>UPDAGTE>>??>>?>',this.state.screen_value)
+                })
+              }} />              
             </section>
 
 
