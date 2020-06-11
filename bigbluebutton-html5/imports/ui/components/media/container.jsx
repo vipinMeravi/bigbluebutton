@@ -143,9 +143,9 @@ export default withModalMounter(withTracker((props) => {
 
   if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
     data.currentPresentation = MediaService.getPresentationInfo();
-
+    
     data.children = <PresentationPodsContainer screen={"one"} />;
-    data.children_split = <PresentationPodsContainer screen={"two"} />;
+    
   }
 
   if (MediaService.shouldShowScreenshare() && (viewScreenshare || MediaService.isUserPresenter())) {
@@ -172,13 +172,13 @@ export default withModalMounter(withTracker((props) => {
   }
 
   if (MediaService.shouldShowExternalVideo()) {
-    if (data.children_split) {
+    if (props.screen_value == "fullscreen") {
       data.children = (
         <ExternalVideoContainer
           isPresenter={MediaService.isUserPresenter()}
         />
       );
-    } else {
+    } else if(props.screen_value == "screen_two"){
       data.children_split = (
         <ExternalVideoContainer
           isPresenter={MediaService.isUserPresenter()}
