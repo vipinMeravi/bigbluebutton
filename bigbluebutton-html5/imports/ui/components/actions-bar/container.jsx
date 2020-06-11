@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { injectIntl } from 'react-intl';
@@ -24,7 +24,20 @@ import MediaService, {
   shouldEnableSwapLayout,
 } from '../media/service';
 
-const ActionsBarContainer = props => <ActionsBar {...props} />;
+
+class ActionsBarContainer extends PureComponent {
+  componentWillReceiveProps(){
+    console.log('====================>>>>> action bar container =========>')
+    console.log(this.props)
+    console.log('====================>>>>> action bar container =========>')
+
+  }
+  render() {
+    return <ActionsBar {...this.props} />
+  }
+}
+;
+
 const POLLING_ENABLED = Meteor.settings.public.poll.enabled;
 
 export default withTracker(() => ({
