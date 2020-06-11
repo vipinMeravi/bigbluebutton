@@ -545,7 +545,7 @@ class PresentationUploader extends Component {
     let presentations =this.state.presentations;
     presentations[index].selected =ev
     this.setState({ presentations });
-    if(isCurrent && ev){
+    if(this.state.presentations.isCurrent && ev){
       this.setState({ screen: ev });
     }
     console.log("------------> ev values ----------->", ev,index,this.state.presentations);
