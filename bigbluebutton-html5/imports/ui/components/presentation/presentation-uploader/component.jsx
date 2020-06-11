@@ -32,7 +32,6 @@ const propTypes = {
     conversion: PropTypes.object,
     upload: PropTypes.object,
   })).isRequired,
-  screen_value: PropTypes.string.isRequired
 };
 
 const defaultProps = {
@@ -550,9 +549,15 @@ class PresentationUploader extends Component {
   updateScreenChangeHandler = (ev,index) => {
     // this.state.presentations
     let presentations =this.state.presentations;
-    presentations[index].selected =ev
+    
+    presentations[index].selected = ev
+    
     this.setState({ presentations });
+
     if(this.state.presentations.isCurrent && ev){
+      console.log("========>> SET SCREEN STATE IN PRESENTATION <<==========")
+      console.log(this.state.screen);
+      console.log("========>> SET SCREEN STATE IN PRESENTATION <<==========")
       this.setState({ screen: ev });
     }
     console.log("------------> ev values ----------->", ev,index,this.state.presentations);
