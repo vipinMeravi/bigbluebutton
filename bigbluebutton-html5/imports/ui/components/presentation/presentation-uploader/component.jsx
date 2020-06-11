@@ -32,6 +32,7 @@ const propTypes = {
     conversion: PropTypes.object,
     upload: PropTypes.object,
   })).isRequired,
+  screen_value: PropTypes.string.isRequired
 };
 
 const defaultProps = {
@@ -195,7 +196,8 @@ const isMobileBrowser = (BROWSER_RESULTS ? BROWSER_RESULTS.mobile : false)
 class PresentationUploader extends Component {
   constructor(props) {
     super(props);
-console.log("111111111111111111111111111111", this.props.isPdf)
+
+    console.log("==========> Is Pdf <=========", this.props.isPdf)
     const currentPres = props.presentations.find(p => p.isCurrent);
     
     this.state = {
@@ -203,6 +205,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
       oldCurrentId: currentPres ? currentPres.id : -1,
       preventClosing: false,
       disableActions: false,
+      screen: 'fullscreen'
     };
 
     this.handleConfirm = this.handleConfirm.bind(this);
@@ -279,7 +282,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
       preventClosing: true,
       presentations: presentationsToSave,
     });
-
+    this.props.getScreenValue(this.state.screen);
     if (!disableActions) {
       return handleSave(presentationsToSave)
         .then(() => {
@@ -322,7 +325,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
 
   handleDismiss() {
     const { mountModal } = this.props;
-
+    this.props.getScreenValue(this.state.screen);
     return new Promise((resolve) => {
       mountModal(null);
 
@@ -463,7 +466,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
 
     this.setState({
       presentations: presentationsUpdated,
-      screen: "fullscreen",
+      screen_value: "fullscreen",
     });
 
     // If the presentation has not be uploaded yet, adjusting the state suffices
@@ -542,6 +545,9 @@ console.log("111111111111111111111111111111", this.props.isPdf)
     let presentations =this.state.presentations;
     presentations[index].selected =ev
     this.setState({ presentations });
+    if(isCurrent && ev){
+      this.setState({ screen: ev });
+    }
     console.log("------------> ev values ----------->", ev,index,this.state.presentations);
   }
 

@@ -214,8 +214,8 @@ class ActionsDropdown extends PureComponent {
   }
 
   handlePresentationClick(isPdf) {
-    const { mountModal } = this.props;
-    mountModal(<PresentationUploaderContainer isPdf={isPdf} />);
+    const { mountModal, getScreenValue } = this.props;
+    mountModal(<PresentationUploaderContainer isPdf={isPdf} getScreenValue={getScreenValue}/>);
   }
 
   render() {
