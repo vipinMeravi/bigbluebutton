@@ -41,7 +41,7 @@ class ActionsBar extends PureComponent {
       isPollingEnabled,
       isThereCurrentPresentation,
       allowExternalVideo,
-      updateArrScreen
+      getScreenValue
     } = this.props;
 
     const actionBarClasses = {};
@@ -53,7 +53,7 @@ class ActionsBar extends PureComponent {
     return (
       <div className={styles.actionsbar}>
         <button onClick={() => {
-          this.props.updateArrScreen("screen_one")
+          this.props.getScreenValue("screen_one")
         }}>TEST ARR BUTTON</button>
         <div className={styles.left}>
           <ActionsDropdown {...{
@@ -66,7 +66,7 @@ class ActionsBar extends PureComponent {
             isSharingVideo,
             stopExternalVideoShare,
             isMeteorConnected,
-            updateArrScreen
+            getScreenValue
           }}
           />
           {isPollingEnabled
