@@ -282,7 +282,14 @@ class PresentationUploader extends Component {
       preventClosing: true,
       presentations: presentationsToSave,
     });
+
+    console.log("=========> handle confirm props <============");
+    console.log(this.props);
+    console.log(this.state.screen);
+    console.log("=========> handle confirm props <============");
+    
     this.props.getScreenValue(this.state.screen);
+    
     if (!disableActions) {
       return handleSave(presentationsToSave)
         .then(() => {
