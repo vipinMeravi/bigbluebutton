@@ -343,7 +343,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <MediaContainer screen_value={this.state.screen_value} screen_value={this.state.screen_for}/>
+              <MediaContainer screen_value={this.state.screen_value} screen_for={this.state.screen_for}/>
               {this.renderCaptions()}
             </section>
 
