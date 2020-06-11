@@ -126,7 +126,7 @@ class MediaContainer extends Component {
   }
 }
 
-export default withModalMounter(withTracker(() => {
+export default withModalMounter(withTracker((props) => {
   const { dataSaving } = Settings;
   const { viewParticipantsWebcams, viewScreenshare } = dataSaving;
   const hidePresentation = getFromUserSettings('bbb_hide_presentation', LAYOUT_CONFIG.hidePresentation);
@@ -139,7 +139,6 @@ export default withModalMounter(withTracker(() => {
   };
 
   this.props? console.log("media container this.props",this.props):console.log("media container this.props undefined")
-  props? console.log("media container this.props",props):console.log("media container props undefined")
 
   if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
     data.currentPresentation = MediaService.getPresentationInfo();
