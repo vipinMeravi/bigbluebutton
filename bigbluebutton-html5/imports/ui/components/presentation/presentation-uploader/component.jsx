@@ -546,6 +546,9 @@ console.log("111111111111111111111111111111", this.props.isPdf)
   }
 
   renderPresentationItem(item, isPdf,index) {
+    console.log('------------------- in the function index ----------->>>')
+    console.log(index)
+    console.log('------------------- in the function index ----------->>>')
     const { disableActions, oldCurrentId } = this.state;
     const { intl } = this.props;
 
