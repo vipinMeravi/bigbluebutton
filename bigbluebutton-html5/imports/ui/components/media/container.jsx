@@ -138,6 +138,9 @@ export default withModalMounter(withTracker(() => {
     joinVideo: VideoService.joinVideo,
   };
 
+  this.props? console.log("media container this.props",this.props):console.log("media container this.props undefined")
+  props? console.log("media container this.props",props):console.log("media container props undefined")
+
   if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
     data.currentPresentation = MediaService.getPresentationInfo();
 
