@@ -554,13 +554,13 @@ class PresentationUploader extends Component {
     
     this.setState({ presentations });
 
-    if(this.state.presentations.isCurrent && ev){
+    if(this.state.presentations.isCurrent){
       console.log("========>> SET SCREEN STATE IN PRESENTATION <<==========")
       console.log(this.state.screen);
       console.log("========>> SET SCREEN STATE IN PRESENTATION <<==========")
       this.setState({ screen: ev });
     }
-    console.log("------------> ev values ----------->", ev,index,this.state.presentations);
+    console.log("------------> ev values ----------->", ev,index,this.state.presentations.isCurrent);
   }
 
   renderPresentationItem(item, isPdf,presentationIndex) {
