@@ -542,7 +542,7 @@ console.log("111111111111111111111111111111", this.props.isPdf)
     let presentations =this.state.presentations;
     presentations[index].selected =ev.target.value 
     this.setState({ presentations });
-    console.log("------------> ev values ----------->", ev.target.value);
+    console.log("------------> ev values ----------->", index,this.state.presentations);
   }
 
   renderPresentationItem(item, isPdf,index) {
