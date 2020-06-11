@@ -10,6 +10,11 @@ import CaptionsButtonContainer from '/imports/ui/components/actions-bar/captions
 import PresentationOptionsContainer from './presentation-options/component';
 
 class ActionsBar extends PureComponent {
+  componentWillReceiveProps() {
+    console.log('------------->>>>>>> COMPONENT RECIEVE PROPS ------------------>')
+    console.log(this.props)
+    console.log('------------->>>>>>> COMPONENT RECIEVE PROPS ------------------>')
+  }
   render() {
     const {
       amIPresenter,
