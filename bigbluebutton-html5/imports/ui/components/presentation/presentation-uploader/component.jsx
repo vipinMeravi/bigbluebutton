@@ -554,7 +554,7 @@ class PresentationUploader extends Component {
     
     this.setState({ presentations });
 
-    if(this.state.presentations.isCurrent){
+    if(this.state.presentations[index].isCurrent){
       console.log("========>> SET SCREEN STATE IN PRESENTATION <<==========")
       console.log(this.state.screen);
       console.log("========>> SET SCREEN STATE IN PRESENTATION <<==========")
