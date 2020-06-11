@@ -143,16 +143,17 @@ export default withModalMounter(withTracker((props) => {
 
   if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
     data.currentPresentation = MediaService.getPresentationInfo();
-    if(props.screen_value == "fullscreen"){
-      data.children = <PresentationPodsContainer />;
-      data.children_split = null;
-    } else if( props.screen_value == "screen_two"){
-      data.children_split = <PresentationPodsContainer />;
-    } else if (props.screen_value == "screen_one" ) {
-      data.children = <PresentationPodsContainer />;
-    }
-    
-    
+
+    data.children = <PresentationPodsContainer />;
+
+    // if(props.screen_value == "fullscreen"){
+    //   data.children = <PresentationPodsContainer />;
+    //   data.children_split = null;
+    // } else if( props.screen_value == "screen_two"){
+    //   data.children_split = <PresentationPodsContainer />;
+    // } else if (props.screen_value == "screen_one" ) {
+    //   data.children = <PresentationPodsContainer />;
+    // }   
   }
 
   if (MediaService.shouldShowScreenshare() && (viewScreenshare || MediaService.isUserPresenter())) {
