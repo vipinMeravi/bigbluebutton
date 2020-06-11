@@ -206,6 +206,9 @@ class ActionsDropdown extends PureComponent {
   }
 
   handleExternalVideoClick(isSite) {
+    console.log("+++++++++++====<<>>")
+    console.log(this.props);
+    console.log("+++++++++++====<<>>")
     const { mountModal } = this.props;
     mountModal(<ExternalVideoModal isSite={isSite}/>);
   }
