@@ -210,11 +210,7 @@ class ActionsDropdown extends PureComponent {
     console.log(this.props);
     console.log("+++++++++++====<<>>")
     const { mountModal, updateArrScreen } = this.props;
-    mountModal(<ExternalVideoModal {...{
-        isSite={isSite},
-        updateArrScreen
-      }}
-    />);
+    mountModal(<ExternalVideoModal isSite={isSite} updateArrScreen={updateArrScreen}/>);
   }
 
   handlePresentationClick(isPdf) {
