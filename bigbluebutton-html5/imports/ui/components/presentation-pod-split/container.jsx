@@ -10,11 +10,11 @@ import PresentationPods from './component';
 // it should give each PresentationAreaContainer some space
 // which it will fill with the uploaded presentation
 const PresentationPodsContainer = ({ presentationPodIds,presentationsPodIds, ...props }) => {
-  console.log("=========Presentation Pod Container propes==========")
+  console.log("=========Presentation Split Pod Container propes==========")
   console.log(presentationPodIds);
   console.log(presentationsPodIds);
   console.log({...props});
-  console.log("=========Presentation Pod Container propes==========")
+  console.log("=========Presentation Split Pod Container propes==========")
   if (presentationPodIds && presentationPodIds.length > 0) {
   
       return (

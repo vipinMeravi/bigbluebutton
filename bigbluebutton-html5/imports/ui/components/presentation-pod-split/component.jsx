@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import PresentationAreaContainer from '../presentation/container';
-import PresentationAreaSplitContainer from '../presentation-split/container';
 
 class PresentationPods extends PureComponent {
   render() {
@@ -13,17 +12,9 @@ class PresentationPods extends PureComponent {
    console.log("=========Presentation Pod propes==========")
    console.log(this.props);
    console.log("=========Presentation Pod propes==========")
-   if(this.props.screen_value == "screen_two"){
-    return (
-      <PresentationAreaSplitContainer podId="DEFAULT_PRESENTATION_POD" {...this.props} />
-    );
-   } else {
-    return (
-      <PresentationAreaContainer podId="DEFAULT_PRESENTATION_POD" {...this.props} />
-    );
-   }
-
-
+   return (
+    <PresentationAreaContainer podId="DEFAULT_PRESENTATION_POD" {...this.props} />
+  );
   }
 }
 
