@@ -189,20 +189,20 @@ export default withModalMounter(withTracker((props) => {
   }
 
   if (MediaService.shouldShowExternalVideo()) {
-    if (props.screen_value == "fullscreen") {
+    if (props.screen_value == "fullscreen" && props.screen_for == "media") {
       data.children = (
         <ExternalVideoContainer
           isPresenter={MediaService.isUserPresenter()}
         />
       );
       data.children_split = null;
-    } else if(props.screen_value == "screen_two"){
+    } else if(props.screen_value == "screen_two" && props.screen_for == "media"){
       data.children_split = (
         <ExternalVideoContainer
           isPresenter={MediaService.isUserPresenter()}
         />
       );
-    } else if(props.screen_value == "screen_one"){
+    } else if(props.screen_value == "screen_one" && props.screen_for == "media"){
       data.children_split = data.children;
       data.children = (
         <ExternalVideoContainer
