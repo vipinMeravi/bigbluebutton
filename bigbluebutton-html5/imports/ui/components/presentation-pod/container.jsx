@@ -16,11 +16,32 @@ const PresentationPodsContainer = ({ presentationPodIds,presentationsPodIds, ...
   console.log({...props});
   console.log("=========Presentation Pod Container propes==========")
   if (presentationPodIds && presentationPodIds.length > 0) {
-    return (
-      <ErrorBoundary Fallback={FallbackPresentation}>
-        <PresentationPods presentationPodIds={presentationPodIds} {...props} />
-      </ErrorBoundary>
-    );
+    if(props.screen_value == "fullscreen"){
+      return (
+        <ErrorBoundary Fallback={FallbackPresentation}>
+          <PresentationPods presentationPodIds={presentationPodIds} {...props} />
+        </ErrorBoundary>
+      );
+    } else if (props.screen_value == "screen_one"){
+      return (
+        <ErrorBoundary Fallback={FallbackPresentation}>
+          <PresentationPods presentationPodIds={presentationPodIds} {...props} />
+        </ErrorBoundary>
+      );
+    } else if (props.screen_value == "screen_two"){
+      let presentation_pod_ids = [];
+      let temp_obj = {
+        podId: presentationsPodIds[0].podId,
+        _id: presentationsPodIds[0]._id,
+      }
+      presentation_pod_ids.push(temp_obj) 
+      return (
+        <ErrorBoundary Fallback={FallbackPresentation}>
+          <PresentationPods presentationPodIds={presentation_pod_ids} {...props} />
+        </ErrorBoundary>
+      );
+    }
+
   }
 
   return null;

@@ -148,16 +148,25 @@ export default withModalMounter(withTracker((props) => {
       data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
       data.children_split = null;
     } else if(props.screen_value == "screen_one" && props.screen_for == "document"){
-      data.children_split = data.children;
+
       data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
+
     } else if(props.screen_value == "screen_two" && props.screen_for == "document"){
+
       data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
+
     } else if(props.screen_value == "fullscreen" && props.screen_for == "media"){
+      
       data.children = null
+
     } else if(props.screen_value == "screen_one" && props.screen_for == "media"){
+      
       data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
+
     } else if(props.screen_value == "screen_two" && props.screen_for == "media"){
+      
       data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
+      
     }
     
 
