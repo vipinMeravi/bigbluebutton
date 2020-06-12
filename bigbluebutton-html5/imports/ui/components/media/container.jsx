@@ -154,7 +154,7 @@ export default withModalMounter(withTracker((props) => {
 
     } else if(props.screen_value == "screen_two" && props.screen_for == "document"){
 
-      data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
+      // data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
       // data.children = <PresentationPodsContainer/>;
       data.children_split = <PresentationPodsSplitContainer screen_value={props.screen_value}/>;
 
@@ -221,6 +221,12 @@ export default withModalMounter(withTracker((props) => {
         />
       );
     } else if(props.screen_value == "screen_one" && props.screen_for == "media"){
+      data.children = (
+        <ExternalVideoContainer
+          isPresenter={MediaService.isUserPresenter()}
+        />
+      );
+    } else if(props.screen_value == "screen_two" && props.screen_for == "document"){
       data.children = (
         <ExternalVideoContainer
           isPresenter={MediaService.isUserPresenter()}

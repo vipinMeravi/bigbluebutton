@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import PresentationAreaContainer from '../presentation/container';
 
-class PresentationPods extends PureComponent {
+class PresentationSplitPods extends PureComponent {
   render() {
     /*
       filtering/sorting presentation pods goes here
@@ -18,9 +18,9 @@ class PresentationPods extends PureComponent {
   }
 }
 
-export default PresentationPods;
+export default PresentationSplitPods;
 
-PresentationPods.propTypes = {
+PresentationSplitPods.propTypes = {
   presentationPodIds: PropTypes.arrayOf(PropTypes.shape({
     podId: PropTypes.string.isRequired,
   })).isRequired,

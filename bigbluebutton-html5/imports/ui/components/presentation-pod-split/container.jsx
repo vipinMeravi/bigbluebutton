@@ -4,12 +4,12 @@ import { withTracker } from 'meteor/react-meteor-data';
 import ErrorBoundary from '/imports/ui/components/error-boundary/component';
 import FallbackPresentation from '/imports/ui/components/fallback-errors/fallback-presentation/component';
 import PresentationPodService from './service';
-import PresentationPods from './component';
+import PresentationSplitPods from './component';
 
 // PresentationPods component will be the place to go once we have the presentation pods designs
 // it should give each PresentationAreaContainer some space
 // which it will fill with the uploaded presentation
-const PresentationPodsContainer = ({ presentationPodIds,presentationsPodIds, ...props }) => {
+const PresentationPodsSplitContainer = ({ presentationPodIds,presentationsPodIds, ...props }) => {
   console.log("=========Presentation Split Pod Container propes==========")
   console.log(presentationPodIds);
   console.log(presentationsPodIds);
@@ -19,7 +19,7 @@ const PresentationPodsContainer = ({ presentationPodIds,presentationsPodIds, ...
   
       return (
         <ErrorBoundary Fallback={FallbackPresentation}>
-          <PresentationPods presentationPodIds={presentationPodIds} {...props} />
+          <PresentationSplitPods presentationPodIds={presentationPodIds} {...props} />
         </ErrorBoundary>
       );
    
@@ -32,9 +32,9 @@ const PresentationPodsContainer = ({ presentationPodIds,presentationsPodIds, ...
 export default withTracker(() => ({
   presentationPodIds: PresentationPodService.getPresentationPodIds(),
   presentationsPodIds: PresentationPodService.getPresentationsPodIds()
-}))(PresentationPodsContainer);
+}))(PresentationPodsSplitContainer);
 
-PresentationPodsContainer.propTypes = {
+PresentationPodsSplitContainer.propTypes = {
   presentationPodIds: PropTypes.arrayOf(PropTypes.shape({
     podId: PropTypes.string.isRequired,
   })).isRequired,
