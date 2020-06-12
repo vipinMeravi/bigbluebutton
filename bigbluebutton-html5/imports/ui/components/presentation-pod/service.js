@@ -16,6 +16,22 @@ const getPresentationPodIds = () => {
   return podIds;
 };
 
+const getPresentationsPodIds = () => {
+  const podIds = PresentationPods.find(
+    {
+      meetingId: Auth.meetingID,
+    },
+    // {
+    //   fields: {
+    //     podId: 1,
+    //   },
+    // },
+  ).fetch();
+
+  return podIds;
+};
+
 export default {
   getPresentationPodIds,
+  getPresentationsPodIds
 };

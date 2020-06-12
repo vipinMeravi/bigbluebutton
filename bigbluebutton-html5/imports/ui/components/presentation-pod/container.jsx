@@ -9,10 +9,11 @@ import PresentationPods from './component';
 // PresentationPods component will be the place to go once we have the presentation pods designs
 // it should give each PresentationAreaContainer some space
 // which it will fill with the uploaded presentation
-const PresentationPodsContainer = ({ presentationPodIds, ...props }) => {
+const PresentationPodsContainer = ({ presentationPodIds,presentationsPodIds, ...props }) => {
   console.log("=========Presentation Pod Container propes==========")
   console.log(presentationPodIds);
-  console.log(props);
+  console.log(presentationsPodIds);
+  console.log({...props});
   console.log("=========Presentation Pod Container propes==========")
   if (presentationPodIds && presentationPodIds.length > 0) {
     return (
@@ -26,7 +27,8 @@ const PresentationPodsContainer = ({ presentationPodIds, ...props }) => {
 };
 
 export default withTracker(() => ({
-  presentationPodIds: PresentationPodService.getPresentationPodIds()
+  presentationPodIds: PresentationPodService.getPresentationPodIds(),
+  presentationsPodIds: PresentationPodService.getPresentationsPodIds()
 }))(PresentationPodsContainer);
 
 PresentationPodsContainer.propTypes = {
