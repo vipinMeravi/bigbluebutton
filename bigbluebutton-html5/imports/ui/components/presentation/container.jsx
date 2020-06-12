@@ -13,7 +13,8 @@ import getFromUserSettings from '/imports/ui/services/users-settings';
 const ROLE_VIEWER = Meteor.settings.public.user.role_viewer;
 
 const PresentationAreaContainer = ({ presentationPodIds, mountPresentationArea, ...props }) => (
-  mountPresentationArea && <PresentationArea {...props} />
+  // mountPresentationArea && 
+  <PresentationArea {...props} />
 );
 
 export default withTracker(({ podId }) => {
