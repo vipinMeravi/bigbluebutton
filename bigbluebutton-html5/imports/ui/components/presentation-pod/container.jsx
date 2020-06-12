@@ -31,8 +31,8 @@ const PresentationPodsContainer = ({ presentationPodIds,presentationsPodIds, ...
     } else if (props.screen_value == "screen_two"){
       let presentation_pod_ids = [];
       let temp_obj = {
-        podId: presentationsPodIds[0].podId,
-        _id: presentationsPodIds[0]._id,
+        podId: presentationsPodIds[1].podId,
+        _id: presentationsPodIds[1]._id,
       }
       presentation_pod_ids.push(temp_obj) 
       console.log("=======<< Screen Two Presentation >>=======");
