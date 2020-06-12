@@ -16,7 +16,7 @@ const PresentationAreaContainer = ({ presentationPodIds, mountPresentationArea, 
   mountPresentationArea && <PresentationArea {...props} />
 );
 
-export default withTracker(({ podId }, props) => {
+export default withTracker(({ podId, ...props }) => {
   const currentSlide = PresentationAreaService.getCurrentSlide(podId);
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
