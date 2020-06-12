@@ -153,7 +153,7 @@ export default withModalMounter(withTracker((props) => {
 
     } else if(props.screen_value == "screen_two" && props.screen_for == "document"){
 
-      // data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
+      data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
       // data.children = <PresentationPodsContainer/>;
       data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
 
