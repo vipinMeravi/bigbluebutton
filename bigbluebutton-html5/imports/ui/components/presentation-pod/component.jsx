@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import PresentationAreaContainer from '../presentation/container';
-import PresentationAreaSplitContainer from '../presentation/container';
+import PresentationAreaSplitContainer from '../presentation-split/container';
 
 class PresentationPods extends PureComponent {
   render() {

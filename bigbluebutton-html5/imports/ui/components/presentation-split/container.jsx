@@ -18,12 +18,12 @@ const PresentationAreaContainer = ({ presentationPodIds, mountPresentationArea, 
 
 export default withTracker(({ podId, screen_value }) => {
   const currentSlide = PresentationAreaService.getCurrentSlide(podId, screen_value);
-  console.log('======================================>>> podid =======>')
-  console.log('======================================>>> podid =======>')
+  console.log('=====================Split Part=================>>> podid =======>')
+  console.log('=====================Split Part=================>>> podid =======>')
   console.log(podId)
-  console.log(PresentationAreaService.getAllPresentation())
-  console.log('======================================>>> podid =======>')
-  console.log('======================================>>> podid =======>')
+ 
+  console.log('=====================Split Part=================>>> podid =======>')
+  console.log('=====================Split Part=================>>> podid =======>')
   const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podId, screen_value);
   const layoutSwapped = getSwapLayout() && shouldEnableSwapLayout();
   const isViewer = Users.findOne({ meetingId: Auth.meetingID, userId: Auth.userID }, {
