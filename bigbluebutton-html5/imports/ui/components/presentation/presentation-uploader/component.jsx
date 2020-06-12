@@ -331,7 +331,6 @@ class PresentationUploader extends Component {
 
   handleDismiss() {
     const { mountModal } = this.props;
-    this.props.getScreenValue(this.state.screen);
     return new Promise((resolve) => {
       mountModal(null);
 

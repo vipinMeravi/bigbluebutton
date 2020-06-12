@@ -145,13 +145,13 @@ export default withModalMounter(withTracker((props) => {
     data.currentPresentation = MediaService.getPresentationInfo();
 
     if(props.screen_value == "fullscreen" && props.screen_for == "document"){
-      data.children = <PresentationPodsContainer />;
+      data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
       data.children_split = null;
     } else if(props.screen_value == "screen_one" && props.screen_for == "document"){
       data.children_split = data.children;
-      data.children = <PresentationPodsContainer />;
+      data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
     } else {
-      data.children_split = <PresentationPodsContainer />;
+      data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
     }
     
 
