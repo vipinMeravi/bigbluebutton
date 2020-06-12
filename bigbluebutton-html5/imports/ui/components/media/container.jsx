@@ -11,7 +11,6 @@ import { withModalMounter } from '/imports/ui/components/modal/service';
 import Media from './component';
 import MediaService, { getSwapLayout, shouldEnableSwapLayout } from './service';
 import PresentationPodsContainer from '../presentation-pod/container';
-import PresentationPodsContainerNew from '../presentation-pod/container';
 import ScreenshareContainer from '../screenshare/container';
 import DefaultContent from '../presentation/default-content/component';
 import ExternalVideoContainer from '../external-video-player/container';
@@ -155,7 +154,7 @@ export default withModalMounter(withTracker((props) => {
     } else if(props.screen_value == "screen_two" && props.screen_for == "document"){
 
       data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
-      data.children_split = <PresentationPodsContainerNew screen_value={props.screen_value}/>;
+      data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
 
     } else if(props.screen_value == "fullscreen" && props.screen_for == "media"){
       
