@@ -21,7 +21,6 @@ export default withTracker(({ podId, screen_value }) => {
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
   console.log(podId)
-  
   console.log(PresentationAreaService.getAllPresentation())
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
