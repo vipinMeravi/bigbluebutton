@@ -18,9 +18,9 @@ const getPresentationPodIds = () => {
 
 const getPresentationsPodIds = () => {
   const podIds = PresentationPods.find(
-    {
-      meetingId: Auth.meetingID,
-    },
+    // {
+    //   meetingId: Auth.meetingID,
+    // },
     // {
     //   fields: {
     //     podId: 1,
