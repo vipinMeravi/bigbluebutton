@@ -358,7 +358,7 @@ class PresentationUploader extends Component {
         isDownloadable: false, // by default new presentations are set not to be downloadable
         id,
         filename: file.name,
-        isCurrent: true,
+        isCurrent: false,
         conversion: { done: false, error: false },
         upload: { done: false, error: false, progress: 0 },
         onProgress: (event) => {
