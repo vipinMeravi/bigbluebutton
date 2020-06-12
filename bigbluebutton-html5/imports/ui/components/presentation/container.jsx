@@ -13,16 +13,15 @@ import getFromUserSettings from '/imports/ui/services/users-settings';
 const ROLE_VIEWER = Meteor.settings.public.user.role_viewer;
 
 const PresentationAreaContainer = ({ presentationPodIds, mountPresentationArea, ...props }) => (
-  // mountPresentationArea && 
-  <PresentationArea {...props} />
+  mountPresentationArea && <PresentationArea {...props} />
 );
 
-export default withTracker(({ podId }) => {
+export default withTracker(({ podId, props }) => {
   const currentSlide = PresentationAreaService.getCurrentSlide(podId);
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
   console.log(podId)
-  console.log(currentSlide)
+  console.log(props)
   console.log(PresentationAreaService.getAllPresentation())
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
