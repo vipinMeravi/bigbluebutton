@@ -35,6 +35,9 @@ const PresentationPodsContainer = ({ presentationPodIds,presentationsPodIds, ...
         _id: presentationsPodIds[0]._id,
       }
       presentation_pod_ids.push(temp_obj) 
+      console.log("=======<< Screen Two Presentation >>=======");
+      console.log(presentation_pod_ids);
+      console.log("=======<< Screen Two Presentation >>=======");
       return (
         <ErrorBoundary Fallback={FallbackPresentation}>
           <PresentationPods presentationPodIds={presentation_pod_ids} {...props} />
