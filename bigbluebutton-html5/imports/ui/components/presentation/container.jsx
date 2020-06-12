@@ -17,7 +17,7 @@ const PresentationAreaContainer = ({ presentationPodIds, mountPresentationArea, 
 );
 
 export default withTracker(({ podId, ...props }) => {
-  const currentSlide = PresentationAreaService.getCurrentSlide(podId);
+  const currentSlide = PresentationAreaService.getCurrentSlide(podId, props.screen_value);
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
   console.log(podId)
@@ -25,7 +25,7 @@ export default withTracker(({ podId, ...props }) => {
   console.log(PresentationAreaService.getAllPresentation())
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
-  const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podId);
+  const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podId, props.screen_value);
   const layoutSwapped = getSwapLayout() && shouldEnableSwapLayout();
   const isViewer = Users.findOne({ meetingId: Auth.meetingID, userId: Auth.userID }, {
     fields: {
@@ -44,13 +44,13 @@ export default withTracker(({ podId, ...props }) => {
   return {
     currentSlide,
     slidePosition,
-    downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podId),
+    downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podId, props.screen_value),
     userIsPresenter: PresentationAreaService.isPresenter(podId) && !layoutSwapped,
     multiUser: PresentationAreaService.getMultiUserStatus(currentSlide && currentSlide.id)
       && !layoutSwapped,
     presentationIsDownloadable,
     mountPresentationArea: !!currentSlide,
-    currentPresentation: PresentationAreaService.getCurrentPresentation(podId),
+    currentPresentation: props.screen_value == "screen_two" ? PresentationAreaService.getNonCurrentPresentation(podId) :PresentationAreaService.getCurrentPresentation(podId),
     notify,
     zoomSlide: PresentationToolbarService.zoomSlide,
     layoutSwapped,

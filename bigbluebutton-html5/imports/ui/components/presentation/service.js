@@ -10,13 +10,18 @@ const getCurrentPresentation = podId => Presentations.findOne({
   current: true,
 });
 
+const getNonCurrentPresentation = podId => Presentations.findOne({
+  podId,
+  current: false,
+});
+
 const getAllPresentation = () => Presentations.find({
   // podId,
   name: "default.pdf",
 });
 
-const downloadPresentationUri = (podId) => {
-  const currentPresentation = getCurrentPresentation(podId);
+const downloadPresentationUri = (podId, screen_value) => {
+  const currentPresentation = screen_value == "screen_two"? getNonCurrentPresentation(podId):  getCurrentPresentation(podId);
   if (!currentPresentation) {
     return null;
   }
@@ -30,8 +35,8 @@ const downloadPresentationUri = (podId) => {
   return uri;
 };
 
-const isPresentationDownloadable = (podId) => {
-  const currentPresentation = getCurrentPresentation(podId);
+const isPresentationDownloadable = (podId, screen_value) => {
+  const currentPresentation = screen_value == "screen_two"? getNonCurrentPresentation(podId): getCurrentPresentation(podId);
   if (!currentPresentation) {
     return null;
   }
@@ -39,8 +44,10 @@ const isPresentationDownloadable = (podId) => {
   return currentPresentation.downloadable;
 };
 
-const getCurrentSlide = (podId) => {
-  const currentPresentation = getCurrentPresentation(podId);
+const getCurrentSlide = (podId, screen_value) => {
+
+  const currentPresentation = screen_value == "screen_two"? getNonCurrentPresentation(podId): getCurrentPresentation(podId);
+   
 
   if (!currentPresentation) {
     return null;
@@ -196,5 +203,6 @@ export default {
   currentSlidHasContent,
   parseCurrentSlideContent,
   getCurrentPresentation,
-  getAllPresentation
+  getAllPresentation,
+  getNonCurrentPresentation
 };
