@@ -80,18 +80,7 @@ class NavBar extends PureComponent {
       mountModal,
       presentationTitle,
       amIModerator,
-    } = this.props;
-
-
-    const toggleBtnClasses = {};
-    toggleBtnClasses[styles.btn] = true;
-    toggleBtnClasses[styles.btnWithNotificationDot] = hasUnreadMessages;
-
-    let ariaLabel = intl.formatMessage(intlMessages.toggleUserListAria);
-    ariaLabel += hasUnreadMessages ? (` ${intl.formatMessage(intlMessages.newMessages)}`) : '';
-
-    //Action bar
-    const {
+      //Action Bar
       amIPresenter,
       handleExitVideo,
       handleJoinVideo,
@@ -118,6 +107,16 @@ class NavBar extends PureComponent {
       allowExternalVideo,
       getScreenValue
     } = this.props;
+
+
+    const toggleBtnClasses = {};
+    toggleBtnClasses[styles.btn] = true;
+    toggleBtnClasses[styles.btnWithNotificationDot] = hasUnreadMessages;
+
+    let ariaLabel = intl.formatMessage(intlMessages.toggleUserListAria);
+    ariaLabel += hasUnreadMessages ? (` ${intl.formatMessage(intlMessages.newMessages)}`) : '';
+
+    //Action bar
 
     const actionBarClasses = {};
 
