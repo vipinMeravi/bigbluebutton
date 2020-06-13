@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import Presentations from '/imports/api/presentations';
+import Presentations from '/imports/api/presentations-split';
 import Logger from '/imports/startup/server/logger';
 import { extractCredentials } from '/imports/api/common/server/helpers';
 

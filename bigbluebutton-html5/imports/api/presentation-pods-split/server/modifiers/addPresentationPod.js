@@ -1,5 +1,5 @@
 import { Match, check } from 'meteor/check';
-import PresentationPods from '/imports/api/presentation-pods';
+import PresentationPods from '/imports/api/presentation-pods-split';
 import Logger from '/imports/startup/server/logger';
 import addPresentation from '/imports/api/presentations/server/modifiers/addPresentation';
 

@@ -1,5 +1,5 @@
 import { check } from 'meteor/check';
-import Presentations from '/imports/api/presentations';
+import Presentations from '/imports/api/presentations-split';
 import Logger from '/imports/startup/server/logger';
 
 export default function setCurrentPresentation(meetingId, podId, presentationId) {

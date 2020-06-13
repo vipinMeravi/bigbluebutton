@@ -1,5 +1,5 @@
 import { check } from 'meteor/check';
-import PresentationPods from '/imports/api/presentation-pods';
+import PresentationPods from '/imports/api/presentation-pods-split';
 import removePresentationPod from '../modifiers/removePresentationPod';
 import addPresentationPod from '../modifiers/addPresentationPod';
 

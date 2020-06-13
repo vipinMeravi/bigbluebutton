@@ -1,6 +1,6 @@
 import { HTTP } from 'meteor/http';
 import { check } from 'meteor/check';
-import Presentations from '/imports/api/presentations';
+import Presentations from '/imports/api/presentations-split';
 import Logger from '/imports/startup/server/logger';
 import flat from 'flat';
 import addSlide from '/imports/api/slides/server/modifiers/addSlide';

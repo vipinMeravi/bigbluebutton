@@ -1,5 +1,5 @@
 import { check } from 'meteor/check';
-import Presentations from '/imports/api/presentations';
+import Presentations from '/imports/api/presentations-split';
 import Logger from '/imports/startup/server/logger';
 
 import clearSlidesPresentation from '/imports/api/slides/server/modifiers/clearSlidesPresentation';
