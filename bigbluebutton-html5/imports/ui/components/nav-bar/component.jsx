@@ -148,7 +148,10 @@ class NavBar extends PureComponent {
               : <Icon iconName="right_arrow" className={styles.arrowRight} />
             }
           </div>
-          <ActionsDropdown {...{
+
+          <div className={styles.center}>
+            <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
+            <ActionsDropdown {...{
             amIPresenter,
             amIModerator,
             isPollingEnabled,
@@ -161,14 +164,12 @@ class NavBar extends PureComponent {
             getScreenValue
           }}
           />
-          <div className={styles.center}>
-            <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
-
             <RecordingIndicator
               mountModal={mountModal}
               amIModerator={amIModerator}
             />
           </div>
+
           <div className={styles.right}>
             <SettingsDropdownContainer amIModerator={amIModerator} />
           </div>
