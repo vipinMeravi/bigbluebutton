@@ -13,6 +13,8 @@
   flex-direction: column;
   align-self: flex-start;
   padding: calc(var(--line-height-computed) / 2) var(--line-height-computed);
+  width: 50%;
+  height: 50%;
 
   @include mq($small-only) {
     width: 100%;

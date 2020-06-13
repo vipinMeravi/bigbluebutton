@@ -23,6 +23,7 @@ import MediaService from '/imports/ui/components/media/service';
 import ManyWebcamsNotifier from '/imports/ui/components/video-provider/many-users-notify/container';
 import { styles } from './styles';
 
+import NavBarContainer from '../nav-bar/container';
 import MediaContainer from '../media/container';
 import ActionsBarContainer from '../actions-bar/container';
 
