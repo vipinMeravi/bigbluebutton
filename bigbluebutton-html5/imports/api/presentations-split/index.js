@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
-const Presentations = new Mongo.Collection('presentations');
+const Presentations = new Mongo.Collection('presentations-split');
 
 if (Meteor.isServer) {
   // types of queries for the presentations:
