@@ -196,11 +196,9 @@ class NavBar extends PureComponent {
               isMeteorConnected,
               screenshareDataSavingSetting,
             }}
-            />        
-          </div>
+            />   
 
-          <div className={cx(actionBarClasses)}>
-          <AudioControlsContainer />
+            <AudioControlsContainer />
               {enableVideo
                 ? (
                   <JoinVideoOptionsContainer
@@ -208,11 +206,11 @@ class NavBar extends PureComponent {
                     handleCloseVideo={handleExitVideo}
                   />
                 )
-                : null}
-            
+              : null}     
+          </div>
 
+          <div className={cx(actionBarClasses)}>
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
-
             <RecordingIndicator
               mountModal={mountModal}
               amIModerator={amIModerator}

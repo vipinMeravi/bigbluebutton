@@ -335,7 +335,22 @@ class App extends Component {
         <NotificationsBarContainer />
         <section className={styles.wrapper}>
           <div className={openPanel ? styles.content : styles.noPanelContent}>
-            {this.renderNavBar()}
+            {/* {this.renderNavBar()} */}
+
+            <header className={styles.navbar}>
+              <NavBarContainer getScreenValue={(screen_value, screen_for)=>{
+                console.log('==================?>>>>>??>>?>>??')
+                console.log(this.state.screen_value)
+                console.log('==================?>>>>>??>>?>>??')
+                this.setState({
+                  screen_value: screen_value,
+                  screen_for: screen_for
+                },()=>{
+                  console.log('=========?>>>UPDAGTE>>??>>?>',this.state.screen_value)
+                })
+              }} />
+            </header>      
+
             {/* {this.renderMedia()} */}
 
             <section
