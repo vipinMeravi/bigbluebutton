@@ -27,6 +27,7 @@ const getCurrentCursorIds = (podId, whiteboardId) => {
   const pod = PresentationPods.findOne({ meetingId: Auth.meetingID, podId });
   if (pod) {
     // fetching the presenter cursor id
+    console.log("=========>>> cursur id <<<=========", pod)
     data.presenterCursorId = getPresenterCursorId(whiteboardId, pod.currentPresenterId);
   }
 
