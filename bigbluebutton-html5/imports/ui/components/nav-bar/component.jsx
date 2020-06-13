@@ -14,6 +14,12 @@ import TalkingIndicatorContainer from '/imports/ui/components/nav-bar/talking-in
 import SettingsDropdownContainer from './settings-dropdown/container';
 
 import ActionsDropdown from './actions-dropdown/component';
+import DesktopShare from './desktop-share/component';
+import QuickPollDropdown from './quick-poll-dropdown/component';
+import AudioControlsContainer from '../audio/audio-controls/container';
+import JoinVideoOptionsContainer from '../video-provider/video-button/container';
+import CaptionsButtonContainer from '/imports/ui/components/actions-bar/captions/container';
+import PresentationOptionsContainer from './presentation-options/component';
 
 
 const intlMessages = defineMessages({
@@ -147,23 +153,63 @@ class NavBar extends PureComponent {
             {isExpanded ? null
               : <Icon iconName="right_arrow" className={styles.arrowRight} />
             }
+
+            <ActionsDropdown {...{
+                amIPresenter,
+                amIModerator,
+                isPollingEnabled,
+                allowExternalVideo,
+                handleTakePresenter,
+                intl,
+                isSharingVideo,
+                stopExternalVideoShare,
+                isMeteorConnected,
+                getScreenValue
+              }}
+            />
+            { isPollingEnabled
+              ? (
+                <QuickPollDropdown
+                  {...{
+                    currentSlidHasContent,
+                    intl,
+                    amIPresenter,
+                    parseCurrentSlideContent,
+                  }}
+                />
+            ) : null
+            } 
+            {isCaptionsAvailable
+              ? (
+                <CaptionsButtonContainer {...{ intl }} />
+              )
+              : null
+            }            
           </div>
 
           <div className={styles.center}>
-            <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
-            <ActionsDropdown {...{
+          <AudioControlsContainer />
+          {enableVideo
+            ? (
+              <JoinVideoOptionsContainer
+                handleJoinVideo={handleJoinVideo}
+                handleCloseVideo={handleExitVideo}
+              />
+            )
+            : null}
+          <DesktopShare {...{
+            handleShareScreen,
+            handleUnshareScreen,
+            isVideoBroadcasting,
             amIPresenter,
-            amIModerator,
-            isPollingEnabled,
-            allowExternalVideo,
-            handleTakePresenter,
-            intl,
-            isSharingVideo,
-            stopExternalVideoShare,
+            screenSharingCheck,
+            screenShareEndAlert,
             isMeteorConnected,
-            getScreenValue
+            screenshareDataSavingSetting,
           }}
           />
+            <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
+
             <RecordingIndicator
               mountModal={mountModal}
               amIModerator={amIModerator}
