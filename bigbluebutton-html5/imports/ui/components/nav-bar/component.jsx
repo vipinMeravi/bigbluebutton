@@ -112,6 +112,19 @@ class NavBar extends PureComponent {
               : <Icon iconName="right_arrow" className={styles.arrowRight} />
             }
           </div>
+          <ActionsDropdown {...{
+            amIPresenter,
+            amIModerator,
+            isPollingEnabled,
+            allowExternalVideo,
+            handleTakePresenter,
+            intl,
+            isSharingVideo,
+            stopExternalVideoShare,
+            isMeteorConnected,
+            getScreenValue
+          }}
+          />
           <div className={styles.center}>
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
 
