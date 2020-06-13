@@ -111,28 +111,30 @@ class ModalFullscreen extends PureComponent {
       >
         <header className={styles.header}>
           <h1 className={styles.title}>{title}</h1>
+        </header>
+        <header className={styles.header}>
           <div className={styles.actions}>
-            <Button
-              data-test="modalDismissButton"
-              className={styles.dismiss}
-              label={intl.formatMessage(intlMessages.modalClose)}
-              aria-label={`${intl.formatMessage(intlMessages.modalClose)} ${title}`}
-              disabled={dismiss.disabled}
-              onClick={() => this.handleAction('dismiss')}
-              aria-describedby="modalDismissDescription"
-            />
-            <Button
-              data-test="modalConfirmButton"
-              color="primary"
-              className={popoutIcon ? cx(styles.confirm, styles.popout) : styles.confirm}
-              label={confirm.label || intl.formatMessage(intlMessages.modalDone)}
-              aria-label={confirmAriaLabel}
-              disabled={confirm.disabled}
-              onClick={() => this.handleAction('confirm')}
-              aria-describedby="modalConfirmDescription"
-              icon={confirm.icon || null}
-              iconRight={popoutIcon}
-            />
+              <Button
+                data-test="modalDismissButton"
+                className={styles.dismiss}
+                label={intl.formatMessage(intlMessages.modalClose)}
+                aria-label={`${intl.formatMessage(intlMessages.modalClose)} ${title}`}
+                disabled={dismiss.disabled}
+                onClick={() => this.handleAction('dismiss')}
+                aria-describedby="modalDismissDescription"
+              />
+              <Button
+                data-test="modalConfirmButton"
+                color="primary"
+                className={popoutIcon ? cx(styles.confirm, styles.popout) : styles.confirm}
+                label={confirm.label || intl.formatMessage(intlMessages.modalDone)}
+                aria-label={confirmAriaLabel}
+                disabled={confirm.disabled}
+                onClick={() => this.handleAction('confirm')}
+                aria-describedby="modalConfirmDescription"
+                icon={confirm.icon || null}
+                iconRight={popoutIcon}
+              />
           </div>
         </header>
         <div className={styles.content}>
