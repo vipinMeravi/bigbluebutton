@@ -90,6 +90,41 @@ class NavBar extends PureComponent {
     let ariaLabel = intl.formatMessage(intlMessages.toggleUserListAria);
     ariaLabel += hasUnreadMessages ? (` ${intl.formatMessage(intlMessages.newMessages)}`) : '';
 
+    //Action bar
+    const {
+      amIPresenter,
+      handleExitVideo,
+      handleJoinVideo,
+      handleShareScreen,
+      handleUnshareScreen,
+      isVideoBroadcasting,
+      amIModerator,
+      screenSharingCheck,
+      enableVideo,
+      isLayoutSwapped,
+      toggleSwapLayout,
+      handleTakePresenter,
+      intl,
+      currentSlidHasContent,
+      parseCurrentSlideContent,
+      isSharingVideo,
+      screenShareEndAlert,
+      stopExternalVideoShare,
+      screenshareDataSavingSetting,
+      isCaptionsAvailable,
+      isMeteorConnected,
+      isPollingEnabled,
+      isThereCurrentPresentation,
+      allowExternalVideo,
+      getScreenValue
+    } = this.props;
+
+    const actionBarClasses = {};
+
+    actionBarClasses[styles.centerWithActions] = amIPresenter;
+    actionBarClasses[styles.center] = true;
+    actionBarClasses[styles.mobileLayoutSwapped] = isLayoutSwapped && amIPresenter;
+
     return (
       <div className={styles.navbar}>
         <div className={styles.top}>
