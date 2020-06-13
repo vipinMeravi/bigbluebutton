@@ -13,6 +13,8 @@ import RecordingIndicator from './recording-indicator/container';
 import TalkingIndicatorContainer from '/imports/ui/components/nav-bar/talking-indicator/container';
 import SettingsDropdownContainer from './settings-dropdown/container';
 
+import ActionsDropdown from './actions-dropdown/component';
+
 
 const intlMessages = defineMessages({
   toggleUserListLabel: {
