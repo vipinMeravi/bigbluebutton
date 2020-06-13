@@ -21,7 +21,7 @@ export default withTracker(({ podsplitId, screen_value }) => {
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
   console.log(podsplitId)
- 
+  console.log(currentSplitSlide);
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
   const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podsplitId, screen_value);
@@ -44,7 +44,7 @@ export default withTracker(({ podsplitId, screen_value }) => {
     currentSplitSlide,
     slidePosition,
     downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podsplitId, screen_value),
-    userIsPresenter: PresentationAreaService.isPresenter(podsplitId) && !layoutSwapped,
+    // userIsPresenter: PresentationAreaService.isPresenter(podsplitId) && !layoutSwapped,
     multiUser: PresentationAreaService.getMultiUserStatus(currentSplitSlide && currentSplitSlide.id)
       && !layoutSwapped,
     presentationIsDownloadable,
