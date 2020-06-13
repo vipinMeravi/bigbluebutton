@@ -184,7 +184,19 @@ class NavBar extends PureComponent {
                 <CaptionsButtonContainer {...{ intl }} />
               )
               : null
-            }       
+            }    
+
+            <DesktopShare {...{
+              handleShareScreen,
+              handleUnshareScreen,
+              isVideoBroadcasting,
+              amIPresenter,
+              screenSharingCheck,
+              screenShareEndAlert,
+              isMeteorConnected,
+              screenshareDataSavingSetting,
+            }}
+            />        
           </div>
 
           <div className={cx(actionBarClasses)}>
@@ -197,17 +209,7 @@ class NavBar extends PureComponent {
                   />
                 )
                 : null}
-            <DesktopShare {...{
-              handleShareScreen,
-              handleUnshareScreen,
-              isVideoBroadcasting,
-              amIPresenter,
-              screenSharingCheck,
-              screenShareEndAlert,
-              isMeteorConnected,
-              screenshareDataSavingSetting,
-            }}
-            />     
+            
 
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
 
@@ -218,6 +220,15 @@ class NavBar extends PureComponent {
           </div>
 
           <div className={styles.right}>
+          {isLayoutSwapped
+            ? (
+              <PresentationOptionsContainer
+                toggleSwapLayout={toggleSwapLayout}
+                isThereCurrentPresentation={isThereCurrentPresentation}
+              />
+            )
+            : null
+          }
             <SettingsDropdownContainer amIModerator={amIModerator} />
           </div>
         </div>
