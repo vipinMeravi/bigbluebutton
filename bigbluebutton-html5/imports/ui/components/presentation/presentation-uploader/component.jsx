@@ -860,7 +860,7 @@ class PresentationUploader extends Component {
       : intl.formatMessage(intlMessages.confirmLabel);
 
     return (
-      <ModalFullscreen
+      <Modal
         title={this.props.isPdf? "PDF ":intl.formatMessage(intlMessages.title)}
         preventClosing={preventClosing}
         confirm={{
@@ -882,7 +882,7 @@ class PresentationUploader extends Component {
           {isMobileBrowser ? this.renderPicDropzone() : null}
           {this.renderDropzone()}
         </div>
-      </ModalFullscreen>
+      </Modal>
     );
   }
 }
