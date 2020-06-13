@@ -12,19 +12,20 @@ import getFromUserSettings from '/imports/ui/services/users-settings';
 
 const ROLE_VIEWER = Meteor.settings.public.user.role_viewer;
 
-const PresentationAreaContainer = ({ presentationSplitpodsplitIds, mountSplitPresentationArea, ...props }) => (
+const PresentationAreaContainer = ({ presentationSplitPodIds, mountSplitPresentationArea, ...props }) => (
   mountSplitPresentationArea && <PresentationArea {...props} />
 );
 
 export default withTracker(({ podsplitId, screen_value }) => {
-  const currentSplitSlide = PresentationAreaService.getCurrentSlide(podsplitId, screen_value);
-  console.log('======================================>>> podsplitId =======>')
-  console.log('======================================>>> podsplitId =======>')
+  const currentSplitSlide = PresentationAreaService.getCurrentSlide(podId, screen_value);
+  console.log('======================================>>> podid =======>')
+  console.log('======================================>>> podid =======>')
   console.log(podsplitId)
-  console.log('======================================>>> podsplitId =======>')
-  console.log('======================================>>> podsplitId =======>')
-  const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podsplitId, screen_value);
-  // const layoutSwapped = getSwapLayout() && shouldEnableSwapLayout();
+ 
+  console.log('======================================>>> podid =======>')
+  console.log('======================================>>> podid =======>')
+  const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podId, screen_value);
+  const layoutSwapped = getSwapLayout() && shouldEnableSwapLayout();
   const isViewer = Users.findOne({ meetingId: Auth.meetingID, userId: Auth.userID }, {
     fields: {
       role: 1,
@@ -37,21 +38,21 @@ export default withTracker(({ podsplitId, screen_value }) => {
       presentationId,
       id: slideId,
     } = currentSplitSlide;
-    slidePosition = PresentationAreaService.getSlidePosition(podsplitId, presentationId, slideId);
+    slidePosition = PresentationAreaService.getSlidePosition(podId, presentationId, slideId);
   }
   return {
     currentSplitSlide,
     slidePosition,
-    downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podsplitId, screen_value),
-    userIsPresenter: PresentationAreaService.isPresenter(podsplitId),
+    downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podId, screen_value),
+    userIsPresenter: PresentationAreaService.isPresenter(podId) && !layoutSwapped,
     multiUser: PresentationAreaService.getMultiUserStatus(currentSplitSlide && currentSplitSlide.id)
-      ,
+      && !layoutSwapped,
     presentationIsDownloadable,
     mountSplitPresentationArea: !!currentSplitSlide,
-    currentPresentation: screen_value == "screen_two" ? PresentationAreaService.getNonCurrentPresentation(podsplitId) :PresentationAreaService.getCurrentPresentation(podsplitId),
+    currentPresentation: screen_value == "screen_two" ? PresentationAreaService.getNonCurrentPresentation(podId) :PresentationAreaService.getCurrentPresentation(podId),
     notify,
     zoomSlide: PresentationToolbarService.zoomSlide,
-    
+    layoutSwapped,
     toggleSwapLayout: MediaService.toggleSwapLayout,
     publishedPoll: Meetings.findOne({ meetingId: Auth.meetingID }, {
       fields: {
