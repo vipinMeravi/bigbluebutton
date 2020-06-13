@@ -14,6 +14,7 @@ export default function handleCreateNewPresentationPod({ body }, meetingId) {
     currentPresenterId,
     podId,
   };
-
+  console.log("===========>> Handle Create New Presnentation Body <<========",  body);
+  console.log("===========>> Handle Create New Presnentation pod <<========",  pod);
   addPresentationPod(meetingId, pod);
 }

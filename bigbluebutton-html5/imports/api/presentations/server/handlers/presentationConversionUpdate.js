@@ -22,6 +22,7 @@ const GENERATED_SLIDE_KEY = 'GENERATED_SLIDE';
 export default function handlePresentationConversionUpdate({ body }, meetingId) {
   check(body, Object);
 
+  console.log("=============>> handlePresentationConversionUpdate <<===========", body);
   const {
     presentationId, podId, messageKey: status, presName: presentationName,
   } = body;

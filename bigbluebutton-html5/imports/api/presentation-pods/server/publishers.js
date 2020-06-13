@@ -14,6 +14,7 @@ function presentationPods() {
 }
 
 function publish(...args) {
+  console.log("========>> prsentation pod api <<======= ", args);
   const boundPresentationPods = presentationPods.bind(this);
   return boundPresentationPods(...args);
 }

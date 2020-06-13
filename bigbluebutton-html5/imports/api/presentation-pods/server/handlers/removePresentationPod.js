@@ -9,5 +9,7 @@ export default function handleRemovePresentationPod({ body }, meetingId) {
 
   check(podId, String);
 
+  console.log("+++++++>>Remove Presentation Pod Body <<+++++", body)
+
   removePresentationPod(meetingId, podId);
 }

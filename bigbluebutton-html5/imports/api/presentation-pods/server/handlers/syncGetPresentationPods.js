@@ -10,6 +10,8 @@ export default function handleSyncGetPresentationPods({ body }, meetingId) {
   const { pods } = body;
   check(pods, Array);
 
+  console.log("=======>>Sync Get Presnentaion pod <<=========", body);
+
   const presentationPodIds = pods.map(pod => pod.id);
 
   const presentationPodsToRemove = PresentationPods.find({

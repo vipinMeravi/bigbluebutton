@@ -3,7 +3,7 @@ import setCurrentPresentation from '../modifiers/setCurrentPresentation';
 
 export default function handlePresentationCurrentSet({ body }, meetingId) {
   check(body, Object);
-
+  console.log("=============>> handlePresentationCurrentSet <<===========", body);
   const { presentationId, podId } = body;
 
   check(meetingId, String);

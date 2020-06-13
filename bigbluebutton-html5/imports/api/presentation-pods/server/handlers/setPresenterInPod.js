@@ -9,5 +9,7 @@ export default function handleSetPresenterInPod({ body }, meetingId) {
   check(podId, String);
   check(nextPresenterId, String);
 
+  console.log("========>>Handle Set Presenttaion Pod <<======", body);
+
   setPresenterInPod(meetingId, podId, nextPresenterId);
 }

@@ -22,10 +22,7 @@ const PresentationPodsSplitContainer = ({ presentationPodIds,presentationsPodIds
           <PresentationSplitPods presentationPodIds={presentationPodIds} {...props} />
         </ErrorBoundary>
       );
-   
-
   }
-
   return null;
 };
 

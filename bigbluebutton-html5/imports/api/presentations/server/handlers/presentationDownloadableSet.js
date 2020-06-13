@@ -3,7 +3,7 @@ import setPresentationDownloadable from '../modifiers/setPresentationDownloadabl
 
 export default function handlePresentationDownloadableSet({ body }, meetingId) {
   check(body, Object);
-
+  console.log("=============>> handlePresentationDownloadableSet <<===========", body);
   const { presentationId, podId, downloadable } = body;
 
   check(meetingId, String);
