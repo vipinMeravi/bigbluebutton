@@ -364,11 +364,11 @@ class App extends Component {
             </section>
 
 
-            <section
+            {/* <section
               className={styles.actionsbar}
               aria-label={this.props.intl.formatMessage(intlMessages.actionsBarLabel)}
               aria-hidden={this.shouldAriaHide()}
-            >
+            > */}
               {/* <ActionsBarContainer updateArrScreen={()=>{
                 console.log('==================?>>>>>??>>?>>??')
                 console.log(this.state.isUpdate)
