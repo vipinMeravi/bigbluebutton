@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import PresentationAreaContainer from '../presentation/container';
+import PresentationSplitAreaContainer from '../presentation-split/container';
 
 class PresentationSplitPods extends PureComponent {
   render() {
@@ -13,7 +13,7 @@ class PresentationSplitPods extends PureComponent {
    console.log(this.props);
    console.log("=========Presentation Pod propes==========")
    return (
-    <PresentationAreaContainer podId="DEFAULT_PRESENTATION_POD" {...this.props} />
+    <PresentationSplitAreaContainer podsplitId="DEFAULT_PRESENTATION_POD" {...this.props} />
   );
   }
 }
@@ -22,6 +22,6 @@ export default PresentationSplitPods;
 
 PresentationSplitPods.propTypes = {
   presentationPodIds: PropTypes.arrayOf(PropTypes.shape({
-    podId: PropTypes.string.isRequired,
+    podsplitId: PropTypes.string.isRequired,
   })).isRequired,
 };

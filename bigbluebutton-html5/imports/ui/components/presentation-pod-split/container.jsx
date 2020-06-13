@@ -16,10 +16,13 @@ const PresentationPodsSplitContainer = ({ presentationPodIds,presentationsPodIds
   console.log({...props});
   console.log("=========Presentation Split Pod Container propes==========")
   if (presentationPodIds && presentationPodIds.length > 0) {
-  
+      let temp_obj = {
+        podId: presentationsPodIds[1].podId,
+        _id: presentationsPodIds[1]._id
+      }
       return (
         <ErrorBoundary Fallback={FallbackPresentation}>
-          <PresentationSplitPods presentationPodIds={presentationPodIds} {...props} />
+          <PresentationSplitPods presentationPodIds={[temp_obj]} {...props} />
         </ErrorBoundary>
       );
   }

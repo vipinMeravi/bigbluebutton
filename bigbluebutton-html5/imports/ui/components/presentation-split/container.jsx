@@ -12,20 +12,20 @@ import getFromUserSettings from '/imports/ui/services/users-settings';
 
 const ROLE_VIEWER = Meteor.settings.public.user.role_viewer;
 
-const PresentationAreaContainer = ({ presentationPodIds, mountPresentationArea, ...props }) => (
-  mountPresentationArea && <PresentationArea {...props} />
+const PresentationAreaContainer = ({ presentationSplitpodsplitIds, mountSplitPresentationArea, ...props }) => (
+  mountSplitPresentationArea && <PresentationArea {...props} />
 );
 
-export default withTracker(({ podId, screen_value }) => {
-  const currentSlide = PresentationAreaService.getCurrentSlide(podId, screen_value);
-  console.log('======================================>>> podid =======>')
-  console.log('======================================>>> podid =======>')
-  console.log(podId)
+export default withTracker(({ podsplitId, screen_value }) => {
+  const currentSplitSlide = PresentationAreaService.getCurrentSlide(podsplitId, screen_value);
+  console.log('======================================>>> podsplitId =======>')
+  console.log('======================================>>> podsplitId =======>')
+  console.log(podsplitId)
  
-  console.log('======================================>>> podid =======>')
-  console.log('======================================>>> podid =======>')
-  const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podId, screen_value);
-  const layoutSwapped = getSwapLayout() && shouldEnableSwapLayout();
+  console.log('======================================>>> podsplitId =======>')
+  console.log('======================================>>> podsplitId =======>')
+  const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podsplitId, screen_value);
+  // const layoutSwapped = getSwapLayout() && shouldEnableSwapLayout();
   const isViewer = Users.findOne({ meetingId: Auth.meetingID, userId: Auth.userID }, {
     fields: {
       role: 1,
@@ -33,23 +33,23 @@ export default withTracker(({ podId, screen_value }) => {
   }).role === ROLE_VIEWER;
 
   let slidePosition;
-  if (currentSlide) {
+  if (currentSplitSlide) {
     const {
       presentationId,
       id: slideId,
-    } = currentSlide;
-    slidePosition = PresentationAreaService.getSlidePosition(podId, presentationId, slideId);
+    } = currentSplitSlide;
+    slidePosition = PresentationAreaService.getSlidePosition(podsplitId, presentationId, slideId);
   }
   return {
-    currentSlide,
+    currentSplitSlide,
     slidePosition,
-    downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podId, screen_value),
-    userIsPresenter: PresentationAreaService.isPresenter(podId) && !layoutSwapped,
-    multiUser: PresentationAreaService.getMultiUserStatus(currentSlide && currentSlide.id)
+    downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podsplitId, screen_value),
+    userIsPresenter: PresentationAreaService.isPresenter(podsplitId) && !layoutSwapped,
+    multiUser: PresentationAreaService.getMultiUserStatus(currentSplitSlide && currentSplitSlide.id)
       && !layoutSwapped,
     presentationIsDownloadable,
-    mountPresentationArea: !!currentSlide,
-    currentPresentation: screen_value == "screen_two" ? PresentationAreaService.getNonCurrentPresentation(podId) :PresentationAreaService.getCurrentPresentation(podId),
+    mountSplitPresentationArea: !!currentSplitSlide,
+    currentPresentation: screen_value == "screen_two" ? PresentationAreaService.getNonCurrentPresentation(podsplitId) :PresentationAreaService.getCurrentPresentation(podsplitId),
     notify,
     zoomSlide: PresentationToolbarService.zoomSlide,
     layoutSwapped,

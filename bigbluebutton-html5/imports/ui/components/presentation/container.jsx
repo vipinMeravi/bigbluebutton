@@ -49,7 +49,7 @@ export default withTracker(({ podId, screen_value }) => {
       && !layoutSwapped,
     presentationIsDownloadable,
     mountPresentationArea: !!currentSlide,
-    currentPresentation: screen_value == "screen_two" ? PresentationAreaService.getNonCurrentPresentation(podId) :PresentationAreaService.getCurrentPresentation(podId),
+    currentPresentation: PresentationAreaService.getCurrentPresentation(podId),
     notify,
     zoomSlide: PresentationToolbarService.zoomSlide,
     layoutSwapped,
