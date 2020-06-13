@@ -12,6 +12,7 @@ import NavBar from './component';
 
 import PresentationService from '/imports/ui/components/presentation/service';
 import Presentations from '/imports/api/presentations';
+import { injectIntl } from 'react-intl';
 
 import VideoService from '../video-provider/service';
 import ExternalVideoService from '/imports/ui/components/external-video-player/service';
