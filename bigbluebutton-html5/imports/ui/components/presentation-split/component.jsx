@@ -58,7 +58,7 @@ class PresentationArea extends PureComponent {
 
     if (props.userIsPresenter
       && (!prevProps || !prevProps.userIsPresenter)
-      && props.currentSlide
+      && props.currentSplitSlide
       && props.slidePosition) {
       let potentialZoom = 100 / (props.slidePosition.viewBoxWidth / props.slidePosition.width);
       potentialZoom = Math.max(HUNDRED_PERCENT, Math.min(MAX_PERCENT, potentialZoom));
@@ -68,7 +68,7 @@ class PresentationArea extends PureComponent {
     if (!prevProps) return stateChange;
 
     // When presenter is changed or slide changed we reset localPosition
-    if (prevProps.currentSlide.id !== props.currentSlide.id
+    if (prevProps.currentSplitSlide.id !== props.currentSplitSlide.id
       || prevProps.userIsPresenter !== props.userIsPresenter) {
       stateChange.localPosition = undefined;
     }
@@ -89,8 +89,8 @@ class PresentationArea extends PureComponent {
       currentPresentation,
       notify,
       intl,
-      layoutSwapped,
-      currentSlide,
+      // layoutSwapped,
+      currentSplitSlide,
       slidePosition,
       publishedPoll,
       isViewer,
@@ -110,8 +110,8 @@ class PresentationArea extends PureComponent {
       );
     }
 
-    if (layoutSwapped && restoreOnUpdate && isViewer && currentSlide) {
-      const slideChanged = currentSlide.id !== prevProps.currentSlide.id;
+    if (layoutSwapped && restoreOnUpdate && isViewer && currentSplitSlide) {
+      const slideChanged = currentSplitSlide.id !== prevProps.currentSplitSlide.id;
       const positionChanged = slidePosition.viewBoxHeight !== prevProps.slidePosition.viewBoxHeight
         || slidePosition.viewBoxWidth !== prevProps.slidePosition.viewBoxWidth;
       const pollPublished = publishedPoll && !prevProps.publishedPoll;
@@ -214,11 +214,11 @@ class PresentationArea extends PureComponent {
 
     const {
       userIsPresenter,
-      currentSlide,
+      currentSplitSlide,
       slidePosition,
     } = this.props;
 
-    if (!currentSlide || !slidePosition) {
+    if (!currentSplitSlide || !slidePosition) {
       return { width: 0, height: 0 };
     }
 
@@ -287,11 +287,11 @@ class PresentationArea extends PureComponent {
 
   isPresentationAccessible() {
     const {
-      currentSlide,
+      currentSplitSlide,
       slidePosition,
     } = this.props;
     // sometimes tomcat publishes the slide url, but the actual file is not accessible
-    return currentSlide && slidePosition;
+    return currentSplitSlide && slidePosition;
   }
 
   updateLocalPosition(x, y, width, height, zoom) {
@@ -305,12 +305,12 @@ class PresentationArea extends PureComponent {
 
   panAndZoomChanger(w, h, x, y) {
     const {
-      currentSlide,
-      podId,
+      currentSplitSlide,
+      podsplitId,
       zoomSlide,
     } = this.props;
 
-    zoomSlide(currentSlide.num, podId, w, h, x, y);
+    zoomSlide(currentSplitSlide.num, podsplitId, w, h, x, y);
   }
 
   renderPresentationClose() {
@@ -325,8 +325,8 @@ class PresentationArea extends PureComponent {
     const {
       userIsPresenter,
       multiUser,
-      podId,
-      currentSlide,
+      podsplitId,
+      currentSplitSlide,
       slidePosition,
     } = this.props;
 
@@ -347,9 +347,9 @@ class PresentationArea extends PureComponent {
 
     return (
       <PresentationOverlayContainer
-        podId={podId}
+        podsplitId={podsplitId}
         userIsPresenter={userIsPresenter}
-        currentSlideNum={currentSlide.num}
+        currentSlideNum={currentSplitSlide.num}
         slide={slideObj}
         slideWidth={width}
         slideHeight={height}
@@ -391,8 +391,8 @@ class PresentationArea extends PureComponent {
   // renders the whole presentation area
   renderPresentationArea(svgDimensions, viewBoxDimensions) {
     const {
-      podId,
-      currentSlide,
+      podsplitId,
+      currentSplitSlide,
       slidePosition,
       userIsPresenter,
     } = this.props;
@@ -413,7 +413,7 @@ class PresentationArea extends PureComponent {
 
     const {
       imageUri,
-    } = currentSlide;
+    } = currentSplitSlide;
 
     let viewBoxPosition;
 
@@ -453,7 +453,7 @@ class PresentationArea extends PureComponent {
         {this.renderPresentationDownload()}
         {this.renderPresentationFullscreen()}
         <svg
-          key={currentSlide.id}
+          key={currentSplitSlide.id}
           data-test="whiteboard"
           width={svgDimensions.width}
           height={svgDimensions.height}
@@ -479,11 +479,11 @@ class PresentationArea extends PureComponent {
                 width,
                 height,
               }}
-              whiteboardId={currentSlide.id}
+              whiteboardId={currentSplitSlide.id}
             />
             <CursorWrapperContainer
-              podId={podId}
-              whiteboardId={currentSlide.id}
+              podsplitId={podsplitId}
+              whiteboardId={currentSplitSlide.id}
               widthRatio={widthRatio}
               physicalWidthRatio={svgDimensions.width / width}
               slideWidth={width}
@@ -491,7 +491,7 @@ class PresentationArea extends PureComponent {
             />
           </g>
           {this.renderOverlays(
-            currentSlide,
+            currentSplitSlide,
             svgDimensions,
             viewBoxPosition,
             viewBoxDimensions,
@@ -504,13 +504,13 @@ class PresentationArea extends PureComponent {
 
   renderPresentationToolbar() {
     const {
-      currentSlide,
-      podId,
+      currentSplitSlide,
+      podsplitId,
     } = this.props;
 
     const { zoom, fitToWidth, isFullscreen } = this.state;
 
-    if (!currentSlide) {
+    if (!currentSplitSlide) {
       return null;
     }
 
@@ -519,12 +519,12 @@ class PresentationArea extends PureComponent {
         {...{
           fitToWidth,
           zoom,
-          podId,
+          podsplitId,
         }}
         isFullscreen={isFullscreen}
         fullscreenRef={this.refPresentationContainer}
-        currentSlideNum={currentSlide.num}
-        presentationId={currentSlide.presentationId}
+        currentSlideNum={currentSplitSlide.num}
+        presentationId={currentSplitSlide.presentationId}
         zoomChanger={this.zoomChanger}
         fitToWidthHandler={this.fitToWidthHandler}
       />
@@ -532,12 +532,12 @@ class PresentationArea extends PureComponent {
   }
 
   renderWhiteboardToolbar(svgDimensions) {
-    const { currentSlide } = this.props;
+    const { currentSplitSlide } = this.props;
     if (!this.isPresentationAccessible()) return null;
 
     return (
       <WhiteboardToolbarContainer
-        whiteboardId={currentSlide.id}
+        whiteboardId={currentSplitSlide.id}
         height={svgDimensions.height}
       />
     );
@@ -684,10 +684,10 @@ export default injectIntl(PresentationArea);
 
 PresentationArea.propTypes = {
   intl: intlShape.isRequired,
-  podId: PropTypes.string.isRequired,
+  podsplitId: PropTypes.string.isRequired,
   // Defines a boolean value to detect whether a current user is a presenter
   userIsPresenter: PropTypes.bool.isRequired,
-  currentSlide: PropTypes.shape({
+  currentSplitSlide: PropTypes.shape({
     presentationId: PropTypes.string.isRequired,
     current: PropTypes.bool.isRequired,
     num: PropTypes.number.isRequired,
@@ -707,6 +707,6 @@ PresentationArea.propTypes = {
 };
 
 PresentationArea.defaultProps = {
-  currentSlide: undefined,
+  currentSplitSlide: undefined,
   slidePosition: undefined,
 };
