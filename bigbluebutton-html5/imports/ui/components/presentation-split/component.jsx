@@ -89,7 +89,7 @@ class PresentationArea extends PureComponent {
       currentPresentation,
       notify,
       intl,
-      // layoutSwapped,
+      layoutSwapped,
       currentSplitSlide,
       slidePosition,
       publishedPoll,
