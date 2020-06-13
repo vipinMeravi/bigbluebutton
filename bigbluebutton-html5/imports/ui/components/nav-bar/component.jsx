@@ -184,11 +184,9 @@ class NavBar extends PureComponent {
                 <CaptionsButtonContainer {...{ intl }} />
               )
               : null
-            }            
-          </div>
+            }     
 
-          <div className={styles.center}>
-          <AudioControlsContainer />
+            <AudioControlsContainer />
           {enableVideo
             ? (
               <JoinVideoOptionsContainer
@@ -207,7 +205,10 @@ class NavBar extends PureComponent {
             isMeteorConnected,
             screenshareDataSavingSetting,
           }}
-          />
+          />       
+          </div>
+
+          <div className={styles.center}>
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
 
             <RecordingIndicator
