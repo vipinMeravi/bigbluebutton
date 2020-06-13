@@ -350,7 +350,7 @@ class App extends Component {
                   console.log('=========?>>>UPDAGTE>>??>>?>',this.state.screen_value)
                 })
               }} />
-            </header>      
+            </header>
 
             {/* {this.renderMedia()} */}
 
