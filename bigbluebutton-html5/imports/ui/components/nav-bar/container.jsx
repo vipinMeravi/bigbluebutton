@@ -87,7 +87,7 @@ export default withTracker(() => {
     hasUnreadMessages,
 
     //Action Bar Parameters: 
-    amIPresenter: Service.amIPresenter(),
+    // amIPresenter: Service.amIPresenter(),
     amIModerator: Service.amIModerator(),
     stopExternalVideoShare: ExternalVideoService.stopWatching,
     handleExitVideo: () => VideoService.exitVideo(),
