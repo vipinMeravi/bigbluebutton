@@ -1,5 +1,5 @@
-import PresentationPods from '/imports/api/presentation-pods-split';
-import Presentations from '/imports/api/presentations-split';
+import PresentationPods from '/imports/api/presentation-pods';
+import Presentations from '/imports/api/presentations';
 import Auth from '/imports/ui/services/auth';
 
 const getPresentationPodIds = () => {

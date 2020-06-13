@@ -1,6 +1,6 @@
 import WhiteboardMultiUser from '/imports/api/whiteboard-multi-user/';
-import PresentationPods from '/imports/api/presentation-pods-split';
-import Presentations from '/imports/api/presentations-split';
+import PresentationPods from '/imports/api/presentation-pods';
+import Presentations from '/imports/api/presentations';
 import { Slides, SlidePositions } from '/imports/api/slides';
 import Users from '/imports/api/users';
 import Auth from '/imports/ui/services/auth';
