@@ -184,31 +184,31 @@ class NavBar extends PureComponent {
                 <CaptionsButtonContainer {...{ intl }} />
               )
               : null
-            }     
-
-            <AudioControlsContainer />
-          {enableVideo
-            ? (
-              <JoinVideoOptionsContainer
-                handleJoinVideo={handleJoinVideo}
-                handleCloseVideo={handleExitVideo}
-              />
-            )
-            : null}
-          <DesktopShare {...{
-            handleShareScreen,
-            handleUnshareScreen,
-            isVideoBroadcasting,
-            amIPresenter,
-            screenSharingCheck,
-            screenShareEndAlert,
-            isMeteorConnected,
-            screenshareDataSavingSetting,
-          }}
-          />       
+            }       
           </div>
 
-          <div className={styles.center}>
+          <div className={cx(actionBarClasses)}>
+          <AudioControlsContainer />
+              {enableVideo
+                ? (
+                  <JoinVideoOptionsContainer
+                    handleJoinVideo={handleJoinVideo}
+                    handleCloseVideo={handleExitVideo}
+                  />
+                )
+                : null}
+            <DesktopShare {...{
+              handleShareScreen,
+              handleUnshareScreen,
+              isVideoBroadcasting,
+              amIPresenter,
+              screenSharingCheck,
+              screenShareEndAlert,
+              isMeteorConnected,
+              screenshareDataSavingSetting,
+            }}
+            />     
+
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
 
             <RecordingIndicator
