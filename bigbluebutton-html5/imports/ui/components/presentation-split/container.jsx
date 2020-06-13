@@ -21,7 +21,6 @@ export default withTracker(({ podsplitId, screen_value }) => {
   console.log('======================================>>> podsplitId =======>')
   console.log('======================================>>> podsplitId =======>')
   console.log(podsplitId)
- 
   console.log('======================================>>> podsplitId =======>')
   console.log('======================================>>> podsplitId =======>')
   const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podsplitId, screen_value);

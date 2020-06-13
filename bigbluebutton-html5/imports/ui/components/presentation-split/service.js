@@ -164,6 +164,7 @@ const parseCurrentSlideContent = (yesValue, noValue, trueValue, falseValue) => {
 
 const isPresenter = (podId) => {
   // a main presenter in the meeting always owns a default pod
+  console.log("===========>> Inside Is Presenter PodId<<==========", podId);
   if (podId === 'DEFAULT_PRESENTATION_POD') {
     const options = {
       filter: {
@@ -181,6 +182,8 @@ const isPresenter = (podId) => {
     meetingId: Auth.meetingID,
     podId,
   };
+
+  console.log("=============>>Selector in is presenter<<=============", selector);
   const pod = PresentationPods.findOne(selector);
   return pod.currentPresenterId === Auth.userID;
 };
