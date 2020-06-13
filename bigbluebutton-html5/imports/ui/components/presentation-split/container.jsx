@@ -44,15 +44,15 @@ export default withTracker(({ podsplitId, screen_value }) => {
     currentSplitSlide,
     slidePosition,
     downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podsplitId, screen_value),
-    userIsPresenter: PresentationAreaService.isPresenter(podsplitId) && !layoutSwapped,
+    userIsPresenter: PresentationAreaService.isPresenter(podsplitId),
     multiUser: PresentationAreaService.getMultiUserStatus(currentSplitSlide && currentSplitSlide.id)
-      && !layoutSwapped,
+      ,
     presentationIsDownloadable,
     mountSplitPresentationArea: !!currentSplitSlide,
     currentPresentation: screen_value == "screen_two" ? PresentationAreaService.getNonCurrentPresentation(podsplitId) :PresentationAreaService.getCurrentPresentation(podsplitId),
     notify,
     zoomSlide: PresentationToolbarService.zoomSlide,
-    layoutSwapped,
+    
     toggleSwapLayout: MediaService.toggleSwapLayout,
     publishedPoll: Meetings.findOne({ meetingId: Auth.meetingID }, {
       fields: {
