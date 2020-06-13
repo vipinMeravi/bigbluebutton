@@ -1,4 +1,5 @@
 import Presentations from '/imports/api/presentations';
+import PresentationsSplit from '/imports/api/presentations-split';
 import PresentationUploadToken from '/imports/api/presentation-upload-token';
 import Auth from '/imports/ui/services/auth';
 import Poll from '/imports/api/polls/';
@@ -32,7 +33,7 @@ const futch = (url, opts = {}, onProgress) => new Promise((res, rej) => {
   xhr.send(opts.body);
 });
 
-const getPresentations = () => Presentations
+const getPresentations = () => PresentationsSplit
   .find({
     'conversion.error': false,
   })
@@ -82,7 +83,7 @@ const observePresentationConversion = (
   };
 
   Tracker.autorun((c) => {
-    const query = Presentations.find({ meetingId });
+    const query = PresentationsSplit.find({ meetingId });
 
     query.observe({
       changed: (newDoc) => {

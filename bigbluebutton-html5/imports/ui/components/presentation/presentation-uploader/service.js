@@ -1,4 +1,5 @@
 import Presentations from '/imports/api/presentations';
+import PresentationsSplit from '/imports/api/presentations-split';
 import PresentationUploadToken from '/imports/api/presentation-upload-token';
 import Auth from '/imports/ui/services/auth';
 import Poll from '/imports/api/polls/';
