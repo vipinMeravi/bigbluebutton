@@ -379,7 +379,7 @@ class App extends Component {
                   console.log('=========?>>>UPDAGTE>>??>>?>',this.state.isUpdate)
                 })
               }} /> */}
-              <ActionsBarContainer getScreenValue={(screen_value, screen_for)=>{
+              {/* <ActionsBarContainer getScreenValue={(screen_value, screen_for)=>{
                 console.log('==================?>>>>>??>>?>>??')
                 console.log(this.state.screen_value)
                 console.log('==================?>>>>>??>>?>>??')
@@ -390,7 +390,7 @@ class App extends Component {
                   console.log('=========?>>>UPDAGTE>>??>>?>',this.state.screen_value)
                 })
               }} />              
-            </section>
+            </section> */}
 
 
             {/* {this.renderActionsBar()} */}
