@@ -209,7 +209,7 @@ class NavBar extends PureComponent {
               : null}     
           </div>
 
-          <div className={cx(actionBarClasses)}>
+          <div className={styles.center}>
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
             <RecordingIndicator
               mountModal={mountModal}
