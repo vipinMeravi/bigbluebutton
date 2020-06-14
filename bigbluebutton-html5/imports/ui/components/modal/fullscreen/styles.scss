@@ -7,10 +7,7 @@
   --modal-title-fw: 400;
 }
 
-.overlay {
-  @extend .overlay;
-  width: 15%;
-}
+
 
 .modal {
   @include highContrastOutline();
@@ -80,4 +77,9 @@
 .confirm {
   color: var(--color-white) !important;
   background-color: var(--color-link) !important;
+}
+
+.overlay {
+  @extend .overlay;
+  width: 15% !important;
 }
