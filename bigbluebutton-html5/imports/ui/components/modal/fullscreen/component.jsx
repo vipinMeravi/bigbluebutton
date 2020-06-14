@@ -110,7 +110,7 @@ class ModalFullscreen extends PureComponent {
         contentLabel={title}
         {...otherProps}
         style={{
-          width: "15% !important"
+          width: "15% !important",
         }}
       >
         <header className={styles.header}>

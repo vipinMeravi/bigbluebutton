@@ -57,11 +57,17 @@ export const withModalState = ComponentToWrap =>
     }
 
     render() {
+      console.log("==========================<< Modal Console.>>=========")
+      console.log(this.props);
+      console.log("==========================<< Modal Console.>>=========")
       return (<ComponentToWrap
         {...this.props}
         modalHide={this.hide}
         modalShow={this.show}
         modalisOpen={this.state.isOpen}
+        // style={{
+        //   width:"15%",
+        // }}
       />);
     }
   };
