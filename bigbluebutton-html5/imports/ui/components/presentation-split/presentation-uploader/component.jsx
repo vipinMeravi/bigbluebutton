@@ -861,9 +861,6 @@ class PresentationUploader extends Component {
 
     return (
       <ModalFullscreen
-        style={{
-          width: "15%"
-        }}
         title={this.props.isPdf? "PDF ":intl.formatMessage(intlMessages.title)}
         preventClosing={preventClosing}
         confirm={{

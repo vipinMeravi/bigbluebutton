@@ -6,6 +6,10 @@
   --modal-title-fw: 400;
 }
 
+.overlay {
+  width: 15%;
+}
+
 .modal {
   @include highContrastOutline();
   outline-style: solid;
