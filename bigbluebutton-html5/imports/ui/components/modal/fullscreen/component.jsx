@@ -113,6 +113,11 @@ class ModalFullscreen extends PureComponent {
         className={cx(className, styles.modal)}
         contentLabel={title}
         {...otherProps}
+        style={{
+          overlay: {
+            width: '15%',
+          }
+        }}
       >
         <header className={styles.header}>
           <h1 className={styles.title}>{title}</h1>
