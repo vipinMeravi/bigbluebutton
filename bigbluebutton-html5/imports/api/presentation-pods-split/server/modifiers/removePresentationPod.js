@@ -1,7 +1,7 @@
 import { check } from 'meteor/check';
 import PresentationPods from '/imports/api/presentation-pods-split';
 import Logger from '/imports/startup/server/logger';
-import clearPresentations from '/imports/api/presentations/server/modifiers/clearPresentations';
+import clearPresentations from '/imports/api/presentations-split/server/modifiers/clearPresentations';
 import clearPresentationUploadToken from '/imports/api/presentation-upload-token/server/modifiers/clearPresentationUploadToken';
 
 export default function removePresentationPod(meetingId, podId) {
