@@ -243,7 +243,7 @@ const persistPresentationChanges = (oldState, newState, uploadEndpoint, podId) =
 
       return setPresentation(currentPresentation.id, podId);
     })
-    .then(removePresentations.bind(null, presentationsToRemove, podId));
+    // .then(removePresentations.bind(null, presentationsToRemove, podId));
 };
 
 export default {
