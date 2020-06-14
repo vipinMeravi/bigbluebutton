@@ -194,11 +194,9 @@ class ActionsDropdown extends PureComponent {
           ? (
             <DropdownListItem
               icon="presentation"
-              
               label={"Share a site"}
               description="External Video"
               key="external-video"
-              
               onClick={()=>this.handleExternalVideoClick(true)}
             />
           )
