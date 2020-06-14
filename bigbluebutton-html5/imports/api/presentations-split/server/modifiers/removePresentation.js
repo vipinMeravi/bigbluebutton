@@ -2,7 +2,7 @@ import { check } from 'meteor/check';
 import Presentations from '/imports/api/presentations-split';
 import Logger from '/imports/startup/server/logger';
 
-import clearSlidesPresentation from '/imports/api/slides/server/modifiers/clearSlidesPresentation';
+import clearSlidesPresentation from '/imports/api/slides-split/server/modifiers/clearSlidesPresentation';
 
 export default function removePresentation(meetingId, podId, presentationId) {
   check(meetingId, String);

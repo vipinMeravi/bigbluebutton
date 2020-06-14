@@ -29,9 +29,9 @@ import '/imports/api/local-settings/server';
 import '/imports/api/voice-call-states/server';
 
 //Added By Developer Vipin
-// import '/imports/api/presentations-split/server';
-// import '/imports/api/presentation-pods-split/server';
-// import '/imports/api/slides-split/server';
+import '/imports/api/presentations-split/server';
+import '/imports/api/presentation-pods-split/server';
+import '/imports/api/slides-split/server';
 
 // Commons
 import '/imports/api/log-client/server';
