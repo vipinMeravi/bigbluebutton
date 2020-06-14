@@ -58,7 +58,8 @@ export const withModalState = ComponentToWrap =>
 
     render() {
       console.log("==========================<< Modal Console.>>=========")
-      console.log(this.props);
+      console.log(this.props.title);
+      this.props.title == "PDF "? console.log("Modal pdf true"):console.log("Modal pdf false");
       console.log("==========================<< Modal Console.>>=========")
       return (<ComponentToWrap
         {...this.props}
@@ -66,7 +67,7 @@ export const withModalState = ComponentToWrap =>
         modalShow={this.show}
         modalisOpen={this.state.isOpen}
         style={{
-          width:this.props.title == "PDF"?"15%":"100%",
+          width: this.props.title == "PDF "?"15%":"100%",
         }}
       />);
     }
