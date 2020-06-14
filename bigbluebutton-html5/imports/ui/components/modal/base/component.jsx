@@ -65,9 +65,9 @@ export const withModalState = ComponentToWrap =>
         modalHide={this.hide}
         modalShow={this.show}
         modalisOpen={this.state.isOpen}
-        // style={{
-        //   width:"15%",
-        // }}
+        style={{
+          width:this.props.title == "PDF"?"15%":"100%",
+        }}
       />);
     }
   };
