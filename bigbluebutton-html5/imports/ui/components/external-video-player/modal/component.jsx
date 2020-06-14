@@ -237,7 +237,7 @@ class ExternalVideoModal extends Component {
             className={styles.startBtn}
             label={this.props.isSite ? "Share Site" :intl.formatMessage(intlMessages.start)}
             onClick={this.startWatchingHandler}
-            disabled={this.props.isSite ? null :startDisabled}
+            // disabled={this.props.isSite ? null :startDisabled}
           />
         </div>
       </Modal>

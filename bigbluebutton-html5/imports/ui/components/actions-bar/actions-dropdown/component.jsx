@@ -194,11 +194,12 @@ class ActionsDropdown extends PureComponent {
           ? (
             <DropdownListItem
               icon="presentation"
-              label={!isSharingVideo ? "Share a site" : "Stop share site"}
+              // label={!isSharingVideo ? "Share a site" : "Stop share site"}
+              label={"Share a site"}
               description="External Video"
               key="external-video"
-              onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(true)}
-              // onClick={()=>this.handleExternalVideoClick(true)}
+              // onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(true)}
+              onClick={()=>this.handleExternalVideoClick(true)}
             />
           )
           : null),        
