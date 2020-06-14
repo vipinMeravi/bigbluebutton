@@ -28,6 +28,10 @@ import '/imports/api/ping-pong/server';
 import '/imports/api/local-settings/server';
 import '/imports/api/voice-call-states/server';
 
+//Added By Developer Vipin
+import '/imports/api/presentations-split/server';
+import '/imports/api/presentation-pods-split/server';
+
 // Commons
 import '/imports/api/log-client/server';
 import '/imports/api/common/server/helpers';

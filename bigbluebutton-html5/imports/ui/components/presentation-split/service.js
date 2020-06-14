@@ -1,7 +1,7 @@
 import WhiteboardMultiUser from '/imports/api/whiteboard-multi-user/';
-import PresentationPods from '/imports/api/presentation-pods';
-import Presentations from '/imports/api/presentations';
-import { Slides, SlidePositions } from '/imports/api/slides';
+import PresentationPods from '/imports/api/presentation-pods-split';
+import Presentations from '/imports/api/presentations-split';
+import { Slides, SlidePositions } from '/imports/api/slides-split';
 import Users from '/imports/api/users';
 import Auth from '/imports/ui/services/auth';
 
@@ -21,7 +21,7 @@ const getAllPresentation = () => Presentations.find({
 });
 
 const downloadPresentationUri = (podId, screen_value) => {
-  const currentPresentation = screen_value == "screen_two"? getNonCurrentPresentation(podId):  getCurrentPresentation(podId);
+  const currentPresentation = getCurrentPresentation(podId);
   if (!currentPresentation) {
     return null;
   }
@@ -36,7 +36,7 @@ const downloadPresentationUri = (podId, screen_value) => {
 };
 
 const isPresentationDownloadable = (podId, screen_value) => {
-  const currentPresentation = screen_value == "screen_two"? getNonCurrentPresentation(podId): getCurrentPresentation(podId);
+  const currentPresentation = getCurrentPresentation(podId);
   if (!currentPresentation) {
     return null;
   }
@@ -46,7 +46,7 @@ const isPresentationDownloadable = (podId, screen_value) => {
 
 const getCurrentSlide = (podId, screen_value) => {
 
-  const currentPresentation = screen_value == "screen_two"? getNonCurrentPresentation(podId): getCurrentPresentation(podId);
+  const currentPresentation = getCurrentPresentation(podId);
    
 
   if (!currentPresentation) {

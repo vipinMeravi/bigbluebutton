@@ -156,7 +156,7 @@ export default withModalMounter(withTracker((props) => {
 
       // data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
       // data.children = <PresentationPodsContainer/>;
-      // data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
+      data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
       data.children_split = <PresentationPodsSplitContainer screen_value={props.screen_value}/>;
 
     } else if(props.screen_value == "fullscreen" && props.screen_for == "media"){
