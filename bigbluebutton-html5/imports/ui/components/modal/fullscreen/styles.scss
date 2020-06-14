@@ -1,13 +1,10 @@
 @import "../../../stylesheets/variables/_all";
 @import "/imports/ui/stylesheets/mixins/_indicators";
-@import "../base/styles";
 
 :root {
   --popout-rtl-left: -0.5rem;
   --modal-title-fw: 400;
 }
-
-
 
 .modal {
   @include highContrastOutline();
@@ -77,8 +74,4 @@
 .confirm {
   color: var(--color-white) !important;
   background-color: var(--color-link) !important;
-}
-
-.overlay {
-  @extend .overlay;
 }
