@@ -105,10 +105,11 @@ class ModalFullscreen extends PureComponent {
     return (
       <ModalBase
         isOpen={modalisOpen || preventClosing}
+
+        className={cx(className, styles.modal)}
         style={{
           width: "15%"
         }}
-        className={cx(className, styles.modal)}
         contentLabel={title}
         {...otherProps}
 
