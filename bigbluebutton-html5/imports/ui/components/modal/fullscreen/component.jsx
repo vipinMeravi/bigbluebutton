@@ -102,6 +102,10 @@ class ModalFullscreen extends PureComponent {
       confirmAriaLabel = `${confirmAriaLabel} ${intl.formatMessage(intlMessages.newTabLabel)}`;
     }
 
+    console.log("------------------Class Name for css -----------")
+    console.log(className)
+    console.log("------------------Class Name for css -----------")
+
     return (
 
       <ModalBase
