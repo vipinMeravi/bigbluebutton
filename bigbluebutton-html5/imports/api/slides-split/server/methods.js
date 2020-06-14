@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
-import switchSlide from './methods/switchSlide';
-import zoomSlide from './methods/zoomSlide';
+import switchSlides from './methods/switchSlide';
+import zoomSlides from './methods/zoomSlide';
 
 Meteor.methods({
-  switchSlide,
-  zoomSlide,
+  switchSlides,
+  zoomSlides,
 });

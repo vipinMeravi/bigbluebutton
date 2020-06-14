@@ -19,22 +19,22 @@ const getNumberOfSlides = (podId, presentationId) => {
 
 const previousSlide = (currentSlideNum, podId) => {
   if (currentSlideNum > 1) {
-    makeCall('switchSlide', currentSlideNum - 1, podId);
+    makeCall('switchSlides', currentSlideNum - 1, podId);
   }
 };
 
 const nextSlide = (currentSlideNum, numberOfSlides, podId) => {
   if (currentSlideNum < numberOfSlides) {
-    makeCall('switchSlide', currentSlideNum + 1, podId);
+    makeCall('switchSlides', currentSlideNum + 1, podId);
   }
 };
 
 const zoomSlide = throttle((currentSlideNum, podId, widthRatio, heightRatio, xOffset, yOffset) => {
-  makeCall('zoomSlide', currentSlideNum, podId, widthRatio, heightRatio, xOffset, yOffset);
+  makeCall('zoomSlides', currentSlideNum, podId, widthRatio, heightRatio, xOffset, yOffset);
 }, PAN_ZOOM_INTERVAL);
 
 const skipToSlide = (requestedSlideNum, podId) => {
-  makeCall('switchSlide', requestedSlideNum, podId);
+  makeCall('switchSlides', requestedSlideNum, podId);
 };
 
 export default {
