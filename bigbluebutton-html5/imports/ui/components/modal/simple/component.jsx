@@ -64,7 +64,7 @@ class ModalSimple extends Component {
     return (
       <ModalBase
         isOpen={modalisOpen}
-        className={cx(className, styles.modal)}
+        className={styles.modal}
         onRequestClose={closeModel}
         contentLabel={title || contentLabel}
         {...otherProps}
