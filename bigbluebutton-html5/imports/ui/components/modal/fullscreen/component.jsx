@@ -106,10 +106,9 @@ class ModalFullscreen extends PureComponent {
 
       <ModalBase
         isOpen={modalisOpen || preventClosing}
-        className={styles.modal}
+        className={cx(className, styles.modal)}
         contentLabel={title}
         {...otherProps}
-        style="width: 15%"
       >
         <header className={styles.header}>
           <h1 className={styles.title}>{title}</h1>
