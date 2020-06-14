@@ -4,6 +4,7 @@
 :root {
   --popout-rtl-left: -0.5rem;
   --modal-title-fw: 400;
+  width: 15%;
 }
 
 .modal {
@@ -15,7 +16,7 @@
   padding: calc(var(--line-height-computed) / 2) var(--line-height-computed);
   font-size: 10px;
   @include mq($small-only) {
-    width: 100%;
+    width: 15%;
     height: 100%;
   }
 }
