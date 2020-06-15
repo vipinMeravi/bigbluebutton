@@ -13,6 +13,7 @@ import { withModalMounter } from '/imports/ui/components/modal/service';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
 import { styles } from '../styles';
 import ExternalVideoModal from '/imports/ui/components/external-video-player/modal/container';
+import WebsiteViewContainer from '/imports/ui/components/website-viewer/modal/container';
 
 const propTypes = {
   amIPresenter: PropTypes.bool.isRequired,
@@ -197,7 +198,7 @@ class ActionsDropdown extends PureComponent {
               label={"Share a site"}
               description="External Video"
               key="external-video"
-              onClick={()=>this.handleExternalVideoClick(true)}
+              onClick={()=>this.handleExternalWebsiteClick(true)}
             />
           )
           : null),        
@@ -212,9 +213,17 @@ class ActionsDropdown extends PureComponent {
     mountModal(<ExternalVideoModal isSite={isSite} getScreenValue={getScreenValue}/>);
   }
 
+  handleExternalWebsiteClick(isSite) {
+    console.log("+++++++++++====<<>>")
+    console.log(this.props);
+    console.log("+++++++++++====<<>>")
+    const { mountModal, getScreenValue } = this.props;
+    mountModal(<WebsiteViewContainer isSite={isSite} getScreenValue={getScreenValue}/>);
+  }
+
   handlePresentationClick(isPdf) {
     const { mountModal, getScreenValue } = this.props;
-    mountModal(<PresentationUploaderContainer isPdf={isPdf} isSite={true} getScreenValue={getScreenValue}/>);
+    mountModal(<PresentationUploaderContainer isPdf={isPdf} isSite={false} getScreenValue={getScreenValue}/>);
     
   }
 
