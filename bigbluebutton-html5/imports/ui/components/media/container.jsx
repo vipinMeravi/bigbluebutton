@@ -15,6 +15,7 @@ import PresentationPodsSplitContainer from '../presentation-pod-split/container'
 import ScreenshareContainer from '../screenshare/container';
 import DefaultContent from '../presentation/default-content/component';
 import ExternalVideoContainer from '../external-video-player/container';
+import ExternalWebsiteContainer from '../website-viewer/container';
 import Storage from '../../services/storage/session';
 
 const LAYOUT_CONFIG = Meteor.settings.public.layout;
@@ -217,7 +218,7 @@ export default withModalMounter(withTracker((props) => {
       data.children_split = null;
     } else if(props.screen_value == "screen_two" && props.screen_for == "media"){
       data.children_split = (
-        <ExternalVideoContainer
+        <ExternalWebsiteContainer
           isPresenter={MediaService.isUserPresenter()}
         />
       );
