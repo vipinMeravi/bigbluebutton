@@ -180,18 +180,18 @@ class ActionsDropdown extends PureComponent {
             />
           )
           : null),
-      (amIPresenter && allowExternalVideo
-        ? (
-          <DropdownListItem
-            icon="video"
-            label={!isSharingVideo ? intl.formatMessage(intlMessages.startExternalVideoLabel)
-              : intl.formatMessage(intlMessages.stopExternalVideoLabel)}
-            description="External Video"
-            key="external-video"
-            onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(false)}
-          />
-        )
-        : null),
+      // (amIPresenter && allowExternalVideo
+      //   ? (
+      //     <DropdownListItem
+      //       icon="video"
+      //       label={!isSharingVideo ? intl.formatMessage(intlMessages.startExternalVideoLabel)
+      //         : intl.formatMessage(intlMessages.stopExternalVideoLabel)}
+      //       description="External Video"
+      //       key="external-video"
+      //       onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(false)}
+      //     />
+      //   )
+      //   : null),
         (amIPresenter 
           ? (
             <DropdownListItem
