@@ -1094,10 +1094,10 @@ class PresentationUploader extends Component {
 
         <div className={styles.content}>
           <div className={styles.videoUrl}>
-            <label htmlFor="video-modal-input" id="video-modal-input">
+            <label htmlFor="video-modal-input" >
               {"Web-Site URL"}
               <input
-                id="video-modal-input"
+                // id="video-modal-input"
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
                 placeholder={"Add Web-Site URL"}
@@ -1160,7 +1160,7 @@ class PresentationUploader extends Component {
         
           <Button
             className={styles.startBtn}
-            label={this.props.isSite ? "Share Site" :intl.formatMessage(intlMessages.start)}
+            label={"Share Site"}
             onClick={this.startWatchingSiteHandler}
             // disabled={this.props.isSite ? null :startDisabled}
           />
