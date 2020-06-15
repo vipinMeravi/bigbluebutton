@@ -260,11 +260,11 @@ class PresentationUploader extends Component {
 
     this.startWatchingHandler = this.startWatchingHandler.bind(this);
     this.updateVideoUrlHandler = this.updateVideoUrlHandler.bind(this);
+    this.updateSiteUrlHandler = this.updateSiteUrlHandler.bind(this);
     this.renderUrlError = this.renderUrlError.bind(this);
     this.updateScreenChangeHandler = this.updateScreenChangeHandler.bind(this);
     this.updateScreenChangeMediaHandler = this.updateScreenChangeMediaHandler.bind(this);
-    this.updateSiteScreenChangeHandler = this.updateSiteScreenChangeHandler.bind(this);
-    
+    this.updateSiteScreenChangeHandler = this.updateSiteScreenChangeHandler.bind(this);    
   }
 
   componentDidUpdate() {
