@@ -245,6 +245,16 @@ export default withModalMounter(withTracker((props) => {
     }
   }
 
+  if(props.screen_value == "screen_two" && props.screen_for == "media"){
+    data.children_split = (
+      <ExternalWebsiteContainer
+        isPresenter={MediaService.isUserPresenter()}
+      />
+    );
+
+    console.log("==== Website Container ===", data.children_split);
+  }
+
   data.webcamPlacement = Storage.getItem('webcamPlacement');
 
   MediaContainer.propTypes = propTypes;
