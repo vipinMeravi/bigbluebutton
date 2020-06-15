@@ -192,7 +192,7 @@ class ActionsDropdown extends PureComponent {
           />
         )
         : null),
-        (amIPresenter && allowExternalVideo
+        (amIPresenter 
           ? (
             <DropdownListItem
               icon="presentation"
