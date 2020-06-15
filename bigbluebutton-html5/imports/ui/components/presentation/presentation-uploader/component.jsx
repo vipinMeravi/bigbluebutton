@@ -929,7 +929,7 @@ class PresentationUploader extends Component {
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
                 placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
-                disabled={sharing}
+                // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
             </label>
