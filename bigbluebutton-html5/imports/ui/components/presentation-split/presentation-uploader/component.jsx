@@ -882,6 +882,89 @@ class PresentationUploader extends Component {
           {isMobileBrowser ? this.renderPicDropzone() : null}
           {this.renderDropzone()}
         </div>
+
+
+        {/* Adding Video Modal inside prsentation modal */}
+        <header data-test="videoModealHeader" className={styles.header}>
+          <h3 className={styles.title}>{this.props.isSite ? "Share a Web-Site" :intl.formatMessage(intlMessages.title)}</h3>
+        </header>
+
+        <div className={styles.content}>
+          <div className={styles.videoUrl}>
+            <label htmlFor="video-modal-input" id="video-modal-input">
+              {this.props.isSite ? "Web-Site URL" :intl.formatMessage(intlMessages.input)}
+              <input
+                id="video-modal-input"
+                onChange={this.updateVideoUrlHandler}
+                name="video-modal-input"
+                placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
+                disabled={sharing}
+                aria-describedby="exernal-video-note"
+              />
+            </label>
+            
+            <div className={styles.externalVideoNote} id="external-video-note">
+              {this.props.isSite ? null :intl.formatMessage(intlMessages.note)}
+            </div>
+          </div>
+          <div className={styles.wrapper}>
+            <div className={styles.toggle_radio}>
+              <input 
+                type="radio" 
+                className={this.state.screen === 'fullscreen'? styles.active: styles.toggle_option }  
+                id="first_toggle" 
+                name="toggle_option"
+                value="fullscreen"
+                onChange={this.updateScreenChangeHandler}
+                checked={this.state.screen === 'fullscreen'}
+                />
+              <input 
+                type="radio" 
+                className={this.state.screen === 'screen_one'? styles.active: styles.toggle_option }  
+                id="second_toggle" 
+                name="toggle_option"
+                value="screen_one"
+                onChange={this.updateScreenChangeHandler}
+                checked={this.state.screen === 'screen_one'}
+                />
+              <input 
+                type="radio" 
+                className={this.state.screen === 'screen_two'? styles.active: styles.toggle_option } 
+                id="third_toggle" 
+                name="toggle_option"
+                value="screen_two"
+                checked={this.state.screen === 'screen_two'}
+                onChange={this.updateScreenChangeHandler}
+                />
+              <label  for="first_toggle">
+                {/* <span className={styles.description}>TODAY</span> */}
+                  <p className={this.state.screen === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
+                {/* <span className={styles.day-week}>Tuesday</span> */}
+              </label>
+              <label for="second_toggle">
+                {/* <span className={styles.description}>TOMORROW</span> */}
+                  <p className={this.state.screen === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
+                {/* <span className={styles.day-week}>Wednesday</span> */}
+              </label>
+              <label for="third_toggle">
+                {/* <span className={styles.description}>DAY AFTER</span> */}
+                  <p className={this.state.screen === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
+                {/* <span className={styles.day-week}>Thursday</span> */}
+              </label>
+            </div>
+          </div> 
+
+          <div>
+            {this.renderUrlError()}
+          </div>
+        
+          <Button
+            className={styles.startBtn}
+            label={this.props.isSite ? "Share Site" :intl.formatMessage(intlMessages.start)}
+            onClick={this.startWatchingHandler}
+            // disabled={this.props.isSite ? null :startDisabled}
+          />
+        </div>
       </ModalFullscreen>
     );
   }
