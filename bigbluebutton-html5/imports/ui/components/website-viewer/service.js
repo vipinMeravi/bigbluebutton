@@ -1,6 +1,7 @@
 import ReactPlayer from 'react-player';
 import Meetings from '/imports/api/meetings';
 import Auth from '/imports/ui/services/auth';
+import { makeCall } from '/imports/ui/services/api';
 
 const isUrlValid = url => ReactPlayer.canPlay(url);
 
