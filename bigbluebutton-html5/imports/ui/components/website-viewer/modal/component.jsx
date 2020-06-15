@@ -69,7 +69,7 @@ class ExternalVideoModal extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
-    getScreenValue(this.state.screen, "media");
+    getScreenValue(this.state.screen, "site");
     startWatching(siteUrl.trim(), this.props.isSite);
     closeModal();
   }
