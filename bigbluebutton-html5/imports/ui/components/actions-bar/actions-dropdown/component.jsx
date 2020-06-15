@@ -180,24 +180,24 @@ class ActionsDropdown extends PureComponent {
             />
           )
           : null),
-      // (amIPresenter && allowExternalVideo
-      //   ? (
-      //     <DropdownListItem
-      //       icon="video"
-      //       label={!isSharingVideo ? intl.formatMessage(intlMessages.startExternalVideoLabel)
-      //         : intl.formatMessage(intlMessages.stopExternalVideoLabel)}
-      //       description="External Video"
-      //       key="external-video"
-      //       onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(false)}
-      //     />
-      //   )
-      //   : null),
-        (amIPresenter 
+      (amIPresenter && allowExternalVideo
+        ? (
+          <DropdownListItem
+            icon="video"
+            label={!isSharingVideo ? intl.formatMessage(intlMessages.startExternalVideoLabel)
+              : intl.formatMessage(intlMessages.stopExternalVideoLabel)}
+            description="External Video"
+            key="external-video"
+            onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(false)}
+          />
+        )
+        : null),
+        (amIPresenter && allowExternalVideo
           ? (
             <DropdownListItem
               icon="presentation"
               label={"Share a site"}
-              // description="External Video"
+              description="External Video"
               key="website-viewer"
               onClick={()=>this.handleExternalWebsiteClick(true)}
             />
@@ -215,9 +215,9 @@ class ActionsDropdown extends PureComponent {
   }
 
   handleExternalWebsiteClick(isSite) {
-    console.log("+++++++++++====<<>>--------")
+    console.log("+++++++++++====<<>>")
     console.log(this.props);
-    console.log("+++++++++++====<<>>--------")
+    console.log("+++++++++++====<<>>")
     const { mountModal, getScreenValue } = this.props;
     mountModal(<WebsiteViewContainer isSite={isSite} getScreenValue={getScreenValue}/>);
   }
