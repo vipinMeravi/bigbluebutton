@@ -209,6 +209,7 @@
   width: 100%;
   display: flex;
   margin-top: calc(var(--lg-padding-y) * 5);
+  margin-bottom: calc(var(--lg-padding-y) * 5);
 }
 
 .dropzone {
@@ -217,7 +218,8 @@
   border-radius: var(--border-radius);
   padding: calc(var(--lg-padding-y) * 2.5) var(--lg-padding-x);
   text-align: center;
-  font-size: var(--font-size-large);
+  // font-size: var(--font-size-large);
+  font-size: 13px;
   cursor: pointer;
 }
 
