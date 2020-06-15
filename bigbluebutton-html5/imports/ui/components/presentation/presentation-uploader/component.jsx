@@ -184,6 +184,37 @@ const intlMessages = defineMessages({
     id: 'app.presentationUploder.tableHeading.filename',
     description: 'aria label for file name table heading',
   },
+
+
+  // Messages of Media Modal
+  start: {
+    id: 'app.externalVideo.start',
+    description: 'Share external video',
+  },
+  urlError: {
+    id: 'app.externalVideo.urlError',
+    description: 'Not a video URL error',
+  },
+  input: {
+    id: 'app.externalVideo.input',
+    description: 'Video URL',
+  },
+  urlInput: {
+    id: 'app.externalVideo.urlInput',
+    description: 'URL input field placeholder',
+  },
+  title: {
+    id: 'app.externalVideo.title',
+    description: 'Modal title',
+  },
+  close: {
+    id: 'app.externalVideo.close',
+    description: 'Close',
+  },
+  note: {
+    id: 'app.externalVideo.noteLabel',
+    description: 'provides hint about Shared External videos',
+  },
 });
 
 const BROWSER_RESULTS = browser();
