@@ -229,7 +229,7 @@ class PresentationUploader extends Component {
   constructor(props) {
     super(props);
 
-    const { videoUrl } = props;
+    const { videoUrl, websiteUrl } = props;
 
     console.log("==========> Is Pdf <=========", this.props.isPdf)
     const currentPres = props.presentations.find(p => p.isCurrent);
@@ -242,6 +242,7 @@ class PresentationUploader extends Component {
       screen: 'fullscreen',
       url: videoUrl,
       sharing: videoUrl,
+      siteUrl: websiteUrl,
     };
 
     this.handleConfirm = this.handleConfirm.bind(this);
@@ -901,12 +902,34 @@ class PresentationUploader extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
-    getScreenValue(this.state.screen, "media");
+    getScreenValue(this.state.screen, "video");
     startWatching(url.trim(), this.props.isSite);
     closeModal();
   }
 
+  startWatchingSiteHandler() {
+    const {
+      startWatchingSite,
+      closeModal,
+      getScreenValue
+    } = this.props;
+
+    const { siteUrl, screen } = this.state;
+    
+    console.log("----<<Start Watching Handler updateArrScreen >>----")
+    console.log(this.props)
+    console.log("----<<Start Watching Handler updateArrScreen >>----")
+    getScreenValue(this.state.screen, "site");
+    startWatchingSite(siteUrl.trim(), this.props.isSite);
+    closeModal();
+  }
+
   updateVideoUrlHandler(ev) {
+    console.log("------------> ev url values ----------->", ev.target.value);
+    this.setState({ url: ev.target.value });
+  }
+
+  updateSiteUrlHandler(ev) {
     console.log("------------> ev url values ----------->", ev.target.value);
     this.setState({ url: ev.target.value });
   }
@@ -917,6 +940,11 @@ class PresentationUploader extends Component {
   }
 
   updateScreenChangeMediaHandler(ev) {
+    this.setState({ screen: ev.target.value });
+    console.log("------------> ev values ----------->", ev.target.value);
+  }
+
+  updateSiteScreenChangeHandler(ev) {
     this.setState({ screen: ev.target.value });
     console.log("------------> ev values ----------->", ev.target.value);
   }
@@ -997,10 +1025,6 @@ class PresentationUploader extends Component {
                 aria-describedby="exernal-video-note"
               />
             </label>
-            
-            {/* <div className={styles.externalVideoNote} id="external-video-note">
-              {this.props.isSite ? null :intl.formatMessage(intlMessages.note)}
-            </div> */}
           </div>
           <div className={styles.wrapper}>
             <div className={styles.toggle_radio}>
@@ -1061,6 +1085,84 @@ class PresentationUploader extends Component {
           />
         </div>
 
+        {/* Adding Website Modal inside presentaion modal */}
+        <header data-test="videoModealHeader" className={styles.header}>
+          <h3 className={styles.title}>{this.props.isSite ? "Share a Web-Site" :intl.formatMessage(intlMessages.title)}</h3>
+        </header>
+
+        <div className={styles.content}>
+          <div className={styles.videoUrl}>
+            <label htmlFor="video-modal-input" id="video-modal-input">
+              {"Web-Site URL"}
+              <input
+                id="video-modal-input"
+                onChange={this.updateSiteUrlHandler}
+                name="video-modal-input"
+                placeholder={"Add Web-Site URL"}
+                disabled={sharing}
+                aria-describedby="exernal-video-note"
+              />
+            </label>
+            
+          </div>
+          <div className={styles.wrapper}>
+            <div className={styles.toggle_radio}>
+              <input 
+                type="radio" 
+                className={this.state.screen === 'fullscreen'? styles.active: styles.toggle_option }  
+                id="first_toggle" 
+                name="toggle_option"
+                value="fullscreen"
+                onChange={this.updateSiteScreenChangeHandler}
+                checked={this.state.screen === 'fullscreen'}
+                />
+              <input 
+                type="radio" 
+                className={this.state.screen === 'screen_one'? styles.active: styles.toggle_option }  
+                id="second_toggle" 
+                name="toggle_option"
+                value="screen_one"
+                onChange={this.updateSiteScreenChangeHandler}
+                checked={this.state.screen === 'screen_one'}
+                />
+              <input 
+                type="radio" 
+                className={this.state.screen === 'screen_two'? styles.active: styles.toggle_option } 
+                id="third_toggle" 
+                name="toggle_option"
+                value="screen_two"
+                checked={this.state.screen === 'screen_two'}
+                onChange={this.updateSiteScreenChangeHandler}
+                />
+              <label  for="first_toggle">
+                {/* <span className={styles.description}>TODAY</span> */}
+                  <p className={this.state.screen === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
+                {/* <span className={styles.day-week}>Tuesday</span> */}
+              </label>
+              <label for="second_toggle">
+                {/* <span className={styles.description}>TOMORROW</span> */}
+                  <p className={this.state.screen === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
+                {/* <span className={styles.day-week}>Wednesday</span> */}
+              </label>
+              <label for="third_toggle">
+                {/* <span className={styles.description}>DAY AFTER</span> */}
+                  <p className={this.state.screen === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
+                {/* <span className={styles.day-week}>Thursday</span> */}
+              </label>
+            </div>
+          </div> 
+
+          <div>
+            {this.renderUrlError()}
+          </div>
+        
+          <Button
+            className={styles.startBtn}
+            label={this.props.isSite ? "Share Site" :intl.formatMessage(intlMessages.start)}
+            onClick={this.startWatchingSiteHandler}
+            // disabled={this.props.isSite ? null :startDisabled}
+          />
+        </div>
       </ModalFullscreen>
     );
   }

@@ -5,7 +5,7 @@ import { makeCall } from '/imports/ui/services/api';
 
 const isUrlValid = url => ReactPlayer.canPlay(url);
 
-const startWatching = (url, isSite) => {
+const startWatchingSite = (url, isSite) => {
     const externalWebsiteUrl = url;
     
     console.log("Start Watching External website", externalWebsiteUrl);

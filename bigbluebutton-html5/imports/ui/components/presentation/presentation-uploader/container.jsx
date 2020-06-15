@@ -6,6 +6,7 @@ import PresentationUploader from './component';
 
 
 import { startWatching, getVideoUrl } from '../../external-video-player/service';
+import { startWatchingSite, getWebsiteUrl } from '../../website-viewer/service';
 
 const PresentationUploaderContainer = props => (
   <PresentationUploader {...props} />
@@ -37,5 +38,11 @@ export default withTracker(() => {
     },
     startWatching,
     videoUrl: getVideoUrl(),
+
+    closeModal: () => {
+      mountModal(null);
+    },
+    startWatchingSite,
+    websiteUrl: getWebsiteUrl(),
   };
 })(PresentationUploaderContainer);
