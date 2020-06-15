@@ -222,6 +222,8 @@ export default withModalMounter(withTracker((props) => {
           isPresenter={MediaService.isUserPresenter()}
         />
       );
+
+      console.log("==== Website Container ===", data.children_split);
     } else if(props.screen_value == "screen_one" && props.screen_for == "media"){
       data.children = (
         <ExternalVideoContainer
