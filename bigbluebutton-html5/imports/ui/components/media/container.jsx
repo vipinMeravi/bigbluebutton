@@ -250,7 +250,7 @@ export default withModalMounter(withTracker((props) => {
 
     } else if(props.screen_for == 'site'){
 
-      data.children_split = (
+      data.children = (
         <ExternalWebsiteContainer
           isPresenter={MediaService.isUserPresenter()}
         />
@@ -366,7 +366,7 @@ export default withModalMounter(withTracker((props) => {
 
       if(MediaService.shouldShowExternalWebsite()){
         data.children = (
-          <ExternalVideoContainer
+          <ExternalWebsiteContainer
             isPresenter={MediaService.isUserPresenter()}
           />
         );  
