@@ -4,6 +4,9 @@ import { withTracker } from 'meteor/react-meteor-data';
 import Service from './service';
 import PresentationUploader from './component';
 
+
+import { startWatching, getVideoUrl } from '../../external-video-player/service';
+
 const PresentationUploaderContainer = props => (
   <PresentationUploader {...props} />
 );
@@ -28,5 +31,11 @@ export default withTracker(() => {
     dispatchDisableDownloadable,
     dispatchEnableDownloadable,
     dispatchTogglePresentationDownloadable,
+
+    closeModal: () => {
+      mountModal(null);
+    },
+    startWatching,
+    videoUrl: getVideoUrl(),
   };
 })(PresentationUploaderContainer);

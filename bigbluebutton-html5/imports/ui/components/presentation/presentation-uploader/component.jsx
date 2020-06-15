@@ -227,6 +227,8 @@ class PresentationUploader extends Component {
   constructor(props) {
     super(props);
 
+    const { videoUrl } = props;
+
     console.log("==========> Is Pdf <=========", this.props.isPdf)
     const currentPres = props.presentations.find(p => p.isCurrent);
     
@@ -235,7 +237,9 @@ class PresentationUploader extends Component {
       oldCurrentId: currentPres ? currentPres.id : -1,
       preventClosing: false,
       disableActions: false,
-      screen: 'fullscreen'
+      screen: 'fullscreen',
+      url: videoUrl,
+      sharing: videoUrl,
     };
 
     this.handleConfirm = this.handleConfirm.bind(this);
@@ -249,6 +253,12 @@ class PresentationUploader extends Component {
     this.deepMergeUpdateFileKey = this.deepMergeUpdateFileKey.bind(this);
 
     this.releaseActionsOnPresentationError = this.releaseActionsOnPresentationError.bind(this);
+
+
+    this.startWatchingHandler = this.startWatchingHandler.bind(this);
+    this.updateVideoUrlHandler = this.updateVideoUrlHandler.bind(this);
+    this.renderUrlError = this.renderUrlError.bind(this);
+    this.updateScreenChangeHandler = this.updateScreenChangeHandler.bind(this);
   }
 
   componentDidUpdate() {
@@ -871,6 +881,52 @@ class PresentationUploader extends Component {
           </span>
         </p>
       </Dropzone>
+    );
+  }
+
+  // Media Modal Functions
+
+  startWatchingHandler() {
+    const {
+      startWatching,
+      closeModal,
+      getScreenValue
+    } = this.props;
+
+    const { url, screen } = this.state;
+    
+    console.log("----<<Start Watching Handler updateArrScreen >>----")
+    console.log(this.props)
+    console.log("----<<Start Watching Handler updateArrScreen >>----")
+    getScreenValue(this.state.screen, "media");
+    startWatching(url.trim(), this.props.isSite);
+    closeModal();
+  }
+
+  updateVideoUrlHandler(ev) {
+    console.log("------------> ev url values ----------->", ev.target.value);
+    this.setState({ url: ev.target.value });
+  }
+
+  updateScreenChangeHandler(ev) {
+    this.setState({ screen: ev.target.value });
+    console.log("------------> ev values ----------->", ev.target.value);
+  }
+
+  renderUrlError() {
+    const { intl } = this.props;
+    const { url } = this.state;
+
+    const valid = (!url || url.length <= 3) || isUrlValid(url);
+
+    return (
+      !valid && !this.props.isSite
+        ? (
+          <div className={styles.urlError}>
+            {intl.formatMessage(intlMessages.urlError)}
+          </div>
+        )
+        : null
     );
   }
 
