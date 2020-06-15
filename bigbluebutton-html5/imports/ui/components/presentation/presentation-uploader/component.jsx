@@ -645,9 +645,9 @@ class PresentationUploader extends Component {
           key={item.id}
           className={cx(itemClassName)}
         >
-          <td className={styles.tableItemIcon}>
+          {/* <td className={styles.tableItemIcon}>
             <Icon iconName="file" />
-          </td>
+          </td> */}
           {
             isActualCurrent
               ? (

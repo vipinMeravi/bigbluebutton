@@ -115,7 +115,7 @@ class ModalFullscreen extends PureComponent {
         {...otherProps}
         style={{
           overlay: {
-            width: '15%',
+            width: '20%',
           }
         }}
       >
