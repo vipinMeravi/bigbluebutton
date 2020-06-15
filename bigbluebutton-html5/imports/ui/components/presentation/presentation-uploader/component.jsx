@@ -934,9 +934,9 @@ class PresentationUploader extends Component {
               />
             </label>
             
-            <div className={styles.externalVideoNote} id="external-video-note">
+            {/* <div className={styles.externalVideoNote} id="external-video-note">
               {this.props.isSite ? null :intl.formatMessage(intlMessages.note)}
-            </div>
+            </div> */}
           </div>
           <div className={styles.wrapper}>
             <div className={styles.toggle_radio}>
