@@ -259,6 +259,7 @@ class PresentationUploader extends Component {
     this.updateVideoUrlHandler = this.updateVideoUrlHandler.bind(this);
     this.renderUrlError = this.renderUrlError.bind(this);
     this.updateScreenChangeHandler = this.updateScreenChangeHandler.bind(this);
+    this.updateScreenChangeMediaHandler = this.updateScreenChangeMediaHandler.bind(this);
   }
 
   componentDidUpdate() {
@@ -913,6 +914,11 @@ class PresentationUploader extends Component {
     console.log("------------> ev values ----------->", ev.target.value);
   }
 
+  updateScreenChangeMediaHandler(ev) {
+    this.setState({ screen: ev.target.value });
+    console.log("------------> ev values ----------->", ev.target.value);
+  }
+
   renderUrlError() {
     const { intl } = this.props;
     const { url } = this.state;
@@ -1002,7 +1008,7 @@ class PresentationUploader extends Component {
                 id="first_toggle" 
                 name="toggle_option"
                 value="fullscreen"
-                onChange={this.updateScreenChangeHandler}
+                onChange={this.updateScreenChangeMediaHandler}
                 checked={this.state.screen === 'fullscreen'}
                 />
               <input 
@@ -1011,7 +1017,7 @@ class PresentationUploader extends Component {
                 id="second_toggle" 
                 name="toggle_option"
                 value="screen_one"
-                onChange={this.updateScreenChangeHandler}
+                onChange={this.updateScreenChangeMediaHandler}
                 checked={this.state.screen === 'screen_one'}
                 />
               <input 
@@ -1021,7 +1027,7 @@ class PresentationUploader extends Component {
                 name="toggle_option"
                 value="screen_two"
                 checked={this.state.screen === 'screen_two'}
-                onChange={this.updateScreenChangeHandler}
+                onChange={this.updateScreenChangeMediaHandler}
                 />
               <label  for="first_toggle">
                 {/* <span className={styles.description}>TODAY</span> */}
@@ -1042,7 +1048,7 @@ class PresentationUploader extends Component {
           </div> 
 
           <div>
-            {/* {this.renderUrlError()} */}
+            {this.renderUrlError()}
           </div>
         
           <Button
