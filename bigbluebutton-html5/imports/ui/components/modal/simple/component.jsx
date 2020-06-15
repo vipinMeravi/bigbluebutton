@@ -60,9 +60,6 @@ class ModalSimple extends Component {
     } = this.props;
 
     const closeModel = (onRequestClose || this.handleDismiss);
-    console.log("------------------Class Name for css Simple -----------")
-    console.log(this.props)
-    console.log("------------------Class Name for css Simple -----------")
     return (
       <ModalBase
         isOpen={modalisOpen}

@@ -12,6 +12,7 @@ const isUrlValid = url => ReactPlayer.canPlay(url);
 
 const startWatching = (url, isSite) => {
   const externalVideoUrl = url;
+  console.log("------- External video start Watching-------", url);
   makeCall('startWatchingExternalVideo', { externalVideoUrl, isSite });
 };
 
@@ -21,7 +22,7 @@ const getScreen = () => {
 }
 
 const stopWatching = () => {
-  // makeCall('stopWatchingExternalVideo');
+  makeCall('stopWatchingExternalVideo');
 };
 
 const sendMessage = (event, data) => {
