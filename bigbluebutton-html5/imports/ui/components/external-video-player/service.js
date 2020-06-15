@@ -21,7 +21,7 @@ const getScreen = () => {
 }
 
 const stopWatching = () => {
-  makeCall('stopWatchingExternalVideo');
+  // makeCall('stopWatchingExternalVideo');
 };
 
 const sendMessage = (event, data) => {

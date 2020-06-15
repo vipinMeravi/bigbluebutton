@@ -1,6 +1,6 @@
 import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-// import { Session } from 'meteor/session';
+import { Session } from 'meteor/session';
 import { getWebsiteUrl } from './service';
 import { isUrlValid } from './service';
 
@@ -11,9 +11,9 @@ const WebsiteViewerContainer = props => (
 );
 
 export default withTracker(({ isPresenter }) => {
-    // const inEchoTest = Session.get('inEchoTest');
+    const inEchoTest = Session.get('inEchoTest');
     return {
-    //   inEchoTest,
+      inEchoTest,
       isPresenter,
       videoUrl: getWebsiteUrl(),
       isUrlValid : isUrlValid(getWebsiteUrl())
