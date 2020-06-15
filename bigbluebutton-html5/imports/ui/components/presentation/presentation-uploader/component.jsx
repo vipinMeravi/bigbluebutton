@@ -263,6 +263,8 @@ class PresentationUploader extends Component {
     this.renderUrlError = this.renderUrlError.bind(this);
     this.updateScreenChangeHandler = this.updateScreenChangeHandler.bind(this);
     this.updateScreenChangeMediaHandler = this.updateScreenChangeMediaHandler.bind(this);
+    this.updateSiteScreenChangeHandler = this.updateSiteScreenChangeHandler.bind(this);
+    
   }
 
   componentDidUpdate() {
@@ -1087,7 +1089,7 @@ class PresentationUploader extends Component {
 
         {/* Adding Website Modal inside presentaion modal */}
         <header data-test="videoModealHeader" className={styles.header}>
-          <h3 className={styles.title}>{this.props.isSite ? "Share a Web-Site" :intl.formatMessage(intlMessages.title)}</h3>
+          <h3 className={styles.title}>{"Share a Web-Site"}</h3>
         </header>
 
         <div className={styles.content}>
