@@ -217,14 +217,14 @@ export default withModalMounter(withTracker((props) => {
       );
       data.children_split = null;
     } else if(props.screen_value == "screen_two" && props.screen_for == "media"){
-      data.children_split = (
+      data.children = (
         <ExternalWebsiteContainer
           isPresenter={MediaService.isUserPresenter()}
         />
       );
 
       console.log("==== Website Container ===", data.children_split);
-      
+
     } else if(props.screen_value == "screen_one" && props.screen_for == "media"){
       data.children = (
         <ExternalVideoContainer
