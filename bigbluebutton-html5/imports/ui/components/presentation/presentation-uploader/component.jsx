@@ -1099,7 +1099,7 @@ class PresentationUploader extends Component {
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
                 placeholder={"Add Web-Site URL"}
-                disabled={sharing}
+                // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
             </label>
