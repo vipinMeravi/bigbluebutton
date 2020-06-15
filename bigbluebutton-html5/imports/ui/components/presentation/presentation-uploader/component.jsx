@@ -876,7 +876,7 @@ class PresentationUploader extends Component {
           disabled: disableActions,
         }}
       >
-        <p>{intl.formatMessage(intlMessages.message)}</p>
+        {/* <p>{intl.formatMessage(intlMessages.message)}</p> */}
         {this.renderPresentationList(this.props.isPdf)}
         <div className={styles.dropzoneWrapper}>
           {isMobileBrowser ? this.renderPicDropzone() : null}
