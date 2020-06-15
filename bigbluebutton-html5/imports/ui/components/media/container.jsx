@@ -143,38 +143,38 @@ export default withModalMounter(withTracker((props) => {
   this.props? console.log("media container this.props",this.props):console.log("media container this.props undefined")
   props? console.log("media container this.props",props):console.log("media container props undefined")
 
-  if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
-    data.currentPresentation = MediaService.getPresentationInfo();
+  // if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
+  //   data.currentPresentation = MediaService.getPresentationInfo();
 
-    if(props.screen_value == "fullscreen" && props.screen_for == "document"){
-      data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
-      data.children_split = null;
-    } else if(props.screen_value == "screen_one" && props.screen_for == "document"){
+  //   if(props.screen_value == "fullscreen" && props.screen_for == "document"){
+  //     data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
+  //     data.children_split = null;
+  //   } else if(props.screen_value == "screen_one" && props.screen_for == "document"){
 
-      data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
+  //     data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
 
-    } else if(props.screen_value == "screen_two" && props.screen_for == "document"){
+  //   } else if(props.screen_value == "screen_two" && props.screen_for == "document"){
 
-      // data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
-      // data.children = <PresentationPodsContainer/>;
-      data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
-      data.children_split = <PresentationPodsSplitContainer screen_value={props.screen_value}/>;
+  //     // data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
+  //     // data.children = <PresentationPodsContainer/>;
+  //     data.children = <PresentationPodsContainer screen_value={"screen_one"}/>;
+  //     data.children_split = <PresentationPodsSplitContainer screen_value={props.screen_value}/>;
 
-    } else if(props.screen_value == "fullscreen" && props.screen_for == "media"){
+  //   } else if(props.screen_value == "fullscreen" && props.screen_for == "media"){
       
-      data.children = null
+  //     data.children = null
 
-    } else if(props.screen_value == "screen_one" && props.screen_for == "media"){
+  //   } else if(props.screen_value == "screen_one" && props.screen_for == "media"){
       
-      data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
+  //     data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
 
-    } else if(props.screen_value == "screen_two" && props.screen_for == "media"){
+  //   } else if(props.screen_value == "screen_two" && props.screen_for == "media"){
       
-      data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
+  //     data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
 
-    }
+  //   }
      
-  }
+  // }
 
   if (MediaService.shouldShowScreenshare() && (viewScreenshare || MediaService.isUserPresenter())) {
     data.children = <ScreenshareContainer />;
@@ -199,48 +199,48 @@ export default withModalMounter(withTracker((props) => {
     data.hideOverlay = true;
   }
 
-  if (MediaService.shouldShowExternalVideo()) {
-    if (props.screen_value == "fullscreen" && props.screen_for == "media") {
-      data.children = (
-        <ExternalVideoContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
-      data.children_split = null;
-    } else if(props.screen_value == "screen_two" && props.screen_for == "media"){
-      data.children = (
-        <ExternalVideoContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
-      data.children_split = (
-        <ExternalWebsiteContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
+  // if (MediaService.shouldShowExternalVideo()) {
+  //   if (props.screen_value == "fullscreen" && props.screen_for == "media") {
+  //     data.children = (
+  //       <ExternalVideoContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
+  //     data.children_split = null;
+  //   } else if(props.screen_value == "screen_two" && props.screen_for == "media"){
+  //     data.children = (
+  //       <ExternalVideoContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
+  //     data.children_split = (
+  //       <ExternalWebsiteContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
 
-      console.log("==== Website Container ===", data.children_split);
+  //     console.log("==== Website Container ===", data.children_split);
 
-    } else if(props.screen_value == "screen_one" && props.screen_for == "media"){
-      data.children = (
-        <ExternalVideoContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
-    } else if(props.screen_value == "screen_two" && props.screen_for == "document"){
-      data.children = (
-        <ExternalVideoContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
-    } else if(props.screen_value == "screen_one" && props.screen_for == "document"){
-      data.children_split = (
-        <ExternalVideoContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
-    }
-  }
+  //   } else if(props.screen_value == "screen_one" && props.screen_for == "media"){
+  //     data.children = (
+  //       <ExternalVideoContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
+  //   } else if(props.screen_value == "screen_two" && props.screen_for == "document"){
+  //     data.children = (
+  //       <ExternalVideoContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
+  //   } else if(props.screen_value == "screen_one" && props.screen_for == "document"){
+  //     data.children_split = (
+  //       <ExternalVideoContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
+  //   }
+  // }
 
   if(props.screen_value == "fullscreen"){
 
