@@ -16,6 +16,8 @@ import Button from '/imports/ui/components/button/component';
 import Checkbox from '/imports/ui/components/checkbox/component';
 import { styles } from './styles.scss';
 
+import { isUrlValid } from '../../external-video-player/service';
+
 const propTypes = {
   intl: intlShape.isRequired,
   mountModal: PropTypes.func.isRequired,
