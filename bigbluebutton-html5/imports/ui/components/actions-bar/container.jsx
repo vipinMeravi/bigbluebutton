@@ -10,6 +10,7 @@ import ActionsBar from './component';
 import Service from './service';
 import VideoService from '../video-provider/service';
 import ExternalVideoService from '/imports/ui/components/external-video-player/service';
+import ExternalWebsiteService from '/imports/ui/components/website-viewer/service';
 import CaptionsService from '/imports/ui/components/captions/service';
 import {
   shareScreen,
@@ -49,6 +50,7 @@ export default withTracker((props) => {
     amIPresenter: Service.amIPresenter(),
     amIModerator: Service.amIModerator(),
     stopExternalVideoShare: ExternalVideoService.stopWatching,
+    stopExternalWebsiteShare: ExternalWebsiteService.stopWatching,
     handleExitVideo: () => VideoService.exitVideo(),
     handleJoinVideo: () => VideoService.joinVideo(),
     handleShareScreen: onFail => shareScreen(onFail),

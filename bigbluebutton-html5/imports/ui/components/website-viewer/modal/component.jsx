@@ -43,11 +43,11 @@ class ExternalVideoModal extends Component {
   constructor(props) {
     super(props);
 
-    const { videoUrl, screenType } = props;
+    const { websiteUrl, screenType } = props;
 
     this.state = {
-      url: videoUrl,
-      sharing: videoUrl,
+      url: websiteUrl,
+      sharing: websiteUrl,
       screen: screenType,
     };
 

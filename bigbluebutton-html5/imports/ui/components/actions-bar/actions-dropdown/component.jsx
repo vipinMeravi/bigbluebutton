@@ -215,9 +215,9 @@ class ActionsDropdown extends PureComponent {
   }
 
   handleExternalWebsiteClick(isSite) {
-    console.log("+++++++++++====<<>>")
+    console.log("+++++++++++====<<>>--------")
     console.log(this.props);
-    console.log("+++++++++++====<<>>")
+    console.log("+++++++++++====<<>>--------")
     const { mountModal, getScreenValue } = this.props;
     mountModal(<WebsiteViewContainer isSite={isSite} getScreenValue={getScreenValue}/>);
   }

@@ -9,7 +9,7 @@ const startWatching = (url, isSite) => {
     makeCall('startWatchingExternalWebsite', { externalWebsiteUrl, isSite });
 };
 
-const getVideoUrl = () => {
+const getWebsiteUrl = () => {
     const meetingId = Auth.meetingID;
     const meeting = Meetings.findOne({ meetingId }, { fields: { externalWebsiteUrl: 1 } });
     let video_response = Meetings.find({ meetingId }, { fields: { externalWebsiteUrl: 1 } });
@@ -19,8 +19,13 @@ const getVideoUrl = () => {
     return meeting && meeting.externalWebsiteUrl;
   };
 
+const stopWatching = () => {
+    makeCall('stopWatchingExternalWebsite');
+};
+
 export {
-    getVideoUrl,
+    getWebsiteUrl,
     isUrlValid,
     startWatching,
+    stopWatching
   };

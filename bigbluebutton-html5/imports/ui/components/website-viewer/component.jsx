@@ -8,10 +8,10 @@ class WebsiteView extends Component {
     }
 
     render() {
-        const { videoUrl } = this.props;
+        const { websiteUrl } = this.props;
 
         <div class="resp-container" >
-            <iframe width="630" height="410" src={videoUrl} />
+            <iframe width="630" height="410" src={websiteUrl} />
         </div>
     }
 }
