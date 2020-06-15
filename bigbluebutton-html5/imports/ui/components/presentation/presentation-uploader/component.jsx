@@ -986,7 +986,7 @@ class PresentationUploader extends Component {
           </div> 
 
           <div>
-            {this.renderUrlError()}
+            {/* {this.renderUrlError()} */}
           </div>
         
           <Button
