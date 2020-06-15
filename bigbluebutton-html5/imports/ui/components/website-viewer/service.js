@@ -16,9 +16,10 @@ const getWebsiteUrl = () => {
     const meetingId = Auth.meetingID;
     const meeting = Meetings.findOne({ meetingId }, { fields: { externalWebsiteUrl: 1 } });
     let video_response = Meetings.find({ meetingId }, { fields: { externalWebsiteUrl: 1 } });
-    console.log("============== Get Video Url ============")
+    console.log("============== Get Website Url ============")
     console.log(video_response);
-    console.log("============== Get Video Url ============")
+    console.log(meeting.externalWebsiteUrl);
+    console.log("============== Get Website Url ============")
     return meeting && meeting.externalWebsiteUrl;
   };
 

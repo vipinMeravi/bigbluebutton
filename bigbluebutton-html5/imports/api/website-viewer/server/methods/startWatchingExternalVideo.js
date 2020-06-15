@@ -30,7 +30,7 @@ export default function startWatchingExternalVideo(options) {
 
   const payload = { externalWebsiteUrl };
 
-  Logger.info(`User id=${requesterUserId} sharing an external video: ${externalWebsiteUrl} for meeting ${meetingId}`);
+  Logger.info(`User id=${requesterUserId} sharing an external Website: ${externalWebsiteUrl} for meeting ${meetingId}`);
 
   return RedisPubSub.publishUserMessage(CHANNEL, EVENT_NAME, meetingId, requesterUserId, payload);
 }

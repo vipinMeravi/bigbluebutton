@@ -46,7 +46,7 @@ class ExternalVideoModal extends Component {
     const { websiteUrl, screenType } = props;
 
     this.state = {
-      url: websiteUrl,
+      siteUrl: websiteUrl,
       sharing: websiteUrl,
       screen: screenType,
     };
@@ -64,19 +64,19 @@ class ExternalVideoModal extends Component {
       getScreenValue
     } = this.props;
 
-    const { url, screen } = this.state;
+    const { siteUrl, screen } = this.state;
     
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     getScreenValue(this.state.screen, "media");
-    startWatching(url.trim(), this.props.isSite);
+    startWatching(siteUrl.trim(), this.props.isSite);
     closeModal();
   }
 
   updateVideoUrlHandler(ev) {
-    console.log("------------> ev url values ----------->", ev.target.value);
-    this.setState({ url: ev.target.value });
+    console.log("------------> ev siteUrl values ----------->", ev.target.value);
+    this.setState({ siteUrl: ev.target.value });
   }
 
   updateScreenChangeHandler(ev) {
@@ -86,9 +86,9 @@ class ExternalVideoModal extends Component {
 
   renderUrlError() {
     const { intl } = this.props;
-    const { url } = this.state;
+    const { siteUrl } = this.state;
 
-    const valid = (!url || url.length <= 3) || isUrlValid(url);
+    const valid = (!siteUrl || siteUrl.length <= 3) || isUrlValid(siteUrl);
 
     return (
       !valid && !this.props.isSite
@@ -103,10 +103,10 @@ class ExternalVideoModal extends Component {
 
   render() {
     const { intl, closeModal } = this.props;
-    const { url, sharing, screen } = this.state;
+    const { siteUrl, sharing, screen } = this.state;
     console.log("-------------------- Inside modal render props ----------------- ", this.props);
     console.log("-------------------- Inside modal render state ----------------- ", this.state);
-    const startDisabled = !isUrlValid(url);
+    const startDisabled = !isUrlValid(siteUrl);
 
     return (
       <Modal
