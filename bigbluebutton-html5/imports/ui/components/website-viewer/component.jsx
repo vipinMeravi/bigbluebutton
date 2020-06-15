@@ -9,6 +9,7 @@ class WebsiteView extends Component {
 
     render() {
         const { websiteUrl } = this.props;
+        console.log("---------- Final Destination iFrame -------", this.props);
         return (
         <div class="resp-container" >
             <iframe width="630" height="410" src={websiteUrl} />
@@ -17,4 +18,4 @@ class WebsiteView extends Component {
     }
 }
 
-export default injectWbResizeEvent(WebsiteView);
+export default WebsiteView;

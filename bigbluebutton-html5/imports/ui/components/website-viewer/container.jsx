@@ -12,10 +12,11 @@ const WebsiteViewerContainer = props => (
 
 export default withTracker(({ isPresenter }) => {
     const inEchoTest = Session.get('inEchoTest');
+    
     return {
       inEchoTest,
       isPresenter,
-      videoUrl: getWebsiteUrl(),
+      websiteUrl: getWebsiteUrl(),
       isUrlValid : isUrlValid(getWebsiteUrl())
     };
   })(WebsiteViewerContainer);
