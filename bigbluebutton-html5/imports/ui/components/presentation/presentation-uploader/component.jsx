@@ -993,7 +993,7 @@ class PresentationUploader extends Component {
 
   handleStopVisitingSite(){
 
-    if(this.state.url){
+    if(this.state.url  && this.state.siteUrl.length > 4){
       this.props.getScreenValue("fullscreen", "video");
     } else {
       this.props.getScreenValue("fullscreen", "document");

@@ -25,6 +25,8 @@
   color: var(--color-text);
   font-weight: normal;
   padding: var(--line-height-computed) 0;
+  
+  border-bottom: var(--border-size) solid var(--color-gray-lighter);
 }
 
 .header {
