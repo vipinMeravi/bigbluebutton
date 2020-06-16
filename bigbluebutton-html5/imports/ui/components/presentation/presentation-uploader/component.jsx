@@ -960,6 +960,7 @@ class PresentationUploader extends Component {
   }
 
   updateSiteScreenChangeHandler(ev) {
+    console.log("------------> ev values ----------->", ev);
     // this.setState({ screen: ev.target.value });
     this.temp_screen_site = ev.target.value;
     console.log("------------> ev values ----------->", ev.target.value);
