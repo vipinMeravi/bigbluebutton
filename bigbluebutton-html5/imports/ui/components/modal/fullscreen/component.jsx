@@ -119,15 +119,16 @@ class ModalFullscreen extends PureComponent {
           }
         }}
       >
-        <header className={styles.header}>
+        {/* <header className={styles.header}>
           <h1 className={styles.title}>{title}</h1>
-        </header>
+        </header> */}
         <header className={styles.header}>
           <div className={styles.actions}>
               <Button
                 data-test="modalDismissButton"
                 className={styles.dismiss}
-                label={intl.formatMessage(intlMessages.modalClose)}
+                // label={intl.formatMessage(intlMessages.modalClose)}
+                label={"X"}
                 aria-label={`${intl.formatMessage(intlMessages.modalClose)} ${title}`}
                 disabled={dismiss.disabled}
                 onClick={() => this.handleAction('dismiss')}

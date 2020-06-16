@@ -989,7 +989,7 @@ class PresentationUploader extends Component {
 
   render() {
     const { url, sharing, screen, siteUrl } = this.state;
-    const { intl, isSharingVideo, stopWatching } = this.props;
+    const { intl, isSharingVideo, stopWatching, isSharingSite } = this.props;
     const {
       preventClosing, disableActions, presentations,
     } = this.state;
@@ -1011,7 +1011,7 @@ class PresentationUploader extends Component {
       
 
       <ModalFullscreen
-        // title={this.props.isPdf ? "PDF " : intl.formatMessage(intlMessages.title)}
+        title={this.props.isPdf ? "PDF " : intl.formatMessage(intlMessages.title)}
         preventClosing={preventClosing}
         confirm={{
           callback: this.handleConfirm,
@@ -1135,7 +1135,7 @@ class PresentationUploader extends Component {
 
           <Button
             className={styles.startBtn}
-            label={isSharingVideo? "Stop Sharing": "Share a site"}
+            label={isSharingSite? "Stop Sharing": "Share a site"}
             onClick={this.startWatchingSiteHandler}
           // disabled={this.props.isSite ? null :startDisabled}
           />
