@@ -659,7 +659,7 @@ class PresentationUploader extends Component {
               ? (
                 <th className={styles.tableItemCurrent}>
                   <span className={styles.currentLabel}>
-                    {intl.formatMessage(intlMessages.current)}
+                    {"C"}
                   </span>
                 </th>
               )
@@ -989,7 +989,7 @@ class PresentationUploader extends Component {
 
     return (
       <ModalFullscreen
-        title={this.props.isPdf ? "PDF " : intl.formatMessage(intlMessages.title)}
+        // title={this.props.isPdf ? "PDF " : intl.formatMessage(intlMessages.title)}
         preventClosing={preventClosing}
         confirm={{
           callback: this.handleConfirm,
@@ -999,7 +999,8 @@ class PresentationUploader extends Component {
         }}
         dismiss={{
           callback: this.handleDismiss,
-          label: intl.formatMessage(intlMessages.dismissLabel),
+          // label: intl.formatMessage(intlMessages.dismissLabel),
+          label: "X",
           description: intl.formatMessage(intlMessages.dismissDesc),
           disabled: disableActions,
         }}
