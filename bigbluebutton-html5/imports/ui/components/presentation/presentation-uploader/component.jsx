@@ -980,13 +980,26 @@ class PresentationUploader extends Component {
   }
 
   handleStopWatching(){
-    this.setState({url:'null'})
 
+    if(siteUrl){
+      this.props.getScreenValue(this.state.videoScreen, "document");
+    } else {
+      this.props.getScreenValue("fullscreen", "document");
+    }
+
+    this.setState({url:'null'});
     this.props.stopWatching
   }
 
   handleStopVisitingSite(){
-    this.setState({siteUrl:'null'})
+
+    if(url){
+      this.props.getScreenValue(this.state.websiteScreen, "document");
+    } else {
+      this.props.getScreenValue("fullscreen", "document");
+    }
+
+    this.setState({siteUrl:'null'});
     this.props.stopWatching
   }
 
