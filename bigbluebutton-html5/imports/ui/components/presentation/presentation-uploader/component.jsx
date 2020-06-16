@@ -987,8 +987,8 @@ class PresentationUploader extends Component {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    // this.setState({url:""});
     this.props.stopWatching()
+    this.setState({url:""});
   }
 
   handleStopVisitingSite(){
@@ -999,8 +999,8 @@ class PresentationUploader extends Component {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    // this.setState({siteUrl: ""});
     this.props.stopVisitingSite()
+    this.setState({siteUrl: ""});
 
   }
 
