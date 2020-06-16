@@ -955,14 +955,14 @@ class PresentationUploader extends Component {
 
   updateScreenChangeMediaHandler(ev) {
     // this.setState({ screen: ev.target.value });
-    this.temp_screen_video = ev.target.value;
+    this.temp_screen_video = ev;
     console.log("------------> ev values ----------->", ev.target.value);
   }
 
   updateSiteScreenChangeHandler(ev) {
     console.log("------------> ev values ----------->", ev);
     // this.setState({ screen: ev.target.value });
-    this.temp_screen_site = ev.target.value;
+    this.temp_screen_site = ev;
     console.log("------------> ev values ----------->", ev.target.value);
   }
 
