@@ -7,12 +7,13 @@ import PresentationUploader from './component';
 
 import { startWatching, getVideoUrl, stopWatching } from '../../external-video-player/service';
 import { startVisitingSite, getWebsiteUrl, stopVisitingSite } from '../../website-viewer/service';
+import { withModalMounter } from '/imports/ui/components/modal/service';
 
 const PresentationUploaderContainer = props => (
   <PresentationUploader {...props} />
 );
 
-export default withTracker(({mountModal}) => {
+export default withModalMounter(withTracker(({ mountModal }) => {
   const PRESENTATION_CONFIG = Meteor.settings.public.presentation;
   const currentPresentations = Service.getPresentations();
   const { dispatchDisableDownloadable, dispatchEnableDownloadable, dispatchTogglePresentationDownloadable } = Service;
@@ -47,4 +48,4 @@ export default withTracker(({mountModal}) => {
     stopWatching,
     websiteUrl: getWebsiteUrl(),
   };
-})(PresentationUploaderContainer);
+}))(PresentationUploaderContainer);
