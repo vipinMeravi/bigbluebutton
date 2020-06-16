@@ -1036,7 +1036,7 @@ class PresentationUploader extends Component {
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
-                value = {url? url: null}
+                value = {this.state.url? this.state.url: null}
                 placeholder={this.props.isSite ? "Add Web-Site URL" : intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
@@ -1089,7 +1089,7 @@ class PresentationUploader extends Component {
                 // id="video-modal-input"
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
-                value = {websiteUrl? websiteUrl: null}
+                value = {this.state.websiteUrl? this.state.websiteUrl: null}
                 placeholder={"Add Web-Site URL"}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
