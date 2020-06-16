@@ -59,7 +59,7 @@ class ExternalVideoModal extends Component {
 
   startWatchingHandler() {
     const {
-      startWatching,
+      startWatchingSite,
       closeModal,
       getScreenValue
     } = this.props;
@@ -186,9 +186,9 @@ class ExternalVideoModal extends Component {
             </div>
           </div> 
 
-          <div>
+          {/* <div>
             {this.renderUrlError()}
-          </div>
+          </div> */}
         
           <Button
             className={styles.startBtn}

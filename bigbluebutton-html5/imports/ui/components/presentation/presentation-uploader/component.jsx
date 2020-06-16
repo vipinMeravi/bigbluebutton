@@ -933,7 +933,7 @@ class PresentationUploader extends Component {
 
   updateSiteUrlHandler(ev) {
     console.log("------------> ev url values ----------->", ev.target.value);
-    this.setState({ url: ev.target.value });
+    this.setState({ siteUrl: ev.target.value });
   }
 
   updateScreenChangeHandler(ev) {

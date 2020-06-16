@@ -30,6 +30,6 @@ const stopWatching = () => {
 export {
     getWebsiteUrl,
     isUrlValid,
-    startWatching,
+    startWatchingSite,
     stopWatching
   };
