@@ -12,7 +12,7 @@ const PresentationUploaderContainer = props => (
   <PresentationUploader {...props} />
 );
 
-export default withTracker(() => {
+export default withTracker(({mountModal}) => {
   const PRESENTATION_CONFIG = Meteor.settings.public.presentation;
   const currentPresentations = Service.getPresentations();
   const { dispatchDisableDownloadable, dispatchEnableDownloadable, dispatchTogglePresentationDownloadable } = Service;
