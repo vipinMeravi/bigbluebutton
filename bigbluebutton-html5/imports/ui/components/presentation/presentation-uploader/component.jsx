@@ -981,17 +981,23 @@ class PresentationUploader extends Component {
 
   handleStopWatching(){
 
+    this.props.stopWatching
+
+    this.setState({url:null});
+    
     if(this.state.siteUrl){
       this.props.getScreenValue(this.state.videoScreen, "document");
     } else {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    this.setState({url:null});
-    this.props.stopWatching
+
   }
 
   handleStopVisitingSite(){
+    this.props.stopVisitingSite
+
+    this.setState({siteUrl: null});
 
     if(this.state.url){
       this.props.getScreenValue(this.state.websiteScreen, "document");
@@ -999,8 +1005,7 @@ class PresentationUploader extends Component {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    this.setState({siteUrl:null});
-    this.props.stopVisitingSite
+
   }
 
 

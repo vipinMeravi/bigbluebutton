@@ -18,10 +18,12 @@ export default function stopWatchingExternalVideo(options) {
   const meeting = Meetings.findOne({ meetingId });
   if (!meeting || meeting.externalWebsiteUrl === null) return;
 
+  console.log("===================Stop visiting a website======================== ",options)
+
   Meetings.update({ meetingId }, { $set: { externalWebsiteUrl: null } });
   const payload = {};
 
-  Logger.info(`User id=${requesterUserId} stopped sharing an external video for meeting=${meetingId}`);
+  Logger.info(`User id=${requesterUserId} stopped Visiting a website for meeting=${meetingId}`);
 
   RedisPubSub.publishUserMessage(CHANNEL, EVENT_NAME, meetingId, requesterUserId, payload);
 }
