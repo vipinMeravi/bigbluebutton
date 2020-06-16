@@ -919,7 +919,8 @@ class PresentationUploader extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     getScreenValue(this.state.videoScreen, "video");
     startWatching(url.trim(), this.props.isSite);
-    closeModal();
+    // closeModal();
+    mountModal(null);
   }
 
   startWatchingSiteHandler() {
@@ -938,7 +939,8 @@ class PresentationUploader extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     getScreenValue(this.state.websiteScreen, "site");
     startVisitingSite(siteUrl.trim(), this.props.isSite);
-    closeModal();
+    // closeModal();
+    mountModal(null);
   }
 
   updateVideoUrlHandler(ev) {

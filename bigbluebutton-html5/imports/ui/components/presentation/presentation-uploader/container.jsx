@@ -8,17 +8,11 @@ import PresentationUploader from './component';
 import { startWatching, getVideoUrl, stopWatching } from '../../external-video-player/service';
 import { startVisitingSite, getWebsiteUrl, stopVisitingSite } from '../../website-viewer/service';
 
-
 const PresentationUploaderContainer = props => (
   <PresentationUploader {...props} />
 );
 
-export default withTracker(( props) => {
-
-  console.log("=======================================================")
-  console.log(props)
-  console.log("=======================================================")
-
+export default withTracker(() => {
   const PRESENTATION_CONFIG = Meteor.settings.public.presentation;
   const currentPresentations = Service.getPresentations();
   const { dispatchDisableDownloadable, dispatchEnableDownloadable, dispatchTogglePresentationDownloadable } = Service;
