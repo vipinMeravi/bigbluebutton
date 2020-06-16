@@ -981,29 +981,29 @@ class PresentationUploader extends Component {
 
   handleStopWatching(){
 
-    if(this.state.siteUrl){
-      this.props.getScreenValue(this.state.videoScreen, "document");
+    if(this.state.siteUrl && this.state.siteUrl.length > 4){
+      this.props.getScreenValue("fullscreen", "site");
     } else {
       this.props.getScreenValue("fullscreen", "document");
     }
 
     this.props.stopWatching()
 
-    this.setState({url:false});
+    this.setState({url:""});
 
   }
 
   handleStopVisitingSite(){
 
     if(this.state.url){
-      this.props.getScreenValue(this.state.websiteScreen, "document");
+      this.props.getScreenValue("fullscreen", "video");
     } else {
       this.props.getScreenValue("fullscreen", "document");
     }
 
     this.props.stopVisitingSite()
 
-    this.setState({siteUrl: false});
+    this.setState({siteUrl: ""});
 
   }
 
@@ -1132,7 +1132,7 @@ class PresentationUploader extends Component {
                 name="video-modal-input"
                 placeholder={siteUrl? siteUrl:"Add Web-Site URL"}
                 value={siteUrl? siteUrl: null}
-                // disabled={sharing}
+                disabled={siteUrl == null || siteUrl == ""}
                 aria-describedby="exernal-video-note"
               />
             </label>
