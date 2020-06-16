@@ -981,7 +981,7 @@ class PresentationUploader extends Component {
 
   handleStopWatching(){
 
-    if(siteUrl){
+    if(this.state.siteUrl){
       this.props.getScreenValue(this.state.videoScreen, "document");
     } else {
       this.props.getScreenValue("fullscreen", "document");
@@ -993,7 +993,7 @@ class PresentationUploader extends Component {
 
   handleStopVisitingSite(){
 
-    if(url){
+    if(this.state.url){
       this.props.getScreenValue(this.state.websiteScreen, "document");
     } else {
       this.props.getScreenValue("fullscreen", "document");
