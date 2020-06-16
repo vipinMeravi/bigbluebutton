@@ -152,26 +152,26 @@ class ActionsDropdown extends PureComponent {
           />
         )
         : null),
-      (amIPresenter
-        ? (
-          <DropdownListItem
-            data-test="uploadPresentation"
-            icon="presentation"
-            label={formatMessage(presentationLabel)}
-            description={formatMessage(presentationDesc)}
-            key={this.presentationItemId}
-            isPdf={false}
-            onClick={()=>this.handlePresentationClick(false)}
-            // onClick={this.handlePresentationClick(false)}
-          />
-        )
-        : null),
+      // (amIPresenter
+      //   ? (
+      //     <DropdownListItem
+      //       data-test="uploadPresentation"
+      //       icon="presentation"
+      //       label={formatMessage(presentationLabel)}
+      //       description={formatMessage(presentationDesc)}
+      //       key={this.presentationItemId}
+      //       isPdf={false}
+      //       onClick={()=>this.handlePresentationClick(false)}
+      //       // onClick={this.handlePresentationClick(false)}
+      //     />
+      //   )
+      //   : null),
         (amIPresenter
           ? (
             <DropdownListItem
               data-test="uploadPresentation"
               icon="file"
-              label="Upload a PDF"
+              label="Upload Documents"
               isPdf={true}
               description={formatMessage(presentationDesc)}
               key={this.presentationItemId}
@@ -180,30 +180,30 @@ class ActionsDropdown extends PureComponent {
             />
           )
           : null),
-      (amIPresenter && allowExternalVideo
-        ? (
-          <DropdownListItem
-            icon="video"
-            label={!isSharingVideo ? intl.formatMessage(intlMessages.startExternalVideoLabel)
-              : intl.formatMessage(intlMessages.stopExternalVideoLabel)}
-            description="External Video"
-            key="external-video"
-            onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(false)}
-          />
-        )
-        : null),
-        (amIPresenter && allowExternalVideo
-          ? (
-            <DropdownListItem
-              icon="presentation"
-              label={"Share a site"}
-              description="External Video"
-              key="external-video"
-              onClick={()=>this.handleExternalWebsiteClick(true)}
-              // onClick={()=>this.handleExternalVideoClick(true)}
-            />
-          )
-          : null),        
+      // (amIPresenter && allowExternalVideo
+      //   ? (
+      //     <DropdownListItem
+      //       icon="video"
+      //       label={!isSharingVideo ? intl.formatMessage(intlMessages.startExternalVideoLabel)
+      //         : intl.formatMessage(intlMessages.stopExternalVideoLabel)}
+      //       description="External Video"
+      //       key="external-video"
+      //       onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(false)}
+      //     />
+      //   )
+      //   : null),
+      //   (amIPresenter && allowExternalVideo
+      //     ? (
+      //       <DropdownListItem
+      //         icon="presentation"
+      //         label={"Share a site"}
+      //         description="External Video"
+      //         key="external-video"
+      //         onClick={()=>this.handleExternalWebsiteClick(true)}
+      //         // onClick={()=>this.handleExternalVideoClick(true)}
+      //       />
+      //     )
+      //     : null),        
     ]);
   }
 

@@ -987,7 +987,7 @@ class PresentationUploader extends Component {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    this.setState({url:""});
+    // this.setState({url:""});
     this.props.stopWatching()
   }
 
@@ -999,7 +999,7 @@ class PresentationUploader extends Component {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    this.setState({siteUrl: ""});
+    // this.setState({siteUrl: ""});
     this.props.stopVisitingSite()
 
   }
@@ -1047,15 +1047,16 @@ class PresentationUploader extends Component {
         }}
       >
         {/* <p>{intl.formatMessage(intlMessages.message)}</p> */}
-        <span className={styles.dropzoneLink}>
-            {intl.formatMessage(intlMessages.browseFilesLabel)}
-          </span>
+        {"PDF"}
         {this.renderPresentationList(this.props.isPdf)}
+
         <div className={styles.dropzoneWrapper}>
           {isMobileBrowser ? this.renderPicDropzone() : null}
           {this.renderDropzone()}
         </div>
 
+        {"DOCUMENT"}
+        {this.renderPresentationList(!this.props.isPdf)}
 
         {/* Adding Video Modal inside prsentation modal */}
         {/* <header data-test="videoModealHeader" className={styles.header}>
@@ -1072,7 +1073,7 @@ class PresentationUploader extends Component {
                 name="video-modal-input"
                 placeholder={ intl.formatMessage(intlMessages.urlInput)}
                 disabled={sharing}
-                value={url? url: null}
+                value={url}
                 aria-describedby="exernal-video-note"
               />
             </label>
@@ -1127,8 +1128,8 @@ class PresentationUploader extends Component {
                 // id="video-modal-input"
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
-                placeholder={siteUrl? siteUrl:"Add Web-Site URL"}
-                value={siteUrl? siteUrl: null}
+                placeholder={"Add Web-Site URL"}
+                value={siteUrl}
                 // disabled={}
                 aria-describedby="exernal-video-note"
               />
