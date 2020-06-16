@@ -27,9 +27,6 @@ const propTypes = {
   handleSave: PropTypes.func.isRequired,
   dispatchTogglePresentationDownloadable: PropTypes.func.isRequired,
   fileValidMimeTypes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  startVisitingSite,
-  stopVisitingSite,
-  stopWatching,
   presentations: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     filename: PropTypes.string.isRequired,
@@ -979,7 +976,7 @@ class PresentationUploader extends Component {
 
   render() {
     const { url, sharing, screen, siteUrl } = this.state;
-    const { intl,  stopVisitingSite, stopWatching } = this.props;
+    const { intl,startVisitingSite, stopVisitingSite, stopWatching } = this.props;
     const {
       preventClosing, disableActions, presentations,
     } = this.state;
