@@ -984,7 +984,7 @@ class PresentationUploader extends Component {
     this.props.stopWatching
 
     this.setState({url:null});
-    
+
     if(this.state.siteUrl){
       this.props.getScreenValue(this.state.videoScreen, "document");
     } else {
@@ -1090,7 +1090,7 @@ class PresentationUploader extends Component {
           <Button
             className={styles.startBtn}
             label={isSharingVideo ? "Stop Video" : intl.formatMessage(intlMessages.start) }
-            onClick={isSharingVideo? ()=>{this.handleStopWatching()}:  this.startWatchingVideoHandler}
+            onClick={isSharingVideo? this.handleStopWatching:  this.startWatchingVideoHandler}
           disabled={startDisabled}
           />
 
@@ -1146,7 +1146,7 @@ class PresentationUploader extends Component {
             <Button
             className={styles.startBtn}
             label={isSharingSite? "Stop Sharing": "Share a site"}
-            onClick={isSharingSite? ()=>{this.handleStopVisitingSite()}: this.startWatchingSiteHandler}
+            onClick={isSharingSite? this.handleStopVisitingSite: this.startWatchingSiteHandler}
           // disabled={this.props.isSite ? null :startDisabled}
           />
               <label for="first_toggle" onClick={()=>{this.setState({websiteScreen:'fullscreen'})}}>
