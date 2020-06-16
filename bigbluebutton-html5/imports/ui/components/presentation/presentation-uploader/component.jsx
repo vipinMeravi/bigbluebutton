@@ -987,10 +987,8 @@ class PresentationUploader extends Component {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    this.props.stopWatching()
-
     this.setState({url:""});
-
+    this.props.stopWatching()
   }
 
   handleStopVisitingSite(){
@@ -1001,9 +999,8 @@ class PresentationUploader extends Component {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    this.props.stopVisitingSite()
-
     this.setState({siteUrl: ""});
+    this.props.stopVisitingSite()
 
   }
 
@@ -1132,22 +1129,26 @@ class PresentationUploader extends Component {
                 name="video-modal-input"
                 placeholder={siteUrl? siteUrl:"Add Web-Site URL"}
                 value={siteUrl? siteUrl: null}
-                disabled={siteUrl == null || siteUrl == ""}
+                // disabled={}
                 aria-describedby="exernal-video-note"
               />
             </label>
 
           </div>
           <div className={styles.wrapper}>
+
             <div className={styles.toggle_radio} style={{
               display: "flex"
             }}>
+
             <Button
-            className={styles.startBtn}
-            label={isSharingSite? "Stop Sharing": "Share a site"}
-            onClick={isSharingSite? this.handleStopVisitingSite: this.startWatchingSiteHandler}
-          // disabled={this.props.isSite ? null :startDisabled}
-          />
+              className={styles.startBtn}
+              label={isSharingSite? "Stop Sharing": "Share a site"}
+              onClick={isSharingSite? this.handleStopVisitingSite: this.startWatchingSiteHandler}
+              disabled={siteUrl == null || siteUrl == ""}
+            />
+
+
               <label for="first_toggle" onClick={()=>{this.setState({websiteScreen:'fullscreen'})}}>
                 {/* <span className={styles.description}>TODAY</span> */}
                 <p className={this.state.websiteScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
