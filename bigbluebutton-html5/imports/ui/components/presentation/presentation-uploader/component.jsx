@@ -871,7 +871,7 @@ class PresentationUploader extends Component {
       // Until the Dropzone package has fixed the mime type hover validation, the rejectClassName
       // prop is being remove to prevent the error styles from being applied to valid file types.
       // Error handling is being done in the onDrop prop.
-      <Dropzone
+      <Button
         multiple
         className={styles.dropzone}
         activeClassName={styles.dropzoneActive}
@@ -889,7 +889,7 @@ class PresentationUploader extends Component {
             {intl.formatMessage(intlMessages.browseFilesLabel)}
           </span>
         </p>
-      </Dropzone>
+      </Button>
     );
   }
 
