@@ -27,6 +27,9 @@ const propTypes = {
   handleSave: PropTypes.func.isRequired,
   dispatchTogglePresentationDownloadable: PropTypes.func.isRequired,
   fileValidMimeTypes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  startVisitingSite,
+  stopVisitingSite,
+  stopWatching,
   presentations: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     filename: PropTypes.string.isRequired,
@@ -915,6 +918,7 @@ class PresentationUploader extends Component {
   startWatchingSiteHandler() {
     const {
       startVisitingSite,
+      stopWatching,
       stopVisitingSite,
       closeModal,
       getScreenValue
@@ -975,7 +979,7 @@ class PresentationUploader extends Component {
 
   render() {
     const { url, sharing, screen, siteUrl } = this.state;
-    const { intl } = this.props;
+    const { intl,  stopVisitingSite, stopWatching } = this.props;
     const {
       preventClosing, disableActions, presentations,
     } = this.state;
@@ -993,6 +997,9 @@ class PresentationUploader extends Component {
       : intl.formatMessage(intlMessages.confirmLabel);
 
     return (
+
+      
+
       <ModalFullscreen
         // title={this.props.isPdf ? "PDF " : intl.formatMessage(intlMessages.title)}
         preventClosing={preventClosing}
