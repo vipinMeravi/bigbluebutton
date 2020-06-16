@@ -22,6 +22,9 @@ import VideoStreams from '/imports/api/video-streams/';
 const isSharingVideo = () => {
   const userId = Auth.userID;
   const videoStreams = VideoStreams.findOne({ userId }, { fields: {} });
+  console.log("is sharing value===========================")
+  console.log(videoStreams)
+  console.log("is sharing value===========================")
   return !!videoStreams;
 };
 
