@@ -972,6 +972,7 @@ class PresentationUploader extends Component {
   }
 
   render() {
+    const { url, sharing, screen, siteUrl } = this.state;
     const { intl } = this.props;
     const {
       preventClosing, disableActions, presentations,
@@ -1027,7 +1028,8 @@ class PresentationUploader extends Component {
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
                 placeholder={this.props.isSite ? "Add Web-Site URL" : intl.formatMessage(intlMessages.urlInput)}
-                // disabled={sharing}
+                disabled={sharing}
+                value={this.state.url?this.state.url:null}
                 aria-describedby="exernal-video-note"
               />
             </label>
@@ -1078,6 +1080,7 @@ class PresentationUploader extends Component {
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
                 placeholder={"Add Web-Site URL"}
+                value={this.state.siteUrl?this.state.siteUrl:null}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
