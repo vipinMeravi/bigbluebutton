@@ -989,7 +989,7 @@ class PresentationUploader extends Component {
 
     this.props.stopWatching()
 
-    this.setState({url:null});
+    this.setState({url:false});
 
   }
 
@@ -1000,10 +1000,10 @@ class PresentationUploader extends Component {
     } else {
       this.props.getScreenValue("fullscreen", "document");
     }
-    
+
     this.props.stopVisitingSite()
 
-    this.setState({siteUrl: null});
+    this.setState({siteUrl: false});
 
   }
 
