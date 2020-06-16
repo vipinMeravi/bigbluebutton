@@ -1041,9 +1041,9 @@ class PresentationUploader extends Component {
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
-                placeholder={ intl.formatMessage(intlMessages.urlInput)}
+                placeholder={isSharingVideo? isSharingVideo: intl.formatMessage(intlMessages.urlInput)}
                 disabled={sharing}
-                value={isSharingVideo? url: null}
+                value={isSharingVideo? isSharingVideo: null}
                 aria-describedby="exernal-video-note"
               />
             </label>
@@ -1098,8 +1098,8 @@ class PresentationUploader extends Component {
                 // id="video-modal-input"
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
-                placeholder={"Add Web-Site URL"}
-                value={isSharingSite? siteUrl: null}
+                placeholder={isSharingSite? isSharingSite:"Add Web-Site URL"}
+                value={isSharingSite? isSharingSite: null}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
