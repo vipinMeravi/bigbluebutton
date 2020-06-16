@@ -1006,10 +1006,10 @@ class PresentationUploader extends Component {
       >
         {/* <p>{intl.formatMessage(intlMessages.message)}</p> */}
         {this.renderPresentationList(this.props.isPdf)}
-        <div className={styles.dropzoneWrapper}>
-          {isMobileBrowser ? this.renderPicDropzone() : null}
+        {/* <div className={styles.dropzoneWrapper}> */}
+          {/* {isMobileBrowser ? this.renderPicDropzone() : null} */}
           {this.renderDropzone()}
-        </div>
+        {/* </div> */}
 
 
         {/* Adding Video Modal inside prsentation modal */}
