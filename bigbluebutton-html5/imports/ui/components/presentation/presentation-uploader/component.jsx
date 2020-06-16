@@ -909,7 +909,8 @@ class PresentationUploader extends Component {
     const {
       startWatching,
       closeModal,
-      getScreenValue
+      getScreenValue,
+      mountModal
     } = this.props;
 
     const { url, screen } = this.state;
