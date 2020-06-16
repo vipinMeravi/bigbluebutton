@@ -1042,14 +1042,14 @@ class PresentationUploader extends Component {
         <div className={styles.content}>
           <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" id="video-modal-input">
-              {this.props.isSite ? "Web-Site URL" : intl.formatMessage(intlMessages.input)}
+              {intl.formatMessage(intlMessages.input)}
               <input
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
-                placeholder={this.props.isSite ? "Add Web-Site URL" : intl.formatMessage(intlMessages.urlInput)}
+                placeholder={ intl.formatMessage(intlMessages.urlInput)}
                 disabled={sharing}
-                value={this.state.url?this.state.url:null}
+                value={url? url: null}
                 aria-describedby="exernal-video-note"
               />
             </label>
@@ -1081,8 +1081,8 @@ class PresentationUploader extends Component {
           <Button
             className={styles.startBtn}
             label={isSharingVideo ? intl.formatMessage(intlMessages.start) : "Stop Video"}
-            onClick={isSharingVideo? this.startWatchingVideoHandler: stopWatching }
-          disabled={this.props.isSite ? null :startDisabled}
+            onClick={isSharingVideo? this.startWatchingVideoHandler: this.props.stopWatching }
+          disabled={startDisabled}
           />
         </div>
 
