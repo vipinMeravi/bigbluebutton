@@ -1081,8 +1081,8 @@ class PresentationUploader extends Component {
 
           <Button
             className={styles.startBtn}
-            label={isSharingVideo ? intl.formatMessage(intlMessages.start) : "Stop Video"}
-            onClick={isSharingVideo? this.startWatchingVideoHandler: this.props.stopWatching }
+            label={isSharingVideo ? "Stop Video" : intl.formatMessage(intlMessages.start) }
+            onClick={isSharingVideo? stopWatching:  this.startWatchingVideoHandler}
           disabled={startDisabled}
           />
         </div>
