@@ -981,6 +981,7 @@ class PresentationUploader extends Component {
 
   handleStopWatching(){
     this.setState({url:'null'})
+
     this.props.stopWatching
   }
 
@@ -1113,7 +1114,7 @@ class PresentationUploader extends Component {
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
                 placeholder={"Add Web-Site URL"}
-                value={siteUrl? videoUrl: null}
+                value={siteUrl? siteUrl: null}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
