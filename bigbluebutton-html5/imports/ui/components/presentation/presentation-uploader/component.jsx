@@ -17,6 +17,13 @@ import Checkbox from '/imports/ui/components/checkbox/component';
 import { styles } from './styles.scss';
 
 import { isUrlValid } from '../../external-video-player/service';
+import VideoStreams from '/imports/api/video-streams/';
+
+const isSharingVideo = () => {
+  const userId = Auth.userID;
+  const videoStreams = VideoStreams.findOne({ userId }, { fields: {} });
+  return !!videoStreams;
+};
 
 const propTypes = {
   intl: intlShape.isRequired,
@@ -1068,8 +1075,8 @@ class PresentationUploader extends Component {
 
           <Button
             className={styles.startBtn}
-            label={url ? "Stop Video" : intl.formatMessage(intlMessages.start)}
-            onClick={url? stopWatching: this.startWatchingVideoHandler}
+            label={isSharingVideo ? intl.formatMessage(intlMessages.start) : "Stop Video"}
+            onClick={isSharingVideo? stopWatching: this.startWatchingVideoHandler}
           disabled={this.props.isSite ? null :startDisabled}
           />
         </div>
@@ -1122,8 +1129,8 @@ class PresentationUploader extends Component {
 
           <Button
             className={styles.startBtn}
-            label={"Share Site"}
-            onClick={url ?stopVisitingSite: this.startWatchingSiteHandler}
+            label={isSharingVideo? "Stop Sharing": "Share a site"}
+            onClick={isSharingVideo ?stopVisitingSite: this.startWatchingSiteHandler}
           // disabled={this.props.isSite ? null :startDisabled}
           />
         </div>
