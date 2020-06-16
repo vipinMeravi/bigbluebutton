@@ -981,7 +981,7 @@ class PresentationUploader extends Component {
 
   handleStopWatching(){
 
-    this.props.stopWatching
+    this.props.stopWatching()
 
     this.setState({url:null});
 
@@ -995,7 +995,7 @@ class PresentationUploader extends Component {
   }
 
   handleStopVisitingSite(){
-    this.props.stopVisitingSite
+    this.props.stopVisitingSite()
 
     this.setState({siteUrl: null});
 
