@@ -1079,7 +1079,7 @@ class PresentationUploader extends Component {
           <Button
             className={styles.startBtn}
             label={isSharingVideo ? intl.formatMessage(intlMessages.start) : "Stop Video"}
-            onClick={isSharingVideo? stopWatching: this.startWatchingVideoHandler}
+            onClick={isSharingVideo? this.startWatchingVideoHandler: stopWatching }
           disabled={this.props.isSite ? null :startDisabled}
           />
         </div>
@@ -1133,7 +1133,7 @@ class PresentationUploader extends Component {
           <Button
             className={styles.startBtn}
             label={isSharingVideo? "Stop Sharing": "Share a site"}
-            onClick={isSharingVideo ?stopVisitingSite: this.startWatchingSiteHandler}
+            onClick={this.startWatchingSiteHandler}
           // disabled={this.props.isSite ? null :startDisabled}
           />
         </div>
