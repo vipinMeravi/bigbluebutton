@@ -22,6 +22,9 @@ const getScreen = () => {
 }
 
 const stopWatching = () => {
+  console.log("====================================")
+  console.log("In stop watching")
+  console.log("====================================")
   makeCall('stopWatchingExternalVideo');
 };
 

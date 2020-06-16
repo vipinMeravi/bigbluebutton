@@ -989,7 +989,7 @@ class PresentationUploader extends Component {
 
   render() {
     const { url, sharing, screen, siteUrl } = this.state;
-    const { intl,startVisitingSite, stopVisitingSite, stopWatching } = this.props;
+    const { intl, isSharingVideo, stopWatching } = this.props;
     const {
       preventClosing, disableActions, presentations,
     } = this.state;

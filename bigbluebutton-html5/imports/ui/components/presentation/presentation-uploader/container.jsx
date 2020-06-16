@@ -5,7 +5,7 @@ import Service from './service';
 import PresentationUploader from './component';
 
 
-import { startWatching, getVideoUrl, stopWatching } from '../../external-video-player/service';
+import { startWatching, getVideoUrl, stopWatching, getVideoUrl } from '../../external-video-player/service';
 import { startVisitingSite, getWebsiteUrl, stopVisitingSite } from '../../website-viewer/service';
 
 const PresentationUploaderContainer = props => (
@@ -45,6 +45,7 @@ export default withTracker(() => {
     startVisitingSite,
     stopVisitingSite,
     stopWatching,
+    isSharingVideo: () => getVideoUrl(),
     websiteUrl: getWebsiteUrl(),
   };
 })(PresentationUploaderContainer);
