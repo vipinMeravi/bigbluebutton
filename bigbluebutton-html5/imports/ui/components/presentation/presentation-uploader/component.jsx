@@ -268,6 +268,9 @@ class PresentationUploader extends Component {
     this.updateScreenChangeHandler = this.updateScreenChangeHandler.bind(this);
     this.updateScreenChangeMediaHandler = this.updateScreenChangeMediaHandler.bind(this);
     this.updateSiteScreenChangeHandler = this.updateSiteScreenChangeHandler.bind(this);
+
+    this.handleStopVisitingSite = this.handleStopVisitingSite.bind(this);
+    this.handleStopWatching = this.handleStopWatching.bind(this);
   }
 
   componentDidUpdate() {
@@ -976,6 +979,17 @@ class PresentationUploader extends Component {
     );
   }
 
+  handleStopWatching(){
+    this.setState({url:'null'})
+    this.props.stopWatching
+  }
+
+  handleStopVisitingSite(){
+    this.setState({siteUrl:'null'})
+    this.props.stopWatching
+  }
+
+
 
   render() {
     const { url, sharing, screen, siteUrl } = this.state;
@@ -1041,7 +1055,7 @@ class PresentationUploader extends Component {
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
-                placeholder={isSharingVideo? isSharingVideo: intl.formatMessage(intlMessages.urlInput)}
+                placeholder={ intl.formatMessage(intlMessages.urlInput)}
                 disabled={sharing}
                 value={isSharingVideo? isSharingVideo: null}
                 aria-describedby="exernal-video-note"
@@ -1057,7 +1071,7 @@ class PresentationUploader extends Component {
           <Button
             className={styles.startBtn}
             label={isSharingVideo ? "Stop Video" : intl.formatMessage(intlMessages.start) }
-            onClick={isSharingVideo? stopWatching:  this.startWatchingVideoHandler}
+            onClick={isSharingVideo? ()=>{this.handleStopWatching()}:  this.startWatchingVideoHandler}
           disabled={startDisabled}
           />
 
@@ -1098,8 +1112,8 @@ class PresentationUploader extends Component {
                 // id="video-modal-input"
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
-                placeholder={isSharingSite? isSharingSite:"Add Web-Site URL"}
-                value={isSharingSite? isSharingSite: null}
+                placeholder={"Add Web-Site URL"}
+                value={siteUrl? videoUrl: null}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
@@ -1113,7 +1127,7 @@ class PresentationUploader extends Component {
             <Button
             className={styles.startBtn}
             label={isSharingSite? "Stop Sharing": "Share a site"}
-            onClick={isSharingSite? stopVisitingSite: this.startWatchingSiteHandler}
+            onClick={isSharingSite? ()=>{this.handleStopVisitingSite()}: this.startWatchingSiteHandler}
           // disabled={this.props.isSite ? null :startDisabled}
           />
               <label for="first_toggle" onClick={()=>{this.setState({websiteScreen:'fullscreen'})}}>

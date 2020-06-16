@@ -334,8 +334,6 @@ export default withModalMounter(withTracker((props) => {
 
     if(props.screen_for == 'document'){
 
-      data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
-
       if(MediaService.shouldShowExternalVideo() && MediaService.shouldShowExternalWebsite()){
         data.children = (
           <ExternalVideoContainer
@@ -354,6 +352,9 @@ export default withModalMounter(withTracker((props) => {
             isPresenter={MediaService.isUserPresenter()}
           />
         );  
+      } else{
+        data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
+        data.children_split = null;
       }
     } else if(props.screen_for == 'site'){
       data.children_split = (
