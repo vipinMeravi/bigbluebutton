@@ -233,7 +233,7 @@ class PresentationUploader extends Component {
 
     console.log("==========> Is Pdf <=========", this.props.isPdf)
     const currentPres = props.presentations.find(p => p.isCurrent);
-    
+
     this.state = {
       presentations: props.presentations,
       oldCurrentId: currentPres ? currentPres.id : -1,
@@ -245,7 +245,9 @@ class PresentationUploader extends Component {
       siteUrl: websiteUrl,
     };
 
-    var temp_screen_value = "fullscreen"
+    var temp_screen_document = "fullscreen"
+    var temp_screen_site = "fullscreen"
+    var temp_screen_video = "fullscreen"
 
     this.handleConfirm = this.handleConfirm.bind(this);
     this.handleDismiss = this.handleDismiss.bind(this);
@@ -267,7 +269,7 @@ class PresentationUploader extends Component {
     this.renderUrlError = this.renderUrlError.bind(this);
     this.updateScreenChangeHandler = this.updateScreenChangeHandler.bind(this);
     this.updateScreenChangeMediaHandler = this.updateScreenChangeMediaHandler.bind(this);
-    this.updateSiteScreenChangeHandler = this.updateSiteScreenChangeHandler.bind(this);    
+    this.updateSiteScreenChangeHandler = this.updateSiteScreenChangeHandler.bind(this);
   }
 
   componentDidUpdate() {
@@ -338,9 +340,9 @@ class PresentationUploader extends Component {
     console.log("=========> handle confirm props <============");
 
     this.setState({ screen: this.temp_screen_value });
-    
+
     this.props.getScreenValue(this.state.screen, "document");
-    
+
     if (!disableActions) {
       return handleSave(presentationsToSave)
         .then(() => {
@@ -399,8 +401,8 @@ class PresentationUploader extends Component {
     const validExtentions = fileValidMimeTypes.map(fileValid => fileValid.extension);
     const [accepted, rejected] = _.partition(files
       .concat(files2), f => (
-      validMimes.includes(f.type) || validExtentions.includes(`.${f.name.split('.').pop()}`)
-    ));
+        validMimes.includes(f.type) || validExtentions.includes(`.${f.name.split('.').pop()}`)
+      ));
 
     const presentationsToUpload = accepted.map((file) => {
       const id = _.uniqueId(file.name);
@@ -553,7 +555,7 @@ class PresentationUploader extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.presentations.map((item,index) => this.renderPresentationItem(item, isPdf, index))}
+            {this.state.presentations.map((item, index) => this.renderPresentationItem(item, isPdf, index))}
           </tbody>
         </table>
       </div>
@@ -597,24 +599,24 @@ class PresentationUploader extends Component {
     return null;
   }
 
-  updateScreenChangeHandler = (ev,index) => {
+  updateScreenChangeHandler = (ev, index) => {
     // this.state.presentations
-    let presentations =this.state.presentations;
-    
+    let presentations = this.state.presentations;
+
     presentations[index].selected = ev
-    
+
     this.setState({ presentations });
 
-    if(this.state.presentations[index].isCurrent){
+    if (this.state.presentations[index].isCurrent) {
       console.log("========>> SET SCREEN STATE IN PRESENTATION <<==========")
       console.log(this.state.screen);
       console.log("========>> SET SCREEN STATE IN PRESENTATION <<==========")
       this.setState({ screen: ev });
     }
-    console.log("------------> ev values ----------->", ev,index,this.state.presentations.isCurrent);
+    console.log("------------> ev values ----------->", ev, index, this.state.presentations.isCurrent);
   }
 
-  renderPresentationItem(item, isPdf,presentationIndex) {
+  renderPresentationItem(item, isPdf, presentationIndex) {
     console.log('------------------- in the function index ----------->>>')
     console.log(presentationIndex)
     console.log('------------------- in the function index ----------->>>')
@@ -647,7 +649,7 @@ class PresentationUploader extends Component {
       : cx(styles.itemAction, styles.itemActionRemove);
 
     let file_type_ext = ['ppt', 'pptx']
-    if(isPdf && item.filename.split('.')[1] == 'pdf'){
+    if (isPdf && item.filename.split('.')[1] == 'pdf') {
       return (
         <tr
           key={item.id}
@@ -710,29 +712,27 @@ class PresentationUploader extends Component {
           <td className={styles.tableItemStatus}>
             <div className={styles.wrapper}>
               <div className={styles.toggle_radio}>
-                <label onClick={()=>{this.updateScreenChangeHandler('fullscreen',presentationIndex)}}>
-                  {/* <span className={styles.description}>TODAY</span> */}
-                    <p className={this.state.presentations[presentationIndex].selected === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
-                  {/* <span className={styles.day-week}>Tuesday</span> */}
+                <label onClick={() => { this.updateScreenChangeHandler('fullscreen', presentationIndex) }}>
+                  <p className={this.state.presentations[presentationIndex].selected === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
                 </label>
-                <label  onClick={()=>{this.updateScreenChangeHandler('screen_one',presentationIndex)}}>
+                <label onClick={() => { this.updateScreenChangeHandler('screen_one', presentationIndex) }}>
                   {/* <span className={styles.description}>TOMORROW</span> */}
-                    <p className={this.state.presentations[presentationIndex].selected === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
+                  <p className={this.state.presentations[presentationIndex].selected === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
                   {/* <span className={styles.day-week}>Wednesday</span> */}
                 </label>
-                <label  onClick={()=>{this.updateScreenChangeHandler('screen_two',presentationIndex)}}>
+                <label onClick={() => { this.updateScreenChangeHandler('screen_two', presentationIndex) }}>
                   {/* <span className={styles.description}>DAY AFTER</span> */}
-                    <p className={this.state.presentations[presentationIndex].selected === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
+                  <p className={this.state.presentations[presentationIndex].selected === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
                   {/* <span className={styles.day-week}>Thursday</span> */}
                 </label>
               </div>
-            </div> 
-          
+            </div>
+
           </td>
 
         </tr>
-      );      
-    } else if(!isPdf && item.filename.split('.')[1] != 'pdf'){
+      );
+    } else if (!isPdf && item.filename.split('.')[1] != 'pdf') {
       return (
         <tr
           key={item.id}
@@ -792,28 +792,28 @@ class PresentationUploader extends Component {
             </td>
           )}
 
-        <td className={styles.tableItemStatus}>
+          <td className={styles.tableItemStatus}>
 
-        <div className={styles.wrapper}>
-            <div className={styles.toggle_radio}>
-              <label onClick={()=>{this.updateScreenChangeHandler('fullscreen',presentationIndex)}}>
-                {/* <span className={styles.description}>TODAY</span> */}
-                  <p className={this.state.presentations[presentationIndex].selected === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
-                {/* <span className={styles.day-week}>Tuesday</span> */}
-              </label>
-              <label onClick={()=>{this.updateScreenChangeHandler('screen_one',presentationIndex)}}>
-                {/* <span className={styles.description}>TOMORROW</span> */}
-                  <p className={this.state.presentations[presentationIndex].selected === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
-                {/* <span className={styles.day-week}>Wednesday</span> */}
-              </label>
-              <label onClick={()=>{this.updateScreenChangeHandler('screen_two',presentationIndex)}}>
-                {/* <span className={styles.description}>DAY AFTER</span> */}
-                  <p className={this.state.presentations[presentationIndex].selected === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
-                {/* <span className={styles.day-week}>Thursday</span> */}
-              </label>
+            <div className={styles.wrapper}>
+              <div className={styles.toggle_radio}>
+                <label onClick={() => { this.updateScreenChangeHandler('fullscreen', presentationIndex) }}>
+                  {/* <span className={styles.description}>TODAY</span> */}
+                  <p className={this.state.presentations[presentationIndex].selected === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
+                  {/* <span className={styles.day-week}>Tuesday</span> */}
+                </label>
+                <label onClick={() => { this.updateScreenChangeHandler('screen_one', presentationIndex) }}>
+                  {/* <span className={styles.description}>TOMORROW</span> */}
+                  <p className={this.state.presentations[presentationIndex].selected === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
+                  {/* <span className={styles.day-week}>Wednesday</span> */}
+                </label>
+                <label onClick={() => { this.updateScreenChangeHandler('screen_two', presentationIndex) }}>
+                  {/* <span className={styles.description}>DAY AFTER</span> */}
+                  <p className={this.state.presentations[presentationIndex].selected === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
+                  {/* <span className={styles.day-week}>Thursday</span> */}
+                </label>
+              </div>
             </div>
-          </div> 
-        </td>                
+          </td>
 
         </tr>
       );
@@ -905,12 +905,12 @@ class PresentationUploader extends Component {
     } = this.props;
 
     const { url, screen } = this.state;
-    
+
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
 
-    this.setState({ screen: this.temp_screen_value });
+    this.setState({ screen: this.temp_screen_video });
 
     getScreenValue(this.state.screen, "video");
     startWatching(url.trim(), this.props.isSite);
@@ -925,12 +925,12 @@ class PresentationUploader extends Component {
     } = this.props;
 
     const { siteUrl, screen } = this.state;
-    
+
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
 
-    this.setState({ screen: this.temp_screen_value });
+    this.setState({ screen: this.temp_screen_site });
 
     getScreenValue(this.state.screen, "site");
     startWatchingSite(siteUrl.trim(), this.props.isSite);
@@ -955,13 +955,13 @@ class PresentationUploader extends Component {
 
   updateScreenChangeMediaHandler(ev) {
     // this.setState({ screen: ev.target.value });
-    this.temp_screen_value = ev.target.value;
+    this.temp_screen_video = ev.target.value;
     console.log("------------> ev values ----------->", ev.target.value);
   }
 
   updateSiteScreenChangeHandler(ev) {
     // this.setState({ screen: ev.target.value });
-    this.temp_screen_value = ev.target.value;
+    this.temp_screen_site = ev.target.value;
     console.log("------------> ev values ----------->", ev.target.value);
   }
 
@@ -1000,7 +1000,7 @@ class PresentationUploader extends Component {
 
     return (
       <ModalFullscreen
-        title={this.props.isPdf? "PDF ":intl.formatMessage(intlMessages.title)}
+        title={this.props.isPdf ? "PDF " : intl.formatMessage(intlMessages.title)}
         preventClosing={preventClosing}
         confirm={{
           callback: this.handleConfirm,
@@ -1025,18 +1025,19 @@ class PresentationUploader extends Component {
 
         {/* Adding Video Modal inside prsentation modal */}
         <header data-test="videoModealHeader" className={styles.header}>
-          <h3 className={styles.title}>{this.props.isSite ? "Share a Web-Site" :intl.formatMessage(intlMessages.title)}</h3>
+          <h3 className={styles.title}>{this.props.isSite ? "Share a Web-Site" : intl.formatMessage(intlMessages.title)}</h3>
         </header>
 
         <div className={styles.content}>
           <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" id="video-modal-input">
-              {this.props.isSite ? "Web-Site URL" :intl.formatMessage(intlMessages.input)}
+              {this.props.isSite ? "Web-Site URL" : intl.formatMessage(intlMessages.input)}
               <input
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
-                placeholder={this.props.isSite ? "Add Web-Site URL" :intl.formatMessage(intlMessages.urlInput)}
+                value = {url? url: null}
+                placeholder={this.props.isSite ? "Add Web-Site URL" : intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
@@ -1044,60 +1045,34 @@ class PresentationUploader extends Component {
           </div>
           <div className={styles.wrapper}>
             <div className={styles.toggle_radio}>
-              <input 
-                type="radio" 
-                className={this.state.screen === 'fullscreen'? styles.active: styles.toggle_option }  
-                id="first_toggle" 
-                name="toggle_option"
-                value="fullscreen"
-                onChange={this.updateScreenChangeMediaHandler}
-                checked={this.state.screen === 'fullscreen'}
-                />
-              <input 
-                type="radio" 
-                className={this.state.screen === 'screen_one'? styles.active: styles.toggle_option }  
-                id="second_toggle" 
-                name="toggle_option"
-                value="screen_one"
-                onChange={this.updateScreenChangeMediaHandler}
-                checked={this.state.screen === 'screen_one'}
-                />
-              <input 
-                type="radio" 
-                className={this.state.screen === 'screen_two'? styles.active: styles.toggle_option } 
-                id="third_toggle" 
-                name="toggle_option"
-                value="screen_two"
-                checked={this.state.screen === 'screen_two'}
-                onChange={this.updateScreenChangeMediaHandler}
-                />
-              <label  for="first_toggle">
-                {/* <span className={styles.description}>TODAY</span> */}
-                  <p className={this.state.screen === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
-                {/* <span className={styles.day-week}>Tuesday</span> */}
+
+              <label onClick={() => { this.updateScreenChangeMediaHandler('fullscreen') }}>
+
+                <p className={this.temp_screen_video === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
+
               </label>
-              <label for="second_toggle">
-                {/* <span className={styles.description}>TOMORROW</span> */}
-                  <p className={this.state.screen === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
-                {/* <span className={styles.day-week}>Wednesday</span> */}
+              <label onClick={() => { this.updateScreenChangeMediaHandler('screen_one') }}>
+
+                <p className={this.temp_screen_video === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
+
               </label>
-              <label for="third_toggle">
-                {/* <span className={styles.description}>DAY AFTER</span> */}
-                  <p className={this.state.screen === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
-                {/* <span className={styles.day-week}>Thursday</span> */}
+              <label onClick={() => { this.updateScreenChangeMediaHandler('screen_two') }}>
+
+                <p className={this.temp_screen_video === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
+
               </label>
             </div>
-          </div> 
+          </div>
 
           <div>
             {this.renderUrlError()}
           </div>
-        
+
           <Button
             className={styles.startBtn}
-            label={this.props.isSite ? "Share Site" :intl.formatMessage(intlMessages.start)}
+            label={this.props.isSite ? "Share Site" : intl.formatMessage(intlMessages.start)}
             onClick={this.startWatchingHandler}
-            // disabled={this.props.isSite ? null :startDisabled}
+          // disabled={this.props.isSite ? null :startDisabled}
           />
         </div>
 
@@ -1114,69 +1089,40 @@ class PresentationUploader extends Component {
                 // id="video-modal-input"
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
+                value = {websiteUrl? websiteUrl: null}
                 placeholder={"Add Web-Site URL"}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
             </label>
-            
+
           </div>
           <div className={styles.wrapper}>
             <div className={styles.toggle_radio}>
-              <input 
-                type="radio" 
-                className={this.state.screen === 'fullscreen'? styles.active: styles.toggle_option }  
-                id="first_toggle" 
-                name="toggle_option"
-                value="fullscreen"
-                onChange={this.updateSiteScreenChangeHandler}
-                checked={this.state.screen === 'fullscreen'}
-                />
-              <input 
-                type="radio" 
-                className={this.state.screen === 'screen_one'? styles.active: styles.toggle_option }  
-                id="second_toggle" 
-                name="toggle_option"
-                value="screen_one"
-                onChange={this.updateSiteScreenChangeHandler}
-                checked={this.state.screen === 'screen_one'}
-                />
-              <input 
-                type="radio" 
-                className={this.state.screen === 'screen_two'? styles.active: styles.toggle_option } 
-                id="third_toggle" 
-                name="toggle_option"
-                value="screen_two"
-                checked={this.state.screen === 'screen_two'}
-                onChange={this.updateSiteScreenChangeHandler}
-                />
-              <label  for="first_toggle">
-                {/* <span className={styles.description}>TODAY</span> */}
-                  <p className={this.state.screen === 'fullscreen'? styles.selected: styles.toggle_option } >F </p>
-                {/* <span className={styles.day-week}>Tuesday</span> */}
+              <label onClick={() => { this.updateSiteScreenChangeHandler('fullscreen') }}>
+
+                <p className={this.temp_screen_site === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
+
               </label>
-              <label for="second_toggle">
-                {/* <span className={styles.description}>TOMORROW</span> */}
-                  <p className={this.state.screen === 'screen_one'? styles.selected: styles.toggle_option } >1 </p>
-                {/* <span className={styles.day-week}>Wednesday</span> */}
+              <label onClick={() => { this.updateSiteScreenChangeHandler('screen_one') }}>
+
+                <p className={this.temp_screen_site === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
+
               </label>
-              <label for="third_toggle">
-                {/* <span className={styles.description}>DAY AFTER</span> */}
-                  <p className={this.state.screen === 'screen_two'? styles.selected: styles.toggle_option } >2 </p>
-                {/* <span className={styles.day-week}>Thursday</span> */}
+              <label onClick={() => { this.updateSiteScreenChangeHandler('screen_two') }}>
+
+                <p className={this.temp_screen_site === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
+
               </label>
             </div>
-          </div> 
-
-          <div>
-            {this.renderUrlError()}
           </div>
-        
+
           <Button
+
             className={styles.startBtn}
             label={"Share Site"}
             onClick={this.startWatchingSiteHandler}
-            // disabled={this.props.isSite ? null :startDisabled}
+
           />
         </div>
       </ModalFullscreen>
