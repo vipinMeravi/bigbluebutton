@@ -1018,6 +1018,9 @@ class PresentationUploader extends Component {
         }}
       >
         {/* <p>{intl.formatMessage(intlMessages.message)}</p> */}
+        <span className={styles.dropzoneLink}>
+            {intl.formatMessage(intlMessages.browseFilesLabel)}
+          </span>
         {this.renderPresentationList(this.props.isPdf)}
         <div className={styles.dropzoneWrapper}>
           {isMobileBrowser ? this.renderPicDropzone() : null}
