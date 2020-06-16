@@ -5,7 +5,7 @@ import { makeCall } from '/imports/ui/services/api';
 
 const isUrlValid = url => ReactPlayer.canPlay(url);
 
-const startWatchingSite = (url, isSite) => {
+const startVisitingSite = (url, isSite) => {
     const externalWebsiteUrl = url;
     
     console.log("Start Watching External website", externalWebsiteUrl);
@@ -23,13 +23,13 @@ const getWebsiteUrl = () => {
     return meeting && meeting.externalWebsiteUrl;
   };
 
-const stopWatching = () => {
+const stopVisitingSite = () => {
     makeCall('stopWatchingExternalWebsite');
 };
 
 export {
     getWebsiteUrl,
     isUrlValid,
-    startWatchingSite,
-    stopWatching
+    startVisitingSite,
+    stopVisitingSite
   };

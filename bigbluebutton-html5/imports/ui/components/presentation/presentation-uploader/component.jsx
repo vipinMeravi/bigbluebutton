@@ -914,7 +914,8 @@ class PresentationUploader extends Component {
 
   startWatchingSiteHandler() {
     const {
-      startWatchingSite,
+      startVisitingSite,
+      stopVisitingSite,
       closeModal,
       getScreenValue
     } = this.props;
@@ -925,7 +926,7 @@ class PresentationUploader extends Component {
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     getScreenValue(this.state.websiteScreen, "site");
-    startWatchingSite(siteUrl.trim(), this.props.isSite);
+    startVisitingSite(siteUrl.trim(), this.props.isSite);
     closeModal();
   }
 
@@ -971,13 +972,16 @@ class PresentationUploader extends Component {
     );
   }
 
+
   render() {
     const { url, sharing, screen, siteUrl } = this.state;
     const { intl } = this.props;
     const {
       preventClosing, disableActions, presentations,
     } = this.state;
-
+    
+    const startDisabled = !isUrlValid(url);
+    
     let awaitingConversion = false;
     presentations.map((presentation) => {
       if (!presentation.conversion.done) awaitingConversion = true;
@@ -1060,9 +1064,9 @@ class PresentationUploader extends Component {
 
           <Button
             className={styles.startBtn}
-            label={this.props.isSite ? "Share Site" : intl.formatMessage(intlMessages.start)}
-            onClick={this.startWatchingVideoHandler}
-          // disabled={this.props.isSite ? null :startDisabled}
+            label={url ? "Stop Video" : intl.formatMessage(intlMessages.start)}
+            onClick={url? stopWatching: this.startWatchingVideoHandler}
+          disabled={this.props.isSite ? null :startDisabled}
           />
         </div>
 
@@ -1080,7 +1084,7 @@ class PresentationUploader extends Component {
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
                 placeholder={"Add Web-Site URL"}
-                value={this.state.siteUrl?this.state.siteUrl:null}
+                value={siteUrl? siteUrl: null}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
@@ -1115,7 +1119,7 @@ class PresentationUploader extends Component {
           <Button
             className={styles.startBtn}
             label={"Share Site"}
-            onClick={this.startWatchingSiteHandler}
+            onClick={url ?stopVisitingSite: this.startWatchingSiteHandler}
           // disabled={this.props.isSite ? null :startDisabled}
           />
         </div>

@@ -5,8 +5,8 @@ import Service from './service';
 import PresentationUploader from './component';
 
 
-import { startWatching, getVideoUrl } from '../../external-video-player/service';
-import { startWatchingSite, getWebsiteUrl } from '../../website-viewer/service';
+import { startWatching, getVideoUrl, stopWatching } from '../../external-video-player/service';
+import { startVisitingSite, getWebsiteUrl, stopVisitingSite } from '../../website-viewer/service';
 
 const PresentationUploaderContainer = props => (
   <PresentationUploader {...props} />
@@ -42,7 +42,9 @@ export default withTracker(() => {
     closeModal: () => {
       mountModal(null);
     },
-    startWatchingSite,
+    startVisitingSite,
+    stopVisitingSite,
+    stopWatching,
     websiteUrl: getWebsiteUrl(),
   };
 })(PresentationUploaderContainer);
