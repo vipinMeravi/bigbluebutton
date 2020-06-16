@@ -573,3 +573,10 @@ p.toggle_option{
   padding: 5px;
 	font-size: 2em;
 }
+
+
+.document {
+  padding-top: inherit;
+  padding-bottom: inherit;
+  border-bottom: var(--border-size) solid var(--color-gray-lighter);
+}

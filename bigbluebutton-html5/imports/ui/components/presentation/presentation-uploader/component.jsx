@@ -1047,6 +1047,7 @@ class PresentationUploader extends Component {
         }}
       >
         {/* <p>{intl.formatMessage(intlMessages.message)}</p> */}
+        <div className={styles.document}>
         {"PDF"}
         {this.renderPresentationList(this.props.isPdf)}
 
@@ -1054,9 +1055,12 @@ class PresentationUploader extends Component {
           {isMobileBrowser ? this.renderPicDropzone() : null}
           {this.renderDropzone()}
         </div>
+        </div>
 
+        <div className={styles.document}>
         {"DOCUMENT"}
         {this.renderPresentationList(!this.props.isPdf)}
+        </div>
 
         {/* Adding Video Modal inside prsentation modal */}
         {/* <header data-test="videoModealHeader" className={styles.header}>
