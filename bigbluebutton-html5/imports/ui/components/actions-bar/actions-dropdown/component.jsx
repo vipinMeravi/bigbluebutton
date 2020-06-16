@@ -161,25 +161,25 @@ class ActionsDropdown extends PureComponent {
             description={formatMessage(presentationDesc)}
             key={this.presentationItemId}
             isPdf={false}
-            onClick={()=>this.handlePresentationClick(false)}
-            // onClick={this.handlePresentationClick(false)}
+            onClick={() => this.handlePresentationClick(false)}
+          // onClick={this.handlePresentationClick(false)}
           />
         )
         : null),
-        (amIPresenter
-          ? (
-            <DropdownListItem
-              data-test="uploadPresentation"
-              icon="file"
-              label="Upload a PDF"
-              isPdf={true}
-              description={formatMessage(presentationDesc)}
-              key={this.presentationItemId}
-              onClick={()=>this.handlePresentationClick(true)}
-              // onClick={this.handlePresentationClick}
-            />
-          )
-          : null),
+      (amIPresenter
+        ? (
+          <DropdownListItem
+            data-test="uploadPresentation"
+            icon="file"
+            label="Upload a PDF"
+            isPdf={true}
+            description={formatMessage(presentationDesc)}
+            key={this.presentationItemId}
+            onClick={() => this.handlePresentationClick(true)}
+          // onClick={this.handlePresentationClick}
+          />
+        )
+        : null),
       (amIPresenter && allowExternalVideo
         ? (
           <DropdownListItem
@@ -188,21 +188,21 @@ class ActionsDropdown extends PureComponent {
               : intl.formatMessage(intlMessages.stopExternalVideoLabel)}
             description="External Video"
             key="external-video"
-            onClick={isSharingVideo ? stopExternalVideoShare : ()=>this.handleExternalVideoClick(false)}
+            onClick={isSharingVideo ? stopExternalVideoShare : () => this.handleExternalVideoClick(false)}
           />
         )
         : null),
-        (amIPresenter && allowExternalVideo
-          ? (
-            <DropdownListItem
-              icon="presentation"
-              label={"Share a site"}
-              description="External Video"
-              key="website-viewer"
-              onClick={()=>this.handleExternalWebsiteClick(true)}
-            />
-          )
-          : null),        
+      (amIPresenter && allowExternalVideo
+        ? (
+          <DropdownListItem
+            icon="presentation"
+            label={"Share a site"}
+            description="External Video"
+            key="website-viewer"
+            onClick={() => this.handleExternalWebsiteClick(true)}
+          />
+        )
+        : null),
     ]);
   }
 
@@ -211,7 +211,7 @@ class ActionsDropdown extends PureComponent {
     console.log(this.props);
     console.log("+++++++++++====<<>>")
     const { mountModal, getScreenValue } = this.props;
-    mountModal(<ExternalVideoModal isSite={isSite} getScreenValue={getScreenValue}/>);
+    mountModal(<ExternalVideoModal isSite={isSite} getScreenValue={getScreenValue} />);
   }
 
   handleExternalWebsiteClick(isSite) {
@@ -219,13 +219,13 @@ class ActionsDropdown extends PureComponent {
     console.log(this.props);
     console.log("+++++++++++====<<>>")
     const { mountModal, getScreenValue } = this.props;
-    mountModal(<WebsiteViewContainer isSite={isSite} getScreenValue={getScreenValue}/>);
+    mountModal(<WebsiteViewContainer isSite={isSite} getScreenValue={getScreenValue} />);
   }
 
   handlePresentationClick(isPdf) {
     const { mountModal, getScreenValue } = this.props;
-    mountModal(<PresentationUploaderContainer isPdf={isPdf} isSite={false} getScreenValue={getScreenValue}/>);
-    
+    mountModal(<PresentationUploaderContainer isPdf={isPdf} isSite={false} getScreenValue={getScreenValue} />);
+
   }
 
   render() {
