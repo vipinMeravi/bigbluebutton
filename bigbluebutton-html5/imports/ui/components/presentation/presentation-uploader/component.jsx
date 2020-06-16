@@ -245,6 +245,8 @@ class PresentationUploader extends Component {
       siteUrl: websiteUrl,
     };
 
+    var temp_screen_value = "fullscreen"
+
     this.handleConfirm = this.handleConfirm.bind(this);
     this.handleDismiss = this.handleDismiss.bind(this);
     this.handleFiledrop = this.handleFiledrop.bind(this);
@@ -334,6 +336,8 @@ class PresentationUploader extends Component {
     console.log(this.props);
     console.log(this.state.screen);
     console.log("=========> handle confirm props <============");
+
+    this.setState({ screen: this.temp_screen_value });
     
     this.props.getScreenValue(this.state.screen, "document");
     
@@ -905,6 +909,9 @@ class PresentationUploader extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
+
+    this.setState({ screen: this.temp_screen_value });
+
     getScreenValue(this.state.screen, "video");
     startWatching(url.trim(), this.props.isSite);
     closeModal();
@@ -922,6 +929,9 @@ class PresentationUploader extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
+
+    this.setState({ screen: this.temp_screen_value });
+
     getScreenValue(this.state.screen, "site");
     startWatchingSite(siteUrl.trim(), this.props.isSite);
     closeModal();
@@ -938,17 +948,20 @@ class PresentationUploader extends Component {
   }
 
   updateScreenChangeHandler(ev) {
-    this.setState({ screen: ev.target.value });
+    // this.setState({ screen: ev.target.value });
+    this.temp_screen_value = ev.target.value;
     console.log("------------> ev values ----------->", ev.target.value);
   }
 
   updateScreenChangeMediaHandler(ev) {
-    this.setState({ screen: ev.target.value });
+    // this.setState({ screen: ev.target.value });
+    this.temp_screen_value = ev.target.value;
     console.log("------------> ev values ----------->", ev.target.value);
   }
 
   updateSiteScreenChangeHandler(ev) {
-    this.setState({ screen: ev.target.value });
+    // this.setState({ screen: ev.target.value });
+    this.temp_screen_value = ev.target.value;
     console.log("------------> ev values ----------->", ev.target.value);
   }
 

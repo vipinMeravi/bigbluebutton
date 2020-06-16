@@ -103,7 +103,7 @@ class App extends Component {
     super();
     this.state = {
       enableResize: !window.matchMedia(MOBILE_MEDIA).matches,
-      arrScreen: ['ppt', 'pdf', 'site', 'video'],
+      arrScreen: ['pdf'],
       isUpdate: false,
       screen_value: "fullscreen",
       screen_for: 'document'
@@ -339,13 +339,14 @@ class App extends Component {
             {/* {this.renderNavBar()} */}
 
             <header className={styles.navbar}>
-              <NavBarContainer getScreenValue={(screen_value, screen_for)=>{
+              <NavBarContainer getScreenValue={(screen_value, screen_for, arrScreen)=>{
                 console.log('==================?>>>>>??>>?>>??')
                 console.log(this.state.screen_value)
                 console.log('==================?>>>>>??>>?>>??')
                 this.setState({
                   screen_value: screen_value,
-                  screen_for: screen_for
+                  screen_for: screen_for,
+                  arrScreen
                 },()=>{
                   console.log('=========?>>>UPDAGTE>>??>>?>',this.state.screen_value)
                 })
@@ -359,7 +360,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
-              <MediaContainer screen_value={this.state.screen_value} screen_for={this.state.screen_for}/>
+              <MediaContainer arrScreen={this.state.arrScreen} screen_value={this.state.screen_value} screen_for={this.state.screen_for}/>
               {this.renderCaptions()}
             </section>
 

@@ -52,9 +52,6 @@ class ActionsBar extends PureComponent {
 
     return (
       <div className={styles.actionsbar}>
-        {/* <button onClick={() => {
-          this.props.getScreenValue("screen_one")
-        }}>TEST ARR BUTTON</button> */}
         <div className={styles.left}>
           <ActionsDropdown {...{
             amIPresenter,
