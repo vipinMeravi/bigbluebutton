@@ -979,7 +979,7 @@ class PresentationUploader extends Component {
 
   render() {
     const { url, sharing, screen, siteUrl } = this.state;
-    const { intl, isSharingVideo, stopWatching, isSharingSite } = this.props;
+    const { intl, isSharingVideo, stopVisitingSite, stopWatching, isSharingSite } = this.props;
     const {
       preventClosing, disableActions, presentations,
     } = this.state;
@@ -1026,9 +1026,9 @@ class PresentationUploader extends Component {
 
 
         {/* Adding Video Modal inside prsentation modal */}
-        <header data-test="videoModealHeader" className={styles.header}>
+        {/* <header data-test="videoModealHeader" className={styles.header}>
           <h3 className={styles.title}>{this.props.isSite ? "Share a Web-Site" : intl.formatMessage(intlMessages.title)}</h3>
-        </header>
+        </header> */}
 
         <div className={styles.content}>
           <div className={styles.videoUrl}>
@@ -1046,7 +1046,18 @@ class PresentationUploader extends Component {
             </label>
           </div>
           <div className={styles.wrapper}>
-            <div className={styles.toggle_radio}>             
+            <div className={styles.toggle_radio} style={{
+              display: "flex",
+            }}>  
+
+
+          <Button
+            className={styles.startBtn}
+            label={isSharingVideo ? "Stop Video" : intl.formatMessage(intlMessages.start) }
+            onClick={isSharingVideo? stopWatching:  this.startWatchingVideoHandler}
+          disabled={startDisabled}
+          />
+
               <label for="first_toggle" onClick={()=>{this.setState({videoScreen:'fullscreen'})}}>
                 {/* <span className={styles.description}>TODAY</span> */}
                 <p className={this.state.videoScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
@@ -1069,18 +1080,12 @@ class PresentationUploader extends Component {
             {this.renderUrlError()}
           </div>
 
-          <Button
-            className={styles.startBtn}
-            label={isSharingVideo ? "Stop Video" : intl.formatMessage(intlMessages.start) }
-            onClick={isSharingVideo? stopWatching:  this.startWatchingVideoHandler}
-          disabled={startDisabled}
-          />
         </div>
 
         {/* Adding Website Modal inside presentaion modal */}
-        <header data-test="videoModealHeader" className={styles.header}>
+        {/* <header data-test="videoModealHeader" className={styles.header}>
           <h3 className={styles.title}>{"Share a Web-Site"}</h3>
-        </header>
+        </header> */}
 
         <div className={styles.content}>
           <div className={styles.videoUrl}>
@@ -1099,8 +1104,15 @@ class PresentationUploader extends Component {
 
           </div>
           <div className={styles.wrapper}>
-            <div className={styles.toggle_radio}>
-            
+            <div className={styles.toggle_radio} style={{
+              display: "flex"
+            }}>
+            <Button
+            className={styles.startBtn}
+            label={isSharingSite? "Stop Sharing": "Share a site"}
+            onClick={isSharingSite? stopVisitingSite: this.startWatchingSiteHandler}
+          // disabled={this.props.isSite ? null :startDisabled}
+          />
               <label for="first_toggle" onClick={()=>{this.setState({websiteScreen:'fullscreen'})}}>
                 {/* <span className={styles.description}>TODAY</span> */}
                 <p className={this.state.websiteScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
@@ -1123,12 +1135,6 @@ class PresentationUploader extends Component {
             {this.renderUrlError()}
           </div>
 
-          <Button
-            className={styles.startBtn}
-            label={isSharingSite? "Stop Sharing": "Share a site"}
-            onClick={this.startWatchingSiteHandler}
-          // disabled={this.props.isSite ? null :startDisabled}
-          />
         </div>
       </ModalFullscreen>
     );
