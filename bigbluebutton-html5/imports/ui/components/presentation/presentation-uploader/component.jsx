@@ -1040,7 +1040,7 @@ class PresentationUploader extends Component {
                 name="video-modal-input"
                 placeholder={ intl.formatMessage(intlMessages.urlInput)}
                 disabled={sharing}
-                value={url? url: null}
+                value={isSharingVideo? url: null}
                 aria-describedby="exernal-video-note"
               />
             </label>
@@ -1096,7 +1096,7 @@ class PresentationUploader extends Component {
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
                 placeholder={"Add Web-Site URL"}
-                value={siteUrl? siteUrl: null}
+                value={isSharingSite? siteUrl: null}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
               />
