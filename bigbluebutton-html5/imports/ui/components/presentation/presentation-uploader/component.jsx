@@ -987,7 +987,7 @@ class PresentationUploader extends Component {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    this.setState({url:'null'});
+    this.setState({url:null});
     this.props.stopWatching
   }
 
@@ -999,7 +999,7 @@ class PresentationUploader extends Component {
       this.props.getScreenValue("fullscreen", "document");
     }
 
-    this.setState({siteUrl:'null'});
+    this.setState({siteUrl:null});
     this.props.stopWatching
   }
 
@@ -1162,9 +1162,9 @@ class PresentationUploader extends Component {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             {this.renderUrlError()}
-          </div>
+          </div> */}
 
         </div>
       </ModalFullscreen>
