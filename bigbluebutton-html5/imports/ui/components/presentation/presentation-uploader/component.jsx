@@ -245,10 +245,6 @@ class PresentationUploader extends Component {
       siteUrl: websiteUrl,
     };
 
-    var temp_screen_document = "fullscreen"
-    var temp_screen_site = "fullscreen"
-    var temp_screen_video = "fullscreen"
-
     this.handleConfirm = this.handleConfirm.bind(this);
     this.handleDismiss = this.handleDismiss.bind(this);
     this.handleFiledrop = this.handleFiledrop.bind(this);
@@ -338,8 +334,6 @@ class PresentationUploader extends Component {
     console.log(this.props);
     console.log(this.state.screen);
     console.log("=========> handle confirm props <============");
-
-    this.setState({ screen: this.temp_screen_value });
 
     this.props.getScreenValue(this.state.screen, "document");
 
@@ -713,7 +707,9 @@ class PresentationUploader extends Component {
             <div className={styles.wrapper}>
               <div className={styles.toggle_radio}>
                 <label onClick={() => { this.updateScreenChangeHandler('fullscreen', presentationIndex) }}>
+                  {/* <span className={styles.description}>TODAY</span> */}
                   <p className={this.state.presentations[presentationIndex].selected === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
+                  {/* <span className={styles.day-week}>Tuesday</span> */}
                 </label>
                 <label onClick={() => { this.updateScreenChangeHandler('screen_one', presentationIndex) }}>
                   {/* <span className={styles.description}>TOMORROW</span> */}
@@ -909,9 +905,6 @@ class PresentationUploader extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
-
-    this.setState({ screen: this.temp_screen_video });
-
     getScreenValue(this.state.screen, "video");
     startWatching(url.trim(), this.props.isSite);
     closeModal();
@@ -929,9 +922,6 @@ class PresentationUploader extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
-
-    this.setState({ screen: this.temp_screen_site });
-
     getScreenValue(this.state.screen, "site");
     startWatchingSite(siteUrl.trim(), this.props.isSite);
     closeModal();
@@ -948,21 +938,18 @@ class PresentationUploader extends Component {
   }
 
   updateScreenChangeHandler(ev) {
-    // this.setState({ screen: ev.target.value });
-    this.temp_screen_value = ev.target.value;
-    console.log("------------> ev values of Document handleer ----------->", ev);
+    this.setState({ screen: ev.target.value });
+    console.log("------------> ev values ----------->", ev.target.value);
   }
 
   updateScreenChangeMediaHandler(ev) {
-    // this.setState({ screen: ev.target.value });
-    this.temp_screen_video = ev;
-    console.log("------------> ev values of video handler ----------->", ev);
+    this.setState({ screen: ev.target.value });
+    console.log("------------> ev values ----------->", ev.target.value);
   }
 
   updateSiteScreenChangeHandler(ev) {
-    console.log("------------> ev values of site handler ----------->", ev);
-    // this.setState({ screen: ev.target.value });
-    this.temp_screen_site = ev;
+    this.setState({ screen: ev.target.value });
+    console.log("------------> ev values ----------->", ev.target.value);
   }
 
   renderUrlError() {
@@ -1036,7 +1023,6 @@ class PresentationUploader extends Component {
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
-                value={this.state.url ? this.state.url : null}
                 placeholder={this.props.isSite ? "Add Web-Site URL" : intl.formatMessage(intlMessages.urlInput)}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
@@ -1045,21 +1031,47 @@ class PresentationUploader extends Component {
           </div>
           <div className={styles.wrapper}>
             <div className={styles.toggle_radio}>
-
-              <label onClick={() => { this.updateScreenChangeMediaHandler('fullscreen') }}>
-
-                <p className={this.temp_screen_video === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
-
+              <input
+                type="radio"
+                className={this.state.screen === 'fullscreen' ? styles.active : styles.toggle_option}
+                id="first_toggle"
+                name="toggle_option"
+                value="fullscreen"
+                onChange={this.updateScreenChangeMediaHandler}
+                checked={this.state.screen === 'fullscreen'}
+              />
+              <input
+                type="radio"
+                className={this.state.screen === 'screen_one' ? styles.active : styles.toggle_option}
+                id="second_toggle"
+                name="toggle_option"
+                value="screen_one"
+                onChange={this.updateScreenChangeMediaHandler}
+                checked={this.state.screen === 'screen_one'}
+              />
+              <input
+                type="radio"
+                className={this.state.screen === 'screen_two' ? styles.active : styles.toggle_option}
+                id="third_toggle"
+                name="toggle_option"
+                value="screen_two"
+                checked={this.state.screen === 'screen_two'}
+                onChange={this.updateScreenChangeMediaHandler}
+              />
+              <label for="first_toggle">
+                {/* <span className={styles.description}>TODAY</span> */}
+                <p className={this.state.screen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
+                {/* <span className={styles.day-week}>Tuesday</span> */}
               </label>
-              <label onClick={() => { this.updateScreenChangeMediaHandler('screen_one') }}>
-
-                <p className={this.temp_screen_video === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
-
+              <label for="second_toggle">
+                {/* <span className={styles.description}>TOMORROW</span> */}
+                <p className={this.state.screen === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
+                {/* <span className={styles.day-week}>Wednesday</span> */}
               </label>
-              <label onClick={() => { this.updateScreenChangeMediaHandler('screen_two') }}>
-
-                <p className={this.temp_screen_video === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
-
+              <label for="third_toggle">
+                {/* <span className={styles.description}>DAY AFTER</span> */}
+                <p className={this.state.screen === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
+                {/* <span className={styles.day-week}>Thursday</span> */}
               </label>
             </div>
           </div>
@@ -1089,7 +1101,6 @@ class PresentationUploader extends Component {
                 // id="video-modal-input"
                 onChange={this.updateSiteUrlHandler}
                 name="video-modal-input"
-                value={this.state.websiteUrl ? this.state.websiteUrl : null}
                 placeholder={"Add Web-Site URL"}
                 // disabled={sharing}
                 aria-describedby="exernal-video-note"
@@ -1099,30 +1110,60 @@ class PresentationUploader extends Component {
           </div>
           <div className={styles.wrapper}>
             <div className={styles.toggle_radio}>
-              <label onClick={() => { this.updateSiteScreenChangeHandler('fullscreen') }}>
-
-                <p className={this.temp_screen_site === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
-
+              <input
+                type="radio"
+                className={this.state.screen === 'fullscreen' ? styles.active : styles.toggle_option}
+                id="first_toggle"
+                name="toggle_option"
+                value="fullscreen"
+                onChange={this.updateSiteScreenChangeHandler}
+                checked={this.state.screen === 'fullscreen'}
+              />
+              <input
+                type="radio"
+                className={this.state.screen === 'screen_one' ? styles.active : styles.toggle_option}
+                id="second_toggle"
+                name="toggle_option"
+                value="screen_one"
+                onChange={this.updateSiteScreenChangeHandler}
+                checked={this.state.screen === 'screen_one'}
+              />
+              <input
+                type="radio"
+                className={this.state.screen === 'screen_two' ? styles.active : styles.toggle_option}
+                id="third_toggle"
+                name="toggle_option"
+                value="screen_two"
+                checked={this.state.screen === 'screen_two'}
+                onChange={this.updateSiteScreenChangeHandler}
+              />
+              <label for="first_toggle">
+                {/* <span className={styles.description}>TODAY</span> */}
+                <p className={this.state.screen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
+                {/* <span className={styles.day-week}>Tuesday</span> */}
               </label>
-              <label onClick={() => { this.updateSiteScreenChangeHandler('screen_one') }}>
-
-                <p className={this.temp_screen_site === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
-
+              <label for="second_toggle">
+                {/* <span className={styles.description}>TOMORROW</span> */}
+                <p className={this.state.screen === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
+                {/* <span className={styles.day-week}>Wednesday</span> */}
               </label>
-              <label onClick={() => { this.updateSiteScreenChangeHandler('screen_two') }}>
-
-                <p className={this.temp_screen_site === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
-
+              <label for="third_toggle">
+                {/* <span className={styles.description}>DAY AFTER</span> */}
+                <p className={this.state.screen === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
+                {/* <span className={styles.day-week}>Thursday</span> */}
               </label>
             </div>
           </div>
 
-          <Button
+          <div>
+            {this.renderUrlError()}
+          </div>
 
+          <Button
             className={styles.startBtn}
             label={"Share Site"}
             onClick={this.startWatchingSiteHandler}
-
+          // disabled={this.props.isSite ? null :startDisabled}
           />
         </div>
       </ModalFullscreen>
