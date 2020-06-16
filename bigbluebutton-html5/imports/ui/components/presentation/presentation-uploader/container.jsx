@@ -45,8 +45,8 @@ export default withTracker(() => {
     startVisitingSite,
     stopVisitingSite,
     stopWatching,
-    isSharingVideo: () => getVideoUrl(),
-    isSharingSite: () => getWebsiteUrl(),
+    isSharingVideo:  getVideoUrl(),
+    isSharingSite: getWebsiteUrl(),
     websiteUrl: getWebsiteUrl(),
   };
 })(PresentationUploaderContainer);
