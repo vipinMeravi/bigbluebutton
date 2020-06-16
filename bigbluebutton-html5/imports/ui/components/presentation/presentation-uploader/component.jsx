@@ -1000,7 +1000,7 @@ class PresentationUploader extends Component {
     }
 
     this.setState({siteUrl:null});
-    this.props.stopWatching
+    this.props.stopVisitingSite
   }
 
 
