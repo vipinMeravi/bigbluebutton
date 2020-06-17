@@ -1066,7 +1066,7 @@ class PresentationUploader extends Component {
           <div className={styles.upload_heading}>
             {"DOCUMENT"}
           </div>
-          {is_presentation ? this.renderPresentationList(!this.props.isPdf) : "THERE ARE NO DOCUMENTS"}
+          {is_presentation ? this.renderPresentationList(!this.props.isPdf) : <div className={styles.no_presentation}>THERE ARE NO DOCUMENTS</div>}
         </div>
 
         {/* Adding Video Modal inside prsentation modal */}
