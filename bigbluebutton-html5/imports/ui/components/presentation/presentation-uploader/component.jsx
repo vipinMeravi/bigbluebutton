@@ -711,19 +711,13 @@ class PresentationUploader extends Component {
             <div className={styles.wrapper}>
               <div className={styles.toggle_radio}>
                 <label onClick={() => { this.updateScreenChangeHandler('fullscreen', presentationIndex) }}>
-                  {/* <span className={styles.description}>TODAY</span> */}
                   <p className={this.state.presentations[presentationIndex].selected === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
-                  {/* <span className={styles.day-week}>Tuesday</span> */}
                 </label>
                 <label onClick={() => { this.updateScreenChangeHandler('screen_one', presentationIndex) }}>
-                  {/* <span className={styles.description}>TOMORROW</span> */}
                   <p className={this.state.presentations[presentationIndex].selected === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
-                  {/* <span className={styles.day-week}>Wednesday</span> */}
                 </label>
                 <label onClick={() => { this.updateScreenChangeHandler('screen_two', presentationIndex) }}>
-                  {/* <span className={styles.description}>DAY AFTER</span> */}
                   <p className={this.state.presentations[presentationIndex].selected === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
-                  {/* <span className={styles.day-week}>Thursday</span> */}
                 </label>
               </div>
             </div>
