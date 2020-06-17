@@ -1013,6 +1013,11 @@ class PresentationUploader extends Component {
       return null;
     });
 
+    let is_presentation = true;
+    this.state.presentations.map((item, index) => {
+      is_presentation = this.renderPresentationItem(item, false, index)
+    })
+
     const confirmLabel = awaitingConversion
       ? intl.formatMessage(intlMessages.uploadLabel)
       : intl.formatMessage(intlMessages.confirmLabel);
@@ -1061,7 +1066,7 @@ class PresentationUploader extends Component {
           <div className={styles.upload_heading}>
             {"DOCUMENT"}
           </div>
-          {this.state.presentations.map((item, index) => this.renderPresentationItem(item, false, index)) ? this.renderPresentationList(!this.props.isPdf) : "THERE ARE NO DOCUMENTS"}
+          {is_presentation ? this.renderPresentationList(!this.props.isPdf) : "THERE ARE NO DOCUMENTS"}
         </div>
 
         {/* Adding Video Modal inside prsentation modal */}

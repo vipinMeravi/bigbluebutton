@@ -113,7 +113,7 @@ const QuickPollDropdown = (props) => {
           size="lg"
         />
       </DropdownTrigger>
-      <DropdownContent placement="top left">
+      <DropdownContent placement="buttom left">
         <DropdownList>
           {getAvailableQuickPolls(slideId, quickPollOptions)}
         </DropdownList>
