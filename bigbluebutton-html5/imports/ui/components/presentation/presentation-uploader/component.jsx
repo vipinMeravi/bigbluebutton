@@ -1098,7 +1098,7 @@ class PresentationUploader extends Component {
                 onClick={isSharingVideo ? this.handleStopWatching : this.startWatchingVideoHandler}
                 disabled={startDisabled}
               />
-              <div>
+              <div className={styles.screen_selector}>
                 <label for="first_toggle" onClick={() => { this.setState({ videoScreen: 'fullscreen' }) }}>
                   <p className={this.state.videoScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
                 </label>
@@ -1152,22 +1152,24 @@ class PresentationUploader extends Component {
                 disabled={siteUrl == null || siteUrl == ""}
               />
 
+              <div className={styles.screen_selector}>
+                <label for="first_toggle" onClick={() => { this.setState({ websiteScreen: 'fullscreen' }) }}>
+                  {/* <span className={styles.description}>TODAY</span> */}
+                  <p className={this.state.websiteScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
+                  {/* <span className={styles.day-week}>Tuesday</span> */}
+                </label >
+                <label for="second_toggle" onClick={() => { this.setState({ websiteScreen: 'screen_one' }) }}>
+                  {/* <span className={styles.description}>TOMORROW</span> */}
+                  <p className={this.state.websiteScreen === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
+                  {/* <span className={styles.day-week}>Wednesday</span> */}
+                </label>
+                <label for="third_toggle" onClick={() => { this.setState({ websiteScreen: 'screen_two' }) }}>
 
-              <label for="first_toggle" onClick={() => { this.setState({ websiteScreen: 'fullscreen' }) }}>
-                {/* <span className={styles.description}>TODAY</span> */}
-                <p className={this.state.websiteScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
-                {/* <span className={styles.day-week}>Tuesday</span> */}
-              </label >
-              <label for="second_toggle" onClick={() => { this.setState({ websiteScreen: 'screen_one' }) }}>
-                {/* <span className={styles.description}>TOMORROW</span> */}
-                <p className={this.state.websiteScreen === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
-                {/* <span className={styles.day-week}>Wednesday</span> */}
-              </label>
-              <label for="third_toggle" onClick={() => { this.setState({ websiteScreen: 'screen_two' }) }}>
-                {/* <span className={styles.description}>DAY AFTER</span> */}
-                <p className={this.state.websiteScreen === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
-                {/* <span className={styles.day-week}>Thursday</span> */}
-              </label>
+                  {/* <span className={styles.description}>DAY AFTER</span> */}
+                  <p className={this.state.websiteScreen === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
+                  {/* <span className={styles.day-week}>Thursday</span> */}
+                </label>
+              </div>
             </div>
           </div>
 

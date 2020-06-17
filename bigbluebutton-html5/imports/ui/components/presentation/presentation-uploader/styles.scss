@@ -82,7 +82,8 @@
 }
 
 .tableItemIcon > i {
-  font-size: 1.35rem;
+  // font-size: 1.35rem;
+  font-size: 14px;
 }
 
 .tableItemName {
@@ -600,4 +601,10 @@ p.toggle_option{
   padding-top: inherit;
   padding-bottom: inherit;
   border-bottom: var(--border-size) solid var(--color-gray-lighter);
+}
+
+.screen_selector{
+  display: flex;
+  margin-left: 2vw;
+  padding-top: 3px;
 }
