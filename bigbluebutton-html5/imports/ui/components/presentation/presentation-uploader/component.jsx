@@ -239,6 +239,7 @@ class PresentationUploader extends Component {
       oldCurrentId: currentPres ? currentPres.id : -1,
       preventClosing: false,
       disableActions: false,
+      screen: 'fullscreen',
       videoScreen: 'fullscreen',
       websiteScreen: 'fullscreen',
       url: videoUrl,
