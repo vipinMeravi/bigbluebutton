@@ -883,7 +883,7 @@ class PresentationUploader extends Component {
         {/* <Icon className={styles.dropzoneIcon} iconName="upload" /> */}
         <p className={styles.dropzoneMessage}>
           {/* {intl.formatMessage(intlMessages.dropzoneLabel)} */}
-          &nbsp;
+
           <span className={styles.dropzoneLink}>
             {/* {intl.formatMessage(intlMessages.browseFilesLabel)} */}
             Upload document
@@ -1098,22 +1098,17 @@ class PresentationUploader extends Component {
                 onClick={isSharingVideo ? this.handleStopWatching : this.startWatchingVideoHandler}
                 disabled={startDisabled}
               />
-
-              <label for="first_toggle" onClick={() => { this.setState({ videoScreen: 'fullscreen' }) }}>
-                {/* <span className={styles.description}>TODAY</span> */}
-                <p className={this.state.videoScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
-                {/* <span className={styles.day-week}>Tuesday</span> */}
-              </label>
-              <label for="second_toggle" onClick={() => { this.setState({ videoScreen: 'screen_one' }) }}>
-                {/* <span className={styles.description}>TOMORROW</span> */}
-                <p className={this.state.videoScreen === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
-                {/* <span className={styles.day-week}>Wednesday</span> */}
-              </label>
-              <label for="third_toggle" onClick={() => { this.setState({ videoScreen: 'screen_two' }) }}>
-                {/* <span className={styles.description}>DAY AFTER</span> */}
-                <p className={this.state.videoScreen === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
-                {/* <span className={styles.day-week}>Thursday</span> */}
-              </label>
+              <div>
+                <label for="first_toggle" onClick={() => { this.setState({ videoScreen: 'fullscreen' }) }}>
+                  <p className={this.state.videoScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
+                </label>
+                <label for="second_toggle" onClick={() => { this.setState({ videoScreen: 'screen_one' }) }}>
+                  <p className={this.state.videoScreen === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
+                </label>
+                <label for="third_toggle" onClick={() => { this.setState({ videoScreen: 'screen_two' }) }}>
+                  <p className={this.state.videoScreen === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
+                </label>
+              </div>
             </div>
           </div>
 

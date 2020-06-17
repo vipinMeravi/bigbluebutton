@@ -218,17 +218,20 @@
   font-size: 14px;
   /* color: white !important; */
   background-color: #0f70d7;
+  margin: 0;
 }
 
 .dropzone {
   flex: auto;
-  border: 2px dashed;
+  // border: 2px dashed;
   border-radius: var(--border-radius);
   padding: calc(var(--lg-padding-y) * 2.5) var(--lg-padding-x);
   text-align: center;
   // font-size: var(--font-size-large);
   font-size: 13px;
   cursor: pointer;
+  padding: 0;
+    // border: none;
 }
 
 .dropzoneActive {
