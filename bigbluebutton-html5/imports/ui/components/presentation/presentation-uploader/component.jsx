@@ -880,12 +880,13 @@ class PresentationUploader extends Component {
         disablepreview="true"
         onDrop={this.handleFiledrop}
       >
-        <Icon className={styles.dropzoneIcon} iconName="upload" />
+        {/* <Icon className={styles.dropzoneIcon} iconName="upload" /> */}
         <p className={styles.dropzoneMessage}>
-          {intl.formatMessage(intlMessages.dropzoneLabel)}
+          {/* {intl.formatMessage(intlMessages.dropzoneLabel)} */}
           &nbsp;
           <span className={styles.dropzoneLink}>
-            {intl.formatMessage(intlMessages.browseFilesLabel)}
+            {/* {intl.formatMessage(intlMessages.browseFilesLabel)} */}
+            Upload document
           </span>
         </p>
       </Dropzone>
