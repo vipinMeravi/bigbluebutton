@@ -1046,8 +1046,9 @@ class PresentationUploader extends Component {
         </div>
         {/* <p>{intl.formatMessage(intlMessages.message)}</p> */}
         <div className={styles.document}>
-
-          {"PDF"}
+          <div className={styles.upload_heading}>
+            {"PDF"}
+          </div>
           {this.renderPresentationList(this.props.isPdf)}
 
           {/* <div className={styles.dropzoneWrapper}>
@@ -1057,8 +1058,10 @@ class PresentationUploader extends Component {
         </div>
 
         <div className={styles.document}>
-          {"DOCUMENT"}
-          {this.renderPresentationList(!this.props.isPdf)}
+          <div className={styles.upload_heading}>
+            {"DOCUMENT"}
+          </div>
+          {this.renderPresentationList(!this.props.isPdf) ? this.renderPresentationList(!this.props.isPdf) : "THERE ARE NO DOCUMENTS"}
         </div>
 
         {/* Adding Video Modal inside prsentation modal */}
@@ -1069,7 +1072,9 @@ class PresentationUploader extends Component {
         <div className={styles.content}>
           <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" id="video-modal-input">
-              {intl.formatMessage(intlMessages.input)}
+              <div className={styles.upload_heading}>
+                {intl.formatMessage(intlMessages.input)}
+              </div>
               <input
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
@@ -1121,7 +1126,9 @@ class PresentationUploader extends Component {
         <div className={styles.content}>
           <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" >
-              {"Webite URL"}
+              <div className={styles.upload_heading}>
+                {"Webite URL"}
+              </div>
               <input
                 // id="video-modal-input"
                 onChange={this.updateSiteUrlHandler}
