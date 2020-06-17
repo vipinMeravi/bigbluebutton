@@ -1127,7 +1127,7 @@ class PresentationUploader extends Component {
           <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" >
               <div className={styles.upload_heading}>
-                {"Website URL"}
+                {"WEBSITE URL"}
               </div>
               <input
                 // id="video-modal-input"

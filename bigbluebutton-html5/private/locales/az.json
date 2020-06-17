@@ -664,7 +664,7 @@
     "app.createBreakoutRoom.numberOfRoomsError": "Otaqların sayı düzgün deyil.",
     "app.externalVideo.start": "Yeni videonu paylaş",
     "app.externalVideo.title": "Video əlavə et",
-    "app.externalVideo.input": "Video URL",
+    "app.externalVideo.input": "VIDEO URL",
     "app.externalVideo.urlInput": "Video URL əlavə et",
     "app.externalVideo.urlError": "Bu video URL-i dəstəklənmir",
     "app.externalVideo.close": "Bağla",
