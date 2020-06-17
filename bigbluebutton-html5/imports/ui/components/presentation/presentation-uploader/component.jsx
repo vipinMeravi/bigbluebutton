@@ -647,7 +647,6 @@ class PresentationUploader extends Component {
       ? cx(styles.itemAction, styles.itemActionRemove, styles.checked)
       : cx(styles.itemAction, styles.itemActionRemove);
 
-    let file_type_ext = ['ppt', 'pptx']
     if (isPdf && item.filename.split('.')[1] == 'pdf') {
       return (
         <tr
@@ -739,15 +738,12 @@ class PresentationUploader extends Component {
           key={item.id}
           className={cx(itemClassName)}
         >
-          <td className={styles.tableItemIcon}>
-            <Icon iconName="file" />
-          </td>
           {
             isActualCurrent
               ? (
                 <th className={styles.tableItemCurrent}>
                   <span className={styles.currentLabel}>
-                    {intl.formatMessage(intlMessages.current)}
+                    {"C"}
                   </span>
                 </th>
               )

@@ -357,7 +357,7 @@ p.toggle_option{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0;
+  padding: inherit;  
   margin-right: auto;
   margin-left: auto;
   width: 100%;
@@ -577,7 +577,7 @@ p.toggle_option{
 
 .document {
   padding-top: inherit;
-  padding-bottom: inherit;
+  padding-bottom: 15px;
   border-bottom: var(--border-size) solid var(--color-gray-lighter);
 }
 

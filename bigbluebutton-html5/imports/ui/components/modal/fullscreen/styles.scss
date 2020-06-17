@@ -21,11 +21,11 @@
   }
 }
 
-.content {
+.content {  
   color: var(--color-text);
   font-weight: normal;
-  // padding: var(--line-height-computed) 0;
-  padding-top: 15px;
+  padding: var(--line-height-computed) 0;
+  padding-top: 8px;
 }
 
 .header {
