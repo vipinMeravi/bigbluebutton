@@ -1044,17 +1044,20 @@ class PresentationUploader extends Component {
           disabled: disableActions,
         }}
       >
-
+        <div className={styles.dropzoneWrapper}>
+          {isMobileBrowser ? this.renderPicDropzone() : null}
+          {this.renderDropzone()}
+        </div>
         {/* <p>{intl.formatMessage(intlMessages.message)}</p> */}
         <div className={styles.document}>
 
           {"PDF"}
           {this.renderPresentationList(this.props.isPdf)}
 
-          <div className={styles.dropzoneWrapper}>
+          {/* <div className={styles.dropzoneWrapper}>
             {isMobileBrowser ? this.renderPicDropzone() : null}
             {this.renderDropzone()}
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.document}>

@@ -123,18 +123,8 @@ class ModalFullscreen extends PureComponent {
           <h1 className={styles.title}>{title}</h1>
         </header> */}
         <header className={styles.header}>
-          <div className={styles.actions}>
-              <Button
-                data-test="modalDismissButton"
-                className={styles.dismiss}
-                // label={intl.formatMessage(intlMessages.modalClose)}
-                label={"X"}
-                aria-label={`${intl.formatMessage(intlMessages.modalClose)} ${title}`}
-                disabled={dismiss.disabled}
-                onClick={() => this.handleAction('dismiss')}
-                aria-describedby="modalDismissDescription"
-              />
-              <Button
+          {/* <div className={styles.actions}> */}
+          <Button
                 data-test="modalConfirmButton"
                 color="primary"
                 className={popoutIcon ? cx(styles.confirm, styles.popout) : styles.confirm}
@@ -146,7 +136,18 @@ class ModalFullscreen extends PureComponent {
                 icon={confirm.icon || null}
                 iconRight={popoutIcon}
               />
-          </div>
+              <Button
+                data-test="modalDismissButton"
+                className={styles.dismiss}
+                // label={intl.formatMessage(intlMessages.modalClose)}
+                label={"X"}
+                aria-label={`${intl.formatMessage(intlMessages.modalClose)} ${title}`}
+                disabled={dismiss.disabled}
+                onClick={() => this.handleAction('dismiss')}
+                aria-describedby="modalDismissDescription"
+              />
+              
+          {/* </div> */}
         </header>
         <div className={styles.content}>
           {children}

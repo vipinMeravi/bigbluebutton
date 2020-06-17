@@ -210,6 +210,14 @@
   display: flex;
   margin-top: calc(var(--lg-padding-y) * 5);
   margin-bottom: calc(var(--lg-padding-y) * 5);
+
+
+  border: 1px solid grey;
+  width: auto;
+  text-align: center;
+  font-size: 14px;
+  /* color: white !important; */
+  background-color: #0f70d7;
 }
 
 .dropzone {
@@ -240,6 +248,10 @@
   text-decoration: underline;
   font-size: 80%;
   display: block;
+  // width: auto;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .currentLabel {
