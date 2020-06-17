@@ -14,7 +14,7 @@ class WebsiteView extends Component {
         <div class="resp-container" >
             <iframe style={{
                 width: '48vw',
-                width: '80vh'
+                height: '80vh'
             }} src={websiteUrl} />
         </div>
         )
