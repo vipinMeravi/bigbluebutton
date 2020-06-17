@@ -1121,7 +1121,7 @@ class PresentationUploader extends Component {
         <div className={styles.content}>
           <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" >
-              {"Web-Site URL"}
+              {"Webite URL"}
               <input
                 // id="video-modal-input"
                 onChange={this.updateSiteUrlHandler}
@@ -1142,7 +1142,7 @@ class PresentationUploader extends Component {
 
               <Button
                 className={styles.startBtn}
-                label={isSharingSite ? "Stop Sharing" : "Share a site"}
+                label={isSharingSite ? "Stop Sharing" : "Share Site"}
                 onClick={isSharingSite ? this.handleStopVisitingSite : this.startWatchingSiteHandler}
                 disabled={siteUrl == null || siteUrl == ""}
               />
