@@ -979,28 +979,28 @@ class PresentationUploader extends Component {
     );
   }
 
-  handleStopWatching(){
+  handleStopWatching() {
 
-    if(this.state.siteUrl && this.state.siteUrl.length > 4){
+    if (this.state.siteUrl && this.state.siteUrl.length > 4) {
       this.props.getScreenValue("fullscreen", "site");
     } else {
       this.props.getScreenValue("fullscreen", "document");
     }
 
     this.props.stopWatching()
-    this.setState({url:""});
+    this.setState({ url: "" });
   }
 
-  handleStopVisitingSite(){
+  handleStopVisitingSite() {
 
-    if(this.state.url  && this.state.siteUrl.length > 4){
+    if (this.state.url && this.state.siteUrl.length > 4) {
       this.props.getScreenValue("fullscreen", "video");
     } else {
       this.props.getScreenValue("fullscreen", "document");
     }
 
     this.props.stopVisitingSite()
-    this.setState({siteUrl: ""});
+    this.setState({ siteUrl: "" });
 
   }
 
@@ -1012,9 +1012,9 @@ class PresentationUploader extends Component {
     const {
       preventClosing, disableActions, presentations,
     } = this.state;
-    
+
     const startDisabled = !isUrlValid(url);
-    
+
     let awaitingConversion = false;
     presentations.map((presentation) => {
       if (!presentation.conversion.done) awaitingConversion = true;
@@ -1027,11 +1027,13 @@ class PresentationUploader extends Component {
 
     return (
 
-      
+
 
       <ModalFullscreen
         title={this.props.isPdf ? "PDF " : intl.formatMessage(intlMessages.title)}
+
         preventClosing={preventClosing}
+
         confirm={{
           callback: this.handleConfirm,
           label: confirmLabel,
@@ -1046,20 +1048,22 @@ class PresentationUploader extends Component {
           disabled: disableActions,
         }}
       >
+
         {/* <p>{intl.formatMessage(intlMessages.message)}</p> */}
         <div className={styles.document}>
-        {"PDF"}
-        {this.renderPresentationList(this.props.isPdf)}
 
-        <div className={styles.dropzoneWrapper}>
-          {isMobileBrowser ? this.renderPicDropzone() : null}
-          {this.renderDropzone()}
-        </div>
+          {"PDF"}
+          {this.renderPresentationList(this.props.isPdf)}
+
+          <div className={styles.dropzoneWrapper}>
+            {isMobileBrowser ? this.renderPicDropzone() : null}
+            {this.renderDropzone()}
+          </div>
         </div>
 
         <div className={styles.document}>
-        {"DOCUMENT"}
-        {this.renderPresentationList(!this.props.isPdf)}
+          {"DOCUMENT"}
+          {this.renderPresentationList(!this.props.isPdf)}
         </div>
 
         {/* Adding Video Modal inside prsentation modal */}
@@ -1075,7 +1079,7 @@ class PresentationUploader extends Component {
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
-                placeholder={ intl.formatMessage(intlMessages.urlInput)}
+                placeholder={intl.formatMessage(intlMessages.urlInput)}
                 disabled={sharing}
                 value={url}
                 aria-describedby="exernal-video-note"
@@ -1085,27 +1089,27 @@ class PresentationUploader extends Component {
           <div className={styles.wrapper}>
             <div className={styles.toggle_radio} style={{
               display: "flex",
-            }}>  
+            }}>
 
 
-          <Button
-            className={styles.startBtn}
-            label={isSharingVideo ? "Stop Video" : intl.formatMessage(intlMessages.start) }
-            onClick={isSharingVideo? this.handleStopWatching:  this.startWatchingVideoHandler}
-          disabled={startDisabled}
-          />
+              <Button
+                className={styles.startBtn}
+                label={isSharingVideo ? "Stop Video" : intl.formatMessage(intlMessages.start)}
+                onClick={isSharingVideo ? this.handleStopWatching : this.startWatchingVideoHandler}
+                disabled={startDisabled}
+              />
 
-              <label for="first_toggle" onClick={()=>{this.setState({videoScreen:'fullscreen'})}}>
+              <label for="first_toggle" onClick={() => { this.setState({ videoScreen: 'fullscreen' }) }}>
                 {/* <span className={styles.description}>TODAY</span> */}
                 <p className={this.state.videoScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
                 {/* <span className={styles.day-week}>Tuesday</span> */}
               </label>
-              <label for="second_toggle" onClick={()=>{this.setState({videoScreen:'screen_one'})}}>
+              <label for="second_toggle" onClick={() => { this.setState({ videoScreen: 'screen_one' }) }}>
                 {/* <span className={styles.description}>TOMORROW</span> */}
                 <p className={this.state.videoScreen === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
                 {/* <span className={styles.day-week}>Wednesday</span> */}
               </label>
-              <label for="third_toggle" onClick={()=>{this.setState({videoScreen:'screen_two'})}}>
+              <label for="third_toggle" onClick={() => { this.setState({ videoScreen: 'screen_two' }) }}>
                 {/* <span className={styles.description}>DAY AFTER</span> */}
                 <p className={this.state.videoScreen === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
                 {/* <span className={styles.day-week}>Thursday</span> */}
@@ -1146,25 +1150,25 @@ class PresentationUploader extends Component {
               display: "flex"
             }}>
 
-            <Button
-              className={styles.startBtn}
-              label={isSharingSite? "Stop Sharing": "Share a site"}
-              onClick={isSharingSite? this.handleStopVisitingSite: this.startWatchingSiteHandler}
-              disabled={siteUrl == null || siteUrl == ""}
-            />
+              <Button
+                className={styles.startBtn}
+                label={isSharingSite ? "Stop Sharing" : "Share a site"}
+                onClick={isSharingSite ? this.handleStopVisitingSite : this.startWatchingSiteHandler}
+                disabled={siteUrl == null || siteUrl == ""}
+              />
 
 
-              <label for="first_toggle" onClick={()=>{this.setState({websiteScreen:'fullscreen'})}}>
+              <label for="first_toggle" onClick={() => { this.setState({ websiteScreen: 'fullscreen' }) }}>
                 {/* <span className={styles.description}>TODAY</span> */}
                 <p className={this.state.websiteScreen === 'fullscreen' ? styles.selected : styles.toggle_option} >F </p>
                 {/* <span className={styles.day-week}>Tuesday</span> */}
               </label >
-              <label for="second_toggle" onClick={()=>{this.setState({websiteScreen:'screen_one'})}}>
+              <label for="second_toggle" onClick={() => { this.setState({ websiteScreen: 'screen_one' }) }}>
                 {/* <span className={styles.description}>TOMORROW</span> */}
                 <p className={this.state.websiteScreen === 'screen_one' ? styles.selected : styles.toggle_option} >1 </p>
                 {/* <span className={styles.day-week}>Wednesday</span> */}
               </label>
-              <label for="third_toggle" onClick={()=>{this.setState({websiteScreen:'screen_two'})}}>
+              <label for="third_toggle" onClick={() => { this.setState({ websiteScreen: 'screen_two' }) }}>
                 {/* <span className={styles.description}>DAY AFTER</span> */}
                 <p className={this.state.websiteScreen === 'screen_two' ? styles.selected : styles.toggle_option} >2 </p>
                 {/* <span className={styles.day-week}>Thursday</span> */}
