@@ -1061,7 +1061,7 @@ class PresentationUploader extends Component {
           <div className={styles.upload_heading}>
             {"DOCUMENT"}
           </div>
-          {this.renderPresentationList(!this.props.isPdf) ? this.renderPresentationList(!this.props.isPdf) : "THERE ARE NO DOCUMENTS"}
+          {this.state.presentations.map((item, index) => this.renderPresentationItem(item, false, index)) ? this.renderPresentationList(!this.props.isPdf) : "THERE ARE NO DOCUMENTS"}
         </div>
 
         {/* Adding Video Modal inside prsentation modal */}
@@ -1127,7 +1127,7 @@ class PresentationUploader extends Component {
           <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" >
               <div className={styles.upload_heading}>
-                {"Webite URL"}
+                {"Website URL"}
               </div>
               <input
                 // id="video-modal-input"
