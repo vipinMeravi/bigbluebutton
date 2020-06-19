@@ -88,6 +88,7 @@ export default class Media extends Component {
       screen_value
     } = this.props;
 
+
     const contentClassName = cx({
       [styles.content]: true,
     });
@@ -98,6 +99,11 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamPlacement === 'floating'),
     });
 
+    const containerClassName = cx({
+      [styles.container]: true,
+      [styles.containerV]: webcamPlacement === 'top' || webcamPlacement === 'bottom' || webcamPlacement === 'floating',
+      [styles.containerH]: webcamPlacement === 'left' || webcamPlacement === 'right',
+    });
     console.log("================ usersVideo ===============");
     console.log(usersVideo);
     console.log("================ usersVideo ===============");
@@ -105,7 +111,7 @@ export default class Media extends Component {
     return (
       <div
         id="container"
-        className={cx(styles.container)}
+        className={containerClassName}
         ref={this.refContainer}
       >
         <div
