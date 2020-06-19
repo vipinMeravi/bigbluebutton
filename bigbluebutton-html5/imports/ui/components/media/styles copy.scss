@@ -1,7 +1,5 @@
-
 @import "../../stylesheets/variables/_all";
 @import "../../stylesheets/variables/video";
-@import "../video-provider/video-list/styles";
 
 $content-order: 2;
 $before-content-order: 1;
@@ -21,21 +19,40 @@ $after-content-order: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.container {
+  flex-direction: column;
   overflow: hidden;
 }
 
-.containerV {
+.container {
   @extend %container;
   flex-direction: column;
+  display: contents
 }
 
-.containerH {
-  @extend %container;
-  flex-direction: row;
-}
+// .content {
+//   display: flex;
+//   align-self: stretch;
+//   flex: 3;
+//   align-items: center;
+//   justify-content: center;
+//   overflow: hidden;
+//   width: 100%;
+//   position: relative;
+//   order: $content-order;
+// }
+
+// %overlay {
+//   display: flex;
+//   border: 0;
+//   z-index: 2;
+//   align-items: center;
+//   min-height: var(--video-height);
+//   max-height: 100%;
+//   height: 100%;
+//   position: relative !important;
+//   margin-top: 10px;
+//   margin-bottom: 10px;
+// }
 
 .content {
   display: flex;
@@ -74,27 +91,6 @@ $after-content-order: 3;
   order: $after-content-order !important;
 }
 
-%overlayToRL {
-  min-width: 20%;
-  margin-left: 10px !important;
-  margin-right: 10px !important;
-}
-
-.overlayToRight {
-  @extend %overlayToRL;
-  order: 2 !important;
-}
-
-.overlayToLeft {
-  @extend %overlayToRL;
-  order: 0 !important;
-}
-
-.overlayToBottom {
-  order: 2 !important;
-}
-
-// used to fully hide the presentation area when minimized
 .hideOverlay {
   position: absolute !important;
 }
@@ -113,22 +109,12 @@ $after-content-order: 3;
 .autoWidth {
   min-width: calc(var(--video-height) * var(--video-ratio)) !important;
   max-width: 100%;
-
-  .videoCanvas{
-    position: relative;
-  }
 }
 
 .fullWidth {
   width: 100% !important;
   min-width: 100% !important;
   max-width: 100%;
-}
-
-.fullHeight {
-  height: 100% !important;
-  min-height: 100% !important;
-  max-height: 100%;
 }
 
 .hide {
@@ -152,21 +138,27 @@ $after-content-order: 3;
 %dropZoneTopBottom {
   @extend %dropZone;
   width: 100%;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, .3);
+  }
 }
 
 %dropZoneBg {
   z-index: 99;
   width: 100%;
   height: 100%;
-  &:hover {
-    background-color: rgba(255, 255, 255, .3);
-  }
 }
 
 %dropZoneBgTopBottom {
   z-index: 99;
   width: 100%;
   height: 100%;
+  background-color: rgba(255, 255, 255, .3);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, .3);
+  }
 }
 
 .dropZoneTop {
@@ -174,19 +166,9 @@ $after-content-order: 3;
   top: 0;
 }
 
-.dropZoneLeft {
-  @extend %dropZone;
-  left: 0;
-}
-
 .dropZoneBottom {
   @extend %dropZoneTopBottom;
   bottom: 0;
-}
-
-.dropZoneRight {
-  @extend %dropZone;
-  right: 0;
 }
 
 .dropZoneBgTop {
@@ -194,52 +176,20 @@ $after-content-order: 3;
   top: 0;
 }
 
-.dropZoneBgLeft {
-  @extend %dropZoneBg;
-  left: 0;
-}
-
 .dropZoneBgBottom {
   @extend %dropZoneBg;
   bottom: 0;
 }
 
-.dropZoneBgRight {
-  @extend %dropZoneBg;
-  right: 0;
-}
-
-%resizableTopBottom {
+.resizable {
   width: 100% !important;
-  &:hover{
-    background-color: rgba(255, 255, 255, .3);
-  }
 }
 
-%resizableLeftRight {
-  height: 100% !important;
-  &:hover{
-    background-color: rgba(255, 255, 255, .3);
-  }
-}
 
-.overlayToTop span[class^=resizeWrapper],
-.overlayToBottom span[class^=resizeWrapper] {
+span[class^=resizeWrapper] {
   div {
-    @extend %resizableTopBottom;
     height: 15px !important;
     z-index: 1;
     bottom: -10px !important;
   }
 }
-
-.overlayToLeft span[class^=resizeWrapper],
-.overlayToRight span[class^=resizeWrapper] {
-  div {
-    @extend %resizableLeftRight;
-    width: 15px !important;
-    z-index: 1;
-    bottom: -10px !important;
-  }
-}
-

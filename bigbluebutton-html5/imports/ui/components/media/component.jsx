@@ -88,6 +88,9 @@ export default class Media extends Component {
       screen_value
     } = this.props;
 
+    const { placement } = webcamDraggableState;
+    const placementStorage = Storage.getItem('webcamPlacement');
+    const webcamPlacement = placement || placementStorage;
 
     const contentClassName = cx({
       [styles.content]: true,
