@@ -1,15 +1,15 @@
 import RedisPubSub from '/imports/startup/server/redis';
-import handlePresentationAdded from './handlers/presentationAdded';
-import handlePresentationRemove from './handlers/presentationRemove';
-import handlePresentationCurrentSet from './handlers/presentationCurrentSet';
-import handlePresentationConversionUpdate from './handlers/presentationConversionUpdate';
-import handlePresentationDownloadableSet from './handlers/presentationDownloadableSet';
+import handlePresentationAddedSplit from './handlers/presentationAdded';
+import handlePresentationRemoveSplit from './handlers/presentationRemove';
+import handlePresentationCurrentSetSplit from './handlers/presentationCurrentSet';
+import handlePresentationConversionUpdateSplit from './handlers/presentationConversionUpdate';
+import handlePresentationDownloadableSetSplit from './handlers/presentationDownloadableSet';
 
-RedisPubSub.on('PdfConversionInvalidErrorEvtMsg', handlePresentationConversionUpdate);
-RedisPubSub.on('PresentationPageGeneratedEvtMsg', handlePresentationConversionUpdate);
-RedisPubSub.on('PresentationPageCountErrorEvtMsg', handlePresentationConversionUpdate);
-RedisPubSub.on('PresentationConversionUpdateEvtMsg', handlePresentationConversionUpdate);
-RedisPubSub.on('PresentationConversionCompletedEvtMsg', handlePresentationAdded);
-RedisPubSub.on('RemovePresentationEvtMsg', handlePresentationRemove);
-RedisPubSub.on('SetCurrentPresentationEvtMsg', handlePresentationCurrentSet);
-RedisPubSub.on('SetPresentationDownloadableEvtMsg', handlePresentationDownloadableSet);
+RedisPubSub.on('PdfConversionInvalidErrorEvtMsg', handlePresentationConversionUpdateSplit);
+RedisPubSub.on('PresentationPageGeneratedEvtMsg', handlePresentationConversionUpdateSplit);
+RedisPubSub.on('PresentationPageCountErrorEvtMsg', handlePresentationConversionUpdateSplit);
+RedisPubSub.on('PresentationConversionUpdateEvtMsg', handlePresentationConversionUpdateSplit);
+RedisPubSub.on('PresentationConversionCompletedEvtMsg', handlePresentationAddedSplit);
+RedisPubSub.on('RemovePresentationEvtMsg', handlePresentationRemoveSplit);
+RedisPubSub.on('SetCurrentPresentationEvtMsg', handlePresentationCurrentSetSplit);
+RedisPubSub.on('SetPresentationDownloadableEvtMsg', handlePresentationDownloadableSetSplit);

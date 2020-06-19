@@ -1,5 +1,5 @@
 import Auth from '/imports/ui/services/auth';
-import Presentations from '/imports/api/presentations';
+import Presentations from '/imports/api/presentations-split';
 import { makeCall } from '/imports/ui/services/api';
 import { throttle } from 'lodash';
 
@@ -19,22 +19,22 @@ const getNumberOfSlides = (podId, presentationId) => {
 
 const previousSlide = (currentSlideNum, podId) => {
   if (currentSlideNum > 1) {
-    makeCall('switchSlides', currentSlideNum - 1, podId);
+    makeCall('switchSlidesSplit', currentSlideNum - 1, podId);
   }
 };
 
 const nextSlide = (currentSlideNum, numberOfSlides, podId) => {
   if (currentSlideNum < numberOfSlides) {
-    makeCall('switchSlides', currentSlideNum + 1, podId);
+    makeCall('switchSlidesSplit', currentSlideNum + 1, podId);
   }
 };
 
 const zoomSlide = throttle((currentSlideNum, podId, widthRatio, heightRatio, xOffset, yOffset) => {
-  makeCall('zoomSlides', currentSlideNum, podId, widthRatio, heightRatio, xOffset, yOffset);
+  makeCall('zoomSlidesSplit', currentSlideNum, podId, widthRatio, heightRatio, xOffset, yOffset);
 }, PAN_ZOOM_INTERVAL);
 
 const skipToSlide = (requestedSlideNum, podId) => {
-  makeCall('switchSlides', requestedSlideNum, podId);
+  makeCall('switchSlidesSplit', requestedSlideNum, podId);
 };
 
 export default {

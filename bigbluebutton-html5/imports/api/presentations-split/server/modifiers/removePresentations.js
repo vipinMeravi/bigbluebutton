@@ -4,14 +4,14 @@ import Logger from '/imports/startup/server/logger';
 
 import clearSlidesPresentation from '/imports/api/slides-split/server/modifiers/clearSlidesPresentation';
 
-export default function removePresentations(meetingId, podId, presentationId) {
+export default function removePresentations(meetingId, podSplitId, presentationId) {
   check(meetingId, String);
   check(presentationId, String);
-  check(podId, String);
+  check(podSplitId, String);
 
   const selector = {
     meetingId,
-    podId,
+    podSplitId,
     id: presentationId,
   };
 

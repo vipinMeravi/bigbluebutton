@@ -1,4 +1,4 @@
-import Presentations from '/imports/api/presentations';
+
 import PresentationsSplit from '/imports/api/presentations-split';
 import PresentationUploadToken from '/imports/api/presentation-upload-token';
 import Auth from '/imports/ui/services/auth';
@@ -61,7 +61,7 @@ const getPresentations = () => PresentationsSplit
   });
 
 const dispatchTogglePresentationDownloadable = (presentation, newState) => {
-  makeCall('setPresentationDownloadable', presentation.id, newState);
+  makeCall('setPresentationDownloadablesSplit', presentation.id, newState);
 };
 
 const observePresentationConversion = (
@@ -101,11 +101,11 @@ const observePresentationConversion = (
 });
 
 const requestPresentationUploadToken = (
-  podId,
+  podSplitId,
   meetingId,
   filename,
 ) => new Promise((resolve, reject) => {
-  makeCall('requestPresentationUploadToken', podId, filename);
+  makeCall('requestPresentationUploadToken', podSplitId, filename);
 
   let computation = null;
   const timeout = setTimeout(() => {
@@ -115,11 +115,11 @@ const requestPresentationUploadToken = (
 
   Tracker.autorun((c) => {
     computation = c;
-    const sub = Meteor.subscribe('presentation-upload-token', podId, filename);
+    const sub = Meteor.subscribe('presentation-upload-token', podSplitId, filename);
     if (!sub.ready()) return;
 
     const PresentationToken = PresentationUploadToken.findOne({
-      podId,
+      podSplitId,
       meetingId,
       filename,
       used: false,
@@ -141,7 +141,7 @@ const requestPresentationUploadToken = (
 const uploadAndConvertPresentation = (
   file,
   downloadable,
-  podId,
+  podSplitId,
   meetingId,
   endpoint,
   onUpload,
@@ -156,7 +156,7 @@ const uploadAndConvertPresentation = (
   data.append('room', meetingId);
 
   // TODO: Currently the uploader is not related to a POD so the id is fixed to the default
-  data.append('pod_id', podId);
+  data.append('pod_id', podSplitId);
 
   data.append('is_downloadable', downloadable);
 
@@ -165,7 +165,7 @@ const uploadAndConvertPresentation = (
     body: data,
   };
 
-  return requestPresentationUploadToken(podId, meetingId, file.name)
+  return requestPresentationUploadToken(podSplitId, meetingId, file.name)
     .then((token) => {
       makeCall('setUsedToken', token);
       return futch(endpoint.replace('upload', `${token}/upload`), opts, onProgress);
@@ -187,33 +187,33 @@ const uploadAndConvertPresentation = (
 const uploadAndConvertPresentations = (
   presentationsToUpload,
   meetingId,
-  podId,
+  podSplitId,
   uploadEndpoint,
 ) => Promise.all(presentationsToUpload.map(p => uploadAndConvertPresentation(
-  p.file, p.isDownloadable, podId, meetingId, uploadEndpoint,
+  p.file, p.isDownloadable, podSplitId, meetingId, uploadEndpoint,
   p.onUpload, p.onProgress, p.onConversion,
 )));
 
-const setPresentation = (presentationId, podId) => makeCall('setPresentation', presentationId, podId);
+const setPresentation = (presentationId, podSplitId) => makeCall('setPresentationsSplit', presentationId, podSplitId);
 
-const removePresentation = (presentationId, podId) => {
+const removePresentation = (presentationId, podSplitId) => {
   const hasPoll = Poll.find({}, { fields: {} }).count();
   if (hasPoll) makeCall('stopPoll');
-  makeCall('removePresentations', presentationId, podId);
+  makeCall('removePresentationsSplit', presentationId, podSplitId);
 };
 
 const removePresentations = (
   presentationsToRemove,
-  podId,
-) => Promise.all(presentationsToRemove.map(p => removePresentation(p.id, podId)));
+  podSplitId,
+) => Promise.all(presentationsToRemove.map(p => removePresentation(p.id, podSplitId)));
 
-const persistPresentationChanges = (oldState, newState, uploadEndpoint, podId) => {
+const persistPresentationChanges = (oldState, newState, uploadEndpoint, podSplitId) => {
   const presentationsToUpload = newState.filter(p => !p.upload.done);
   const presentationsToRemove = oldState.filter(p => !_.find(newState, ['id', p.id]));
 
   let currentPresentation = newState.find(p => p.isCurrent);
 
-  return uploadAndConvertPresentations(presentationsToUpload, Auth.meetingID, podId, uploadEndpoint)
+  return uploadAndConvertPresentations(presentationsToUpload, Auth.meetingID, podSplitId, uploadEndpoint)
     .then((presentations) => {
       if (!presentations.length && !currentPresentation) return Promise.resolve();
 
@@ -241,9 +241,9 @@ const persistPresentationChanges = (oldState, newState, uploadEndpoint, podId) =
         return Promise.resolve();
       }
 
-      return setPresentation(currentPresentation.id, podId);
+      return setPresentation(currentPresentation.id, podSplitId);
     })
-    .then(removePresentations.bind(null, presentationsToRemove, podId));
+    .then(removePresentations.bind(null, presentationsToRemove, podSplitId));
 };
 
 export default {

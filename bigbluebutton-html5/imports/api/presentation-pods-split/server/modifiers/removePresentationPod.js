@@ -4,13 +4,13 @@ import Logger from '/imports/startup/server/logger';
 import clearPresentations from '/imports/api/presentations-split/server/modifiers/clearPresentations';
 import clearPresentationUploadToken from '/imports/api/presentation-upload-token/server/modifiers/clearPresentationUploadToken';
 
-export default function removePresentationPod(meetingId, podId) {
+export default function removePresentationPod(meetingId, podSplitId) {
   check(meetingId, String);
-  check(podId, String);
+  check(podSplitId, String);
 
   const selector = {
     meetingId,
-    podId,
+    podSplitId,
   };
 
   const cb = (err) => {
@@ -19,10 +19,10 @@ export default function removePresentationPod(meetingId, podId) {
       return;
     }
 
-    if (podId) {
-      Logger.info(`Removed presentation pod id=${podId} meeting=${meetingId}`);
-      clearPresentations(meetingId, podId);
-      clearPresentationUploadToken(meetingId, podId);
+    if (podSplitId) {
+      Logger.info(`Removed presentation pod id=${podSplitId} meeting=${meetingId}`);
+      clearPresentations(meetingId, podSplitId);
+      clearPresentationUploadToken(meetingId, podSplitId);
     }
   };
 

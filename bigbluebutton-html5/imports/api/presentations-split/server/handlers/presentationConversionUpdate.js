@@ -24,12 +24,12 @@ export default function handlePresentationConversionUpdate({ body }, meetingId) 
 
   console.log("=============>> handlePresentationConversionUpdate <<===========", body);
   const {
-    presentationId, podId, messageKey: status, presName: presentationName,
+    presentationId, podSplitId, messageKey: status, presName: presentationName,
   } = body;
 
   check(meetingId, String);
   check(presentationId, String);
-  check(podId, String);
+  check(podSplitId, String);
   check(status, String);
 
   const statusModifier = {
@@ -66,25 +66,25 @@ export default function handlePresentationConversionUpdate({ body }, meetingId) 
 
   const selector = {
     meetingId,
-    podId,
+    podSplitId,
     id: presentationId,
   };
 
   const modifier = {
-    $set: Object.assign({ meetingId, podId }, statusModifier),
+    $set: Object.assign({ meetingId, podSplitId }, statusModifier),
   };
 
   const cb = (err, numChanged) => {
     if (err) {
-      return Logger.error(`Updating conversion status presentation to collection: ${err}`);
+      return Logger.error(`Updating conversion status presentation Split to collection: ${err}`);
     }
 
     const { insertedId } = numChanged;
     if (insertedId) {
-      return Logger.info(`Updated presentation conversion status=${status} id=${presentationId} meeting=${meetingId}`);
+      return Logger.info(`Updated presentation Split conversion status=${status} id=${presentationId} meeting=${meetingId}`);
     }
 
-    return Logger.debug(`Upserted presentation conversion status=${status} id=${presentationId} meeting=${meetingId}`);
+    return Logger.debug(`Upserted presentation Split conversion status=${status} id=${presentationId} meeting=${meetingId}`);
   };
 
   return Presentations.upsert(selector, modifier, cb);

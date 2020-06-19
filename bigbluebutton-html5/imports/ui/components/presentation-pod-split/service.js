@@ -9,7 +9,7 @@ const getPresentationPodIds = () => {
     },
     {
       fields: {
-        podId: 1,
+        podSplitId: 1,
       },
     },
   ).fetch();
@@ -24,7 +24,7 @@ const getPresentationsPodIds = () => {
     // },
     // {
     //   fields: {
-    //     podId: 1,
+    //     podSplitId: 1,
     //   },
     // },
   ).fetch();

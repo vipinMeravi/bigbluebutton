@@ -1,6 +1,6 @@
 import RedisPubSub from '/imports/startup/server/redis';
-import handleSlideResize from './handlers/slideResize';
-import handleSlideChange from './handlers/slideChange';
+import handleSlideResizeSplit from './handlers/slideResize';
+import handleSlideChangeSplit from './handlers/slideChange';
 
-RedisPubSub.on('ResizeAndMovePageEvtMsg', handleSlideResize);
-RedisPubSub.on('SetCurrentPageEvtMsg', handleSlideChange);
+RedisPubSub.on('ResizeAndMovePageEvtMsg', handleSlideResizeSplit);
+RedisPubSub.on('SetCurrentPageEvtMsg', handleSlideChangeSplit);

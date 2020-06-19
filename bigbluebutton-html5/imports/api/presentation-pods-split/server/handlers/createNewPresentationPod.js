@@ -3,16 +3,16 @@ import addPresentationPod from '../modifiers/addPresentationPod';
 
 export default function handleCreateNewPresentationPod({ body }, meetingId) {
   check(body, {
-    currentPresenterId: String,
-    podId: String,
+    currentSplitPresenterId: String,
+    podSplitId: String,
   });
   check(meetingId, String);
 
-  const { currentPresenterId, podId } = body;
+  const { currentSplitPresenterId, podSplitId } = body;
 
   const pod = {
-    currentPresenterId,
-    podId,
+    currentSplitPresenterId,
+    podSplitId,
   };
   console.log("===========>> Handle Create New Presnentation Body <<========",  body);
   console.log("===========>> Handle Create New Presnentation pod <<========",  pod);

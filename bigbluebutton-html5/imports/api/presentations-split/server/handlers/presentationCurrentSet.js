@@ -3,12 +3,12 @@ import setCurrentPresentation from '../modifiers/setCurrentPresentation';
 
 export default function handlePresentationCurrentSet({ body }, meetingId) {
   check(body, Object);
-  console.log("=============>> handlePresentationCurrentSet <<===========", body);
-  const { presentationId, podId } = body;
+  console.log("=============>> handlePresentationCurrentSet Split <<===========", body);
+  const { presentationId, podSplitId } = body;
 
   check(meetingId, String);
   check(presentationId, String);
-  check(podId, String);
+  check(podSplitId, String);
 
-  return setCurrentPresentation(meetingId, podId, presentationId);
+  return setCurrentPresentation(meetingId, podSplitId, presentationId);
 }

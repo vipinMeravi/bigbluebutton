@@ -16,15 +16,15 @@ const PresentationAreaContainer = ({ presentationSplitPodIds, mountSplitPresenta
   mountSplitPresentationArea && <PresentationArea {...props} />
 );
 
-export default withTracker(({ podsplitId, screen_value }) => {
-  const currentSplitSlide = PresentationAreaService.getCurrentSlide(podsplitId, screen_value);
+export default withTracker(({ podSplitId, screen_value }) => {
+  const currentSplitSlide = PresentationAreaService.getCurrentSlide(podSplitId, screen_value);
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
-  console.log(podsplitId)
+  console.log(podSplitId)
   console.log(currentSplitSlide);
   console.log('======================================>>> podid =======>')
   console.log('======================================>>> podid =======>')
-  const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podsplitId, screen_value);
+  const presentationIsDownloadable = PresentationAreaService.isPresentationDownloadable(podSplitId, screen_value);
   const layoutSwapped = getSwapLayout() && shouldEnableSwapLayout();
   const isViewer = Users.findOne({ meetingId: Auth.meetingID, userId: Auth.userID }, {
     fields: {
@@ -38,18 +38,18 @@ export default withTracker(({ podsplitId, screen_value }) => {
       presentationId,
       id: slideId,
     } = currentSplitSlide;
-    slidePosition = PresentationAreaService.getSlidePosition(podsplitId, presentationId, slideId);
+    slidePosition = PresentationAreaService.getSlidePosition(podSplitId, presentationId, slideId);
   }
   return {
     currentSplitSlide,
     slidePosition,
-    downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podsplitId, screen_value),
-    // userIsPresenter: PresentationAreaService.isPresenter(podsplitId) && !layoutSwapped,
+    downloadPresentationUri: PresentationAreaService.downloadPresentationUri(podSplitId, screen_value),
+    // userIsPresenter: PresentationAreaService.isPresenter(podSplitId) && !layoutSwapped,
     multiUser: PresentationAreaService.getMultiUserStatus(currentSplitSlide && currentSplitSlide.id)
       && !layoutSwapped,
     presentationIsDownloadable,
     mountSplitPresentationArea: !!currentSplitSlide,
-    currentPresentation: PresentationAreaService.getCurrentPresentation(podsplitId),
+    currentPresentation: PresentationAreaService.getCurrentPresentation(podSplitId),
     notify,
     zoomSlide: PresentationToolbarService.zoomSlide,
     layoutSwapped,

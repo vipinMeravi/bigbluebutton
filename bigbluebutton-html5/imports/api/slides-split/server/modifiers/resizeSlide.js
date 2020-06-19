@@ -7,7 +7,7 @@ export default function resizeSlide(meetingId, slide) {
   check(meetingId, String);
 
   const {
-    podId,
+    podSplitId,
     presentationId,
     pageId,
     widthRatio,
@@ -18,7 +18,7 @@ export default function resizeSlide(meetingId, slide) {
 
   const selector = {
     meetingId,
-    podId,
+    podSplitId,
     presentationId,
     id: pageId,
   };
@@ -50,14 +50,14 @@ export default function resizeSlide(meetingId, slide) {
 
     const cb = (err, numChanged) => {
       if (err) {
-        return Logger.error(`Resizing slide positions id=${pageId}: ${err}`);
+        return Logger.error(`Resizing Split slide positions id=${pageId}: ${err}`);
       }
 
       if (numChanged) {
-        return Logger.debug(`Resized slide positions id=${pageId}`);
+        return Logger.debug(`Resized Split slide positions id=${pageId}`);
       }
 
-      return Logger.info(`No slide positions found with id=${pageId}`);
+      return Logger.info(`No Split slide positions found with id=${pageId}`);
     };
 
     return SlidePositions.update(selector, modifier, cb);

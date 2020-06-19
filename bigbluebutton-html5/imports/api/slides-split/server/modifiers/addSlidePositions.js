@@ -5,13 +5,13 @@ import flat from 'flat';
 
 export default function addSlidePositions(
   meetingId,
-  podId,
+  podSplitId,
   presentationId,
   slideId,
   slidePosition,
 ) {
   check(meetingId, String);
-  check(podId, String);
+  check(podSplitId, String);
   check(presentationId, String);
   check(slideId, String);
 
@@ -26,7 +26,7 @@ export default function addSlidePositions(
 
   const selector = {
     meetingId,
-    podId,
+    podSplitId,
     presentationId,
     id: slideId,
   };
@@ -34,7 +34,7 @@ export default function addSlidePositions(
   const modifier = {
     $set: Object.assign(
       { meetingId },
-      { podId },
+      { podSplitId },
       { presentationId },
       { id: slideId },
       flat(slidePosition),
@@ -50,10 +50,10 @@ export default function addSlidePositions(
     const { insertedId } = numChanged;
 
     if (insertedId) {
-      return Logger.info(`Added slide position id=${slideId} pod=${podId} presentation=${presentationId}`);
+      return Logger.info(`Added slide position id=${slideId} pod=${podSplitId} presentation=${presentationId}`);
     }
 
-    return Logger.info(`Upserted slide position id=${slideId} pod=${podId} presentation=${presentationId}`);
+    return Logger.info(`Upserted slide position id=${slideId} pod=${podSplitId} presentation=${presentationId}`);
   };
 
   return SlidePositions.upsert(selector, modifier, cb);

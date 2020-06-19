@@ -14,7 +14,7 @@ export default function setPresentationDownloadable(presentationId, downloadable
 
   const payload = {
     presentationId,
-    podId: 'DEFAULT_PRESENTATION_POD',
+    podSplitId: 'DEFAULT_PRESENTATION_POD_SPLIT',
     downloadable,
   };
 

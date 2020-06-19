@@ -119,10 +119,10 @@ class PresentationToolbar extends PureComponent {
   handleSkipToSlideChange(event) {
     const {
       skipToSlide,
-      podId,
+      podSplitId,
     } = this.props;
     const requestedSlideNum = Number.parseInt(event.target.value, 10);
-    skipToSlide(requestedSlideNum, podId);
+    skipToSlide(requestedSlideNum, podSplitId);
   }
 
   nextSlideHandler() {
@@ -130,20 +130,20 @@ class PresentationToolbar extends PureComponent {
       nextSlide,
       currentSlideNum,
       numberOfSlides,
-      podId,
+      podSplitId,
     } = this.props;
 
-    nextSlide(currentSlideNum, numberOfSlides, podId);
+    nextSlide(currentSlideNum, numberOfSlides, podSplitId);
   }
 
   previousSlideHandler() {
     const {
       previousSlide,
       currentSlideNum,
-      podId,
+      podSplitId,
     } = this.props;
 
-    previousSlide(currentSlideNum, podId);
+    previousSlide(currentSlideNum, podSplitId);
   }
 
   change(value) {
@@ -346,7 +346,7 @@ class PresentationToolbar extends PureComponent {
 
 PresentationToolbar.propTypes = {
   // The Id for the current pod. Should always be default pod
-  podId: PropTypes.string.isRequired,
+  podSplitId: PropTypes.string.isRequired,
   // Number of current slide being displayed
   currentSlideNum: PropTypes.number.isRequired,
   // Total number of slides in this presentation

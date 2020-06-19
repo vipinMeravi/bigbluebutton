@@ -2,16 +2,16 @@ import { check } from 'meteor/check';
 import Presentations from '/imports/api/presentations-split';
 import Logger from '/imports/startup/server/logger';
 
-export default function setPresentationDownloadable(meetingId, podId,
+export default function setPresentationDownloadable(meetingId, podSplitId,
   presentationId, downloadable) {
   check(meetingId, String);
   check(presentationId, String);
-  check(podId, String);
+  check(podSplitId, String);
   check(downloadable, Boolean);
 
   const selector = {
     meetingId,
-    podId,
+    podSplitId,
     id: presentationId,
   };
 
@@ -23,12 +23,12 @@ export default function setPresentationDownloadable(meetingId, podId,
 
   const cb = (err, numChanged) => {
     if (err) {
-      Logger.error(`Could not set downloadable on pres {${presentationId} in meeting {${meetingId}} ${err}`);
+      Logger.error(`Could not set downloadable Split on pres {${presentationId} in meeting {${meetingId}} ${err}`);
       return;
     }
 
     if (numChanged) {
-      Logger.info(`Set downloadable status on presentation {${presentationId} in meeting {${meetingId}}`);
+      Logger.info(`Set downloadable status on presentation Split {${presentationId} in meeting {${meetingId}}`);
     }
   };
 

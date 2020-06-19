@@ -26,14 +26,14 @@ const PresentationToolbarContainer = (props) => {
 
 export default withTracker((params) => {
   const {
-    podId,
+    podSplitId,
     presentationId,
   } = params;
 
   return {
     layoutSwapped: MediaService.getSwapLayout() && MediaService.shouldEnableSwapLayout(),
-    userIsPresenter: PresentationService.isPresenter(podId),
-    numberOfSlides: PresentationToolbarService.getNumberOfSlides(podId, presentationId),
+    userIsPresenter: PresentationService.isPresenter(podSplitId),
+    numberOfSlides: PresentationToolbarService.getNumberOfSlides(podSplitId, presentationId),
     nextSlide: PresentationToolbarService.nextSlide,
     previousSlide: PresentationToolbarService.previousSlide,
     skipToSlide: PresentationToolbarService.skipToSlide,

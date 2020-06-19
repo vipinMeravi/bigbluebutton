@@ -16,19 +16,19 @@ export default function handleSyncGetPresentationPods({ body }, meetingId) {
 
   const presentationPodsToRemove = PresentationPods.find({
     meetingId,
-    podId: { $nin: presentationPodIds },
-  }, { fields: { podId: 1 } }).fetch();
+    podSplitId: { $nin: presentationPodIds },
+  }, { fields: { podSplitId: 1 } }).fetch();
 
-  presentationPodsToRemove.forEach(p => removePresentationPod(meetingId, p.podId));
+  presentationPodsToRemove.forEach(p => removePresentationPod(meetingId, p.podSplitId));
 
   pods.forEach((pod) => {
     // 'podId' and 'currentPresenterId' for some reason called 'id' and 'currentPresenter'
     // in this message
     const {
-      id: podId,
+      id: podSplitId,
       currentPresenter: currentPresenterId,
       presentations,
     } = pod;
-    addPresentationPod(meetingId, { podId, currentPresenterId }, presentations);
+    addPresentationPod(meetingId, { podSplitId, currentPresenterId }, presentations);
   });
 }

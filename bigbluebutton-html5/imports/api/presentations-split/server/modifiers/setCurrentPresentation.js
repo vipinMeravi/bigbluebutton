@@ -2,15 +2,15 @@ import { check } from 'meteor/check';
 import Presentations from '/imports/api/presentations-split';
 import Logger from '/imports/startup/server/logger';
 
-export default function setCurrentPresentation(meetingId, podId, presentationId) {
+export default function setCurrentPresentation(meetingId, podSplitId, presentationId) {
   check(meetingId, String);
   check(presentationId, String);
-  check(podId, String);
+  check(podSplitId, String);
 
   const oldCurrent = {
     selector: {
       meetingId,
-      podId,
+      podSplitId,
       current: true,
     },
     modifier: {
@@ -28,7 +28,7 @@ export default function setCurrentPresentation(meetingId, podId, presentationId)
   const newCurrent = {
     selector: {
       meetingId,
-      podId,
+      podSplitId,
       id: presentationId,
     },
     modifier: {

@@ -1,27 +1,27 @@
-import WhiteboardMultiUser from '/imports/api/whiteboard-multi-user/';
+import WhiteboardMultiUser from '/imports/api/whiteboard-multi-user-split/';
 import PresentationPods from '/imports/api/presentation-pods-split';
 import Presentations from '/imports/api/presentations-split';
 import { Slides, SlidePositions } from '/imports/api/slides-split';
 import Users from '/imports/api/users';
 import Auth from '/imports/ui/services/auth';
 
-const getCurrentPresentation = podId => Presentations.findOne({
-  podId,
+const getCurrentPresentation = podSplitId => Presentations.findOne({
+  podSplitId,
   current: true,
 });
 
-const getNonCurrentPresentation = podId => Presentations.findOne({
-  podId,
+const getNonCurrentPresentation = podSplitId => Presentations.findOne({
+  podSplitId,
   current: false,
 });
 
 const getAllPresentation = () => Presentations.find({
-  // podId,
+  // podSplitId,
   name: "default.pdf",
 });
 
-const downloadPresentationUri = (podId, screen_value) => {
-  const currentPresentation = getCurrentPresentation(podId);
+const downloadPresentationUri = (podSplitId, screen_value) => {
+  const currentPresentation = getCurrentPresentation(podSplitId);
   if (!currentPresentation) {
     return null;
   }
@@ -35,8 +35,8 @@ const downloadPresentationUri = (podId, screen_value) => {
   return uri;
 };
 
-const isPresentationDownloadable = (podId, screen_value) => {
-  const currentPresentation = getCurrentPresentation(podId);
+const isPresentationDownloadable = (podSplitId, screen_value) => {
+  const currentPresentation = getCurrentPresentation(podSplitId);
   if (!currentPresentation) {
     return null;
   }
@@ -44,9 +44,9 @@ const isPresentationDownloadable = (podId, screen_value) => {
   return currentPresentation.downloadable;
 };
 
-const getCurrentSlide = (podId, screen_value) => {
+const getCurrentSlide = (podSplitId, screen_value) => {
 
-  const currentPresentation = getCurrentPresentation(podId);
+  const currentPresentation = getCurrentPresentation(podSplitId);
    
 
   if (!currentPresentation) {
@@ -54,7 +54,7 @@ const getCurrentSlide = (podId, screen_value) => {
   }
 
   return Slides.findOne({
-    podId,
+    podSplitId,
     presentationId: currentPresentation.id,
     current: true,
   }, {
@@ -67,14 +67,14 @@ const getCurrentSlide = (podId, screen_value) => {
   });
 };
 
-const getSlidePosition = (podId, presentationId, slideId) => SlidePositions.findOne({
-  podId,
+const getSlidePosition = (podSplitId, presentationId, slideId) => SlidePositions.findOne({
+  podSplitId,
   presentationId,
   id: slideId,
 });
 
 const currentSlidHasContent = () => {
-  const currentSlide = getCurrentSlide('DEFAULT_PRESENTATION_POD');
+  const currentSlide = getCurrentSlide('DEFAULT_PRESENTATION_POD_SPLIT');
   if (!currentSlide) return false;
 
   const {
@@ -85,7 +85,7 @@ const currentSlidHasContent = () => {
 };
 
 const parseCurrentSlideContent = (yesValue, noValue, trueValue, falseValue) => {
-  const currentSlide = getCurrentSlide('DEFAULT_PRESENTATION_POD');
+  const currentSlide = getCurrentSlide('DEFAULT_PRESENTATION_POD_SPLIT');
   const quickPollOptions = [];
   if (!currentSlide) return quickPollOptions;
 
@@ -162,10 +162,10 @@ const parseCurrentSlideContent = (yesValue, noValue, trueValue, falseValue) => {
   };
 };
 
-const isPresenter = (podId) => {
+const isPresenter = (podSplitId) => {
   // a main presenter in the meeting always owns a default pod
-  console.log("===========>> Inside Is Presenter PodId<<==========", podId);
-  if (podId === 'DEFAULT_PRESENTATION_POD') {
+  console.log("===========>> Inside Is Presenter PodId<<==========", podSplitId);
+  if (podSplitId === 'DEFAULT_PRESENTATION_POD_SPLIT') {
     const options = {
       filter: {
         presenter: 1,
@@ -180,7 +180,7 @@ const isPresenter = (podId) => {
   // if a pod is not default, then we check whether this user owns a current pod
   const selector = {
     meetingId: Auth.meetingID,
-    podId,
+    podSplitId,
   };
 
   console.log("=============>>Selector in is presenter<<=============", selector);

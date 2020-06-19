@@ -9,11 +9,11 @@ class PresentationSplitPods extends PureComponent {
       all the future UI for the pods also goes here
       PresentationAreaContainer should fill any empty box provided by us
     */
-   console.log("=========Presentation Pod propes==========")
+   console.log("=========Presentation Pod Split propes==========")
    console.log(this.props);
-   console.log("=========Presentation Pod propes==========")
+   console.log("=========Presentation Pod Split propes==========")
    return (
-    <PresentationSplitAreaContainer podsplitId="DEFAULT_PRESENTATION_POD" {...this.props} />
+    <PresentationSplitAreaContainer podSplitId="DEFAULT_PRESENTATION_POD_SPLIT" {...this.props} />
   );
   }
 }
@@ -22,6 +22,6 @@ export default PresentationSplitPods;
 
 PresentationSplitPods.propTypes = {
   presentationPodIds: PropTypes.arrayOf(PropTypes.shape({
-    podsplitId: PropTypes.string.isRequired,
+    podSplitId: PropTypes.string.isRequired,
   })).isRequired,
 };

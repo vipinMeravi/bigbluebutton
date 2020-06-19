@@ -1,10 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import removePresentations from './methods/removePresentations';
-import setPresentations from './methods/setPresentation';
-import setPresentationDownloadables from './methods/setPresentationDownloadable';
+import removePresentationsSplit from './methods/removePresentations';
+import setPresentationsSplit from './methods/setPresentation';
+import setPresentationDownloadablesSplit from './methods/setPresentationDownloadable';
 
 Meteor.methods({
-  removePresentations,
-  setPresentations,
-  setPresentationDownloadables,
+  removePresentationsSplit,
+  setPresentationsSplit,
+  setPresentationDownloadablesSplit,
 });

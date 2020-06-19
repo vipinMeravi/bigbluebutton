@@ -1,10 +1,10 @@
 import RedisPubSub from '/imports/startup/server/redis';
-import handleCreateNewPresentationPod from './handlers/createNewPresentationPod';
-import handleRemovePresentationPod from './handlers/removePresentationPod';
-import handleSyncGetPresentationPods from './handlers/syncGetPresentationPods';
-import handleSetPresenterInPod from './handlers/setPresenterInPod';
+import handleCreateNewPresentationPodSplit from './handlers/createNewPresentationPod';
+import handleRemovePresentationPodSplit from './handlers/removePresentationPod';
+import handleSyncGetPresentationPodsSplit from './handlers/syncGetPresentationPods';
+import handleSetPresenterInPodSplit from './handlers/setPresenterInPod';
 
-RedisPubSub.on('CreateNewPresentationPodEvtMsg', handleCreateNewPresentationPod);
-RedisPubSub.on('RemovePresentationPodEvtMsg', handleRemovePresentationPod);
-RedisPubSub.on('SetPresenterInPodRespMsg', handleSetPresenterInPod);
-RedisPubSub.on('SyncGetPresentationPodsRespMsg', handleSyncGetPresentationPods);
+RedisPubSub.on('CreateNewPresentationPodEvtMsg', handleCreateNewPresentationPodSplit);
+RedisPubSub.on('RemovePresentationPodEvtMsg', handleRemovePresentationPodSplit);
+RedisPubSub.on('SetPresenterInPodRespMsg', handleSetPresenterInPodSplit);
+RedisPubSub.on('SyncGetPresentationPodsRespMsg', handleSyncGetPresentationPodsSplit);

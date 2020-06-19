@@ -27,7 +27,7 @@ export default withTracker(() => {
       currentPresentations,
       presentations,
       PRESENTATION_CONFIG.uploadEndpoint,
-      'DEFAULT_PRESENTATION_POD',
+      'DEFAULT_PRESENTATION_POD_SPLIT',
     ),
     dispatchDisableDownloadable,
     dispatchEnableDownloadable,

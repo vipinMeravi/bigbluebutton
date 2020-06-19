@@ -4,38 +4,36 @@ import { withTracker } from 'meteor/react-meteor-data';
 import ErrorBoundary from '/imports/ui/components/error-boundary/component';
 import FallbackPresentation from '/imports/ui/components/fallback-errors/fallback-presentation/component';
 import PresentationPodService from './service';
-import PresentationSplitPods from './component';
+import PresentationPods from './component';
 
 // PresentationPods component will be the place to go once we have the presentation pods designs
 // it should give each PresentationAreaContainer some space
 // which it will fill with the uploaded presentation
-const PresentationPodsSplitContainer = ({ presentationPodIds,presentationsPodIds, ...props }) => {
-  console.log("=========Presentation Split Pod Container propes==========")
+const PresentationPodsContainer = ({ presentationPodIds,presentationsPodIds, ...props }) => {
+  console.log("=========Presentation Pod Container propes==========")
   console.log(presentationPodIds);
   console.log(presentationsPodIds);
   console.log({...props});
-  console.log("=========Presentation Split Pod Container propes==========")
+  console.log("=========Presentation Pod Container propes==========")
   if (presentationPodIds && presentationPodIds.length > 0) {
-      let temp_obj = {
-        podId: presentationsPodIds[1].podId,
-        _id: presentationsPodIds[1]._id
-      }
+  
       return (
         <ErrorBoundary Fallback={FallbackPresentation}>
-          <PresentationSplitPods presentationPodIds={[temp_obj]} {...props} />
+          <PresentationPods presentationPodIds={presentationPodIds} {...props} />
         </ErrorBoundary>
       );
   }
+
   return null;
 };
 
 export default withTracker(() => ({
   presentationPodIds: PresentationPodService.getPresentationPodIds(),
   presentationsPodIds: PresentationPodService.getPresentationsPodIds()
-}))(PresentationPodsSplitContainer);
+}))(PresentationPodsContainer);
 
-PresentationPodsSplitContainer.propTypes = {
+PresentationPodsContainer.propTypes = {
   presentationPodIds: PropTypes.arrayOf(PropTypes.shape({
-    podId: PropTypes.string.isRequired,
+    podSplitId: PropTypes.string.isRequired,
   })).isRequired,
 };

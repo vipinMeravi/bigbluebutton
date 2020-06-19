@@ -5,11 +5,11 @@ export default function handleRemovePresentationPod({ body }, meetingId) {
   check(body, Object);
   check(meetingId, String);
 
-  const { podId } = body;
+  const { podSplitId } = body;
 
-  check(podId, String);
+  check(podSplitId, String);
 
   console.log("+++++++>>Remove Presentation Pod Body <<+++++", body)
 
-  removePresentationPod(meetingId, podId);
+  removePresentationPod(meetingId, podSplitId);
 }

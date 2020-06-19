@@ -4,12 +4,12 @@ import setPresenterInPod from '../modifiers/setPresenterInPod';
 export default function handleSetPresenterInPod({ body }, meetingId) {
   check(body, Object);
 
-  const { podId, nextPresenterId } = body;
+  const { podSplitId, nextPresenterId } = body;
 
-  check(podId, String);
+  check(podSplitId, String);
   check(nextPresenterId, String);
 
-  console.log("========>>Handle Set Presenttaion Pod <<======", body);
+  console.log("========>>Handle Set Presenttaion Pod Split<<======", body);
 
-  setPresenterInPod(meetingId, podId, nextPresenterId);
+  setPresenterInPod(meetingId, podSplitId, nextPresenterId);
 }

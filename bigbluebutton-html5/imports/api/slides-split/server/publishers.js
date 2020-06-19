@@ -8,7 +8,7 @@ function slides() {
     return Slides.find({ meetingId: '' });
   }
   const { meetingId, requesterUserId } = extractCredentials(this.userId);
-  Logger.debug(`Publishing Slides for ${meetingId} ${requesterUserId}`);
+  Logger.debug(`Publishing Split Slides for ${meetingId} ${requesterUserId}`);
 
   return Slides.find({ meetingId });
 }

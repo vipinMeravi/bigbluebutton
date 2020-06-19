@@ -5,7 +5,7 @@ import { check } from 'meteor/check';
 import RedisPubSub from '/imports/startup/server/redis';
 import { extractCredentials } from '/imports/api/common/server/helpers';
 
-export default function switchSlide(slideNumber, podId) { // TODO-- send presentationId and SlideId
+export default function switchSlide(slideNumber, podSplitId) { // TODO-- send presentationId and SlideId
   const REDIS_CONFIG = Meteor.settings.private.redis;
 
   const CHANNEL = REDIS_CONFIG.channels.toAkkaApps;
@@ -15,7 +15,7 @@ export default function switchSlide(slideNumber, podId) { // TODO-- send present
 
   const selector = {
     meetingId,
-    podId,
+    podSplitId,
     current: true,
   };
 
@@ -27,7 +27,7 @@ export default function switchSlide(slideNumber, podId) { // TODO-- send present
 
   const Slide = Slides.findOne({
     meetingId,
-    podId,
+    podSplitId,
     presentationId: Presentation.id,
     num: slideNumber,
   });
@@ -37,7 +37,7 @@ export default function switchSlide(slideNumber, podId) { // TODO-- send present
   }
 
   const payload = {
-    podId,
+    podSplitId,
     presentationId: Presentation.id,
     pageId: Slide.id,
   };

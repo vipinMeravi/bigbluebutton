@@ -9,7 +9,7 @@ function presentations() {
   }
   const { meetingId, requesterUserId } = extractCredentials(this.userId);
 
-  Logger.debug(`Publishing Presentations for ${meetingId} ${requesterUserId}`);
+  Logger.debug(`Publishing Presentations Split for ${meetingId} ${requesterUserId}`);
 
   return Presentations.find({ meetingId });
 }

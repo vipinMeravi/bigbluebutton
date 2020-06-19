@@ -1,5 +1,5 @@
-import WhiteboardMultiUser from '/imports/api/whiteboard-multi-user/';
-import PresentationPods from '/imports/api/presentation-pods';
+import WhiteboardMultiUser from '/imports/api/whiteboard-multi-user-split/';
+import PresentationPods from '/imports/api/presentation-pods-split';
 import Auth from '/imports/ui/services/auth';
 import Cursor from '/imports/ui/components/cursor/service';
 

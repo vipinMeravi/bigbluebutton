@@ -32,6 +32,7 @@ import '/imports/api/voice-call-states/server';
 import '/imports/api/presentations-split/server';
 import '/imports/api/presentation-pods-split/server';
 import '/imports/api/slides-split/server';
+import '/imports/api/whiteboard-multi-user-split/server';
 import '/imports/api/website-viewer/server';
 
 // Commons

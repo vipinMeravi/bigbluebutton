@@ -3,7 +3,7 @@ import { check } from 'meteor/check';
 import Presentations from '/imports/api/presentations-split';
 import Logger from '/imports/startup/server/logger';
 import flat from 'flat';
-import addSlide from '/imports/api/slides/server/modifiers/addSlide';
+import addSlide from '/imports/api/slides-split/server/modifiers/addSlide';
 import setCurrentPresentation from './setCurrentPresentation';
 
 const getSlideText = async (url) => {
@@ -16,19 +16,19 @@ const getSlideText = async (url) => {
   return content;
 };
 
-const addSlides = (meetingId, podId, presentationId, slides) => {
+const addSlides = (meetingId, podSplitId, presentationId, slides) => {
   slides.forEach(async (slide) => {
     const content = await getSlideText(slide.txtUri);
 
     Object.assign(slide, { content });
 
-    addSlide(meetingId, podId, presentationId, slide);
+    addSlide(meetingId, podSplitId, presentationId, slide);
   });
 };
 
-export default function addPresentation(meetingId, podId, presentation) {
+export default function addPresentation(meetingId, podSplitId, presentation) {
   check(meetingId, String);
-  check(podId, String);
+  check(podSplitId, String);
   check(presentation, {
     id: String,
     name: String,
@@ -53,14 +53,14 @@ export default function addPresentation(meetingId, podId, presentation) {
 
   const selector = {
     meetingId,
-    podId,
+    podSplitId,
     id: presentation.id,
   };
 
   const modifier = {
     $set: Object.assign({
       meetingId,
-      podId,
+      podSplitId,
       'conversion.done': true,
       'conversion.error': false,
     }, flat(presentation, { safe: true })),
@@ -71,18 +71,18 @@ export default function addPresentation(meetingId, podId, presentation) {
       return Logger.error(`Adding presentation to collection: ${err}`);
     }
 
-    addSlides(meetingId, podId, presentation.id, presentation.pages);
+    addSlides(meetingId, podSplitId, presentation.id, presentation.pages);
 
     const { insertedId } = numChanged;
     if (insertedId) {
       if (presentation.current) {
-        setCurrentPresentation(meetingId, podId, presentation.id);
+        setCurrentPresentation(meetingId, podSplitId, presentation.id);
       }
 
-      return Logger.info(`Added presentation id=${presentation.id} meeting=${meetingId}`);
+      return Logger.info(`Added presentation split id=${presentation.id} meeting=${meetingId}`);
     }
 
-    return Logger.info(`Upserted presentation id=${presentation.id} meeting=${meetingId}`);
+    return Logger.info(`Upserted presentation split id=${presentation.id} meeting=${meetingId}`);
   };
 
   return Presentations.upsert(selector, modifier, cb);
