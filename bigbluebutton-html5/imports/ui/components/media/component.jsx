@@ -98,8 +98,11 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamPlacement === 'floating'),
     });
 
-
-
+    console.log("===============Swap layout==================")
+    console.log(swapLayout)
+    console.log(!swapLayout ? contentClassName : overlayClassName)
+    console.log("===============Swap layout==================")
+    
     return (
       <div
         id="container"
@@ -110,7 +113,7 @@ export default class Media extends Component {
         {/* {screen_value} */}
 
         <div
-          className={!swapLayout ? contentClassName : overlayClassName}
+          className={usersVideo.length > 0  ? overlayClassName : contentClassName}
           style={{
             maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
             minHeight: '20%', width: "50%",
@@ -120,7 +123,7 @@ export default class Media extends Component {
         </div>
         {children_split ?
           <div
-            className={!swapLayout ? contentClassName : overlayClassName}
+            className={usersVideo.length > 0  ? overlayClassName : contentClassName}
             style={{
               maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
               minHeight: '20%', width: "50%",
