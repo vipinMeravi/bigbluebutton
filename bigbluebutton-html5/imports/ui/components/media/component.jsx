@@ -17,7 +17,7 @@ const propTypes = {
   audioModalIsOpen: PropTypes.bool,
   joinVideo: PropTypes.func,
   webcamPlacement: PropTypes.string,
-  isUpdate:PropTypes.bool.isRequired,
+  isUpdate: PropTypes.bool.isRequired,
   screen_value: PropTypes.string.isRequired,
 };
 
@@ -108,28 +108,47 @@ export default class Media extends Component {
         className={cx(styles.container)}
         ref={this.refContainer}
       >
-
-        {/* {screen_value} */}
-
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
-            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
-            minHeight: '20%', width: "50%",
+            maxHeight: usersVideo.length > 0
+            && (
+              webcamPlacement !== 'left'
+              || webcamPlacement !== 'right'
+            )
+            && (
+              webcamPlacement === 'top'
+              || webcamPlacement === 'bottom'
+            )
+              ? '80%'
+              : '100%',
+            minHeight: BROWSER_ISMOBILE && window.innerWidth > window.innerHeight ? '50%' : '20%',
+            maxWidth: usersVideo.length > 0
+            && (
+              webcamPlacement !== 'top'
+              || webcamPlacement !== 'bottom'
+            )
+            && (
+              webcamPlacement === 'left'
+              || webcamPlacement === 'right'
+            )
+              ? '80%'
+              : '100%',
+            minWidth: '20%',
           }}
         >
           {children}
         </div>
-        {/* {children_split ?
+        {children_split ?
           <div
             className={!swapLayout ? contentClassName : overlayClassName}
             style={{
-              maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
+              maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '50%',
               minHeight: '20%', width: "50%",
             }}
           >
             {children_split}
-          </div> : null} */}
+          </div> : null}
         {usersVideo.length > 0 ? (
           <WebcamDraggable
             refMediaContainer={this.refContainer}
