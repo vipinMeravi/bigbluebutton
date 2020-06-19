@@ -122,7 +122,7 @@ export default class Media extends Component {
             )
               ? '80%'
               : '100%',
-            minHeight: BROWSER_ISMOBILE && window.innerWidth > window.innerHeight ? '50%' : '20%',
+            // minHeight: BROWSER_ISMOBILE && window.innerWidth > window.innerHeight ? '50%' : '20%',
             maxWidth: usersVideo.length > 0
             && (
               webcamPlacement !== 'top'
