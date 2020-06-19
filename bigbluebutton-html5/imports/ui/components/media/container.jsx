@@ -278,24 +278,24 @@ export default withModalMounter(withTracker((props) => {
             isPresenter={MediaService.isUserPresenter()}
           />
         );
-        data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
+        data.children_split = <PresentationPodsSplitContainer screen_value={props.screen_value}/>;
       } else if(!MediaService.shouldShowExternalVideo() && MediaService.shouldShowExternalWebsite()){
         data.children = (
           <ExternalWebsiteContainer
             isPresenter={MediaService.isUserPresenter()}
           />
         );
-        data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
+        data.children_split = <PresentationPodsSplitContainer screen_value={props.screen_value}/>;
       } else if(MediaService.shouldShowExternalVideo() && !MediaService.shouldShowExternalWebsite()){
         data.children = (
           <ExternalVideoContainer
             isPresenter={MediaService.isUserPresenter()}
           />
         );  
-        data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
+        data.children_split = <PresentationPodsSplitContainer screen_value={props.screen_value}/>;
       } else{
         data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
-        data.children_split = null;
+        data.children_split = <PresentationPodsSplitContainer screen_value={props.screen_value}/>;
       }
     } else if(props.screen_for == 'site'){
       data.children_split = (
