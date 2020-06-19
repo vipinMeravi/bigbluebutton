@@ -310,6 +310,7 @@ export default withModalMounter(withTracker((props) => {
           />
         );  
       } else {
+        
         data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
       }
     } else if(props.screen_for == 'video'){
