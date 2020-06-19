@@ -19,4 +19,4 @@ function publish(...args) {
   return boundPresentationPods(...args);
 }
 
-Meteor.publish('presentation-pods', publish);
+Meteor.publish('presentation-pods-split', publish);

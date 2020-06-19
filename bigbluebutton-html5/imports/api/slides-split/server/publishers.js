@@ -18,7 +18,7 @@ function publish(...args) {
   return boundSlides(...args);
 }
 
-Meteor.publish('slides', publish);
+Meteor.publish('slides-split', publish);
 
 function slidePositions() {
   if (!this.userId) {
@@ -36,4 +36,4 @@ function publishPositions(...args) {
   return boundSlidePositions(...args);
 }
 
-Meteor.publish('slide-positions', publishPositions);
+Meteor.publish('slide-positions-split', publishPositions);

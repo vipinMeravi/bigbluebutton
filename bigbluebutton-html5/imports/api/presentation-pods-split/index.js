@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import PresentationsPodSplit from '/imports/api/presentations-pods';
+import PresentationsPodSplit from '/imports/api/presentation-pods';
 
 const PresentationPods = PresentationsPodSplit
 // if (Meteor.isServer) {
