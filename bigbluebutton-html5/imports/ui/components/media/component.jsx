@@ -17,7 +17,7 @@ const propTypes = {
   audioModalIsOpen: PropTypes.bool,
   joinVideo: PropTypes.func,
   webcamPlacement: PropTypes.string,
-  isUpdate: PropTypes.bool.isRequired,
+  isUpdate:PropTypes.bool.isRequired,
   screen_value: PropTypes.string.isRequired,
 };
 
@@ -88,10 +88,6 @@ export default class Media extends Component {
       screen_value
     } = this.props;
 
-    const { placement } = webcamDraggableState;
-    const placementStorage = Storage.getItem('webcamPlacement');
-    const webcamPlacement = placement || placementStorage;
-
     const contentClassName = cx({
       [styles.content]: true,
     });
@@ -102,48 +98,22 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamPlacement === 'floating'),
     });
 
-    const containerClassName = cx({
-      [styles.container]: true,
-      [styles.containerV]: webcamPlacement === 'top' || webcamPlacement === 'bottom' || webcamPlacement === 'floating',
-      [styles.containerH]: webcamPlacement === 'left' || webcamPlacement === 'right',
-    });
-    console.log("================ usersVideo ===============");
-    console.log(usersVideo);
-    console.log("================ usersVideo ===============");
+
 
     return (
       <div
         id="container"
-        className={containerClassName}
+        className={cx(styles.container)}
         ref={this.refContainer}
       >
+
+        {/* {screen_value} */}
+
         <div
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
-            maxHeight: usersVideo.length > 0
-            && (
-              webcamPlacement !== 'left'
-              || webcamPlacement !== 'right'
-            )
-            && (
-              webcamPlacement === 'top'
-              || webcamPlacement === 'bottom'
-            )
-              ? '80%'
-              : '100%',
-            // minHeight: BROWSER_ISMOBILE && window.innerWidth > window.innerHeight ? '50%' : '20%',
-            maxWidth: usersVideo.length > 0
-            && (
-              webcamPlacement !== 'top'
-              || webcamPlacement !== 'bottom'
-            )
-            && (
-              webcamPlacement === 'left'
-              || webcamPlacement === 'right'
-            )
-              ? '80%'
-              : '100%',
-            minWidth: '20%',
+            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
+            minHeight: '20%', width: "50%",
           }}
         >
           {children}
@@ -152,7 +122,7 @@ export default class Media extends Component {
           <div
             className={!swapLayout ? contentClassName : overlayClassName}
             style={{
-              maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '50%',
+              maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
               minHeight: '20%', width: "50%",
             }}
           >
