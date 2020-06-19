@@ -98,7 +98,9 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamPlacement === 'floating'),
     });
 
-
+    console.log("================ usersVideo ===============");
+    console.log(usersVideo);
+    console.log("================ usersVideo ===============");
 
     return (
       <div
@@ -118,16 +120,16 @@ export default class Media extends Component {
         >
           {children}
         </div>
-        {children_split ?
+        {/* {children_split ?
           <div
-            // className={!swapLayout ? contentClassName : overlayClassName}
+            className={!swapLayout ? contentClassName : overlayClassName}
             style={{
               maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
               minHeight: '20%', width: "50%",
             }}
           >
             {children_split}
-          </div> : null}
+          </div> : null} */}
         {usersVideo.length > 0 ? (
           <WebcamDraggable
             refMediaContainer={this.refContainer}
