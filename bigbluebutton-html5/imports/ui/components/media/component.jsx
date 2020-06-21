@@ -131,27 +131,28 @@ export default class Media extends Component {
           >
             {children_split}
           </div> : null}
-        {/* {usersVideo.length > 0 ? ( */}
+        <div
+          id='webcam_container'
+          style={{
+            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '0%' : '20%',
+          }}
+        >
+          {usersVideo.length > 0 ? (
+            <WebcamDraggable
+              refMediaContainer={this.refContainer}
+              swapLayout={swapLayout}
+              singleWebcam={singleWebcam}
+              usersVideoLenght={usersVideo.length}
+              hideOverlay={hideOverlay}
+              disableVideo={disableVideo}
+              audioModalIsOpen={audioModalIsOpen}
+              usersVideo={usersVideo}
+            />
+          ) : null}
+        </div>
 
-        {/* ) : null} */}
       </div>
-      <div
-        id='webcam_container'
-        style={{
-          maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '0%' : '20%',
-        }}
-      >
-        <WebcamDraggable
-          refMediaContainer={this.refContainer}
-          swapLayout={swapLayout}
-          singleWebcam={singleWebcam}
-          usersVideoLenght={usersVideo.length}
-          hideOverlay={hideOverlay}
-          disableVideo={disableVideo}
-          audioModalIsOpen={audioModalIsOpen}
-          usersVideo={usersVideo}
-        />
-      </div>
+
     );
   }
 }
