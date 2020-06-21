@@ -113,7 +113,7 @@ export default class Media extends Component {
         {/* {screen_value} */}
 
         <div
-          className={usersVideo.length > 0  ? overlayClassName : contentClassName}
+          className={!swapLayout ? overlayClassName : contentClassName}
           style={{
             maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
             minHeight: '20%', width: "50%",
@@ -123,7 +123,7 @@ export default class Media extends Component {
         </div>
         {children_split ?
           <div
-            className={usersVideo.length > 0  ? overlayClassName : contentClassName}
+            className={!swapLayout  ? overlayClassName : contentClassName}
             style={{
               maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
               minHeight: '20%', width: "50%",
