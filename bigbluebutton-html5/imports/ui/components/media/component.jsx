@@ -131,8 +131,7 @@ export default class Media extends Component {
           >
             {children_split}
           </div> : null}
-
-        {usersVideo.length > 0 ? (
+          {usersVideo.length > 0 ? (
           <WebcamDraggable
             refMediaContainer={this.refContainer}
             swapLayout={swapLayout}
@@ -145,6 +144,7 @@ export default class Media extends Component {
           />
         ) : null}
       </div>
+      
 
     );
   }

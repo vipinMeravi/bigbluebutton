@@ -325,14 +325,14 @@ class WebcamDraggable extends Component {
 
     return (
       <Fragment>
-        <div
+        {/* <div
           className={dropZoneTopClassName}
           style={{ height: !singleWebcam ? '50%' : '20%' }}
         >
           <div
             className={dropZoneBgTopClassName}
           />
-        </div>
+        </div> */}
 
         <Draggable
           handle="video"
@@ -396,14 +396,14 @@ class WebcamDraggable extends Component {
           </Resizable>
         </Draggable>
 
-        <div
+        {/* <div
           className={dropZoneBottomClassName}
           style={{ height: !singleWebcam ? '50%' : '20%' }}
         >
           <div
             className={dropZoneBgBottomClassName}
           />
-        </div>
+        </div> */}
       </Fragment>
     );
   }
