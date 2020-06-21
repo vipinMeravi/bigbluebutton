@@ -335,7 +335,7 @@ class WebcamDraggable extends Component {
 
         <Draggable
           handle="video"
-          bounds="#webcam_container"
+          bounds="#container"
           onStart={this.handleWebcamDragStart}
           onStop={this.handleWebcamDragStop}
           onMouseDown={e => e.preventDefault()}
