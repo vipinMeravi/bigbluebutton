@@ -319,6 +319,9 @@ class WebcamDraggable extends Component {
       [styles.dropZoneBgBottom]: true,
     });
 
+    console.log("===================== Default Position =========================");
+    console.log(webcamsDefaultPlacement);
+    console.log("===================== Default Position =========================");
     return (
       <Fragment>
         <div
@@ -332,7 +335,7 @@ class WebcamDraggable extends Component {
 
         <Draggable
           handle="video"
-          bounds="#container"
+          bounds="#webcam_container"
           onStart={this.handleWebcamDragStart}
           onStop={this.handleWebcamDragStop}
           onMouseDown={e => e.preventDefault()}
