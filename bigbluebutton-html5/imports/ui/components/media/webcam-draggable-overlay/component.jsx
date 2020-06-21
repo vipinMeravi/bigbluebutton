@@ -319,9 +319,10 @@ class WebcamDraggable extends Component {
       [styles.dropZoneBgBottom]: true,
     });
 
-    console.log("===================== Default Position =========================");
-    console.log(webcamsDefaultPlacement);
-    console.log("===================== Default Position =========================");
+    console.log("8888888888888888888 Position Webcam 8888888888888888888888")
+    console.log(position);
+    console.log("8888888888888888888 Position Webcam 8888888888888888888888")
+
     return (
       <Fragment>
         <div
