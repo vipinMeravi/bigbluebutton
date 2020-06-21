@@ -57,6 +57,13 @@ $after-content-order: 3;
 
 .overlay {
   @extend %overlay;
+  top: 0;
+  left: 0;
+
+  z-index: 2;
+  position: absolute !important;
+  min-width: calc(var(--video-height) * var(--video-ratio)) !important;
+  min-height: var(--video-height) !important;
 }
 
 .overlayToTop {

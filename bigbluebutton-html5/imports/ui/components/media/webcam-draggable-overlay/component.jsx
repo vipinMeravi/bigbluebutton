@@ -368,10 +368,7 @@ class WebcamDraggable extends Component {
               bottomLeft: false,
               bottomRight: false,
             }}
-            className={
-              !swapLayout
-                ? overlayClassName
-                : contentClassName}
+            className={overlayClassName}
             style={{
               marginLeft: singleWebcam
                 && !(placement === 'bottom' || placement === 'top')
