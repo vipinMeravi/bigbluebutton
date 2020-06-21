@@ -25,7 +25,8 @@ $after-content-order: 3;
 
 .container {
   @extend %container;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
   // display: contents
 }
 
