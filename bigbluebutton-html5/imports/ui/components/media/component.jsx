@@ -100,7 +100,9 @@ export default class Media extends Component {
 
     console.log("===============Swap layout==================")
     console.log(swapLayout)
-    console.log(!swapLayout ? contentClassName : overlayClassName)
+    console.log(webcamPlacement)
+    console.log(singleWebcam)
+    console.log(hideOverlay)
     console.log("===============Swap layout==================")
     
     return (
