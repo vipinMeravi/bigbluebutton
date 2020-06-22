@@ -140,8 +140,6 @@ export default function updateScreen(screen_value, screen_for) {
   }
 
   if (screen_value == 'screen_two') {
-    let prev_fullscreen = prev_fullscreen;
-    let prev_screen_two = prev_screen_two;
 
     if (prev_fullscreen && prev_fullscreen.screen_for == screen_for) {
       return;
@@ -170,8 +168,8 @@ export default function updateScreen(screen_value, screen_for) {
 
       modifier = {
         meetingId,
-        screen_value: screen_value,
-        screen_for: screen_for
+        screen_value,
+        screen_for
       }
       Screens.upsert(screenTwoSelector, modifier, cb);
 
