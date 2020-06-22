@@ -55,9 +55,10 @@ export default function updateScreen(screen_value, screen_for) {
     screen_for: NULL
   }
 
+
   const prev_fullscreen = Screens.findOne(fullscreenSelector);
   const prev_screen_one = Screens.findOne(screenOneSelector);
-  const prev_screen_two = Screens.findOne(screenTwoSelector)
+  const prev_screen_two = Screens.findOne(screenTwoSelector);
 
   console.log("================ update update prev_fullscreen ==============")
   console.log(meetingId, screen_value, screen_for);
@@ -101,8 +102,6 @@ export default function updateScreen(screen_value, screen_for) {
   }
 
   if (screen_value == 'screen_one') {
-    let prev_fullscreen = prev_fullscreen;
-    let prev_screen_one = prev_screen_one;
 
     if (prev_fullscreen && prev_fullscreen.screen_for == screen_for) {
       return;
