@@ -34,6 +34,16 @@ export default function updateScreen( screen_value, screen_for) {
     $set : {screen_for: NULL}
   }
 
+  const cb = (err, numChanged) => {
+    if (err) {
+      return Logger.error(`Adding update Screen in collection: ${err}`);
+    } 
+    console.log("============ callback update of screen insert ================")
+    console.log(numChanged);
+    console.log("============ callback of update screen insert ================")
+    return Logger.info(`Upserted Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
+  };
+
   if(screen_value == 'fullscreen'){
     Screens.upsert(screenOneSelector, screenOneModifier, cb);
     Screens.upsert(screenTwoSelector, screenTwoModifier, cb);
@@ -103,15 +113,7 @@ export default function updateScreen( screen_value, screen_for) {
   //   }
   // }
 
-  const cb = (err, numChanged) => {
-    if (err) {
-      return Logger.error(`Adding update Screen in collection: ${err}`);
-    } 
-    console.log("============ callback update of screen insert ================")
-    console.log(numChanged);
-    console.log("============ callback of update screen insert ================")
-    return Logger.info(`Upserted Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
-  };
+
   console.log("================ update update screen ==============")
   console.log(meetingId,  screen_value  , screen_for );
   console.log("================ update update screen ==============")
