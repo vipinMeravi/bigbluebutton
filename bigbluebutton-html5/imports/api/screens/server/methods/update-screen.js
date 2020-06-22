@@ -111,14 +111,7 @@ export default function updateScreen(screen_value, screen_for) {
         screen_value,
         screen_for
       }
-      Screens.upsert(screenOneSelector, modifier, cb);
-
-      modifier = {
-        meetingId,
-        screen_value: 'screen_two',
-        screen_for: prev_screen_one.screen_for
-      }
-      return Screens.upsert(screenTwoSelector, modifier, cb);
+      return Screens.upsert(screenOneSelector, modifier, cb);
     } else {
       modifier = {
         meetingId,
@@ -148,14 +141,7 @@ export default function updateScreen(screen_value, screen_for) {
         screen_value,
         screen_for
       }
-      Screens.upsert(screenTwoSelector, modifier, cb);
-
-      modifier = {
-        meetingId,
-        screen_value: 'screen_two',
-        screen_for: prev_screen_two.screen_for
-      }
-      return Screens.upsert(screenOneSelector, modifier, cb);
+      return Screens.upsert(screenTwoSelector, modifier, cb);
     }
     else {
       modifier = {
