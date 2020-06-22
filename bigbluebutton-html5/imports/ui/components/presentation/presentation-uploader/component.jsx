@@ -344,7 +344,7 @@ class PresentationUploader extends Component {
     this.props.insertUpdateScreen(screen, 'document')
 
 
-    this.props.getScreenValue(this.state.screen, "document");
+    // this.props.getScreenValue(this.state.screen, "document");
 
     if (!disableActions) {
       return handleSave(presentationsToSave)
@@ -897,7 +897,7 @@ class PresentationUploader extends Component {
     const {
       startWatching,
       closeModal,
-      getScreenValue,
+      // getScreenValue,
       mountModal
     } = this.props;
 
@@ -907,7 +907,7 @@ class PresentationUploader extends Component {
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     this.props.insertUpdateScreen(this.state.videoScreen, 'video');
-    getScreenValue(this.state.videoScreen, "video");
+    // getScreenValue(this.state.videoScreen, "video");
     startWatching(url.trim(), this.props.isSite);
     // closeModal();
     // mountModal(null);
@@ -919,7 +919,7 @@ class PresentationUploader extends Component {
       stopWatching,
       stopVisitingSite,
       closeModal,
-      getScreenValue
+      // getScreenValue
     } = this.props;
 
     const { siteUrl, screen } = this.state;
@@ -928,7 +928,7 @@ class PresentationUploader extends Component {
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     this.props.insertUpdateScreen(this.state.websiteScreen, 'site');
-    getScreenValue(this.state.websiteScreen, "site");
+    // getScreenValue(this.state.websiteScreen, "site");
     startVisitingSite(siteUrl.trim(), this.props.isSite);
     // closeModal();
     // mountModal(null);
@@ -979,9 +979,9 @@ class PresentationUploader extends Component {
   handleStopWatching() {
 
     if (this.state.siteUrl && this.state.siteUrl.length > 4) {
-      this.props.getScreenValue("fullscreen", "site");
+      // this.props.getScreenValue("fullscreen", "site");
     } else {
-      this.props.getScreenValue("fullscreen", "document");
+      // this.props.getScreenValue("fullscreen", "document");
     }
 
     this.props.stopWatching()
@@ -991,9 +991,9 @@ class PresentationUploader extends Component {
   handleStopVisitingSite() {
 
     if (this.state.url && this.state.siteUrl.length > 4) {
-      this.props.getScreenValue("fullscreen", "video");
+      // this.props.getScreenValue("fullscreen", "video");
     } else {
-      this.props.getScreenValue("fullscreen", "document");
+      // this.props.getScreenValue("fullscreen", "document");
     }
 
     this.props.stopVisitingSite()
