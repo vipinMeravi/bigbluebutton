@@ -325,8 +325,8 @@ class PresentationUploader extends Component {
   }
 
   handleConfirm() {
-    const { mountModal, handleSave } = this.props;
-    const { disableActions, presentations, oldCurrentId } = this.state;
+    const { mountModal, handleSave, insertUpdateScreen } = this.props;
+    const { disableActions, presentations, oldCurrentId, screen } = this.state;
     const presentationsToSave = presentations
       .filter(p => !p.upload.error && !p.conversion.error);
 
@@ -340,6 +340,9 @@ class PresentationUploader extends Component {
     console.log(this.props);
     console.log(presentationsToSave);
     console.log("=========> handle confirm props <============");
+
+    insertUpdateScreen(screen, 'document')
+
 
     this.props.getScreenValue(this.state.screen, "document");
 

@@ -246,8 +246,16 @@ const persistPresentationChanges = (oldState, newState, uploadEndpoint, podId) =
     .then(removePresentations.bind(null, presentationsToRemove, podId));
 };
 
+const insertUpdateScreen = (meetingId, screen_value, screen_for) => {
+  console.log("================ insert update screen ==============")
+  console.log(meetingId,  screen_value  , screen_for );
+  console.log("================ insert update screen ==============")
+  makeCall('insertScreen', screen_value, screen_for);
+}
+
 export default {
   getPresentations,
   persistPresentationChanges,
   dispatchTogglePresentationDownloadable,
+  insertUpdateScreen
 };
