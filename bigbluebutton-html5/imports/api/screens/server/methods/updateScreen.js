@@ -82,9 +82,10 @@ export default async function updateScreen(screen_value, screen_for) {
     await Screens.upsert(screenOneSelector, screenOneModifier, cb);
     await Screens.upsert(screenTwoSelector, screenTwoModifier, cb);
     modifier = {
-      $set: {
-        screen_for: screen_for
-      }
+      meetingId,
+      screen_value: 'fullscreen',
+      screen_for: screen_for,
+
     }
     return await Screens.upsert(fullscreenSelector, modifier, cb);
   }
@@ -96,9 +97,9 @@ export default async function updateScreen(screen_value, screen_for) {
     }
     else {
       modifier = {
-        $set: {
-          screen_for: screen.screen_for
-        }
+        meetingId,
+        screen_value: 'screen_two',
+        screen_for: screen.screen_for
       }
       await Screens.upsert(screenTwoModifier, modifier, cb);
 
@@ -120,9 +121,9 @@ export default async function updateScreen(screen_value, screen_for) {
     }
     else {
       modifier = {
-          meetingId,
-          screen_value: 'screen_two',
-          screen_for: screen.screen_for,
+        meetingId,
+        screen_value: 'screen_one',
+        screen_for: screen.screen_for,
       }
       await Screens.upsert(screenOneSelector, modifier, cb);
 
