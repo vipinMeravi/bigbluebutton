@@ -4,7 +4,7 @@ import { extractCredentials } from '/imports/api/common/server/helpers';
 import { NULL } from 'node-sass';
 // import { modes } from 'react-transition-group/SwitchTransition';
 
-export default function updateScreen( screen_value, screen_for) {
+export default async function updateScreen( screen_value, screen_for) {
   const { meetingId } = extractCredentials(this.userId);
   check(meetingId, String);
   check(screen_value, String);
@@ -63,15 +63,15 @@ export default function updateScreen( screen_value, screen_for) {
     return Logger.info(`Upserted Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
   };
 
-  if(!Screens.findOne(fullscreenSelector)){
+  if(!await Screens.findOne(fullscreenSelector)){
     Screens.upsert(fullscreenSelector, initialFullscreenModifier, cb);
   }
 
-  if(!Screens.findOne(screenOneSelector)){
+  if(!await Screens.findOne(screenOneSelector)){
     Screens.upsert(fullscreenSelector, initialScreenOneModifier);
   }
 
-  if(!Screens.findOne(screenTwoSelector)){
+  if(!await Screens.findOne(screenTwoSelector)){
     Screens.upsert(fullscreenSelector, initialScreenTwoModifier, cb);
   }
   
@@ -79,16 +79,16 @@ export default function updateScreen( screen_value, screen_for) {
 
   if(screen_value == 'fullscreen'){
 
-    Screens.upsert(screenOneSelector, screenOneModifier, cb);
-    Screens.upsert(screenTwoSelector, screenTwoModifier, cb);
+    await Screens.upsert(screenOneSelector, screenOneModifier, cb);
+    await Screens.upsert(screenTwoSelector, screenTwoModifier, cb);
     modifier = {
       $set: {screen_for: screen_for}
     }
-    return Screens.upsert(fullscreenSelector, modifier, cb);
+    return await Screens.upsert(fullscreenSelector, modifier, cb);
   } 
 
   if(screen_value == 'screen_one'){
-    let screen = Screens.findOne(fullscreenSelector);
+    let screen = await Screens.findOne(fullscreenSelector);
     if(screen && screen.screen_for == screen_for){
       return;
     }
@@ -96,21 +96,21 @@ export default function updateScreen( screen_value, screen_for) {
       modifier = {
         $set: {screen_for: screen.screen_for}
       }
-      Screens.upsert(screenTwoModifier, modifier, cb);
+      await Screens.upsert(screenTwoModifier, modifier, cb);
 
       modifier = {
         meetingId,
         screen_value,
         screen_for
       }
-      Screens.upsert(screenOneSelector, modifier, cb);
+      await Screens.upsert(screenOneSelector, modifier, cb);
 
-      return Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
+      return await Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
     }
   }
 
   if(screen_value == 'screen_two'){
-    let screen = Screens.findOne(fullscreenSelector);
+    let screen = await Screens.findOne(fullscreenSelector);
     if(screen && screen.screen_for == screen_for){
       return;
     }
@@ -118,21 +118,21 @@ export default function updateScreen( screen_value, screen_for) {
       modifier = {
         $set: {screen_for: screen.screen_for}
       }
-      Screens.upsert(screenOneSelector, modifier, cb);
+      await Screens.upsert(screenOneSelector, modifier, cb);
 
       modifier = {
         meetingId,
         screen_value,
         screen_for
       }
-      Screens.upsert(screenTwoModifier, modifier, cb);
+      await Screens.upsert(screenTwoModifier, modifier, cb);
 
-      return Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
+      return await Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
     }
   }
-  
+
   Meteor.publish('screen-values', ()=>{
-    return Screens.find({ meetingId });
+    return await Screens.find({ meetingId });
   });
 
 }
