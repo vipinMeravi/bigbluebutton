@@ -100,14 +100,13 @@ export default function updateScreen(screen_value, screen_for) {
     let screen = Screens.findOne(fullscreenSelector);
     if (screen && screen.screen_for == screen_for) {
       return;
-    }
-    else {
+    } else {
       modifier = {
         meetingId,
         screen_value: 'screen_two',
         screen_for: screen.screen_for
       }
-      Screens.upsert(screenTwoModifier, modifier, cb);
+      Screens.upsert(screenTwoSelector, modifier, cb);
 
       modifier = {
         meetingId,
@@ -135,10 +134,10 @@ export default function updateScreen(screen_value, screen_for) {
 
       modifier = {
         meetingId,
-        screen_value,
-        screen_for
+        screen_value: screen_value,
+        screen_for: screen_for 
       }
-      Screens.upsert(screenTwoModifier, modifier, cb);
+      Screens.upsert(screenTwoSelector, modifier, cb);
 
       return Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
     }
