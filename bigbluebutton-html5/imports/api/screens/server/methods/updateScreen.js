@@ -17,6 +17,11 @@ export default function updateScreen( screen_value, screen_for) {
   const fullscreenModifier = {
     $set : {screen_for: NULL}
   }
+  const initialFullscreenModifier = {
+    meetingId,
+    screen_value: 'fullscreen',
+    screen_for: NULL
+  }
 
   const screenOneSelector = {
     meetingId,
@@ -25,6 +30,11 @@ export default function updateScreen( screen_value, screen_for) {
   const screenOneModifier = {
     $set : {screen_for: NULL}
   }
+  const initialScreenOneModifier = {
+    meetingId,
+    screen_value: 'screen_one',
+    screen_for: NULL
+  }
   
   const screenTwoSelector = {
     meetingId,
@@ -32,6 +42,11 @@ export default function updateScreen( screen_value, screen_for) {
   }
   const screenTwoModifier = {
     $set : {screen_for: NULL}
+  }
+  const initialScreenTwoModifier = {
+    meetingId,
+    screen_value: 'screen_two',
+    screen_for: NULL
   }
 
   const cb = (err, numChanged) => {
@@ -44,13 +59,27 @@ export default function updateScreen( screen_value, screen_for) {
     return Logger.info(`Upserted Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
   };
 
+  if(!Screens.findOne(fullscreenSelector)){
+    Screens.upsert(fullscreenSelector, initialFullscreenModifier, cb);
+  }
+
+  if(!Screens.findOne(screenOneSelector)){
+    Screens.upsert(fullscreenSelector, initialScreenOneModifier);
+  }
+
+  if(!Screens.findOne(screenTwoSelector)){
+    Screens.upsert(fullscreenSelector, initialScreenTwoModifier, cb);
+  }
+
+
   if(screen_value == 'fullscreen'){
-    Screens.upsert(screenOneSelector, screenOneModifier, cb);
-    Screens.upsert(screenTwoSelector, screenTwoModifier, cb);
+    if(screen){}
+    Screens.update(screenOneSelector, screenOneModifier, cb);
+    Screens.update(screenTwoSelector, screenTwoModifier, cb);
     let modifier = {
       $set: {screen_for: screen_for}
     }
-    return Screens.upsert(fullscreenSelector, modifier, cb);
+    return Screens.update(fullscreenSelector, modifier, cb);
   } 
 
   if(screen_value == 'screen_one'){
@@ -62,14 +91,16 @@ export default function updateScreen( screen_value, screen_for) {
       let modifier = {
         $set: {screen_for: screen.screen_for}
       }
-      Screens.upsert(screenTwoModifier, modifier, cb);
+      Screens.update(screenTwoModifier, modifier, cb);
 
       modifier = {
-        $set: {screen_for: screen_for}
+        meetingId,
+        screen_value,
+        screen_for
       }
-      Screens.upsert(screenOneSelector, modifier, cb);
+      Screens.update(screenOneSelector, modifier, cb);
 
-      return Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
+      return Screens.update(fullscreenSelector, fullscreenModifier, cb);
     }
   }
 
@@ -82,16 +113,16 @@ export default function updateScreen( screen_value, screen_for) {
       let modifier = {
         $set: {screen_for: screen.screen_for}
       }
-      Screens.upsert(screenOneSelector, modifier, cb);
+      Screens.update(screenOneSelector, modifier, cb);
 
       modifier = {
         meetingId,
         screen_value,
         screen_for
       }
-      Screens.upsert(screenTwoModifier, modifier, cb);
+      Screens.update(screenTwoModifier, modifier, cb);
 
-      return Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
+      return Screens.update(fullscreenSelector, fullscreenModifier, cb);
     }
   }
   Meteor.publish('screen-values', ()=>{
