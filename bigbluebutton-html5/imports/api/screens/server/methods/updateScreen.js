@@ -49,6 +49,10 @@ export default function updateScreen( screen_value, screen_for) {
     screen_for: NULL
   }
 
+  console.log("================ update update screen ==============")
+  console.log(meetingId,  screen_value  , screen_for );
+  console.log("================ update update screen ==============")
+
   const cb = (err, numChanged) => {
     if (err) {
       return Logger.error(`Adding update Screen in collection: ${err}`);
@@ -70,16 +74,17 @@ export default function updateScreen( screen_value, screen_for) {
   if(!Screens.findOne(screenTwoSelector)){
     Screens.upsert(fullscreenSelector, initialScreenTwoModifier, cb);
   }
-
+  
+  var modifier = {};
 
   if(screen_value == 'fullscreen'){
-    if(screen){}
-    Screens.update(screenOneSelector, screenOneModifier, cb);
-    Screens.update(screenTwoSelector, screenTwoModifier, cb);
-    let modifier = {
+
+    Screens.upsert(screenOneSelector, screenOneModifier, cb);
+    Screens.upsert(screenTwoSelector, screenTwoModifier, cb);
+    modifier = {
       $set: {screen_for: screen_for}
     }
-    return Screens.update(fullscreenSelector, modifier, cb);
+    return Screens.upsert(fullscreenSelector, modifier, cb);
   } 
 
   if(screen_value == 'screen_one'){
@@ -88,19 +93,19 @@ export default function updateScreen( screen_value, screen_for) {
       return;
     }
     else {
-      let modifier = {
+      modifier = {
         $set: {screen_for: screen.screen_for}
       }
-      Screens.update(screenTwoModifier, modifier, cb);
+      Screens.upsert(screenTwoModifier, modifier, cb);
 
       modifier = {
         meetingId,
         screen_value,
         screen_for
       }
-      Screens.update(screenOneSelector, modifier, cb);
+      Screens.upsert(screenOneSelector, modifier, cb);
 
-      return Screens.update(fullscreenSelector, fullscreenModifier, cb);
+      return Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
     }
   }
 
@@ -110,51 +115,24 @@ export default function updateScreen( screen_value, screen_for) {
       return;
     }
     else {
-      let modifier = {
+      modifier = {
         $set: {screen_for: screen.screen_for}
       }
-      Screens.update(screenOneSelector, modifier, cb);
+      Screens.upsert(screenOneSelector, modifier, cb);
 
       modifier = {
         meetingId,
         screen_value,
         screen_for
       }
-      Screens.update(screenTwoModifier, modifier, cb);
+      Screens.upsert(screenTwoModifier, modifier, cb);
 
-      return Screens.update(fullscreenSelector, fullscreenModifier, cb);
+      return Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
     }
   }
+  
   Meteor.publish('screen-values', ()=>{
     return Screens.find({ meetingId });
   });
-  // const selector = {
-  //   meetingId,
-  //   screen_value,
-  // };
-
-  // var modifier = {};
-  // let screen = Screens.findOne(selector);
-
-  // if(screen){
-  //   modifier = {
-  //     $set: { screen_for: screen_for },
-  //   }
-  // } else {
-  //   modifier = {
-  //     meetingId,
-  //     screen_value,
-  //     screen_for
-  //   }
-  // }
-
-
-  console.log("================ update update screen ==============")
-  console.log(meetingId,  screen_value  , screen_for );
-  console.log("================ update update screen ==============")
-
-  // return Screens.upsert(selector, modifier, cb);
-
-  // return true;
 
 }
