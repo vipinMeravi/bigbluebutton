@@ -120,9 +120,9 @@ export default async function updateScreen(screen_value, screen_for) {
     }
     else {
       modifier = {
-        $set: {
-          screen_for: screen.screen_for
-        }
+          meetingId,
+          screen_value: 'screen_two',
+          screen_for: screen.screen_for,
       }
       await Screens.upsert(screenOneSelector, modifier, cb);
 
