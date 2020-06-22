@@ -190,6 +190,9 @@ export default withModalMounter(withTracker((props) => {
   }
 
   if(onScreenTwo && onScreenTwo.screen_for == 'video'){
+    console.log("================= Inside screen video for screen two ============")
+    console.log(MediaService.shouldShowExternalVideo())
+    console.log("================= Inside screen video for screen two ============")
     data.children_split = (
       <ExternalVideoContainer
         isPresenter={MediaService.isUserPresenter()}
