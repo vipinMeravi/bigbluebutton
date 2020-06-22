@@ -981,7 +981,7 @@ class PresentationUploader extends Component {
     if (this.state.siteUrl && this.state.siteUrl.length > 4) {
       this.props.insertUpdateScreen("fullscreen", 'site');
     } else {
-      this.props.getScreenValue("fullscreen", "document");
+      this.props.insertUpdateScreen("fullscreen", 'document');
     }
 
     this.props.stopWatching()
