@@ -50,7 +50,7 @@ export default function updateScreen( screen_value, screen_for) {
     let modifier = {
       $set: {screen_for: screen_for}
     }
-    return Screens.upsert(selector, modifier, cb);
+    return Screens.upsert(fullscreenSelector, modifier, cb);
   } 
 
   if(screen_value == 'screen_one'){
