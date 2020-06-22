@@ -211,7 +211,9 @@ export default withModalMounter(withTracker((props) => {
   }
 
   console.log("========= Screen value called from media container ==========");
-  console.log(MediaService.getScreenValueFor('fullscreen'));
+  console.log(onFullscreen);
+  console.log(onScreenOne);
+  console.log(onScreenTwo);
   console.log("========= Screen value called from media container ==========");
 
   data.singleWebcam = (usersVideo.length < 2);

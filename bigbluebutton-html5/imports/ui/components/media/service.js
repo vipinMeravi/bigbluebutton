@@ -77,13 +77,14 @@ export const getSwapLayout = () => {
 };
  
 const getScreenValueFor = (screen_value) => {
-  console.log("======== get subscrbe value of screen ========== ")
+  
   Meteor.subscribe('screen-values');
 
   const screen = Screens.findOne({
     screen_value: screen_value
   })
-
+  console.log("======== get subscrbe value of screen ========== ")
+  console.log(screen)
   console.log("======== get subscrbe value of screen ========== ")
   return screen
 }
