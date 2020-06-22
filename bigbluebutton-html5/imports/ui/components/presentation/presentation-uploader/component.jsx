@@ -906,6 +906,7 @@ class PresentationUploader extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
+    this.props.insertUpdateScreen(this.state.videoScreen, 'video');
     getScreenValue(this.state.videoScreen, "video");
     startWatching(url.trim(), this.props.isSite);
     // closeModal();
@@ -926,6 +927,7 @@ class PresentationUploader extends Component {
     console.log("----<<Start Watching Handler updateArrScreen >>----")
     console.log(this.props)
     console.log("----<<Start Watching Handler updateArrScreen >>----")
+    this.props.insertUpdateScreen(this.state.websiteScreen, 'site');
     getScreenValue(this.state.websiteScreen, "site");
     startVisitingSite(siteUrl.trim(), this.props.isSite);
     // closeModal();

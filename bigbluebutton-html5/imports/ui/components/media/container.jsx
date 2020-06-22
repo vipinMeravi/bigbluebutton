@@ -29,7 +29,7 @@ const propTypes = {
   isScreensharing: PropTypes.bool.isRequired,
   intl: intlShape.isRequired,
   arrScreen: PropTypes.array.isRequired,
-  isUpdate :PropTypes.bool.isRequired,
+  isUpdate: PropTypes.bool.isRequired,
   screen_value: PropTypes.string.isRequired,
 };
 
@@ -57,14 +57,14 @@ const intlMessages = defineMessages({
 });
 
 class MediaContainer extends Component {
-  state={
-    isTempState :true
+  state = {
+    isTempState: true
   }
   componentWillMount() {
     document.addEventListener('installChromeExtension', this.installChromeExtension.bind(this));
     document.addEventListener('screenshareNotSupported', this.screenshareNotSupported.bind(this));
   }
-  updateMediaSection = () =>{
+  updateMediaSection = () => {
     alert('Media section updated')
   }
   componentWillReceiveProps(nextProps) {
@@ -119,7 +119,7 @@ class MediaContainer extends Component {
   //   console.log(this.props)
   // }
   static getDerivedStateFromProps(prevProps, prevState) {
-    console.log('CONTAINER',{
+    console.log('CONTAINER', {
       prevProps,
       prevState
     })
@@ -144,12 +144,59 @@ export default withModalMounter(withTracker((props) => {
     joinVideo: VideoService.joinVideo,
   };
 
-  this.props? console.log("media container this.props",this.props):console.log("media container this.props undefined")
-  props? console.log("media container this.props",props):console.log("media container props undefined")
+  const onFullscreen = MediaService.getScreenValueFor('fullscreen') || {screen_for: 'document'};
+  const onScreenOne = MediaService.getScreenValueFor('screen_one')
+  const onScreenTwo = MediaService.getScreenValueFor('screen_two')
+
+  this.props ? console.log("media container this.props", this.props) : console.log("media container this.props undefined")
+  props ? console.log("media container this.props", props) : console.log("media container props undefined")
 
   // if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
-     
+
   // }
+
+  if (onFullscreen.screen_for == 'document' || (onScreenOne && onScreenOne.screen_for == 'document')) {
+    data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
+    stopWatching();
+    stopVisitingSite();
+  }
+
+  if (onFullscreen.screen_for == 'site' || (onScreenOne && onScreenOne.screen_for == 'site')) {
+    data.children = (
+      <ExternalWebsiteContainer
+        isPresenter={MediaService.isUserPresenter()}
+      />
+    );
+  }
+
+  if (onFullscreen.screen_for == 'video' || (onScreenOne && onScreenOne.screen_for == 'video')) {
+    data.children = (
+      <ExternalVideoContainer
+        isPresenter={MediaService.isUserPresenter()}
+      />
+    );
+  }
+
+  if(onScreenTwo && onScreenTwo.screen_for == 'document'){
+    data.children_split = <PresentationPodsContainer screen_value={props.screen_value} />;
+  }
+
+  if(onScreenTwo && onScreenTwo.screen_for == 'site'){
+    data.children_split = (
+      <ExternalWebsiteContainer
+        isPresenter={MediaService.isUserPresenter()}
+      />
+    );
+  }
+
+  if(onScreenTwo && onScreenTwo.screen_for == 'video'){
+    data.children_split = (
+      <ExternalVideoContainer
+        isPresenter={MediaService.isUserPresenter()}
+      />
+    );
+  }
+
 
   if (MediaService.shouldShowScreenshare() && (viewScreenshare || MediaService.isUserPresenter())) {
     data.children = <ScreenshareContainer />;
@@ -181,161 +228,161 @@ export default withModalMounter(withTracker((props) => {
   // if (MediaService.shouldShowExternalVideo()) {
   // }
 
-  if(props.screen_value == "fullscreen"){
+  // if (props.screen_value == "fullscreen") {
 
-    if(props.screen_for == 'document'){
+  //   if (props.screen_for == 'document') {
 
-      data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
-      stopWatching();
-      stopVisitingSite();
+  //     data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
+  //     stopWatching();
+  //     stopVisitingSite();
 
-    } else if(props.screen_for == 'site'){
+  //   } else if (props.screen_for == 'site') {
 
-      data.children = (
-        <ExternalWebsiteContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
+  //     data.children = (
+  //       <ExternalWebsiteContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
 
-    } else if(props.screen_for == 'video'){
+  //   } else if (props.screen_for == 'video') {
 
-      data.children = (
-        <ExternalVideoContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
+  //     data.children = (
+  //       <ExternalVideoContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
 
-    }
+  //   }
 
-  } else if(props.screen_value ==  "screen_one"){
+  // } else if (props.screen_value == "screen_one") {
 
-    if(props.screen_for == 'document'){
+  //   if (props.screen_for == 'document') {
 
-      if(MediaService.shouldShowExternalWebsite()){
-        data.children_split = (
-          <ExternalWebsiteContainer
-            isPresenter={MediaService.isUserPresenter()}
-          />
-        );
-      }else if(MediaService.shouldShowExternalVideo()){
+  //     if (MediaService.shouldShowExternalWebsite()) {
+  //       data.children_split = (
+  //         <ExternalWebsiteContainer
+  //           isPresenter={MediaService.isUserPresenter()}
+  //         />
+  //       );
+  //     } else if (MediaService.shouldShowExternalVideo()) {
 
-        data.children_split = (
-          <ExternalVideoContainer
-            isPresenter={MediaService.isUserPresenter()}
-          />
-        );   
-      }
-      data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
+  //       data.children_split = (
+  //         <ExternalVideoContainer
+  //           isPresenter={MediaService.isUserPresenter()}
+  //         />
+  //       );
+  //     }
+  //     data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
 
-    } else if(props.screen_for == 'site'){
-      
-      data.children = (
-        <ExternalWebsiteContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
+  //   } else if (props.screen_for == 'site') {
 
-      if(MediaService.shouldShowExternalVideo()){
+  //     data.children = (
+  //       <ExternalWebsiteContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
 
-        data.children_split = (
-          <ExternalVideoContainer
-            isPresenter={MediaService.isUserPresenter()}
-          />
-        );
+  //     if (MediaService.shouldShowExternalVideo()) {
 
-      } else {
+  //       data.children_split = (
+  //         <ExternalVideoContainer
+  //           isPresenter={MediaService.isUserPresenter()}
+  //         />
+  //       );
 
-        data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
+  //     } else {
 
-      }
-    } else if(props.screen_for == 'video'){
+  //       data.children_split = <PresentationPodsContainer screen_value={props.screen_value} />;
 
-      data.children = (
-        <ExternalVideoContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );      
+  //     }
+  //   } else if (props.screen_for == 'video') {
 
-      if(MediaService.shouldShowExternalWebsite()){
+  //     data.children = (
+  //       <ExternalVideoContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
 
-        data.children_split = (
-          <ExternalWebsiteContainer
-            isPresenter={MediaService.isUserPresenter()}
-          />
-        );
+  //     if (MediaService.shouldShowExternalWebsite()) {
 
-      } else {
+  //       data.children_split = (
+  //         <ExternalWebsiteContainer
+  //           isPresenter={MediaService.isUserPresenter()}
+  //         />
+  //       );
 
-        data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
+  //     } else {
 
-      }
-    }
+  //       data.children_split = <PresentationPodsContainer screen_value={props.screen_value} />;
 
-  } else if(props.screen_value == "screen_two"){
+  //     }
+  //   }
 
-    if(props.screen_for == 'document'){
+  // } else if (props.screen_value == "screen_two") {
 
-      
-      if(MediaService.shouldShowExternalVideo() && MediaService.shouldShowExternalWebsite()){
-        data.children = (
-          <ExternalVideoContainer
-            isPresenter={MediaService.isUserPresenter()}
-          />
-        );
-        data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
-      } else if(!MediaService.shouldShowExternalVideo() && MediaService.shouldShowExternalWebsite()){
-        data.children = (
-          <ExternalWebsiteContainer
-            isPresenter={MediaService.isUserPresenter()}
-          />
-        );
-        data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
-      } else if(MediaService.shouldShowExternalVideo() && !MediaService.shouldShowExternalWebsite()){
-        data.children = (
-          <ExternalVideoContainer
-            isPresenter={MediaService.isUserPresenter()}
-          />
-        );  
-        data.children_split = <PresentationPodsContainer screen_value={props.screen_value}/>;
-      } else{
-        data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
-        data.children_split = null;
-      }
-    } else if(props.screen_for == 'site'){
-      data.children_split = (
-        <ExternalWebsiteContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );
-      if(MediaService.shouldShowExternalVideo()){
-        data.children = (
-          <ExternalVideoContainer
-            isPresenter={MediaService.isUserPresenter()}
-          />
-        );  
-      } else {
-        
-        data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
-      }
-    } else if(props.screen_for == 'video'){
-      data.children_split = (
-        <ExternalVideoContainer
-          isPresenter={MediaService.isUserPresenter()}
-        />
-      );  
+  //   if (props.screen_for == 'document') {
 
-      if(MediaService.shouldShowExternalWebsite()){
-        data.children = (
-          <ExternalWebsiteContainer
-            isPresenter={MediaService.isUserPresenter()}
-          />
-        );  
-      } else {
-        data.children = <PresentationPodsContainer screen_value={props.screen_value}/>;
-      }
-    }
 
-  }
+  //     if (MediaService.shouldShowExternalVideo() && MediaService.shouldShowExternalWebsite()) {
+  //       data.children = (
+  //         <ExternalVideoContainer
+  //           isPresenter={MediaService.isUserPresenter()}
+  //         />
+  //       );
+  //       data.children_split = <PresentationPodsContainer screen_value={props.screen_value} />;
+  //     } else if (!MediaService.shouldShowExternalVideo() && MediaService.shouldShowExternalWebsite()) {
+  //       data.children = (
+  //         <ExternalWebsiteContainer
+  //           isPresenter={MediaService.isUserPresenter()}
+  //         />
+  //       );
+  //       data.children_split = <PresentationPodsContainer screen_value={props.screen_value} />;
+  //     } else if (MediaService.shouldShowExternalVideo() && !MediaService.shouldShowExternalWebsite()) {
+  //       data.children = (
+  //         <ExternalVideoContainer
+  //           isPresenter={MediaService.isUserPresenter()}
+  //         />
+  //       );
+  //       data.children_split = <PresentationPodsContainer screen_value={props.screen_value} />;
+  //     } else {
+  //       data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
+  //       data.children_split = null;
+  //     }
+  //   } else if (props.screen_for == 'site') {
+  //     data.children_split = (
+  //       <ExternalWebsiteContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
+  //     if (MediaService.shouldShowExternalVideo()) {
+  //       data.children = (
+  //         <ExternalVideoContainer
+  //           isPresenter={MediaService.isUserPresenter()}
+  //         />
+  //       );
+  //     } else {
+
+  //       data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
+  //     }
+  //   } else if (props.screen_for == 'video') {
+  //     data.children_split = (
+  //       <ExternalVideoContainer
+  //         isPresenter={MediaService.isUserPresenter()}
+  //       />
+  //     );
+
+  //     if (MediaService.shouldShowExternalWebsite()) {
+  //       data.children = (
+  //         <ExternalWebsiteContainer
+  //           isPresenter={MediaService.isUserPresenter()}
+  //         />
+  //       );
+  //     } else {
+  //       data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
+  //     }
+  //   }
+
+  // }
 
   data.webcamPlacement = Storage.getItem('webcamPlacement');
 
