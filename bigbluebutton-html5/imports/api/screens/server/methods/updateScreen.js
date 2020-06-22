@@ -85,7 +85,9 @@ export default function updateScreen( screen_value, screen_for) {
       Screens.upsert(screenOneSelector, modifier, cb);
 
       modifier = {
-        $set: {screen_for: screen_for}
+        meetingId,
+        screen_value,
+        screen_for
       }
       Screens.upsert(screenTwoModifier, modifier, cb);
 
