@@ -9,6 +9,7 @@ import Settings from '/imports/ui/services/settings';
 import VideoService from '/imports/ui/components/video-provider/service';
 import PollingService from '/imports/ui/components/polling/service';
 import getFromUserSettings from '/imports/ui/services/users-settings';
+import { makeCall } from '/imports/ui/services/api';
 
 const LAYOUT_CONFIG = Meteor.settings.public.layout;
 const KURENTO_CONFIG = Meteor.settings.public.kurento;
@@ -76,11 +77,11 @@ export const getSwapLayout = () => {
 };
  
 const getScreenValueFor = (screen_value) => {
-  console.log("====== get screen value called =======")
-  var screen = Screens.findOne({screen_value: screen_value})
-  console.log(screen);
-  console.log("====== get screen value called =======");
-  return screen
+  console.log("======== get subscrbe value of screen ========== ")
+  const sub = Meteor.subscribe('screen-values');
+  console.log(sub);
+  console.log("======== get subscrbe value of screen ========== ")
+  return sub
 }
 
 export default {
