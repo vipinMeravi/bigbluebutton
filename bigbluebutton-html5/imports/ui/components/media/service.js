@@ -79,8 +79,8 @@ const getScreenValueFor = (screen_value) => {
   console.log("====== get screen value called =======")
   var screen = Screens.findOne({screen_value: screen_value})
   console.log(screen);
-  console.log("====== get screen value called =======")
-  return screen.screen_for
+  console.log("====== get screen value called =======");
+  return screen
 }
 
 export default {
