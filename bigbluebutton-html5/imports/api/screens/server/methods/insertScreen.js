@@ -28,12 +28,13 @@ export default function insertScreen( screen_value, screen_for) {
     console.log("============ callback of screen insert ================")
     return Logger.info(`Upserted Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
   };
-
-  // return Screens.upsert(selector, modifier, cb);
   console.log("================ insert update screen ==============")
   console.log(meetingId,  screen_value  , screen_for );
   console.log("================ insert update screen ==============")
-  return true;
+
+  return Screens.upsert(selector, modifier, cb);
+
+  // return true;
 
 }
 
