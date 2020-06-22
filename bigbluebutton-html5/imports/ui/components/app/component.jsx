@@ -336,9 +336,9 @@ class App extends Component {
         <NotificationsBarContainer />
         <section className={styles.wrapper}>
           <div className={openPanel ? styles.content : styles.noPanelContent}>
-            {/* {this.renderNavBar()} */}
+            {this.renderNavBar()}
 
-            <header className={styles.navbar}>
+            {/* <header className={styles.navbar}>
               <NavBarContainer getScreenValue={(screen_value, screen_for, arrScreen)=>{
                 console.log('==================?>>>>>??>>?>>??')
                 console.log(this.state.screen_value)
@@ -351,18 +351,18 @@ class App extends Component {
                   console.log('=========?>>>UPDAGTE>>??>>?>',this.state.screen_value)
                 })
               }} />
-            </header>
+            </header> */}
 
-            {/* {this.renderMedia()} */}
+            {this.renderMedia()}
 
-            <section
+            {/* <section
               className={styles.media}
               aria-label={this.props.intl.formatMessage(intlMessages.mediaLabel)}
               aria-hidden={this.shouldAriaHide()}
             >
               <MediaContainer arrScreen={this.state.arrScreen} screen_value={this.state.screen_value} screen_for={this.state.screen_for}/>
               {this.renderCaptions()}
-            </section>
+            </section> */}
 
 
             {/* <section

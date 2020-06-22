@@ -15,7 +15,9 @@ export default async function updateScreen(screen_value, screen_for) {
     screen_value: 'fullscreen'
   }
   const fullscreenModifier = {
-    $set: { screen_for: NULL }
+    meetingId,
+    screen_value: 'fullscreen',
+    screen_for: ''
   }
   const initialFullscreenModifier = {
     meetingId,
@@ -28,7 +30,9 @@ export default async function updateScreen(screen_value, screen_for) {
     screen_value: 'screen_one'
   }
   const screenOneModifier = {
-    $set: { screen_for: NULL }
+    meetingId,
+    screen_value: 'screen_one',
+    screen_for: ''
   }
   const initialScreenOneModifier = {
     meetingId,
@@ -41,7 +45,9 @@ export default async function updateScreen(screen_value, screen_for) {
     screen_value: 'screen_two'
   }
   const screenTwoModifier = {
-    $set: { screen_for: NULL }
+    meetingId,
+    screen_value: 'screen_two',
+    screen_for: ''
   }
   const initialScreenTwoModifier = {
     meetingId,
