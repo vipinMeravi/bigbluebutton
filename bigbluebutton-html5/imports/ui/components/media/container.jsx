@@ -163,6 +163,10 @@ export default withModalMounter(withTracker((props) => {
     data.hideOverlay = usersVideo.length === 0;
   }
 
+  console.log("========= Screen value called from media container ==========");
+  console.log(MediaService.getScreenValueFor('fullscreen'));
+  console.log("========= Screen value called from media container ==========");
+
   data.singleWebcam = (usersVideo.length < 2);
 
   data.isScreensharing = MediaService.isVideoBroadcasting();

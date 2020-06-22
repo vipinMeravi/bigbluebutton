@@ -1,4 +1,5 @@
 import Presentations from '/imports/api/presentations';
+import Screens from '/imports/api/screens';
 import { isVideoBroadcasting } from '/imports/ui/components/screenshare/service';
 import { getVideoUrl } from '/imports/ui/components/external-video-player/service';
 import { getWebsiteUrl } from '/imports/ui/components/website-viewer/service';
@@ -73,6 +74,14 @@ export const getSwapLayout = () => {
   console.log("================>>>getSwapLayout<<==============")
   return swapLayout.value;
 };
+ 
+const getScreenValueFor = (screen_value) => {
+  console.log("====== get screen value called =======")
+  var screen = Screens.findOne({screen_value: screen_value})
+  console.log(screen);
+  console.log("====== get screen value called =======")
+  return screen.screen_for
+}
 
 export default {
   getPresentationInfo,
@@ -86,5 +95,6 @@ export default {
   shouldEnableSwapLayout,
   getSwapLayout,
   setSwapLayout,
-  shouldShowExternalWebsite
+  shouldShowExternalWebsite,
+  getScreenValueFor
 };

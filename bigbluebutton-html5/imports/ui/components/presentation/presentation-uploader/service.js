@@ -250,7 +250,7 @@ const insertUpdateScreen = (screen_value, screen_for) => {
   console.log("================ insert update screen ==============")
   console.log(screen_value  , screen_for );
   console.log("================ insert update screen ==============")
-  makeCall('insertScreen', screen_value, screen_for);
+  makeCall('updateScreen', screen_value, screen_for);
 }
 
 export default {
