@@ -111,7 +111,7 @@ class NavBar extends PureComponent {
       isPollingEnabled,
       isThereCurrentPresentation,
       allowExternalVideo,
-      getScreenValue
+      
     } = this.props;
 
 
@@ -164,7 +164,7 @@ class NavBar extends PureComponent {
                 isSharingVideo,
                 stopExternalVideoShare,
                 isMeteorConnected,
-                getScreenValue
+                
               }}
             />
             { isPollingEnabled
