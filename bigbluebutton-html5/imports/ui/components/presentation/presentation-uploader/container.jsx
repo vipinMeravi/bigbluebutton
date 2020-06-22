@@ -48,6 +48,9 @@ export default withTracker(() => {
     isSharingVideo:  getVideoUrl(),
     isSharingSite: getWebsiteUrl(),
     websiteUrl: getWebsiteUrl(),
-    insertUpdateScreen: Service.insertUpdateScreen()
+    insertUpdateScreen: (screen_value, screen_for) => Service.insertUpdateScreen(
+      screen_value,
+      screen_for
+    )
   };
 })(PresentationUploaderContainer);

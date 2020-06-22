@@ -341,7 +341,7 @@ class PresentationUploader extends Component {
     console.log(presentationsToSave);
     console.log("=========> handle confirm props <============");
 
-    insertUpdateScreen(screen, 'document')
+    this.props.insertUpdateScreen(screen, 'document')
 
 
     this.props.getScreenValue(this.state.screen, "document");
