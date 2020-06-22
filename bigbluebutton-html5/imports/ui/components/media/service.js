@@ -80,8 +80,12 @@ const getScreenValueFor = (screen_value) => {
   console.log("======== get subscrbe value of screen ========== ")
   const sub = Meteor.subscribe('screen-values');
   console.log(sub);
+  const screens = Screens.findOne({
+    screen_value: screen_value
+  })
+  console.log(screen);
   console.log("======== get subscrbe value of screen ========== ")
-  return sub
+  return screens
 }
 
 export default {

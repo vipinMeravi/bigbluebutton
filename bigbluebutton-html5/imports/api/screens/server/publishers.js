@@ -15,6 +15,7 @@ function screenValues() {
 }
 
 function publish(...args) {
+  console.log("======== Inside publish screen value ========")
   const screen_values = screenValues.bind(this);
   return screen_values(...args);
 }
