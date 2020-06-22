@@ -33,6 +33,7 @@ import '/imports/api/presentations-split/server';
 import '/imports/api/presentation-pods-split/server';
 import '/imports/api/slides-split/server';
 import '/imports/api/website-viewer/server';
+import '/imports/api/screens/server';
 
 // Commons
 import '/imports/api/log-client/server';
