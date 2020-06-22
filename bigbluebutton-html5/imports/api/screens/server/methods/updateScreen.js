@@ -92,7 +92,9 @@ export default function updateScreen( screen_value, screen_for) {
       return Screens.upsert(fullscreenSelector, fullscreenModifier, cb);
     }
   }
-  
+  Meteor.publish('screen-values', ()=>{
+    return Screens.find({ meetingId });
+  });
   // const selector = {
   //   meetingId,
   //   screen_value,
