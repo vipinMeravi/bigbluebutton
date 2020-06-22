@@ -55,29 +55,33 @@ export default function updateScreen(screen_value, screen_for) {
     screen_for: NULL
   }
 
-  console.log("================ update update screen ==============")
+  const prev_fullscreen = Screens.findOne(fullscreenSelector);
+  const prev_screen_one = Screens.findOne(screenOneSelector);
+  const prev_screen_two = Screens.findOne(screenTwoSelector)
+
+  console.log("================ update update prev_fullscreen ==============")
   console.log(meetingId, screen_value, screen_for);
-  console.log("================ update update screen ==============")
+  console.log("================ update update prev_fullscreen ==============")
 
   const cb = (err, numChanged) => {
     if (err) {
       return Logger.error(`Adding update Screen in collection: ${err}`);
     }
-    console.log("============ callback update of screen insert ================")
+    console.log("============ callback update of prev_fullscreen insert ================")
     console.log(numChanged);
-    console.log("============ callback of update screen insert ================")
+    console.log("============ callback of update prev_fullscreen insert ================")
     return Logger.info(`Upserted Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
   };
 
-  if (!Screens.findOne(fullscreenSelector)) {
+  if (!prev_fullscreen) {
     Screens.upsert(fullscreenSelector, initialFullscreenModifier, cb);
   }
 
-  if (!Screens.findOne(screenOneSelector)) {
+  if (!prev_screen_one) {
     Screens.upsert(fullscreenSelector, initialScreenOneModifier);
   }
 
-  if (!Screens.findOne(screenTwoSelector)) {
+  if (!prev_screen_two) {
     Screens.upsert(fullscreenSelector, initialScreenTwoModifier, cb);
   }
 
@@ -97,14 +101,30 @@ export default function updateScreen(screen_value, screen_for) {
   }
 
   if (screen_value == 'screen_one') {
-    let screen = Screens.findOne(fullscreenSelector);
-    if (screen && screen.screen_for == screen_for) {
+    let prev_fullscreen = prev_fullscreen;
+    let prev_screen_one = prev_screen_one;
+
+    if (prev_fullscreen && prev_fullscreen.screen_for == screen_for) {
       return;
+    } else if (prev_fullscreen.screen_for == "") {
+      modifier = {
+        meetingId,
+        screen_value,
+        screen_for
+      }
+      Screens.upsert(screenOneSelector, modifier, cb);
+
+      modifier = {
+        meetingId,
+        screen_value: 'screen_two',
+        screen_for: prev_screen_one.screen_for
+      }
+      return Screens.upsert(screenTwoSelector, modifier, cb);
     } else {
       modifier = {
         meetingId,
         screen_value: 'screen_two',
-        screen_for: screen.screen_for
+        screen_for: prev_fullscreen.screen_for
       }
       Screens.upsert(screenTwoSelector, modifier, cb);
 
@@ -120,22 +140,38 @@ export default function updateScreen(screen_value, screen_for) {
   }
 
   if (screen_value == 'screen_two') {
-    let screen = Screens.findOne(fullscreenSelector);
-    if (screen && screen.screen_for == screen_for) {
+    let prev_fullscreen = prev_fullscreen;
+    let prev_screen_two = prev_screen_two;
+
+    if (prev_fullscreen && prev_fullscreen.screen_for == screen_for) {
       return;
+    } else if (prev_fullscreen.screen_for == "") {
+      modifier = {
+        meetingId,
+        screen_value,
+        screen_for
+      }
+      Screens.upsert(screenTwoSelector, modifier, cb);
+
+      modifier = {
+        meetingId,
+        screen_value: 'screen_two',
+        screen_for: prev_screen_two.screen_for
+      }
+      return Screens.upsert(screenOneSelector, modifier, cb);
     }
     else {
       modifier = {
         meetingId,
         screen_value: 'screen_one',
-        screen_for: screen.screen_for,
+        screen_for: prev_fullscreen.screen_for,
       }
       Screens.upsert(screenOneSelector, modifier, cb);
 
       modifier = {
         meetingId,
         screen_value: screen_value,
-        screen_for: screen_for 
+        screen_for: screen_for
       }
       Screens.upsert(screenTwoSelector, modifier, cb);
 
@@ -143,7 +179,7 @@ export default function updateScreen(screen_value, screen_for) {
     }
   }
 
-  Meteor.publish('screen-values', () => {
+  Meteor.publish('prev_fullscreen-values', () => {
     return Screens.find({ meetingId });
   });
 

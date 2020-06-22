@@ -155,10 +155,14 @@ export default withModalMounter(withTracker((props) => {
 
   // }
 
-  if (onFullscreen.screen_for == 'document' || (onScreenOne && onScreenOne.screen_for == 'document')) {
+  if (onFullscreen.screen_for == 'document') {
     data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
-    // stopWatching();
-    // stopVisitingSite();
+    stopWatching();
+    stopVisitingSite();
+  }
+
+  if(onScreenOne && onScreenOne.screen_for == 'document'){
+    data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
   }
 
   if (onFullscreen.screen_for == 'site' || (onScreenOne && onScreenOne.screen_for == 'site')) {

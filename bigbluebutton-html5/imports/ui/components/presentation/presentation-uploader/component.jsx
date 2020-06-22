@@ -341,7 +341,7 @@ class PresentationUploader extends Component {
     console.log(presentationsToSave);
     console.log("=========> handle confirm props <============");
 
-    this.props.insertUpdateScreen(screen, 'document')
+    this.props.insertUpdateScreen(screen, 'document');
 
 
     // this.props.getScreenValue(this.state.screen, "document");
@@ -979,9 +979,9 @@ class PresentationUploader extends Component {
   handleStopWatching() {
 
     if (this.state.siteUrl && this.state.siteUrl.length > 4) {
-      // this.props.getScreenValue("fullscreen", "site");
+      this.props.insertUpdateScreen("fullscreen", 'site');
     } else {
-      // this.props.getScreenValue("fullscreen", "document");
+      this.props.getScreenValue("fullscreen", "document");
     }
 
     this.props.stopWatching()
@@ -991,9 +991,9 @@ class PresentationUploader extends Component {
   handleStopVisitingSite() {
 
     if (this.state.url && this.state.siteUrl.length > 4) {
-      // this.props.getScreenValue("fullscreen", "video");
+      this.props.insertUpdateScreen("fullscreen", 'video');
     } else {
-      // this.props.getScreenValue("fullscreen", "document");
+      this.props.insertUpdateScreen("fullscreen", 'document');
     }
 
     this.props.stopVisitingSite()
