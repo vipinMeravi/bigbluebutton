@@ -157,8 +157,8 @@ export default withModalMounter(withTracker((props) => {
 
   if (onFullscreen.screen_for == 'document' || (onScreenOne && onScreenOne.screen_for == 'document')) {
     data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
-    stopWatching();
-    stopVisitingSite();
+    // stopWatching();
+    // stopVisitingSite();
   }
 
   if (onFullscreen.screen_for == 'site' || (onScreenOne && onScreenOne.screen_for == 'site')) {
@@ -170,6 +170,9 @@ export default withModalMounter(withTracker((props) => {
   }
 
   if (onFullscreen.screen_for == 'video' || (onScreenOne && onScreenOne.screen_for == 'video')) {
+    console.log("================= Inside screen video for screen one ============")
+    console.log(MediaService.shouldShowExternalVideo())
+    console.log("================= Inside screen video for screen one ============")
     data.children = (
       <ExternalVideoContainer
         isPresenter={MediaService.isUserPresenter()}
