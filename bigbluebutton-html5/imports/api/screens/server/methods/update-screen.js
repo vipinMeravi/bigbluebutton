@@ -56,7 +56,7 @@ export default function updateScreen(screen_value, screen_for) {
   }
 
 
-  const prev_fullscreen = Screens.findOne(fullscreenSelector);
+  var prev_fullscreen = Screens.findOne(fullscreenSelector);
   const prev_screen_one = Screens.findOne(screenOneSelector);
   const prev_screen_two = Screens.findOne(screenTwoSelector);
 
@@ -76,6 +76,7 @@ export default function updateScreen(screen_value, screen_for) {
 
   if (!prev_fullscreen) {
     Screens.upsert(fullscreenSelector, initialFullscreenModifier, cb);
+    prev_fullscreen = Screens.findOne(fullscreenSelector);
   }
 
   if (!prev_screen_one) {
