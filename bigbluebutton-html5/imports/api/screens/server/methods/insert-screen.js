@@ -6,8 +6,6 @@ export default function insertScreen() {
   const { meetingId } = extractCredentials(this.userId);
   check(meetingId, String);
 
-  const { meetingId } = extractCredentials(this.userId);
-
   const fullscreenSelector = {
     meetingId,
     screen_value: 'fullscreen'
