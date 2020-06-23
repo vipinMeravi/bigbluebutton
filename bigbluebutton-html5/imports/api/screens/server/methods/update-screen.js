@@ -56,12 +56,12 @@ export default function updateScreen(screen_value, screen_for) {
   }
 
 
-  var prev_fullscreen = Screens.findOne(fullscreenSelector);
+  const prev_fullscreen = Screens.findOne(fullscreenSelector);
   const prev_screen_one = Screens.findOne(screenOneSelector);
   const prev_screen_two = Screens.findOne(screenTwoSelector);
 
   console.log("================ update update prev_fullscreen ==============")
-  console.log(meetingId, screen_value, screen_for);
+  console.log(prev_fullscreen);
   console.log("================ update update prev_fullscreen ==============")
 
   const cb = (err, numChanged) => {
@@ -74,18 +74,17 @@ export default function updateScreen(screen_value, screen_for) {
     return Logger.info(`Upserted Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
   };
 
-  if (!prev_fullscreen) {
-    Screens.upsert(fullscreenSelector, initialFullscreenModifier, cb);
-    prev_fullscreen = Screens.findOne(fullscreenSelector);
-  }
+  // if (!prev_fullscreen) {
+  //   Screens.upsert(fullscreenSelector, initialFullscreenModifier, cb);
+  // }
 
-  if (!prev_screen_one) {
-    Screens.upsert(fullscreenSelector, initialScreenOneModifier);
-  }
+  // if (!prev_screen_one) {
+  //   Screens.upsert(fullscreenSelector, initialScreenOneModifier);
+  // }
 
-  if (!prev_screen_two) {
-    Screens.upsert(fullscreenSelector, initialScreenTwoModifier, cb);
-  }
+  // if (!prev_screen_two) {
+  //   Screens.upsert(fullscreenSelector, initialScreenTwoModifier, cb);
+  // }
 
   var modifier = {};
 
