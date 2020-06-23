@@ -22,7 +22,7 @@ export default function updateScreen(screen_value, screen_for) {
   const initialFullscreenModifier = {
     meetingId,
     screen_value: 'fullscreen',
-    screen_for: NULL
+    screen_for: 'document'
   }
 
   const screenOneSelector = {
@@ -104,7 +104,9 @@ export default function updateScreen(screen_value, screen_for) {
   if (screen_value == 'screen_one') {
 
     if (prev_fullscreen && prev_fullscreen.screen_for == screen_for) {
+
       return;
+
     } else if (prev_fullscreen.screen_for == "") {
       modifier = {
         meetingId,
@@ -136,6 +138,7 @@ export default function updateScreen(screen_value, screen_for) {
     if (prev_fullscreen && prev_fullscreen.screen_for == screen_for) {
       return;
     } else if (prev_fullscreen.screen_for == "") {
+
       modifier = {
         meetingId,
         screen_value,
