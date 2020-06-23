@@ -25,7 +25,7 @@ export default function insertScreen() {
     if (err) {
       return Logger.error(`Adding Screen in collection: ${err}`);
     }
-    return Logger.info(`Initial Insert Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
+    return Logger.info(`Initial Insert Screen meeting=${meetingId}`);
   };
 
   return Screens.upsert(fullscreenSelector, initialFullscreenModifier, cb);
