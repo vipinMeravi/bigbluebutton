@@ -69,16 +69,16 @@ export const shouldEnableSwapLayout = () => !shouldShowScreenshare() && !shouldS
 
 export const getSwapLayout = () => {
   swapLayout.tracker.depend();
-  console.log("================>>>getSwapLayout<<==============")
-  console.log(swapLayout.value)
-  console.log(swapLayout)
-  console.log("================>>>getSwapLayout<<==============")
   return swapLayout.value;
 };
- 
+
 const getScreenValueFor = (screen_value) => {
-  
+
   Meteor.subscribe('screen-values');
+
+  if (!Screens.find().count()) {
+    makeCall('insertScreen');
+  }
 
   const screen = Screens.findOne({
     screen_value: screen_value
