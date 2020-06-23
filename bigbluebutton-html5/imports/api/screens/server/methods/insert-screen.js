@@ -2,37 +2,35 @@ import Screens from '/imports/api/screens';
 import Logger from '/imports/startup/server/logger';
 import { extractCredentials } from '/imports/api/common/server/helpers';
 
-export default function insertScreen( screen_value, screen_for) {
+export default function insertScreen() {
   const { meetingId } = extractCredentials(this.userId);
   check(meetingId, String);
-  check(screen_value, String);
-  check(screen_for, String);
 
-  const selector = {
-    meetingId,
-    screen_value,
-  };
+  const { meetingId } = extractCredentials(this.userId);
 
-  const modifier = {
+  const fullscreenSelector = {
     meetingId,
-    screen_value,
-    screen_for
-  };
+    screen_value: 'fullscreen'
+  }
+
+  const initialFullscreenModifier = {
+    meetingId,
+    screen_value: 'fullscreen',
+    screen_for: 'document'
+  }
+
+  console.log("---------------- First Insertion of screen ----------------")
+  
+
 
   const cb = (err, numChanged) => {
     if (err) {
       return Logger.error(`Adding Screen in collection: ${err}`);
-    } 
-    console.log("============ callback of screen insert ================")
-    console.log(numChanged);
-    console.log("============ callback of screen insert ================")
-    return Logger.info(`Upserted Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
+    }
+    return Logger.info(`Initial Insert Screen Value=${screen_value} Screen For=${screen_for} meeting=${meetingId}`);
   };
-  console.log("================ insert update screen ==============")
-  console.log(meetingId,  screen_value  , screen_for );
-  console.log("================ insert update screen ==============")
 
-  return Screens.upsert(selector, modifier, cb);
+  return Screens.upsert(fullscreenSelector, initialFullscreenModifier, cb);
 
   // return true;
 
