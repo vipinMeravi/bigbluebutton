@@ -986,16 +986,16 @@ class PresentationUploader extends Component {
       console.log(onScreenOne)
       console.log(onScreenTwo)
       console.log( "=============== Screen One and Two ==============")
-      if(onScreenOne && onScreenOne == 'video' && onScreenTwo && onScreenTwo == "document"){
+      if(onScreenOne && onScreenOne.screen_for == 'video' && onScreenTwo && onScreenTwo.screen_for == "document"){
         this.props.insertUpdateScreen("screen_one", 'site');
       }
-      if(onScreenOne && onScreenOne == 'document' && onScreenTwo && onScreenTwo == "video"){
+      if(onScreenOne && onScreenOne.screen_for == 'document' && onScreenTwo && onScreenTwo.screen_for == "video"){
         this.props.insertUpdateScreen("screen_two", 'site');
       }
-      if(onScreenOne && onScreenOne == 'video' && onScreenTwo && onScreenTwo == "site"){
+      if(onScreenOne && onScreenOne.screen_for == 'video' && onScreenTwo && onScreenTwo.screen_for == "site"){
         this.props.insertUpdateScreen("screen_one", 'document');
       }
-      if(onScreenOne && onScreenOne == 'site' && onScreenTwo && onScreenTwo == "video"){
+      if(onScreenOne && onScreenOne.screen_for == 'site' && onScreenTwo && onScreenTwo.screen_for == "video"){
         this.props.insertUpdateScreen("screen_two", 'document');
       }
     } else {
@@ -1016,16 +1016,16 @@ class PresentationUploader extends Component {
       console.log(onScreenTwo)
       console.log( "=============== Screen One and Two ==============")
 
-      if(onScreenOne && onScreenOne == 'site' && onScreenTwo && onScreenTwo == "document"){
+      if(onScreenOne && onScreenOne.screen_for == 'site' && onScreenTwo && onScreenTwo.screen_for == "document"){
         this.props.insertUpdateScreen("screen_one", 'video');
       }
-      if(onScreenOne && onScreenOne == 'document' && onScreenTwo && onScreenTwo == "site"){
+      if(onScreenOne && onScreenOne.screen_for == 'document' && onScreenTwo && onScreenTwo.screen_for == "site"){
         this.props.insertUpdateScreen("screen_two", 'video');
       }
-      if(onScreenOne && onScreenOne == 'video' && onScreenTwo && onScreenTwo == "site"){
+      if(onScreenOne && onScreenOne.screen_for == 'video' && onScreenTwo && onScreenTwo.screen_for == "site"){
         this.props.insertUpdateScreen("screen_two", 'document');
       }
-      if(onScreenOne && onScreenOne == 'site' && onScreenTwo && onScreenTwo == "video"){
+      if(onScreenOne && onScreenOne.screen_for == 'site' && onScreenTwo && onScreenTwo.screen_for == "video"){
         this.props.insertUpdateScreen("screen_one", 'document');
       }   
     } else {
