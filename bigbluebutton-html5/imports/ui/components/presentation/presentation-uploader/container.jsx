@@ -7,6 +7,7 @@ import PresentationUploader from './component';
 
 import { startWatching, getVideoUrl, stopWatching } from '../../external-video-player/service';
 import { startVisitingSite, getWebsiteUrl, stopVisitingSite } from '../../website-viewer/service';
+import { getScreenValueFor } from '../../media/service'
 
 const PresentationUploaderContainer = props => (
   <PresentationUploader {...props} />
@@ -51,6 +52,7 @@ export default withTracker(() => {
     insertUpdateScreen: (screen_value, screen_for) => Service.insertUpdateScreen(
       screen_value,
       screen_for
-    )
+    ),
+    onScreenOne: getScreenValueFor('screen_one')
   };
 })(PresentationUploaderContainer);

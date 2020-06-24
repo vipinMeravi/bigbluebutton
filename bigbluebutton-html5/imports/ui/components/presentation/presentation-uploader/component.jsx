@@ -979,7 +979,11 @@ class PresentationUploader extends Component {
   handleStopWatching() {
 
     if (this.state.siteUrl && this.state.siteUrl.length > 4) {
-      this.props.insertUpdateScreen("fullscreen", 'site');
+      if(this.props.onScreenOne && this.props.onScreenOne.scree_for == 'video'){
+        this.props.insertUpdateScreen("screen_one", 'site');
+      } else {
+        this.props.insertUpdateScreen("fullscreen", 'site');
+      }    
     } else {
       this.props.insertUpdateScreen("fullscreen", 'document');
     }
@@ -989,9 +993,14 @@ class PresentationUploader extends Component {
   }
 
   handleStopVisitingSite() {
+    
 
     if (this.state.url && this.state.siteUrl.length > 4) {
-      this.props.insertUpdateScreen("fullscreen", 'video');
+      if(this.props.onScreenOne && this.props.onScreenOne.scree_for == 'site'){
+        this.props.insertUpdateScreen("screen_one", 'video');
+      } else {
+        this.props.insertUpdateScreen("fullscreen", 'video');
+      }      
     } else {
       this.props.insertUpdateScreen("fullscreen", 'document');
     }
