@@ -980,10 +980,11 @@ class PresentationUploader extends Component {
     
     if (this.state.siteUrl && this.state.siteUrl.length > 4) {
       let onScreenOne = this.props.onScreenOne('screen_one')
+
       if(onScreenOne && onScreenOne == 'video'){
         this.props.insertUpdateScreen("screen_one", 'site');
       } else {
-        this.props.insertUpdateScreen("fullscreen", 'site');
+        this.props.insertUpdateScreen("screen_two", 'site');
       }    
     } else {
       this.props.insertUpdateScreen("fullscreen", 'document');
@@ -999,7 +1000,7 @@ class PresentationUploader extends Component {
       if(onScreenOne && onScreenOne.scree_for == 'site'){
         this.props.insertUpdateScreen("screen_one", 'video');
       } else {
-        this.props.insertUpdateScreen("fullscreen", 'video');
+        this.props.insertUpdateScreen("screen_two", 'video');
       }      
     } else {
       this.props.insertUpdateScreen("fullscreen", 'document');
