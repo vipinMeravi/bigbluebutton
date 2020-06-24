@@ -53,6 +53,6 @@ export default withTracker(() => {
       screen_value,
       screen_for
     ),
-    onScreenOne: (screen_value) => getScreenValueFor(screen_value)
+    onScreenOne: (screen_value) => MediaService.getScreenValueFor(screen_value)
   };
 })(PresentationUploaderContainer);
