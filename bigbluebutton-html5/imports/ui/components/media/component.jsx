@@ -116,7 +116,7 @@ export default class Media extends Component {
           className={!swapLayout ? contentClassName : overlayClassName}
           style={{
             maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
-            minHeight: '20%',
+            minHeight: '20%', 'border-color': '#feffff !important', border: '2px dashed', 'border-radius': '10px'
           }}
         >
           {children}
@@ -126,7 +126,7 @@ export default class Media extends Component {
             className={!swapLayout ? contentClassName : overlayClassName}
             style={{
               maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
-              minHeight: '20%',
+              minHeight: '20%', 'border-color': '#feffff !important', border: '2px dashed', 'border-radius': '10px'
             }}
           >
             {children_split}
