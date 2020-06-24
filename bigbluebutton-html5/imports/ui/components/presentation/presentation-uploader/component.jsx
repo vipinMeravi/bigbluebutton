@@ -982,6 +982,10 @@ class PresentationUploader extends Component {
       let onScreenOne = this.props.onScreenOne('screen_one')
       let onScreenTwo = this.props.onScreenTwo('screen_two')
 
+      console.log( "=============== Screen One and Two ==============")
+      console.log(onScreenOne)
+      console.log(onScreenTwo)
+      console.log( "=============== Screen One and Two ==============")
       if(onScreenOne && onScreenOne == 'video' && onScreenTwo && onScreenTwo == "document"){
         this.props.insertUpdateScreen("screen_one", 'site');
       }
@@ -1006,6 +1010,11 @@ class PresentationUploader extends Component {
     if (this.state.url && this.state.siteUrl.length > 4) {
       let onScreenOne = this.props.onScreenOne('screen_one')
       let onScreenTwo = this.props.onScreenTwo('screen_two')
+
+      console.log( "=============== Screen One and Two ==============")
+      console.log(onScreenOne)
+      console.log(onScreenTwo)
+      console.log( "=============== Screen One and Two ==============")
 
       if(onScreenOne && onScreenOne == 'site' && onScreenTwo && onScreenTwo == "document"){
         this.props.insertUpdateScreen("screen_one", 'video');
