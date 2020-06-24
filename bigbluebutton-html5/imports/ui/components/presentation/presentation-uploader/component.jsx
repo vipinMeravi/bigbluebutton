@@ -980,12 +980,20 @@ class PresentationUploader extends Component {
     
     if (this.state.siteUrl && this.state.siteUrl.length > 4) {
       let onScreenOne = this.props.onScreenOne('screen_one')
+      let onScreenTwo = this.props.onScreenOne('screen_two')
 
-      if(onScreenOne && onScreenOne == 'video'){
+      if(onScreenOne && onScreenOne == 'video' && onScreenTwo && onScreenTwo == "document"){
         this.props.insertUpdateScreen("screen_one", 'site');
-      } else {
+      }
+      if(onScreenOne && onScreenOne == 'document' && onScreenTwo && onScreenTwo == "video"){
         this.props.insertUpdateScreen("screen_two", 'site');
-      }    
+      }
+      if(onScreenOne && onScreenOne == 'video' && onScreenTwo && onScreenTwo == "site"){
+        this.props.insertUpdateScreen("screen_one", 'document');
+      }
+      if(onScreenOne && onScreenOne == 'site' && onScreenTwo && onScreenTwo == "video"){
+        this.props.insertUpdateScreen("screen_two", 'document');
+      }
     } else {
       this.props.insertUpdateScreen("fullscreen", 'document');
     }
@@ -997,11 +1005,20 @@ class PresentationUploader extends Component {
   handleStopVisitingSite() {
     if (this.state.url && this.state.siteUrl.length > 4) {
       let onScreenOne = this.props.onScreenOne('screen_one')
-      if(onScreenOne && onScreenOne.scree_for == 'site'){
+      let onScreenTwo = this.props.onScreenOne('screen_two')
+
+      if(onScreenOne && onScreenOne == 'site' && onScreenTwo && onScreenTwo == "document"){
         this.props.insertUpdateScreen("screen_one", 'video');
-      } else {
+      }
+      if(onScreenOne && onScreenOne == 'document' && onScreenTwo && onScreenTwo == "site"){
         this.props.insertUpdateScreen("screen_two", 'video');
-      }      
+      }
+      if(onScreenOne && onScreenOne == 'video' && onScreenTwo && onScreenTwo == "site"){
+        this.props.insertUpdateScreen("screen_two", 'document');
+      }
+      if(onScreenOne && onScreenOne == 'site' && onScreenTwo && onScreenTwo == "video"){
+        this.props.insertUpdateScreen("screen_one", 'document');
+      }   
     } else {
       this.props.insertUpdateScreen("fullscreen", 'document');
     }
