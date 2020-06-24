@@ -977,9 +977,9 @@ class PresentationUploader extends Component {
   }
 
   handleStopWatching() {
-
+    onScreenOne = this.props.onScreenOne('screen_one')
     if (this.state.siteUrl && this.state.siteUrl.length > 4) {
-      if(this.props.onScreenOne && this.props.onScreenOne.scree_for == 'video'){
+      if(onScreenOne && onScreenOne == 'video'){
         this.props.insertUpdateScreen("screen_one", 'site');
       } else {
         this.props.insertUpdateScreen("fullscreen", 'site');
@@ -993,10 +993,10 @@ class PresentationUploader extends Component {
   }
 
   handleStopVisitingSite() {
-    
+    onScreenOne = this.props.onScreenOne('screen_one')
 
     if (this.state.url && this.state.siteUrl.length > 4) {
-      if(this.props.onScreenOne && this.props.onScreenOne.scree_for == 'site'){
+      if(onScreenOne && onScreenOne.scree_for == 'site'){
         this.props.insertUpdateScreen("screen_one", 'video');
       } else {
         this.props.insertUpdateScreen("fullscreen", 'video');
