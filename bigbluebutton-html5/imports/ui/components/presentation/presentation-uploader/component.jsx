@@ -1199,7 +1199,7 @@ class PresentationUploader extends Component {
                 onClick={isSharingSite ? this.handleStopVisitingSite : this.startWatchingSiteHandler}
                 disabled={siteUrl == null || siteUrl == ""}
               />
-
+  
               <div className={styles.screen_selector}>
                 <label for="first_toggle" onClick={() => { this.setState({ websiteScreen: 'fullscreen' }) }}>
                   {/* <span className={styles.description}>TODAY</span> */}
