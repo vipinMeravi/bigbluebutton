@@ -1126,7 +1126,7 @@ class PresentationUploader extends Component {
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
                 placeholder={intl.formatMessage(intlMessages.urlInput)}
-                disabled={sharing}
+                disabled={isSharingVideo}
                 value={url}
                 aria-describedby="exernal-video-note"
               />
@@ -1181,7 +1181,7 @@ class PresentationUploader extends Component {
                 name="video-modal-input"
                 placeholder={"Add Web-Site URL"}
                 value={siteUrl}
-                // disabled={}
+                disabled={isSharingSite}
                 aria-describedby="exernal-video-note"
               />
             </label>
