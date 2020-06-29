@@ -169,22 +169,26 @@ export default withModalMounter(withTracker((props) => {
   }
 
   if (onFullscreen.screen_for == 'site' || (onScreenOne && onScreenOne.screen_for == 'site')) {
-    data.children = (
-      <ExternalWebsiteContainer
-        isPresenter={MediaService.isUserPresenter()}
-      />
-    );
+    if (MediaService.shouldShowExternalVideo()) {
+      data.children = (
+        <ExternalWebsiteContainer
+          isPresenter={MediaService.isUserPresenter()}
+        />
+      );
+    }
   }
 
   if (onFullscreen.screen_for == 'video' || (onScreenOne && onScreenOne.screen_for == 'video')) {
     console.log("================= Inside screen video for screen one ============")
     console.log(MediaService.shouldShowExternalVideo())
     console.log("================= Inside screen video for screen one ============")
-    data.children = (
-      <ExternalVideoContainer
-        isPresenter={MediaService.isUserPresenter()}
-      />
-    );
+    if (MediaService.shouldShowExternalVideo()) {
+      data.children = (
+        <ExternalVideoContainer
+          isPresenter={MediaService.isUserPresenter()}
+        />
+      );
+    }
   }
 
   if (onScreenTwo && onScreenTwo.screen_for == 'document') {
