@@ -316,7 +316,7 @@ class PresentationArea extends PureComponent {
   renderPresentationClose() {
     const { isFullscreen } = this.state;
     //I remove this "!shouldEnableSwapLayout() ||"  condition from IF()
-    if ( isFullscreen) {
+    if (isFullscreen) {
       return null;
     }
     return <PresentationCloseButton toggleSwapLayout={MediaService.toggleSwapLayout} />;
