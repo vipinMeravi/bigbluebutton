@@ -61,8 +61,12 @@ const setSwapLayout = () => {
 };
 
 const toggleSwapLayout = () => {
+  console.log("======== > > swapLayout value < < =======");
+  console.log(swapLayout);
   swapLayout.value = !swapLayout.value;
   swapLayout.tracker.changed();
+  console.log(swapLayout);
+  console.log("======== > > swapLayout value < < =======");
 };
 
 export const shouldEnableSwapLayout = () => !shouldShowScreenshare() && !shouldShowExternalVideo();
@@ -83,9 +87,7 @@ const getScreenValueFor = (screen_value) => {
   const screen = Screens.findOne({
     screen_value: screen_value
   })
-  console.log("======== get subscrbe value of screen ========== ")
-  console.log(screen)
-  console.log("======== get subscrbe value of screen ========== ")
+  
   return screen
 }
 

@@ -57,10 +57,7 @@ export const withModalState = ComponentToWrap =>
     }
 
     render() {
-      console.log("==========================<< Modal Console.>>=========")
-      console.log(this.props.title);
-      this.props.title == "PDF "? console.log("Modal pdf true"):console.log("Modal pdf false");
-      console.log("==========================<< Modal Console.>>=========")
+ 
       return (<ComponentToWrap
         {...this.props}
         modalHide={this.hide}

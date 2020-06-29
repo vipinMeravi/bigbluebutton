@@ -114,20 +114,7 @@ class MediaContainer extends Component {
     notify(intl.formatMessage(intlMessages.screenshareNotSupported), 'error', 'desktop');
   }
 
-  // componentWillReceiveProps () {
-  //   console.log('--------- componentWillReceiveProps props =====>')
-  //   console.log(this.props)
-  // }
-  static getDerivedStateFromProps(prevProps, prevState) {
-    console.log('CONTAINER', {
-      prevProps,
-      prevState
-    })
-  }
   render() {
-    console.log("============== <<Media Container Props>> ============");
-    console.log(this.props);
-    console.log("============== <<Media Container Props>> ============");
     return <Media {...this.props} />;
   }
 }
@@ -148,8 +135,6 @@ export default withModalMounter(withTracker((props) => {
   const onScreenOne = MediaService.getScreenValueFor('screen_one')
   const onScreenTwo = MediaService.getScreenValueFor('screen_two')
 
-  this.props ? console.log("media container this.props", this.props) : console.log("media container this.props undefined")
-  props ? console.log("media container this.props", props) : console.log("media container props undefined")
 
   // if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
 
@@ -240,8 +225,12 @@ export default withModalMounter(withTracker((props) => {
   data.singleWebcam = (usersVideo.length < 2);
 
   data.isScreensharing = MediaService.isVideoBroadcasting();
-  data.swapLayout = getSwapLayout() ;
-  // data.swapLayout = (getSwapLayout() || !hasPresentation) && shouldEnableSwapLayout();
+  console.log("=== getSwapLayout hasPresentation ===")
+  console.log("----- getswap layout --- ", getSwapLayout())
+  console.log("----- hasPresentation --- ", hasPresentation)
+  console.log("=== getSwapLayout hasPresentation ===")
+  data.swapLayout = (getSwapLayout() || !hasPresentation) ;
+  // && shouldEnableSwapLayout();
   data.disableVideo = !viewParticipantsWebcams;
 
   if (data.swapLayout) {

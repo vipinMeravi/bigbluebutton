@@ -16,7 +16,6 @@ const getNonCurrentPresentation = podId => Presentations.findOne({
 });
 
 const getAllPresentation = () => Presentations.find({
-  // podId,
   name: "default.pdf",
 });
 
