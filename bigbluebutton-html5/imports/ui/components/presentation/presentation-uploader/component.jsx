@@ -340,8 +340,32 @@ class PresentationUploader extends Component {
     console.log(this.props);
     console.log(presentationsToSave);
     console.log("=========> handle confirm props <============");
-
-    this.props.insertUpdateScreen(screen, 'document');
+    if ((this.state.siteUrl && this.state.siteUrl.length > 4) || (this.state.url && this.state.url.length > 4)) {
+      let onScreenOne = this.props.onScreenOne('screen_one')
+      let onScreenTwo = this.props.onScreenTwo('screen_two')
+      if(screen == "screen_one"){
+        if(onScreenOne && onScreenOne.screen_for == 'video'){
+          this.props.insertUpdateScreen(screen, 'document');
+          this.props.insertUpdateScreen('screen_two', 'video');
+        }
+        if(onScreenOne && onScreenOne.screen_for == 'site'){
+          this.props.insertUpdateScreen(screen, 'document');
+          this.props.insertUpdateScreen('screen_two', 'site');
+        }
+      }
+      if(screen == "screen_two"){
+        if(onScreenTwo && onScreenTwo.screen_for == 'video'){
+          this.props.insertUpdateScreen(screen, 'document');
+          this.props.insertUpdateScreen('screen_one', 'video');
+        }
+        if(onScreenTwo && onScreenTwo.screen_for == 'site'){
+          this.props.insertUpdateScreen(screen, 'document');
+          this.props.insertUpdateScreen('screen_one', 'site');
+        }
+      }
+    } else {
+      this.props.insertUpdateScreen(screen, 'document');
+    }
 
 
     // this.props.getScreenValue(this.state.screen, "document");
@@ -1007,7 +1031,7 @@ class PresentationUploader extends Component {
   }
 
   handleStopVisitingSite() {
-    if (this.state.url && this.state.siteUrl.length > 4) {
+    if (this.state.url && this.state.url.length > 4) {
       let onScreenOne = this.props.onScreenOne('screen_one')
       let onScreenTwo = this.props.onScreenTwo('screen_two')
 
@@ -1199,7 +1223,7 @@ class PresentationUploader extends Component {
                 onClick={isSharingSite ? this.handleStopVisitingSite : this.startWatchingSiteHandler}
                 disabled={siteUrl == null || siteUrl == ""}
               />
-  
+
               <div className={styles.screen_selector}>
                 <label for="first_toggle" onClick={() => { this.setState({ websiteScreen: 'fullscreen' }) }}>
                   {/* <span className={styles.description}>TODAY</span> */}
