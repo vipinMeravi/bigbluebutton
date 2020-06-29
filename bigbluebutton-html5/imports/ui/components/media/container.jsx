@@ -404,7 +404,8 @@ export default withModalMounter(withTracker((props) => {
   // }
 
   data.webcamPlacement = Storage.getItem('webcamPlacement');
-
+  data.onScreenOne = onScreenOne;
+  data.onScreenTwo = onScreenTwo;
   MediaContainer.propTypes = propTypes;
   return data;
 })(injectIntl(MediaContainer)));
