@@ -76,7 +76,8 @@ export default withTracker(() => {
   const amIModerator = currentUser.role === ROLE_MODERATOR;
   const hasUnreadMessages = checkUnreadMessages();
   console.log("========= is Layout swapped ========= ")
-  console.log(getSwapLayout() && shouldEnableSwapLayout())
+  console.log(getSwapLayout())
+  console.log(shouldEnableSwapLayout())
   console.log("========= is Layout swapped ========= ")
   return {
     amIModerator,
