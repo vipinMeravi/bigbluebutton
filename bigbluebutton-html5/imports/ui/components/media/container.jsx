@@ -144,7 +144,7 @@ export default withModalMounter(withTracker((props) => {
     joinVideo: VideoService.joinVideo,
   };
 
-  const onFullscreen = MediaService.getScreenValueFor('fullscreen') || {screen_for: 'document'};
+  const onFullscreen = MediaService.getScreenValueFor('fullscreen') || { screen_for: 'document' };
   const onScreenOne = MediaService.getScreenValueFor('screen_one')
   const onScreenTwo = MediaService.getScreenValueFor('screen_two')
 
@@ -155,16 +155,16 @@ export default withModalMounter(withTracker((props) => {
 
   // }
 
-  if (onFullscreen.screen_for == 'document' ) {
+  if (onFullscreen.screen_for == 'document') {
     data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
   }
 
-  if(!onScreenOne && !onScreenTwo ){
+  if (!onScreenOne && !onScreenTwo) {
     stopWatching();
     stopVisitingSite();
   }
 
-  if(onScreenOne && onScreenOne.screen_for == 'document'){
+  if (onScreenOne && onScreenOne.screen_for == 'document') {
     data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
   }
 
@@ -187,27 +187,31 @@ export default withModalMounter(withTracker((props) => {
     );
   }
 
-  if(onScreenTwo && onScreenTwo.screen_for == 'document'){
+  if (onScreenTwo && onScreenTwo.screen_for == 'document') {
     data.children_split = <PresentationPodsContainer screen_value={props.screen_value} />;
   }
 
-  if(onScreenTwo && onScreenTwo.screen_for == 'site'){
-    data.children_split = (
-      <ExternalWebsiteContainer
-        isPresenter={MediaService.isUserPresenter()}
-      />
-    );
+  if (onScreenTwo && onScreenTwo.screen_for == 'site') {
+    if (MediaService.shouldShowExternalWebsite()) {
+      data.children_split = (
+        <ExternalWebsiteContainer
+          isPresenter={MediaService.isUserPresenter()}
+        />
+      );
+    }
   }
 
-  if(onScreenTwo && onScreenTwo.screen_for == 'video'){
+  if (onScreenTwo && onScreenTwo.screen_for == 'video') {
     console.log("================= Inside screen video for screen two ============")
     console.log(MediaService.shouldShowExternalVideo())
     console.log("================= Inside screen video for screen two ============")
-    data.children_split = (
-      <ExternalVideoContainer
-        isPresenter={MediaService.isUserPresenter()}
-      />
-    );
+    if (MediaService.shouldShowExternalVideo()) {
+      data.children_split = (
+        <ExternalVideoContainer
+          isPresenter={MediaService.isUserPresenter()}
+        />
+      );
+    }
   }
 
 
