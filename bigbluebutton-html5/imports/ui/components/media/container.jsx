@@ -229,7 +229,7 @@ export default withModalMounter(withTracker((props) => {
   console.log("----- getswap layout --- ", getSwapLayout())
   console.log("----- hasPresentation --- ", hasPresentation)
   console.log("=== getSwapLayout hasPresentation ===")
-  data.swapLayout = (getSwapLayout() || !hasPresentation) ;
+  data.swapLayout = (getSwapLayout() || hasPresentation) ;
   // && shouldEnableSwapLayout();
   data.disableVideo = !viewParticipantsWebcams;
 
