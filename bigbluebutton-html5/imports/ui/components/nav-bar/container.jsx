@@ -75,7 +75,9 @@ export default withTracker(() => {
   const isExpanded = openPanel !== '';
   const amIModerator = currentUser.role === ROLE_MODERATOR;
   const hasUnreadMessages = checkUnreadMessages();
-
+  console.log("========= is Layout swapped ========= ")
+  console.log(getSwapLayout() && shouldEnableSwapLayout())
+  console.log("========= is Layout swapped ========= ")
   return {
     amIModerator,
     isExpanded,
@@ -97,8 +99,7 @@ export default withTracker(() => {
     isVideoBroadcasting: isVideoBroadcasting(),
     screenSharingCheck: getFromUserSettings('bbb_enable_screen_sharing', Meteor.settings.public.kurento.enableScreensharing),
     enableVideo: getFromUserSettings('bbb_enable_video', Meteor.settings.public.kurento.enableVideo),
-    // isLayoutSwapped: getSwapLayout() && shouldEnableSwapLayout(),
-    isLayoutSwapped: getSwapLayout() ,
+    isLayoutSwapped: getSwapLayout() && shouldEnableSwapLayout(),
     toggleSwapLayout: MediaService.toggleSwapLayout,
     handleTakePresenter: Service.takePresenterRole,
     currentSlidHasContent: PresentationService.currentSlidHasContent(),

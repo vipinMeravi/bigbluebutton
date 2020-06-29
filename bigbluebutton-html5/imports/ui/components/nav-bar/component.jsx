@@ -218,7 +218,7 @@ class NavBar extends PureComponent {
           </div>
 
           <div className={styles.right}>
-          {(isLayoutSwapped || !isThereCurrentPresentation)
+          {isLayoutSwapped
             ? (
               <PresentationOptionsContainer
                 toggleSwapLayout={toggleSwapLayout}
