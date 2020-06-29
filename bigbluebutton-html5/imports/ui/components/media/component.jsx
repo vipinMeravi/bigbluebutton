@@ -114,6 +114,7 @@ export default class Media extends Component {
     }
 
     console.log("===============Swap layout==================")
+    console.log("Swap Layout",swapLayout);
     console.log('isDocument isDocumentOne : ', isDocumentOne);
     console.log('isDocument isDocumentTwo : ', isDocumentTwo);
     console.log("===============Swap layout==================")
