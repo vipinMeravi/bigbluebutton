@@ -169,7 +169,7 @@ export default withModalMounter(withTracker((props) => {
   }
 
   if (onFullscreen.screen_for == 'site' || (onScreenOne && onScreenOne.screen_for == 'site')) {
-    if (MediaService.shouldShowExternalVideo()) {
+    if (MediaService.shouldShowExternalWebsite()) {
       data.children = (
         <ExternalWebsiteContainer
           isPresenter={MediaService.isUserPresenter()}
