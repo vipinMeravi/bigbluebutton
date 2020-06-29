@@ -87,7 +87,8 @@ export default class Media extends Component {
       webcamPlacement,
       screen_value,
       onScreenOne,
-      onScreenTwo
+      onScreenTwo,
+      onFullscreen
     } = this.props;
 
     const contentClassName = cx({
@@ -100,13 +101,21 @@ export default class Media extends Component {
       [styles.floatingOverlay]: (webcamPlacement === 'floating'),
     });
 
+    let isDocumentOne, isDocumentTwo = false;
+    if(onFullscreen.screen_for == 'document' || onScreenOne.screen_for == 'document'){
+      isDocumentOne = true;
+    } else {
+      isDocumentOne = false;
+    }
+    if(onScreenTwo.screen_for == 'document'){
+      isDocumentTwo = true;
+    } else {
+      isDocumentTwo = false;
+    }
+
     console.log("===============Swap layout==================")
-    console.log(swapLayout)
-    console.log(webcamPlacement)
-    console.log(singleWebcam)
-    console.log(hideOverlay)
-    console.log(onScreenOne && onScreenOne.screen_for);
-    console.log(onScreenTwo && onScreenTwo.screen_for);
+    console.log('isDocument isDocumentOne : ', isDocumentOne);
+    console.log('isDocument isDocumentTwo : ', isDocumentTwo);
     console.log("===============Swap layout==================")
 
     return (
@@ -117,7 +126,7 @@ export default class Media extends Component {
       >
 
         <div
-          className={!swapLayout ? contentClassName : overlayClassName}
+          className={swapLayout && isDocumentOne ? overlayClassName :  contentClassName}
           style={{
             maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
             minHeight: '20%', border: '2px dashed', 'border-radius': '10px', 'border-color': 'white',
@@ -127,7 +136,7 @@ export default class Media extends Component {
         </div>
         {children_split ?
           <div
-            className={!swapLayout ? contentClassName : overlayClassName}
+            className={swapLayout && isDocumentTwo ? overlayClassName :  contentClassName}
             style={{
               maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
               minHeight: '20%', border: '2px dashed', 'border-radius': '10px', 'border-color': 'white'
