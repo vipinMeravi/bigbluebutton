@@ -351,6 +351,8 @@ class PresentationUploader extends Component {
         if(onScreenOne && onScreenOne.screen_for == 'site'){
           this.props.insertUpdateScreen(screen, 'document');
           this.props.insertUpdateScreen('screen_two', 'site');
+        } else {
+          this.props.insertUpdateScreen(screen, 'document');
         }
       }
       if(screen == "screen_two"){
@@ -361,6 +363,8 @@ class PresentationUploader extends Component {
         if(onScreenTwo && onScreenTwo.screen_for == 'site'){
           this.props.insertUpdateScreen(screen, 'document');
           this.props.insertUpdateScreen('screen_one', 'site');
+        } else {
+          this.props.insertUpdateScreen(screen, 'document');
         }
       }
     } else {
