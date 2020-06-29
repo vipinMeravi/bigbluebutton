@@ -102,12 +102,12 @@ export default class Media extends Component {
     });
 
     let isDocumentOne, isDocumentTwo = false;
-    if(onFullscreen.screen_for == 'document' || onScreenOne.screen_for == 'document'){
+    if ((onFullscreen && onFullscreen.screen_for == 'document') || (onScreenOne && onScreenOne.screen_for == 'document')) {
       isDocumentOne = true;
     } else {
       isDocumentOne = false;
     }
-    if(onScreenTwo.screen_for == 'document'){
+    if (onScreenTwo && onScreenTwo.screen_for == 'document') {
       isDocumentTwo = true;
     } else {
       isDocumentTwo = false;
@@ -126,7 +126,7 @@ export default class Media extends Component {
       >
 
         <div
-          className={swapLayout && isDocumentOne ? overlayClassName :  contentClassName}
+          className={swapLayout && isDocumentOne ? overlayClassName : contentClassName}
           style={{
             maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
             minHeight: '20%', border: '2px dashed', 'border-radius': '10px', 'border-color': 'white',
@@ -136,7 +136,7 @@ export default class Media extends Component {
         </div>
         {children_split ?
           <div
-            className={swapLayout && isDocumentTwo ? overlayClassName :  contentClassName}
+            className={swapLayout && isDocumentTwo ? overlayClassName : contentClassName}
             style={{
               maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
               minHeight: '20%', border: '2px dashed', 'border-radius': '10px', 'border-color': 'white'
@@ -144,7 +144,7 @@ export default class Media extends Component {
           >
             {children_split}
           </div> : null}
-          {usersVideo.length > 0 ? (
+        {usersVideo.length > 0 ? (
           <WebcamDraggable
             refMediaContainer={this.refContainer}
             swapLayout={swapLayout}
@@ -157,7 +157,7 @@ export default class Media extends Component {
           />
         ) : null}
       </div>
-      
+
 
     );
   }
