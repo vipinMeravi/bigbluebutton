@@ -113,7 +113,7 @@ export default class Media extends Component {
       >
 
         <div
-          className={!swapLayout && this.props.onScreenOne && this.props.onScreenOne.screen_for == 'document' ? contentClassName : overlayClassName}
+          className={!swapLayout && !this.props.onScreenOne && !this.props.onScreenOne.screen_for == 'document' ? contentClassName : overlayClassName}
           style={{
             maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
             minHeight: '20%', border: '2px dashed', 'border-radius': '10px', 'border-color': 'white',
@@ -123,7 +123,7 @@ export default class Media extends Component {
         </div>
         {children_split ?
           <div
-            className={!swapLayout && this.props.onScreenTwo && this.props.onScreenTwo.screen_for == 'document' ? contentClassName : overlayClassName}
+            className={!swapLayout && !this.props.onScreenTwo && !this.props.onScreenTwo.screen_for == 'document' ? contentClassName : overlayClassName}
             style={{
               maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
               minHeight: '20%', border: '2px dashed', 'border-radius': '10px', 'border-color': 'white'
