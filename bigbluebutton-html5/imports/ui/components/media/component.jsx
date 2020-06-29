@@ -85,7 +85,9 @@ export default class Media extends Component {
       audioModalIsOpen,
       usersVideo,
       webcamPlacement,
-      screen_value
+      screen_value,
+      onScreenOne,
+      onScreenTwo
     } = this.props;
 
     const contentClassName = cx({
