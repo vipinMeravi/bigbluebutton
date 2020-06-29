@@ -155,7 +155,7 @@ export default withModalMounter(withTracker((props) => {
 
   // }
 
-  if (onFullscreen.screen_for == 'document' && onScreenTwo.screen_for == '') {
+  if (onFullscreen.screen_for == 'document' && !onScreenTwo ) {
     data.children = <PresentationPodsContainer screen_value={props.screen_value} />;
     stopWatching();
     stopVisitingSite();
