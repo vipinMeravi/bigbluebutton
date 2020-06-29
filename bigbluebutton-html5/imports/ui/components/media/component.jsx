@@ -103,6 +103,8 @@ export default class Media extends Component {
     console.log(webcamPlacement)
     console.log(singleWebcam)
     console.log(hideOverlay)
+    console.log(onScreenOne)
+    console.log(onScreenTwo)
     console.log("===============Swap layout==================")
 
     return (
