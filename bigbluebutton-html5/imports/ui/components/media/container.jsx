@@ -240,8 +240,8 @@ export default withModalMounter(withTracker((props) => {
   data.singleWebcam = (usersVideo.length < 2);
 
   data.isScreensharing = MediaService.isVideoBroadcasting();
-  data.swapLayout = (getSwapLayout() || !hasPresentation) ;
-  // && shouldEnableSwapLayout();
+  data.swapLayout = getSwapLayout() ;
+  // data.swapLayout = (getSwapLayout() || !hasPresentation) && shouldEnableSwapLayout();
   data.disableVideo = !viewParticipantsWebcams;
 
   if (data.swapLayout) {
