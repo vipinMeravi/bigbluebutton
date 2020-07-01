@@ -11,7 +11,11 @@ class WebsiteView extends Component {
         const { websiteUrl } = this.props;
         console.log("---------- Final Destination iFrame -------", this.props);
         return (
-        <div class="resp-container" >
+        <div class="resp-container" style={{
+            width: '200%',
+            height: '200%',
+            transform: 'scale(.5)',
+        }}>
             <iframe style={{
                 width: '96vw',
                 height: '160vh'
