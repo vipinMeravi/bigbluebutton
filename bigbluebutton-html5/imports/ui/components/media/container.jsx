@@ -68,8 +68,6 @@ class MediaContainer extends Component {
     alert('Media section updated')
   }
   componentWillReceiveProps(nextProps) {
-    console.log('--------- componentWillReceiveProps props =====>')
-    console.log(this.props)
     const {
       isScreensharing,
       intl,
