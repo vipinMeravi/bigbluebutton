@@ -31,6 +31,10 @@
   position: relative;
   overflow: hidden;
   padding-top: 56.25%;
+  width: 200%;
+  height: 200%;
+  // -webkit-transform: scale(.25);
+  transform: scale(.5);
 }
 
 .resp-iframe {
