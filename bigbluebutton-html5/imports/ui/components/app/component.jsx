@@ -22,6 +22,7 @@ import PingPongContainer from '/imports/ui/components/ping-pong/container';
 import MediaService from '/imports/ui/components/media/service';
 import ManyWebcamsNotifier from '/imports/ui/components/video-provider/many-users-notify/container';
 import { styles } from './styles';
+import cx from 'classnames';
 
 import NavBarContainer from '../nav-bar/container';
 import MediaContainer from '../media/container';
