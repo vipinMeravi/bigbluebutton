@@ -538,8 +538,8 @@ class App extends Component {
 
             {/* {this.renderActionsBar()} */}
           </div>
-          {/* {this.renderPanel()} */}
-          {this.renderSideNavBar()}
+          {this.renderPanel()}
+          {/* {this.renderSideNavBar()} */}
           {this.renderSidebar()}
         </section>
         <BreakoutRoomInvitation />
