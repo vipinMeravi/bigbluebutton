@@ -251,39 +251,39 @@ class App extends Component {
     });
     return (
       <div id="main" class="d-flex">
-        <aside className={styles["primary-nav"]} class="primary-nav">
-          <ul className={ulNave} class="nav flex-column text-center" id="typeNav" role="tablist">
-            <li className={styles["nav-item"]} class="nav-item">
-              <a className={aNav} class="nav-link brand-logo text-white" href="#">
+        <aside class="primary-nav" className={styles["primary-nav"]} >
+          <ul class="nav flex-column text-center" className={ulNave} id="typeNav" role="tablist">
+            <li class="nav-item" className={styles["nav-item"]} >
+              <a class="nav-link brand-logo text-white" className={aNav} href="#">
                 SeeIT
               </a>
             </li>
           </ul>
-          <li className={styles["nav-item"]} class="nav-item">
+          <li class="nav-item" className={styles["nav-item"]} >
             <a class="nav-link active" data-toggle="tab" href="#ppts" role="tab" aria-controls="ppts"
               aria-selected="true">
               <img src="resources/images/nav-images/ppt.svg" class="img-fluid" alt=""></img>
             </a>
           </li>
-          <li className={styles["nav-item"]} class="nav-item">
+          <li class="nav-item" className={styles["nav-item"]}>
             <a class="nav-link" data-toggle="tab" href="#pdfs" role="tab" aria-controls="pdfs"
               aria-selected="false">
               <img src="resources/images/nav-images/pdf.svg" class="img-fluid" alt=""></img>
             </a>
           </li>
-          <li className={styles["nav-item"]} class="nav-item">
+          <li class="nav-item" className={styles["nav-item"]}>
             <a class="nav-link" data-toggle="tab" href="#videos" role="tab" aria-controls="videos"
               aria-selected="false">
               <img src="resources/images/nav-images/video.svg" class="img-fluid" alt=""></img>
             </a>
           </li>
-          <li className={styles["nav-item"]} class="nav-item">
+          <li class="nav-item" className={styles["nav-item"]}>
             <a class="nav-link" href="#">
               <img src="resources/images/nav-images/plus.svg" class="img-fluid" alt=""></img>
             </a>
           </li>
         </aside>
-        <aside className={styles["secondary-nav"]} class="secondary-nav">
+        <aside class="secondary-nav" className={styles["secondary-nav"]} >
           <div class="secondary-actions d-flex justify-content-around p-3">
             <a href="#" class="btn btn-info">
               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor"
