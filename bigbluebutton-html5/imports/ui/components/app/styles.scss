@@ -226,6 +226,15 @@
 }
 
 // Side Nav Bar Css.
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.navBar {
+  display: flex!important;
+
+}
+
 .primaryNav{
   width: 7%;
   height: 100vh;

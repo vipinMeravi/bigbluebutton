@@ -242,35 +242,37 @@ class App extends Component {
 
   renderSideNavBar() {
     return (
-      <aside className={styles.primaryNav}>
-        <ul className={styles.listNav} id="typeNav">
-          <li className={styles.itemNav}>
-            <a className={styles.iconNav} >
-              SeeIT
+      <div className={styles.navBar}>
+        <aside className={styles.primaryNav}>
+          <ul className={styles.listNav} id="typeNav">
+            <li className={styles.itemNav}>
+              <a className={styles.iconNav} >
+                SeeIT
             </a>
-          </li>
-          <li className={styles.itemNav}>
-            <a className={styles.linkNav} >
-              <img src="resources/images/nav-images/ppt.svg" className={styles.imgFluid} ></img>
-            </a>
-          </li>
-          <li className={styles.itemNav}>
-            <a className={styles.linkNav} >
-              <img src="resources/images/nav-images/pdf.svg" className={styles.imgFluid} ></img>
-            </a>
-          </li>
-          <li className={styles.itemNav}>
-            <a className={styles.linkNav} >
-              <img src="resources/images/nav-images/video.svg" className={styles.imgFluid} ></img>
-            </a>
-          </li>
-          <li className={styles.itemNav}>
-            <a className={styles.linkNav} >
-              <img src="resources/images/nav-images/plus.svg" className={styles.imgFluid} ></img>
-            </a>
-          </li>
-        </ul>
-      </aside>
+            </li>
+            <li className={styles.itemNav}>
+              <a className={styles.linkNav} >
+                <img src="resources/images/nav-images/ppt.svg" className={styles.imgFluid} ></img>
+              </a>
+            </li>
+            <li className={styles.itemNav}>
+              <a className={styles.linkNav} >
+                <img src="resources/images/nav-images/pdf.svg" className={styles.imgFluid} ></img>
+              </a>
+            </li>
+            <li className={styles.itemNav}>
+              <a className={styles.linkNav} >
+                <img src="resources/images/nav-images/video.svg" className={styles.imgFluid} ></img>
+              </a>
+            </li>
+            <li className={styles.itemNav}>
+              <a className={styles.linkNav} >
+                <img src="resources/images/nav-images/plus.svg" className={styles.imgFluid} ></img>
+              </a>
+            </li>
+          </ul>
+        </aside>
+      </div>
     );
   }
 
