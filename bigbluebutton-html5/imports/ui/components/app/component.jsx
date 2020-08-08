@@ -242,35 +242,38 @@ class App extends Component {
 
   renderSideNavBar() {
     return (
-      <div className={styles.navBar}>
-        <aside className={styles.primaryNav}>
-          <ul className={styles.listNav} id="typeNav">
-            <li className={styles.itemNav}>
-              <a className={styles.iconNav} >
+      <div id="main" class="d-flex">
+        <aside class="primary-nav">
+          <ul class="nav flex-column text-center" id="typeNav" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link brand-logo text-white" href="#">
                 SeeIT
-            </a>
-            </li>
-            <li className={styles.itemNav}>
-              <a className={styles.linkNav} >
-                <img src="resources/images/nav-images/ppt.svg" className={styles.imgFluid} ></img>
-              </a>
-            </li>
-            <li className={styles.itemNav}>
-              <a className={styles.linkNav} >
-                <img src="resources/images/nav-images/pdf.svg" className={styles.imgFluid} ></img>
-              </a>
-            </li>
-            <li className={styles.itemNav}>
-              <a className={styles.linkNav} >
-                <img src="resources/images/nav-images/video.svg" className={styles.imgFluid} ></img>
-              </a>
-            </li>
-            <li className={styles.itemNav}>
-              <a className={styles.linkNav} >
-                <img src="resources/images/nav-images/plus.svg" className={styles.imgFluid} ></img>
               </a>
             </li>
           </ul>
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#ppts" role="tab" aria-controls="ppts"
+              aria-selected="true">
+              <img src="resources/images/nav-images/ppt.svg" class="img-fluid" alt=""></img>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#pdfs" role="tab" aria-controls="pdfs"
+              aria-selected="false">
+              <img src="resources/images/nav-images/pdf.svg" class="img-fluid" alt=""></img>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#videos" role="tab" aria-controls="videos"
+              aria-selected="false">
+              <img src="resources/images/nav-images/video.svg" class="img-fluid" alt=""></img>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="resources/images/nav-images/plus.svg" class="img-fluid" alt=""></img>
+            </a>
+          </li>
         </aside>
       </div>
     );

@@ -23,7 +23,9 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
       box-sizing: border-box;
     }
 
-    *, *:before, *:after {
+    *,
+    *:before,
+    *:after {
       box-sizing: inherit;
     }
 
@@ -31,7 +33,8 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
       position: fixed;
       height: 100%;
       font-family: 'Source Sans Pro', Arial, sans-serif;
-      font-size: 1rem; /* 16px */
+      font-size: 1rem;
+      /* 16px */
       background-color: #06172A;
     }
 
@@ -52,7 +55,7 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
       padding: 0;
       margin: -1px;
       overflow: hidden;
-      clip: rect(0,0,0,0);
+      clip: rect(0, 0, 0, 0);
       border: 0;
     }
 
@@ -65,12 +68,17 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
       e.preventDefault();
     });
   </script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
   <script src="compatibility/adapter.js?v=VERSION" language="javascript"></script>
   <script src="compatibility/bowser.js?v=VERSION" language="javascript"></script>
   <script src="compatibility/sip.js?v=VERSION" language="javascript"></script>
   <script src="compatibility/kurento-extension.js?v=VERSION" language="javascript"></script>
   <script src="compatibility/kurento-utils.js?v=VERSION" language="javascript"></script>
 </head>
+
 <body style="background-color: #06172A">
   <div id="app" role="document"></div>
   <audio id="remote-media" autoPlay="autoplay">
