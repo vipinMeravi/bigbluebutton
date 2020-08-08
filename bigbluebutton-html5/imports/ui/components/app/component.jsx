@@ -249,8 +249,9 @@ class App extends Component {
       [styles["nav-link"]]: true,
       [styles["brand-logo"]]: true,
     });
+
     return (
-      <div id="main" class="d-flex">
+      // <div id="main" class="d-flex">
         <aside class="primary-nav" className={styles["primary-nav"]} >
           <ul class="nav flex-column text-center" className={ulNave} id="typeNav" role="tablist">
             <li class="nav-item" className={styles["nav-item"]} >
@@ -376,7 +377,7 @@ class App extends Component {
             <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">videos</div>
           </div>
         </aside>
-      </div>
+      // </div>
     );
   }
 
