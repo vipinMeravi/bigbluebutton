@@ -275,6 +275,99 @@ class App extends Component {
             </a>
           </li>
         </aside>
+        <aside class="secondary-nav">
+            <div class="secondary-actions d-flex justify-content-around p-3">
+                <a href="#" class="btn btn-info">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                        <path fill-rule="evenodd"
+                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-info">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-left" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.354 11.354a.5.5 0 0 0 0-.708L1.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z" />
+                        <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0 0 1h9a.5.5 0 0 0 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M14 13.5a1.5 1.5 0 0 0 1.5-1.5V4A1.5 1.5 0 0 0 14 2.5H7A1.5 1.5 0 0 0 5.5 4v1.5a.5.5 0 0 0 1 0V4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-1.5a.5.5 0 0 0-1 0V12A1.5 1.5 0 0 0 7 13.5h7z" />
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-info">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                        <path fill-rule="evenodd"
+                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-info">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-easel" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2h2.092L8.473.337zM12.15 11h-1.058l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11zM8.5 11h-1v2.5a.5.5 0 0 0 1 0V11zm-3.592 0H3.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11z" />
+                        <path fill-rule="evenodd"
+                            d="M14 3H2v7h12V3zM2 2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-light">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                        <path fill-rule="evenodd"
+                            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="ppts" role="tabpanel" aria-labelledby="ppts-tab">
+                    <div class="dropdown m-3">
+                        <button class="btn btn-light bg-white text-left btn-lg btn-block dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pitchdeck ver2.1
+                        </button>
+                        <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">High variation index</a>
+                            <a class="dropdown-item" href="#">Analysis Report</a>
+                            <a class="dropdown-item" href="#">Marketing Report</a>
+                        </div>
+                    </div>
+                    <ul class="nav flex-column slides">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">
+                                Slide 1
+                                <img src="resources/images/nav-images/slide-1.png" class="img-fluid" alt=""></img>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">
+                                Slide 2
+                                <img src="resources/images/nav-images/slide-2.png" class="img-fluid" alt=""></img>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-dark" href="#">
+                                Slide 3
+                                <img src="resources/images/nav-images/r-side.png" class="img-fluid" alt=""></img>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">
+                                Slide 4
+                                <img src="resources/images/nav-images/l-side.png" class="img-fluid" alt=""></img>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="pdfs" role="tabpanel" aria-labelledby="pdfs-tab">pdfs</div>
+                <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">videos</div>
+            </div>
+        </aside>
       </div>
     );
   }
