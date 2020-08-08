@@ -224,3 +224,68 @@
   position: relative;
   order: 3;
 }
+
+// Side Nav Bar Css.
+.primaryNav{
+  width: 7%;
+  height: 100vh;
+}
+
+.listNav{
+  margin-top: 0;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  flex-direction: column!important;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.itemNav {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.iconNav {
+  background-color: #004b43;
+  border-radius: 10px;
+  width: 100%;
+  height: 91px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 42px;
+  font-weight: 700;
+  font-size: 22px;
+  color: #fff!important;
+  display: block;
+  text-decoration: none;
+}
+
+.linkNav {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+}
+
+#typeNav .navLink {
+  padding: 1.5rem 0;
+}
+#typeNav .navLink.active {
+  background-color: #f2f2f2;
+  border-left: 5px solid #4661fc;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.imgFluid {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-style: none;
+}

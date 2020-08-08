@@ -239,6 +239,41 @@ class App extends Component {
     );
   }
 
+
+  renderSideNavBar() {
+    return (
+      <aside className={styles.primaryNav}>
+        <ul className={styles.listNav} id="typeNav">
+          <li className={styles.itemNav}>
+            <a className={styles.iconNav} >
+              SeeIT
+            </a>
+          </li>
+          <li className={styles.itemNav}>
+            <a className={styles.linkNav} >
+              <img src="resources/images/nav-images/ppt.svg" className={styles.imgFluid} ></img>
+            </a>
+          </li>
+          <li className={styles.itemNav}>
+            <a className={styles.linkNav} >
+              <img src="resources/images/nav-images/pdf.svg" className={styles.imgFluid} ></img>
+            </a>
+          </li>
+          <li className={styles.itemNav}>
+            <a className={styles.linkNav} >
+              <img src="resources/images/nav-images/video.svg" className={styles.imgFluid} ></img>
+            </a>
+          </li>
+          <li className={styles.itemNav}>
+            <a className={styles.linkNav} >
+              <img src="resources/images/nav-images/plus.svg" className={styles.imgFluid} ></img>
+            </a>
+          </li>
+        </ul>
+      </aside>
+    );
+  }
+
   renderSidebar() {
     const { sidebar } = this.props;
 
@@ -370,7 +405,7 @@ class App extends Component {
               aria-label={this.props.intl.formatMessage(intlMessages.actionsBarLabel)}
               aria-hidden={this.shouldAriaHide()}
             > */}
-              {/* <ActionsBarContainer updateArrScreen={()=>{
+            {/* <ActionsBarContainer updateArrScreen={()=>{
                 console.log('==================?>>>>>??>>?>>??')
                 console.log(this.state.isUpdate)
                 console.log('==================?>>>>>??>>?>>??')
@@ -380,7 +415,7 @@ class App extends Component {
                   console.log('=========?>>>UPDAGTE>>??>>?>',this.state.isUpdate)
                 })
               }} /> */}
-              {/* <ActionsBarContainer getScreenValue={(screen_value, screen_for)=>{
+            {/* <ActionsBarContainer getScreenValue={(screen_value, screen_for)=>{
                 console.log('==================?>>>>>??>>?>>??')
                 console.log(this.state.screen_value)
                 console.log('==================?>>>>>??>>?>>??')
@@ -397,6 +432,7 @@ class App extends Component {
             {/* {this.renderActionsBar()} */}
           </div>
           {/* {this.renderPanel()} */}
+          {this.renderSideNavBar()}
           {this.renderSidebar()}
         </section>
         <BreakoutRoomInvitation />
