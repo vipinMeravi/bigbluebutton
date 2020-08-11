@@ -193,7 +193,7 @@ class PresentationToolbar extends PureComponent {
       optionList.push((
         <option
           value={i}
-        // key={i}
+          key={i}
         >
 
           <div>
