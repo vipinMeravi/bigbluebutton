@@ -195,10 +195,10 @@ class PresentationToolbar extends PureComponent {
           value={i}
           key={i}
         >
-
-          <div>
-            <img src={getAllSlideUri[i - 1].svgUri} />
-          </div>
+{getAllSlideUri[i - 1].svgUri}
+          {/* <div>
+            <img src={} />
+          </div> */}
 
 
         </option>));
