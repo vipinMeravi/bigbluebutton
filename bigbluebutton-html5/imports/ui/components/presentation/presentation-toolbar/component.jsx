@@ -181,7 +181,7 @@ class PresentationToolbar extends PureComponent {
     );
   }
 
-  renderSkipSlideOpts(numberOfSlides) {
+  renderSkipSlideOpts(numberOfSlides, getAllSlideUri) {
     // Fill drop down menu with all the slides in presentation
     const { intl } = this.props;
     const optionList = [];
@@ -208,6 +208,7 @@ class PresentationToolbar extends PureComponent {
     const {
       currentSlideNum,
       numberOfSlides,
+      getAllSlideUri,
       fitToWidthHandler,
       fitToWidth,
       intl,
@@ -271,7 +272,7 @@ class PresentationToolbar extends PureComponent {
                 onChange={this.handleSkipToSlideChange}
                 className={styles.skipSlideSelect}
               >
-                {this.renderSkipSlideOpts(numberOfSlides)}
+                {this.renderSkipSlideOpts(numberOfSlides, getAllSlideUri)}
               </select>
             </Tooltip>
             <Button
