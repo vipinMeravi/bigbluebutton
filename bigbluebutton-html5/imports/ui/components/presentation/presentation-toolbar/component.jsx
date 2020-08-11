@@ -197,7 +197,7 @@ class PresentationToolbar extends PureComponent {
           {
             // intl.formatMessage(intlMessages.goToSlide, { 0: i })
             // intl.formatMessage(intlMessages.goToSlide)
-            <img src={getAllSlideUri[i].imageUri} />
+            <img src={getAllSlideUri[i].thumbUri} />
           }
         </option>));
     }
