@@ -183,7 +183,7 @@ class PresentationToolbar extends PureComponent {
 
   renderSkipSlideOpts(numberOfSlides) {
     // Fill drop down menu with all the slides in presentation
-    const { intl } = this.props;
+    const { intl, getAllSlideUri } = this.props;
     const optionList = [];
     console.log("******************* Presentation Pages ******************** ")
     console.log(getAllSlideUri);
