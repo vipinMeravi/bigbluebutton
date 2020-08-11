@@ -193,16 +193,16 @@ class PresentationToolbar extends PureComponent {
       optionList.push((
         <option
           value={i}
-          // key={i}
+        // key={i}
         >
-          {
+          {/*           
             // intl.formatMessage(intlMessages.goToSlide, { 0: i })
-            // intl.formatMessage(intlMessages.goToSlide)
-            <div>
-              <img src={getAllSlideUri[i - 1].svgUri} />
-            </div>
+            // intl.formatMessage(intlMessages.goToSlide) */}
+          <div>
+            <img src={getAllSlideUri[i - 1].svgUri} />
+          </div>
 
-          }
+
         </option>));
     }
 
