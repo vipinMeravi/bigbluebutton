@@ -185,6 +185,9 @@ class PresentationToolbar extends PureComponent {
     // Fill drop down menu with all the slides in presentation
     const { intl } = this.props;
     const optionList = [];
+    console.log("******************* Presentation Pages ******************** ")
+    console.log(getAllSlideUri);
+    console.log("******************* Presentation Pages ******************** ")
     for (let i = 1; i <= numberOfSlides; i += 1) {
       optionList.push((
         <option
@@ -192,7 +195,8 @@ class PresentationToolbar extends PureComponent {
           key={i}
         >
           {
-            intl.formatMessage(intlMessages.goToSlide, { 0: i })
+            // intl.formatMessage(intlMessages.goToSlide, { 0: i })
+            intl.formatMessage(intlMessages.goToSlide)
           }
         </option>));
     }

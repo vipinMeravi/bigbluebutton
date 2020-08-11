@@ -17,6 +17,18 @@ const getNumberOfSlides = (podId, presentationId) => {
   return presentation ? presentation.pages.length : 0;
 };
 
+const getAllSlideUri = (podId, presentationId) => {
+  const meetingId = Auth.meetingID;
+
+  const presentation = Presentations.findOne({
+    meetingId,
+    podId,
+    id: presentationId,
+  });
+
+  return presentation ? presentation.pages : 0;
+};
+
 const previousSlide = (currentSlideNum, podId) => {
   if (currentSlideNum > 1) {
     makeCall('switchSlide', currentSlideNum - 1, podId);
@@ -43,4 +55,5 @@ export default {
   previousSlide,
   skipToSlide,
   zoomSlide,
+  getAllSlideUri
 };

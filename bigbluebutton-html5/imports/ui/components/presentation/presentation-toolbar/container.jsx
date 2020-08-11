@@ -34,6 +34,7 @@ export default withTracker((params) => {
     layoutSwapped: MediaService.getSwapLayout() && MediaService.shouldEnableSwapLayout(),
     userIsPresenter: PresentationService.isPresenter(podId),
     numberOfSlides: PresentationToolbarService.getNumberOfSlides(podId, presentationId),
+    getAllSlideUri: PresentationToolbarService.getAllSlideUri(podId, presentationId),
     nextSlide: PresentationToolbarService.nextSlide,
     previousSlide: PresentationToolbarService.previousSlide,
     skipToSlide: PresentationToolbarService.skipToSlide,
