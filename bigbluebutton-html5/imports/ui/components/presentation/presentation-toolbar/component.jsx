@@ -209,7 +209,7 @@ class PresentationToolbar extends PureComponent {
     const {
       currentSlideNum,
       numberOfSlides,
-
+      getAllSlideUri,
       fitToWidthHandler,
       fitToWidth,
       intl,
