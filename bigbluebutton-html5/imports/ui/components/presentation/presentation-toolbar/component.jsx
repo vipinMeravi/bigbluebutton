@@ -187,26 +187,24 @@ class PresentationToolbar extends PureComponent {
     const optionList = [];
 
     for (let i = 1; i <= numberOfSlides; i += 1) {
-      console.log("******************* Presentation Pages ******************** ")
-      console.log(getAllSlideUri[i - 1].svgUri);
-      console.log("******************* Presentation Pages ******************** ")
+
       optionList.push((
         <option
           value={i}
           key={i}
         >
-          {/*           
-            // intl.formatMessage(intlMessages.goToSlide, { 0: i })
-            // intl.formatMessage(intlMessages.goToSlide) */}
-          {<div>
-            {<img src={getAllSlideUri[i - 1].svgUri} />}
-          </div>}
-
-
+          <div>
+            <img src={getAllSlideUri[i - 1].svgUri} />
+          </div>
         </option>));
     }
-
+    console.log("******************* Presentation Pages ******************** ")
+    console.log(optionList);
+    console.log("******************* Presentation Pages ******************** ")
     return optionList;
+    {/*           
+            // intl.formatMessage(intlMessages.goToSlide, { 0: i })
+            // intl.formatMessage(intlMessages.goToSlide) */}
   }
 
   render() {
