@@ -250,8 +250,8 @@ class PresentationToolbar extends PureComponent {
           // onChange={this.handleSkipToSlideChange}
           >
             <option
-              value={i}
-              key={i}
+              value={0}
+              key={0}
             >
               <div>
                 <img src={getAllSlideUri[0].svgUri} />
