@@ -240,6 +240,21 @@ class PresentationToolbar extends PureComponent {
 
     return (
       <div id="presentationToolbarWrapper" className={styles.presentationToolbarWrapper}>
+        {
+          <select
+            id="skipSlide"
+            aria-label={intl.formatMessage(intlMessages.skipSlideLabel)}
+            aria-describedby="skipSlideDesc"
+            aria-live="polite"
+            aria-relevant="all"
+            disabled={!isMeteorConnected}
+            value={currentSlideNum}
+            onChange={this.handleSkipToSlideChange}
+            className={styles.skipSlideSelect}
+          >
+            {this.renderSkipSlideOpts(numberOfSlides)}
+          </select>
+        }
         {this.renderAriaDescs()}
         {<div />}
         {
