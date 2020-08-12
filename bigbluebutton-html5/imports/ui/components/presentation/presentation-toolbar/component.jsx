@@ -195,9 +195,11 @@ class PresentationToolbar extends PureComponent {
           value={i}
           key={i}
         >
-
-         { <div>
-            <img src={getAllSlideUri[i - 1].svgUri} />
+          {/*           
+            // intl.formatMessage(intlMessages.goToSlide, { 0: i })
+            // intl.formatMessage(intlMessages.goToSlide) */}
+          {<div>
+            {<img src={getAllSlideUri[i - 1].svgUri} />}
           </div>}
 
 
