@@ -202,7 +202,7 @@ class PresentationToolbar extends PureComponent {
     console.log(optionList);
     console.log("******************* Presentation Pages ******************** ")
     return optionList;
-    
+
   }
 
   render() {
@@ -240,18 +240,24 @@ class PresentationToolbar extends PureComponent {
       <div id="presentationToolbarWrapper" className={styles.presentationToolbarWrapper}>
         {
           <select
-          // id="skipSlide"
+            id="skipSlide"
           // aria-label={intl.formatMessage(intlMessages.skipSlideLabel)}
           // aria-describedby="skipSlideDesc"
           // aria-live="polite"
           // aria-relevant="all"
           // disabled={!isMeteorConnected}
-          value={currentSlideNum}
-          onChange={this.handleSkipToSlideChange}
-          // className={styles.skipSlideSelect}
-        >
-          {this.renderSkipSlideOpts(numberOfSlides)}
-        </select>
+          // value={currentSlideNum}
+          // onChange={this.handleSkipToSlideChange}
+          >
+            <option
+              value={i}
+              key={i}
+            >
+              <div>
+                <img src={getAllSlideUri[0].svgUri} />
+              </div>
+            </option>
+          </select>
         }
         {this.renderAriaDescs()}
         {<div />}
