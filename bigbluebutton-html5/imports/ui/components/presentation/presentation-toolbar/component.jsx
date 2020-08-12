@@ -194,7 +194,7 @@ class PresentationToolbar extends PureComponent {
           key={i}
         >
           <div>
-            <img src={getAllSlideUri[i - 1].svgUri} />
+            <Image src={getAllSlideUri[i - 1].svgUri} />
           </div>
         </option>));
     }
@@ -238,27 +238,6 @@ class PresentationToolbar extends PureComponent {
 
     return (
       <div id="presentationToolbarWrapper" className={styles.presentationToolbarWrapper}>
-        {
-          <select
-            id="skipSlide"
-          // aria-label={intl.formatMessage(intlMessages.skipSlideLabel)}
-          // aria-describedby="skipSlideDesc"
-          // aria-live="polite"
-          // aria-relevant="all"
-          // disabled={!isMeteorConnected}
-          // value={currentSlideNum}
-          // onChange={this.handleSkipToSlideChange}
-          >
-            <option
-              value={0}
-              key={0}
-            >
-              <div>
-                <img src={getAllSlideUri[0].svgUri} />
-              </div>
-            </option>
-          </select>
-        }
         {this.renderAriaDescs()}
         {<div />}
         {
