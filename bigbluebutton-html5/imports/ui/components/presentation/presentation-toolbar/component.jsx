@@ -193,7 +193,7 @@ class PresentationToolbar extends PureComponent {
           value={i}
           key={i}
         >
-          <img src={getAllSlideUri[i - 1].svgUri} alt="Image of slide"></img>
+          {<img src={getAllSlideUri[i - 1].svgUri} alt="Image of slide"></img>}
         </option>));
     }
     console.log("******************* Presentation Pages ******************** ")
@@ -271,12 +271,7 @@ class PresentationToolbar extends PureComponent {
                 onChange={this.handleSkipToSlideChange}
                 className={styles.skipSlideSelect}
               >
-                {/* {this.renderSkipSlideOpts(numberOfSlides)} */}
-                {getAllSlideUri.map((option, index) =>
-                  <option key={index + 1} value={index + 1}>
-                    <img src={getAllSlideUri[index].svgUri} alt="Image of slide"></img>
-                  </option>
-                )}
+                {this.renderSkipSlideOpts(numberOfSlides)}
               </select>
             </Tooltip>
             <Button
