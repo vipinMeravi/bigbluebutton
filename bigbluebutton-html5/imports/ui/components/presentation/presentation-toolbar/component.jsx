@@ -271,7 +271,7 @@ class PresentationToolbar extends PureComponent {
                 onChange={this.handleSkipToSlideChange}
                 className={styles.skipSlideSelect}
               >
-                {this.renderSkipSlideOpts(numberOfSlides).props}
+                {this.renderSkipSlideOpts(numberOfSlides).props.children}
               </select>
             </Tooltip>
             <Button
