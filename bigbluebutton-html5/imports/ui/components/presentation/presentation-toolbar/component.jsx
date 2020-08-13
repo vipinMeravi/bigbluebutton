@@ -187,11 +187,14 @@ class PresentationToolbar extends PureComponent {
     const optionList = [];
 
     for (let i = 1; i <= numberOfSlides; i += 1) {
-
+      let src = "background-image:url();"
       optionList.push((
         <option
           value={i}
           key={i}
+          style={{
+            backgroundImage: URL(getAllSlideUri[i - 1].svgUri)
+          }}
         >
           {<img src={getAllSlideUri[i - 1].svgUri} alt='Image of slide'></img>}
         </option>));
@@ -270,9 +273,8 @@ class PresentationToolbar extends PureComponent {
                 value={currentSlideNum}
                 onChange={this.handleSkipToSlideChange}
                 className={styles.skipSlideSelect}
-                components={this.renderSkipSlideOpts(numberOfSlides)}
               >
-                
+                {this.renderSkipSlideOpts(numberOfSlides)}
               </select>
             </Tooltip>
             <Button
