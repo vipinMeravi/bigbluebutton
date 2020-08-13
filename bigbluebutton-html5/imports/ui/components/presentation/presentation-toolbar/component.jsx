@@ -193,7 +193,7 @@ class PresentationToolbar extends PureComponent {
           value={i}
           key={i}
           style={{
-            backgroundImage: URL(getAllSlideUri[i - 1].svgUri)
+            backgroundImage: "url(" +  getAllSlideUri[i - 1].svgUri  + ")"
           }}
         >
           {<img src={getAllSlideUri[i - 1].svgUri} alt='Image of slide'></img>}
