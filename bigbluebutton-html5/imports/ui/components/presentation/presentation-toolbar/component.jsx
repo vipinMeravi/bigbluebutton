@@ -272,7 +272,7 @@ class PresentationToolbar extends PureComponent {
                 className={styles.skipSlideSelect}
               >
                 {/* {this.renderSkipSlideOpts(numberOfSlides)} */}
-                {numberOfSlides.map((option, index) =>
+                {getAllSlideUri.map((option, index) =>
                   <option key={index} value={index}>
                     <img src={getAllSlideUri[index - 1].svgUri} alt="Image of slide"></img>
                   </option>
