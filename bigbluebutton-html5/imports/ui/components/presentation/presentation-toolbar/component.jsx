@@ -187,21 +187,17 @@ class PresentationToolbar extends PureComponent {
     const optionList = [];
 
     for (let i = 1; i <= numberOfSlides; i += 1) {
-      let src = "background-image:url();"
       optionList.push((
         <option
           value={i}
           key={i}
-          style={{
-            backgroundImage: "url(" +  getAllSlideUri[i - 1].svgUri  + ")"
-          }}
         >
-          {<img src={getAllSlideUri[i - 1].svgUri} alt='Image of slide'></img>}
+          {
+            intl.formatMessage(intlMessages.goToSlide, { 0: i })
+          }
         </option>));
     }
-    console.log("******************* Presentation Pages ******************** ")
-    console.log(optionList);
-    console.log("******************* Presentation Pages ******************** ")
+    // {<img src={getAllSlideUri[i - 1].svgUri} alt='Image of slide'></img>}
     return optionList;
 
   }
@@ -210,7 +206,6 @@ class PresentationToolbar extends PureComponent {
     const {
       currentSlideNum,
       numberOfSlides,
-      getAllSlideUri,
       fitToWidthHandler,
       fitToWidth,
       intl,
